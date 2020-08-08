@@ -1,2 +1,2 @@
-# ui
+# ui.cr
 Next Gen UI
