@@ -1,5 +1,5 @@
 # ui.cr
-Next Gen UI
+Unicoderns Interface Component Repository
 
 ## Project setup
 ```
