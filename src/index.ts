@@ -1,11 +1,13 @@
-import compOne from "./components/CompOne.vue";
-import compTwo from "./components/CompTwo.vue";
+import * as Components from '@/components/index'
+import { tagName } from '@/utils/utils'
+import { App } from 'vue'
 
 export default {
-  install(Vue: any) {
-    Vue.component("ui-compone", compOne);
-    Vue.component("ui-comptwo", compTwo);
-  }
-};
+  install(VueApp: App, prefix: string | null = null) {
+    Object.values(Components).forEach(component => {
+      VueApp.component(tagName(component.CLASS_NAME, prefix), component)
+    })
+  },
+}
 
-export { compOne, compTwo };
+export * from './components/index'
