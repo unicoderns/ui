@@ -14,6 +14,17 @@
   </div>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { ButtonCloseComponent } from '@/index'
+
+export default defineComponent({
+  components: {
+    UiBtnClose: ButtonCloseComponent,
+  },
+})
+</script>
+
 <style scoped>
 p {
   padding: 8px;
