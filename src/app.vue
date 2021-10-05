@@ -147,7 +147,7 @@ const menuItems: MenuItem[] = [
     elementAttrs: {
       title: '@/components/TabsPanel/examples/tabs.vue',
     },
-    content: 'Tabs',
+    content: 'Default index',
   },
   {
     type: MenuItemTypes.Button,

@@ -19,12 +19,16 @@
 
 <script lang="ts">
 import { defineComponent, reactive, provide } from 'vue'
+import { TabPropsModel } from './models/tabs-panel.model'
 
 const className = 'UiTabs'
 export default defineComponent({
   TAG_NAME: className,
   setup() {
-    const tabsState = reactive({ tabs: [], active: 0 })
+    const tabsState = reactive({
+      tabs: new Array<TabPropsModel>(),
+      active: 0,
+    })
     provide('tabsState', tabsState)
 
     return { tabsState }

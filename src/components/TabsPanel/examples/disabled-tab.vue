@@ -2,13 +2,13 @@
   <div>
     <section>
       <UiTabs>
-        <UiTab title="Tab 1" active="true">
+        <UiTab title="Tab 1">
           Hello From Tab 1
         </UiTab>
-        <UiTab title="Tab 2">
+        <UiTab title="Tab 2" active="true">
           Hello From Tab 2
         </UiTab>
-        <UiTab title="Tab 3" disabled="true">
+        <UiTab title="Tab 3" active="true" disabled="true">
           Hello From Tab 3
         </UiTab>
       </UiTabs>

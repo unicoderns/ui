@@ -4,6 +4,7 @@
 
 <script lang="ts">
 import {
+  ComponentInternalInstance,
   computed,
   defineComponent,
   getCurrentInstance,
@@ -11,21 +12,7 @@ import {
   onBeforeMount,
   toRefs,
 } from 'vue'
-
-interface TabProps {
-  props: {
-    title: string
-  }
-  type: {
-    TAG_NAME: string
-  }
-  uid: number
-}
-
-interface TabsState {
-  tabs: Array<TabProps>
-  active: number
-}
+import { TabPropsModel } from './models/tabs-panel.model'
 
 const className = 'UiTab'
 export default defineComponent({
@@ -47,19 +34,30 @@ export default defineComponent({
 
   setup(props) {
     const { active, disabled } = toRefs(props)
-    const instance = getCurrentInstance()
+    const instance: ComponentInternalInstance | null = getCurrentInstance()
 
-    const state: TabsState = inject('tabsState') as TabsState
+    const state = inject('tabsState', {
+      tabs: new Array<TabPropsModel>(),
+      active: 0,
+    })
 
     const index = computed(() =>
-      state.tabs.findIndex((target: TabProps) => target.uid === instance?.uid)
+      state.tabs.findIndex(
+        (target: TabPropsModel) => target.uid === instance?.uid
+      )
     )
 
     const isActive = computed(() => index.value === state.active)
 
     onBeforeMount(() => {
       if (instance && index.value === -1) {
-        const aux = (instance as unknown) as TabProps
+        const aux: TabPropsModel = {
+          props: {
+            title: String(instance.props.title),
+            disabled: String(instance.props.disabled),
+          },
+          uid: Number(instance.uid),
+        }
 
         state.tabs.push(aux)
       }
