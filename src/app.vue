@@ -141,15 +141,30 @@ const menuItems: MenuItem[] = [
     },
     content: 'variants',
   },
+  { type: MenuItemTypes.Header, content: 'Tabs Panel' },
+  {
+    type: MenuItemTypes.Button,
+    elementAttrs: {
+      title: '@/components/TabsPanel/examples/tabs.vue',
+    },
+    content: 'Default index',
+  },
+  {
+    type: MenuItemTypes.Button,
+    elementAttrs: {
+      title: '@/components/TabsPanel/examples/disabled-tab.vue',
+    },
+    content: 'Disabled tab',
+  },
 ]
 const components: Record<string, Component> = {}
 menuItems
-  .filter((item) => item.type === MenuItemTypes.Button)
-  .map((item) => {
+  .filter(item => item.type === MenuItemTypes.Button)
+  .map(item => {
     const { elementAttrs } = item as any
     elementAttrs.cmpName = cmpName(Object.keys(components).length + 1)
-    components[elementAttrs.cmpName] = defineAsyncComponent(
-      () => import(elementAttrs.title)
+    components[elementAttrs.cmpName] = defineAsyncComponent(() =>
+      import(elementAttrs.title)
     )
   })
 
@@ -157,56 +172,62 @@ export default defineComponent({
   components: {
     UiControlMenu: ControlMenuComponent,
     // ...components,
-    cmp001: defineAsyncComponent(
-      () => import('@/components/AlertMessage/examples/variants.vue')
+    cmp001: defineAsyncComponent(() =>
+      import('@/components/AlertMessage/examples/variants.vue')
     ),
-    cmp002: defineAsyncComponent(
-      () => import('@/components/AlertMessage/examples/dismissible.vue')
+    cmp002: defineAsyncComponent(() =>
+      import('@/components/AlertMessage/examples/dismissible.vue')
     ),
-    cmp003: defineAsyncComponent(
-      () => import('@/components/AlertMessage/examples/animate.vue')
+    cmp003: defineAsyncComponent(() =>
+      import('@/components/AlertMessage/examples/animate.vue')
     ),
-    cmp004: defineAsyncComponent(
-      () => import('@/components/ButtonClose/examples/variants.vue')
+    cmp004: defineAsyncComponent(() =>
+      import('@/components/ButtonClose/examples/variants.vue')
     ),
-    cmp005: defineAsyncComponent(
-      () => import('@/components/ButtonControl/examples/variants.vue')
+    cmp005: defineAsyncComponent(() =>
+      import('@/components/ButtonControl/examples/variants.vue')
     ),
-    cmp006: defineAsyncComponent(
-      () => import('@/components/ButtonControl/examples/outline.vue')
+    cmp006: defineAsyncComponent(() =>
+      import('@/components/ButtonControl/examples/outline.vue')
     ),
-    cmp007: defineAsyncComponent(
-      () => import('@/components/ButtonControl/examples/toggle.vue')
+    cmp007: defineAsyncComponent(() =>
+      import('@/components/ButtonControl/examples/toggle.vue')
     ),
-    cmp008: defineAsyncComponent(
-      () => import('@/components/ButtonControl/examples/size.vue')
+    cmp008: defineAsyncComponent(() =>
+      import('@/components/ButtonControl/examples/size.vue')
     ),
-    cmp009: defineAsyncComponent(
-      () => import('@/components/ButtonControl/examples/anchor.vue')
+    cmp009: defineAsyncComponent(() =>
+      import('@/components/ButtonControl/examples/anchor.vue')
     ),
-    cmp010: defineAsyncComponent(
-      () => import('@/components/ControlDropdown/examples/variants.vue')
+    cmp010: defineAsyncComponent(() =>
+      import('@/components/ControlDropdown/examples/variants.vue')
     ),
-    cmp011: defineAsyncComponent(
-      () => import('@/components/ControlDropdown/examples/custom-content.vue')
+    cmp011: defineAsyncComponent(() =>
+      import('@/components/ControlDropdown/examples/custom-content.vue')
     ),
-    cmp012: defineAsyncComponent(
-      () => import('@/components/ControlDropdown/examples/arrow.vue')
+    cmp012: defineAsyncComponent(() =>
+      import('@/components/ControlDropdown/examples/arrow.vue')
     ),
-    cmp013: defineAsyncComponent(
-      () => import('@/components/ControlDropdown/examples/default-index.vue')
+    cmp013: defineAsyncComponent(() =>
+      import('@/components/ControlDropdown/examples/default-index.vue')
     ),
-    cmp014: defineAsyncComponent(
-      () => import('@/components/ControlMenu/examples/variants.vue')
+    cmp014: defineAsyncComponent(() =>
+      import('@/components/ControlMenu/examples/variants.vue')
     ),
-    cmp015: defineAsyncComponent(
-      () => import('@/components/ControlMenu/examples/custom-content.vue')
+    cmp015: defineAsyncComponent(() =>
+      import('@/components/ControlMenu/examples/custom-content.vue')
     ),
-    cmp016: defineAsyncComponent(
-      () => import('@/components/ControlMenu/examples/default-index.vue')
+    cmp016: defineAsyncComponent(() =>
+      import('@/components/ControlMenu/examples/default-index.vue')
     ),
-    cmp017: defineAsyncComponent(
-      () => import('@/components/ToastMessage/examples/variants.vue')
+    cmp017: defineAsyncComponent(() =>
+      import('@/components/ToastMessage/examples/variants.vue')
+    ),
+    cmp018: defineAsyncComponent(() =>
+      import('@/components/TabsPanel/examples/tabs.vue')
+    ),
+    cmp019: defineAsyncComponent(() =>
+      import('@/components/TabsPanel/examples/disabled-tab.vue')
     ),
   },
   data() {
