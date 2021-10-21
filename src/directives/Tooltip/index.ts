@@ -1,28 +1,22 @@
+import { App } from 'vue'
 import { createPopper } from '@popperjs/core'
 
 /* eslint-disable prefer-const */
-function init(
-  el: { setAttribute: (arg0: string, arg1: any) => void },
-  binding: { arg: string; value: string }
-) {
+function init(el: HTMLElement, binding: any) {
   let position = binding.arg || 'top'
   let tooltipText = binding.value || 'Tooltip text'
   el.setAttribute('position', position)
   el.setAttribute('tooltip', tooltipText)
 }
 
-const tooltipDirective = (app: {
-  directive: (
-    arg0: string,
-    arg1: {
-      mounted(el: any, binding: any): void
-      updated(el: any, binding: any): void
-    }
-  ) => void
-}) => {
+const tooltipDirective = (app: App) => {
   app.directive('ui-tooltip', {
-    mounted(el: any, binding: any) {
-      // init(el, binding)
+    mounted(el: HTMLElement, binding: any) {
+      init(el, binding)
+
+      let position = binding.arg || 'top'
+
+      console.log(position)
 
       const tooltip = document.createElement('div')
 
@@ -33,21 +27,17 @@ const tooltipDirective = (app: {
         tooltip.innerHTML =
           '<div class="tooltip-inner">Tooltip</div>' +
           '<div class="tooltip-arrow" id="arrow" data-popper-arrow></div>'
-        console.log(tooltip)
+
         //TODO: if alredy exists
         document.body.appendChild(tooltip)
         createPopper(el, tooltip, {
-          placement: 'bottom',
+          placement: position,
         })
       })
 
       el.addEventListener('mouseleave', () => {
-        console.log('mouseleave')
         tooltip.remove()
       })
-    },
-    updated(el: any, binding: any) {
-      // init(el, binding)
     },
   })
 }
