@@ -1,13 +1,29 @@
 <template>
   <h3>Tooltip Directive</h3>
-  <button v-ui-tooltip:top.tooltip="'<button>Click me</button>'">
-    Tooltip on top
-  </button>
-  <button v-ui-tooltip:bottom>Tooltip on bottom</button>
-  <button v-ui-tooltip:right>Tooltip on right</button>
-  <button v-ui-tooltip:left>Tooltip on left</button>
+  <div class="m-5">
+    <UiBtn
+      :variant="'primary'"
+      v-ui-tooltip:top.tooltip="'<em>Tooltip</em> <u>with</u> <b>HTML</b>'"
+    >
+      Tooltip on top
+    </UiBtn>
+    <UiBtn :variant="'primary'" v-ui-tooltip:bottom="'Tooltip with text'">
+      Tooltip on bottom
+    </UiBtn>
+    <UiBtn :variant="'primary'" v-ui-tooltip:right>
+      Tooltip on right
+    </UiBtn>
+    <UiBtn :variant="'primary'" v-ui-tooltip:left>
+      Tooltip on left
+    </UiBtn>
+  </div>
 </template>
 
 <script>
-export default {}
+import { ButtonControlComponent } from '@/index'
+export default {
+  components: {
+    UiBtn: ButtonControlComponent,
+  },
+}
 </script>
