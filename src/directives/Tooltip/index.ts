@@ -10,6 +10,11 @@ function init(el: HTMLElement, binding: any) {
   el.setAttribute('tooltip', tooltipText)
 }
 
+const props = {
+  arg: String,
+  value: String,
+}
+
 const tooltipDirective = (app: App) => {
   app.directive('ui-tooltip', {
     mounted(el: HTMLElement, binding: any) {
@@ -26,31 +31,32 @@ const tooltipDirective = (app: App) => {
       const className = 'tooltip'
       const classPrefix = cssClassPrefix(className)
 
-      const classes = position ? `bs-${classPrefix}${location()}` : ''
+      let classes = `tooltip bs-${classPrefix}${location()} show`
 
-      console.log(classes)
+      //console.log(classes)
 
       const tooltip = document.createElement('div')
 
       el.addEventListener('mouseover', () => {
-        tooltip.className = `${classes} show`
-        tooltip.id = 'tooltip'
-        tooltip.setAttribute('role', 'tooltip')
-        tooltip.innerHTML =
+        ;(tooltip.innerHTML =
+          "<div id='tooltip' role='tooltip'>" +
           '<div class="tooltip-inner">' +
           tooltipText +
           '</div>' +
-          '<div class="tooltip-arrow" id="arrow" data-popper-arrow></div>'
+          '<div class="tooltip-arrow" id="arrow" data-popper-arrow></div>' +
+          '</div>'),
+          // el.appendChild(tooltip)
+          document.body.appendChild(tooltip)
 
-        //TODO: if alredy exists
-        document.body.appendChild(tooltip)
         createPopper(el, tooltip, {
           placement: position,
         })
+
+        tooltip.className = classes
       })
 
       el.addEventListener('mouseleave', () => {
-        tooltip.remove()
+        //tooltip.remove()
       })
     },
   })
