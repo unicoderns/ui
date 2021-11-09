@@ -3,7 +3,7 @@
   <div class="m-5">
     <UiBtn
       :variant="'primary'"
-      v-ui-tooltip:top.tooltip="'<em>Tooltip</em> <u>with</u> <b>HTML</b>'"
+      v-ui-tooltip:top="'<em>Tooltip</em> <u>with</u> <b>HTML</b>'"
     >
       Tooltip on top
     </UiBtn>

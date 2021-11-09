@@ -1,62 +1,58 @@
-import { App } from 'vue'
-import { createPopper } from '@popperjs/core'
-import { cssClassPrefix } from '@/utils'
-
-/* eslint-disable prefer-const */
-function init(el: HTMLElement, binding: any) {
-  let position = binding.arg || 'top'
-  let tooltipText = binding.value || 'Tooltip text'
-  el.setAttribute('position', position)
-  el.setAttribute('tooltip', tooltipText)
-}
-
-const props = {
-  arg: String,
-  value: String,
-}
+import { App, DirectiveBinding, createApp, ComponentPublicInstance } from 'vue'
+import { createPopper, Placement } from '@popperjs/core'
+import { TooltipComponent } from '@/components/Tooltip/'
 
 const tooltipDirective = (app: App) => {
-  app.directive('ui-tooltip', {
-    mounted(el: HTMLElement, binding: any) {
-      init(el, binding)
+  interface Props {
+    arg: Placement
+    value: string
+  }
 
-      let position = binding.arg || 'top'
-      let tooltipText = binding.value || 'Tooltip text'
+  app.directive('ui-tooltip', {
+    mounted(el: HTMLElement, binding: DirectiveBinding<Props>) {
+      const position = (binding.arg as Placement) || 'top'
+      const tooltipText = binding.value || 'Tooltip text'
 
       const location = () => {
         if (position === 'right') return 'end'
         else if (position === 'left') return 'start'
         return position
       }
-      const className = 'tooltip'
-      const classPrefix = cssClassPrefix(className)
 
-      let classes = `tooltip bs-${classPrefix}${location()} show`
+      interface Tooltip extends ComponentPublicInstance {
+        text: Props
+        location: string
+        hostElement: HTMLDivElement
 
-      //console.log(classes)
+        hide: () => void
+      }
 
-      const tooltip = document.createElement('div')
+      const createTooltip = () => {
+        const tooltip = document.createElement('div')
+        const app = createApp(TooltipComponent)
+        const tooltipApp = app.mount(tooltip) as Tooltip
+        tooltipApp.text = tooltipText
+        tooltipApp.location = location()
+        tooltipApp.hostElement = tooltip
+        const wrapper = tooltip.getElementsByClassName(
+          'tooltip'
+        )[0] as HTMLElement
 
-      el.addEventListener('mouseover', () => {
-        ;(tooltip.innerHTML =
-          "<div id='tooltip' role='tooltip'>" +
-          '<div class="tooltip-inner">' +
-          tooltipText +
-          '</div>' +
-          '<div class="tooltip-arrow" id="arrow" data-popper-arrow></div>' +
-          '</div>'),
-          // el.appendChild(tooltip)
-          document.body.appendChild(tooltip)
-
-        createPopper(el, tooltip, {
+        document.body.appendChild(tooltip)
+        createPopper(el, wrapper, {
           placement: position,
         })
 
-        tooltip.className = classes
+        return tooltipApp.hide
+      }
+      let hideCallback: () => void
+
+      el.addEventListener('mouseover', () => {
+        hideCallback = createTooltip()
       })
 
       el.addEventListener('mouseleave', () => {
-        //tooltip.remove()
+        hideCallback && hideCallback()
       })
     },
   })
