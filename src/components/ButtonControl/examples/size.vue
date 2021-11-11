@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { ButtonControlComponent, SizeVariants } from '@/index'
+import { ButtonControlComponent, SizeVariants } from '../../../index'
 
 export default defineComponent({
   components: {

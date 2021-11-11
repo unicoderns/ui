@@ -17,10 +17,10 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
-import { ContextualVariant } from '@/types/contextual-variant'
-import { cssClassPrefix } from '@/utils'
-import { ButtonCloseComponent } from '@/components/ButtonClose'
-import { TransitionPersistComponent } from '@/components/TransitionPersist'
+import { ContextualVariant } from '../../types/contextual-variant'
+import { cssClassPrefix } from '../../utils'
+import { ButtonCloseComponent } from '../../components/ButtonClose'
+import { TransitionPersistComponent } from '../../components/TransitionPersist'
 
 const className = 'alert'
 const classPrefix = cssClassPrefix(className)

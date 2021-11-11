@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, watchEffect, ref, toRefs } from 'vue'
-import { cssClassPrefix } from '@/utils'
+import { cssClassPrefix } from '../../utils'
 
 const className = 'btn'
 const classPrefix = cssClassPrefix(className)

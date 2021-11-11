@@ -20,7 +20,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { ToastMessageService } from './toast-message.service'
-import ToastMessageComponent from '@/components/ToastMessage/toast-message.component.vue'
+import ToastMessageComponent from '../../components/ToastMessage/toast-message.component.vue'
 
 const className = 'toast'
 

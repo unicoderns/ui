@@ -19,16 +19,16 @@
         }
       "
     >
-      <slot v-if="slots.default" :item="item" />
-      <span v-else>{{ item?.content }}</span>
+    <slot v-if="slots.default" :item="item" />
+    <span v-else>{{ item.content }}</span>
     </UiDropdownItem>
   </ul>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
-import { cssClassPrefix } from '@/utils'
-import { isSelectable, MenuItem } from '@/types'
+import { cssClassPrefix } from '../../utils'
+import { isSelectable, MenuItem } from '../../types'
 import ControlItemComponent from './control-item.component.vue'
 
 const className = 'dropdown-menu'

@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { ButtonControlComponent, ContextualVariants } from '@/index'
+import { ButtonControlComponent, ContextualVariants } from '../../../index'
 
 export default defineComponent({
   components: {

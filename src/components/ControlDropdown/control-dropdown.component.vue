@@ -36,8 +36,8 @@ import {
   Directions,
   MenuItem,
   Responsive,
-} from '@/types'
-import ControlMenuComponent from '@/components/ControlMenu/control-menu.component.vue'
+} from '../../types'
+import ControlMenuComponent from '../../components/ControlMenu/control-menu.component.vue'
 import DropdownButtonComponent from './control-dropdown-button.component.vue'
 
 const className = 'dropdown'

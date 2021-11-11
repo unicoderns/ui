@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, toRefs } from 'vue'
-import { cssClassPrefix } from '@/utils'
+import { cssClassPrefix } from '../../utils'
 
 const className = 'btn-close'
 const classPrefix = cssClassPrefix(className)

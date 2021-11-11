@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { ControlMenuComponent, MenuItem } from '@/index'
+import { ControlMenuComponent, MenuItem } from '../../../index'
 
 export default defineComponent({
   components: {
