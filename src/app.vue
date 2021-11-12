@@ -156,6 +156,14 @@ const menuItems: MenuItem[] = [
     },
     content: 'Disabled tab',
   },
+  { type: MenuItemTypes.Header, content: 'Tooltip' },
+  {
+    type: MenuItemTypes.Button,
+    elementAttrs: {
+      title: '@/components/Tooltip/examples/tooltip.vue',
+    },
+    content: 'Default',
+  },
 ]
 const components: Record<string, Component> = {}
 menuItems
@@ -228,6 +236,9 @@ export default defineComponent({
     ),
     cmp019: defineAsyncComponent(() =>
       import('@/components/TabsPanel/examples/disabled-tab.vue')
+    ),
+    cmp020: defineAsyncComponent(() =>
+      import('@/components/Tooltip/examples/tooltip.vue')
     ),
   },
   data() {
