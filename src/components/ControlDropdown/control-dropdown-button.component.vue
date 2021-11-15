@@ -34,7 +34,7 @@
 <script lang="ts">
 import { computed, defineComponent, toRefs, ref, PropType } from 'vue'
 import { Direction, Directions } from '../../types/menu'
-import { ButtonControlComponent } from '@/components/ButtonControl'
+import { ButtonControlComponent } from '../../components/ButtonControl'
 
 const className = 'dropdown'
 

@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
-import { MenuItemType, MenuItemTypes } from '@/types'
+import { MenuItemType, MenuItemTypes } from '../../types'
 
 const className = 'dropdown-item'
 

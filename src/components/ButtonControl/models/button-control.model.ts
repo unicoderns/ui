@@ -1,4 +1,4 @@
-import { ContextualVariant, SizeVariant } from '@/types'
+import { ContextualVariant, SizeVariant } from '../../../types'
 
 export interface ButtonControlModel {
   variant: ContextualVariant

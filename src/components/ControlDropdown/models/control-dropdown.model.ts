@@ -4,7 +4,7 @@ import {
   SizeVariant,
   Direction,
   MenuItem,
-} from '@/types'
+} from '../../../types'
 
 export interface ControlDropdownModel {
   variant: ContextualVariants

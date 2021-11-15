@@ -1,4 +1,4 @@
-import { ContextualVariant } from '@/types'
+import { ContextualVariant } from '../../../types'
 
 export interface ToastMessageModel {
   variant?: ContextualVariant

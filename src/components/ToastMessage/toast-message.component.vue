@@ -59,9 +59,9 @@ import {
   ref,
   toRefs,
 } from 'vue'
-import { ContextualVariant, ContextualVariants } from '@/types'
-import { ButtonCloseComponent } from '@/components/ButtonClose'
-import { TransitionPersistComponent } from '@/components/TransitionPersist'
+import { ContextualVariant, ContextualVariants } from '../../types'
+import { ButtonCloseComponent } from '../../components/ButtonClose'
+import { TransitionPersistComponent } from '../../components/TransitionPersist'
 
 const className = 'toast'
 

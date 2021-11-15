@@ -1,4 +1,4 @@
-# ui
+# UI Component Repository - UI.CR 
 
 ## Project setup
 ```

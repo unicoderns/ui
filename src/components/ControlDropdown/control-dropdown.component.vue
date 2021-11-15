@@ -29,19 +29,17 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, toRefs, ref, watch } from 'vue'
-// import { cssClassPrefix } from '@/utils'
 import {
   ContextualVariants,
   Direction,
   Directions,
   MenuItem,
   Responsive,
-} from '@/types'
-import ControlMenuComponent from '@/components/ControlMenu/control-menu.component.vue'
+} from '../../types'
+import ControlMenuComponent from '../../components/ControlMenu/control-menu.component.vue'
 import DropdownButtonComponent from './control-dropdown-button.component.vue'
 
 const className = 'dropdown'
-// const classPrefix = cssClassPrefix(className)
 
 export default defineComponent({
   TAG_NAME: className,

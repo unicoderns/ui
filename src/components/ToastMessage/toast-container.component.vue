@@ -7,10 +7,10 @@
       v-bind="toastElement"
       @close="removeToast(key)"
     >
-      <template v-if="slots?.toastHeader" #header="{ toastElement }">
+      <template v-if="slots.toastHeader" #header="{ toastElement }">
         <slot :toastHeader="toastElement" />
       </template>
-      <template v-if="slots?.toastBody" #default="{ toastElement }">
+      <template v-if="slots.toastBody" #default="{ toastElement }">
         <slot :toastBody="toastElement" />
       </template>
     </UiToast>
@@ -20,7 +20,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { ToastMessageService } from './toast-message.service'
-import ToastMessageComponent from '@/components/ToastMessage/toast-message.component.vue'
+import ToastMessageComponent from '../../components/ToastMessage/toast-message.component.vue'
 
 const className = 'toast'
 
