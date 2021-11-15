@@ -17,10 +17,10 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
-import { ContextualVariant } from '@/types/contextual-variant'
-import { cssClassPrefix } from '@/utils'
-import { ButtonCloseComponent } from '@/components/ButtonClose'
-import { TransitionPersistComponent } from '@/components/TransitionPersist'
+import { ContextualVariant } from '../../types/contextual-variant'
+import { cssClassPrefix } from '../../utils'
+import { ButtonCloseComponent } from '../../components/ButtonClose'
+import { TransitionPersistComponent } from '../../components/TransitionPersist'
 
 const className = 'alert'
 const classPrefix = cssClassPrefix(className)
@@ -53,7 +53,7 @@ export default defineComponent({
       required: true,
     },
   },
-  emits: ['show', 'close'],
+  emits: ['show', 'hide', 'close'],
   setup(props, { emit }) {
     const { show, variant, dismissible, animate } = toRefs(props)
     const remove = ref(false)
@@ -66,9 +66,9 @@ export default defineComponent({
     ])
 
     const close = () => (remove.value = true)
-    const afterEnter = () => emit('show', !remove.value)
+    const afterEnter = () => emit('show')
     const beforeLeave = () => emit('close')
-    const afterLeave = () => emit('show', !remove.value)
+    const afterLeave = () => emit('hide')
 
     return {
       remove,

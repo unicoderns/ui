@@ -8,7 +8,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import { TransitionPersistComponent } from '@/components/TransitionPersist'
+import { TransitionPersistComponent } from '../../components/TransitionPersist'
 
 const className = 'UiTooltip'
 export default defineComponent({

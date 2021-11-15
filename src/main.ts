@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './app.vue'
-import * as UI from '@/index'
+import * as UI from './index'
 import directives from './directives/index'
 
 const app = createApp(App)

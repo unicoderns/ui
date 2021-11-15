@@ -1,7 +1,7 @@
 import { App } from 'vue'
-import { tagName } from '@/utils'
-import * as Components from '@/components'
-import * as Plugins from '@/components/plugins'
+import { tagName } from './utils'
+import * as Components from './components'
+import * as Plugins from './components/plugins'
 
 const isComponent = (key: string) => key.endsWith('Component')
 
