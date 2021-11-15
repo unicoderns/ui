@@ -1,0 +1,20 @@
+General:
+- Remove errors from stories missing types
+- Better management of Alias
+- UT
+- Docs for each component
+
+Button:
+- toggle is not entirely supported.
+
+CloseButton:
+- Invert needs a darkerd background.
+
+Alert:
+- Animation is not showing
+
+Dropdown:
+- Raw is not working when passed as object
+
+TabsPanel:
+- ???
