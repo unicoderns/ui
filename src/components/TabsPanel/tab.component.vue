@@ -23,11 +23,11 @@ export default defineComponent({
       required: true,
     },
     active: {
-      type: String,
+      type: String, //TODO: Boolean
       required: false,
     },
     disabled: {
-      type: String,
+      type: String,  //TODO: Boolean
       required: false,
     },
   },

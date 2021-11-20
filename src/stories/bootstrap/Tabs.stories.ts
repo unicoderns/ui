@@ -1,4 +1,4 @@
-import { TabsPanelComponent, TabComponent } from '../index';
+import { TabsPanelComponent, TabComponent } from '../../index';
 
 export default {
   title: 'UI/Bootstrap/Tabs',

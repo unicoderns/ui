@@ -1,21 +1,21 @@
-import { ContextualVariants } from '../types';
+import { BootstrapVariants } from '../../defaults'
 import { action } from '@storybook/addon-actions'
-import { AlertMessageComponent } from '../index';
-import { AlertMessageModel } from '@/components';
-import { ref } from 'vue';
+import { AlertMessageComponent } from '../../index'
+import { AlertMessageModel } from '../../components'
+import { ref } from 'vue'
 
 export default {
   title: 'UI/Bootstrap/Alert',
   component: AlertMessageComponent,
   argTypes: {
     label: { control: { type: 'text' } },
-    variant: { control: { type: 'select' }, options: Object.values(ContextualVariants) },
-    ariaLabelCloseButton: { control: { type: 'text' } },
-  },
-};
+    variant: { control: { type: 'select' }, options: Object.values(BootstrapVariants) },
+  }
+}
 
 type StoryModel = AlertMessageModel | {
   label: string
+  [key: string]: string
 }
 
 const Template = (args: StoryModel) => ({
@@ -23,7 +23,7 @@ const Template = (args: StoryModel) => ({
   setup() {
     const toggle = ref(true)
 
-    return { args, toggle };
+    return { args, toggle }
   },
   methods: {
     show: action('show'),
@@ -35,60 +35,60 @@ const Template = (args: StoryModel) => ({
     <br>
     <alert-message-component :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.label }}</alert-message-component>
   `,
-});
+})
 
 const baseArgs: StoryModel = {
   label: 'Label',
-  variant: ContextualVariants.Primary,
+  variant: BootstrapVariants.Primary,
   animate: true,
   dismissible: true,
   show: true,
-};
+}
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 Primary.args = {
   ...baseArgs,
-  variant: ContextualVariants.Primary,
-};
+  variant: BootstrapVariants.Primary,
+}
 
-export const Secondary = Template.bind({});
+export const Secondary = Template.bind({})
 Secondary.args = {
   ...baseArgs,
-  variant: ContextualVariants.Secondary,
-};
+  variant: BootstrapVariants.Secondary,
+}
 
-export const Success = Template.bind({});
+export const Success = Template.bind({})
 Success.args = {
   ...baseArgs,
-  variant: ContextualVariants.Success,
-};
+  variant: BootstrapVariants.Success,
+}
 
-export const Danger = Template.bind({});
+export const Danger = Template.bind({})
 Danger.args = {
   ...baseArgs,
-  variant: ContextualVariants.Danger,
-};
+  variant: BootstrapVariants.Danger,
+}
 
-export const Warning = Template.bind({});
+export const Warning = Template.bind({})
 Warning.args = {
   ...baseArgs,
-  variant: ContextualVariants.Warning,
-};
+  variant: BootstrapVariants.Warning,
+}
 
-export const Info = Template.bind({});
+export const Info = Template.bind({})
 Info.args = {
   ...baseArgs,
-  variant: ContextualVariants.Info,
-};
+  variant: BootstrapVariants.Info,
+}
 
-export const Light = Template.bind({});
+export const Light = Template.bind({})
 Light.args = {
   ...baseArgs,
-  variant: ContextualVariants.Light,
-};
+  variant: BootstrapVariants.Light,
+}
 
-export const Dark = Template.bind({});
+export const Dark = Template.bind({})
 Dark.args = {
   ...baseArgs,
-  variant: ContextualVariants.Dark,
-};
+  variant: BootstrapVariants.Dark,
+}

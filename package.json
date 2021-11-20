@@ -8,6 +8,7 @@
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
+    "storybook-tailwind": "start-storybook -p 6007 -c .storybook-tailwind  -s ./src/storybook-static",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
