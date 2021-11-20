@@ -4,65 +4,67 @@
     @after-leave="afterLeave"
     @before-leave="beforeLeave"
   >
-    <div v-if="visible" :class="classes" role="alert">
+    <div v-if="visible" :class="classes" :role="aria.role">
       <slot></slot>
       <UiBtnClose
         v-if="dismissible"
+        :class="theme.cssClass.components.buttonClose"
+        :aria:label="aria.buttonClose"
         @close="close"
-        :ariaLabel="ariaLabelCloseButton"
       />
     </div>
   </UiTransitionPersist>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
-import { ContextualVariant } from '../../types/contextual-variant'
-import { cssClassPrefix } from '../../utils'
+import { computed, defineComponent, ref, toRefs } from 'vue'
 import { ButtonCloseComponent } from '../../components/ButtonClose'
 import { TransitionPersistComponent } from '../../components/TransitionPersist'
+import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
+import { AlertMessageThemeConfigModel } from './models/alert-message-theme-config.model'
+import { AlertMessageAccessibilityConfigModel } from './models/alert-message-accessibility-config.model'
 
-const className = 'alert'
-const classPrefix = cssClassPrefix(className)
+const TAG_NAME = 'alertMessage'
 
 export default defineComponent({
-  TAG_NAME: className,
+  TAG_NAME,
   components: {
     UiBtnClose: ButtonCloseComponent,
     UiTransitionPersist: TransitionPersistComponent,
   },
   props: {
-    animate: {
-      type: Boolean,
-      default: false,
-    },
-    ariaLabelCloseButton: {
-      type: String,
-      default: 'Close',
-    },
-    dismissible: {
-      type: Boolean,
-      default: false,
-    },
-    show: {
-      type: Boolean,
-      default: true,
-    },
-    variant: {
-      type: String as PropType<ContextualVariant>,
-      required: true,
-    },
+    animate: { type: Boolean, default: false },
+    dismissible: { type: Boolean, default: false },
+    show: { type: Boolean, default: true },
+    variant: { type: String, required: true },
+    ['aria:role']: { type: String, default: null },
+    ['aria:buttonClose']: { type: String, default: null },
   },
   emits: ['show', 'hide', 'close'],
-  setup(props, { emit }) {
-    const { show, variant, dismissible, animate } = toRefs(props)
+  setup(props, { emit, attrs }) {
+    const { animate, dismissible, show, variant, ...extraProps } = toRefs(props)
     const remove = ref(false)
     const visible = computed(() => show.value && !remove.value)
+
+    const theme = getReactiveThemeConfig<AlertMessageThemeConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
+
+    const aria = getReactiveAriaConfig<AlertMessageAccessibilityConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
+
     const classes = computed(() => [
-      className,
-      ...(variant.value ? [`${classPrefix}${variant.value}`] : []),
-      ...(dismissible.value ? [`${classPrefix}dismissible`] : []),
-      ...(animate.value ? ['fade'] : []),
+      theme.value.cssClass.main,
+      ...(variant.value
+        ? [theme.value.cssClass.variants[variant.value]]
+        : []),
+      ...(dismissible.value ? [theme.value.cssClass.dismissible] : []),
+      ...(animate.value ? [theme.value.cssClass.animated] : []),
     ])
 
     const close = () => (remove.value = true)
@@ -74,6 +76,8 @@ export default defineComponent({
       remove,
       visible,
       classes,
+      theme,
+      aria,
       close,
       afterEnter,
       beforeLeave,
