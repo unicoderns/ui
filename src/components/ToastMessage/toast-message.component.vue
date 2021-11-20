@@ -7,42 +7,38 @@
     <div
       v-if="visible"
       :class="classes"
-      :role="role"
-      :aria-live="ariaLive"
+      :role="aria.role"
+      :aria-live="aria.live"
       aria-atomic="true"
     >
-      <div class="toast-header" v-if="!!headerText || slots.header">
-        <slot v-if="slots.header" name="header" :headerText="headerText" />
-        <strong class="me-auto" v-else-if="!!headerText">{{
-          headerText
-        }}</strong>
+      <div :class="theme.cssClass.header" v-if="!!headerText || slots.header">
+        <slot v-if="slots.header" name="header" :item="props" />
+        <strong v-else-if="!!headerText">{{ headerText }}</strong>
         <UiBtnClose
           v-if="dismissible"
+          :class="theme.cssClass.components.buttonCloseHeader"
+          :aria:label="aria.buttonClose"
           @close="close"
-          :ariaLabel="ariaLabelCloseButton"
         />
       </div>
       <!-- IF no header but dissmissable -->
       <div v-if="dismissible && !(!!headerText || slots.header)" class="d-flex">
-        <div class="toast-body">
-          <slot v-if="slots.default" />
-          <span
-            v-else-if="!!message"
-            class="me-auto"
-            :class="bodyTextClasses"
-            >{{ message }}</span
-          >
+        <div :class="theme.cssClass.body">
+          <slot v-if="slots.default" :item="props" />
+          <span v-else-if="!!message" :class="bodyTextClasses">
+            {{ message }}
+          </span>
         </div>
         <UiBtnClose
-          class="me-2 m-auto"
+          :class="theme.cssClass.components.buttonCloseBody"
+          :aria:label="aria.buttonClose"
           @close="close"
-          :ariaLabel="ariaLabelCloseButton"
         />
       </div>
       <!-- IF only body -->
-      <div class="toast-body" v-else>
+      <div :class="theme.cssClass.body" v-else>
         <slot v-if="slots.default" :item="props" />
-        <span v-else-if="!!message" class="me-auto" :class="bodyTextClasses">{{
+        <span v-else-if="!!message" :class="bodyTextClasses">{{
           message
         }}</span>
       </div>
@@ -59,72 +55,62 @@ import {
   ref,
   toRefs,
 } from 'vue'
-import { ContextualVariant, ContextualVariants } from '../../types'
 import { ButtonCloseComponent } from '../../components/ButtonClose'
 import { TransitionPersistComponent } from '../../components/TransitionPersist'
+import { ToastMessageThemeConfigModel } from './models/toast-message-theme-config.model'
+import { ToastMessageAccessibilityConfigModel } from './models/toast-message-accessibility-config.model'
+import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
+import { Position } from '../../types'
 
-const className = 'toast'
+const TAG_NAME = 'toast'
 
 export default defineComponent({
-  TAG_NAME: className,
+  TAG_NAME,
   components: {
     UiBtnClose: ButtonCloseComponent,
     UiTransitionPersist: TransitionPersistComponent,
   },
   props: {
-    animate: {
-      type: Boolean,
-      default: true,
-    },
-    headerText: {
-      type: String,
-      required: false,
-    },
-    message: {
-      type: String,
-      required: false,
-    },
-    ariaLabelCloseButton: {
-      type: String,
-      default: 'Close',
-    },
-    ariaLive: {
-      type: String,
-      default: 'assertive',
-    },
-    role: {
-      type: String,
-      default: 'alert',
-    },
-    dismissible: {
-      type: Boolean,
-      default: false,
-    },
-    msTimer: {
-      type: Number,
-      required: false,
-    },
-    show: {
-      type: Boolean,
-      default: true,
-    },
-    variant: {
-      type: String as PropType<ContextualVariant>,
-      default: null,
-    },
+    animate: { type: Boolean, default: true },
+    headerText: { type: String, default: null },
+    message: { type: String, default: null },
+    dismissible: { type: Boolean, default: false },
+    msTimer: { type: Number, required: false },
+    show: { type: Boolean, default: true },
+    variant: { type: String, default: null },
+    dark: { type: Boolean, default: false },
+    position: { type: String as PropType<Position>, default: null },
+    ['aria:live']: { type: String, default: null },
+    ['aria:role']: { type: String, default: null },
+    ['aria:buttonClose']: { type: String, default: null },
   },
   emits: ['show', 'close'],
-  setup(props, { emit, slots }) {
-    const { show, variant, animate, msTimer } = toRefs(props)
+  setup(props, { emit, slots, attrs }) {
+    const { show, variant, animate, dark, msTimer } = toRefs(props)
     const remove = ref(false)
     const visible = computed(() => show.value && !remove.value)
+
+    const theme = getReactiveThemeConfig<ToastMessageThemeConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
+    const aria = getReactiveAriaConfig<ToastMessageAccessibilityConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
+
     const classes = computed(() => [
-      className,
-      ...(variant.value ? [`bg-${variant.value}`] : []),
-      ...(animate.value ? ['fade'] : []),
+      theme.value.cssClass.main,
+      ...(variant.value
+        ? [theme.value.cssClass.bgVariants[variant.value]]
+        : []),
+      ...(animate.value ? [theme.value.cssClass.animated] : []),
     ])
     const bodyTextClasses = computed(() => [
-      ...(variant.value === ContextualVariants.Dark ? ['text-light'] : []),
+      theme.value.cssClass.message,
+      ...(dark.value ? [theme.value.cssClass.textLight] : []),
     ])
     let timeoutInterval: number | null = null
     const close = () => {
@@ -152,6 +138,8 @@ export default defineComponent({
       beforeLeave,
       afterLeave,
       props,
+      theme,
+      aria,
     }
   },
 })
