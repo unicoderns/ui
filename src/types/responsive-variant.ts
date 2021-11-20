@@ -15,11 +15,14 @@ export type ResponsiveVariant =
   | ResponsiveVariants.ExtraLarge
   | ResponsiveVariants.ExtraExtraLarge
 
-export class Responsive<T = any> {
-  public all?: T = undefined
-  public variants: { [key: string]: T } = {}
-
-  constructor(def: T | undefined = undefined) {
-    this.all = def
+export interface ResponsiveConfig {
+  all: boolean
+  variants: {
+    [ResponsiveVariants.ExtraSmall]: boolean
+    [ResponsiveVariants.Small]: boolean
+    [ResponsiveVariants.Medium]: boolean
+    [ResponsiveVariants.Large]: boolean
+    [ResponsiveVariants.ExtraLarge]: boolean
+    [ResponsiveVariants.ExtraExtraLarge]: boolean
   }
 }
