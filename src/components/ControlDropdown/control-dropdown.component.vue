@@ -5,18 +5,23 @@
     v-if="datasource"
     @focusout="focusout"
   >
-    <UiDropdownButton ref="mainButton" v-bind="buttonProps" @toggle="toggle">
+    <UiDropdownButton
+      ref="mainButton"
+      v-bind="buttonProps"
+      :aria:groupRole="aria.groupRole"
+      @toggle="toggle">
       <span v-if="!!label">{{ label }}</span>
       <slot v-else-if="slots.label" name="label" />
     </UiDropdownButton>
     <UiDropdownMenu
+      data-bs-popper
       ref="menu"
       v-if="expanded"
       :dropdown="true"
       :datasource="datasource"
       :invert="invert"
       :defaultSelectedIndex="defaultSelectedIndex"
-      :aria-expanded="expanded"
+      :aria-expanded="aria.expanded"
       :class="menuClasses"
       @select="select(item)"
     >
@@ -28,74 +33,45 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, toRefs, ref, watch } from 'vue'
-import {
-  ContextualVariants,
-  Direction,
-  Directions,
-  MenuItem,
-  Responsive,
-} from '../../types'
+import { computed, defineComponent, toRefs, ref, watch, PropType } from 'vue'
+import { Direction, MenuItem, ResponsiveConfig, SizeVariant } from '../../types'
 import ControlMenuComponent from '../../components/ControlMenu/control-menu.component.vue'
 import DropdownButtonComponent from './control-dropdown-button.component.vue'
+import { ControlDropdownThemeConfigModel } from './models/control-dropdown-theme-config.model'
+import { ControlDropdownAccessibilityConfigModel } from './models/control-dropdown-accessibility-config.model'
+import { getReactiveAriaConfig, getReactiveThemeConfig, getReactiveResponsiveConfig } from '../../utils'
 
-const className = 'dropdown'
+const TAG_NAME = 'dropdown'
 
 export default defineComponent({
-  TAG_NAME: className,
+  TAG_NAME,
   props: {
-    label: {
-      type: String,
-      required: false,
-    },
-    datasource: {
-      type: Array as PropType<MenuItem[]>,
-      default: [],
-    },
-    invert: {
-      type: Boolean,
-      default: false,
-    },
-    anchor: {
-      type: Boolean,
-      default: false,
-    },
-    outline: {
-      type: Boolean,
-      default: false,
-    },
-    variant: {
-      type: String,
-      required: false,
-      default: ContextualVariants.Primary,
-    },
-    size: {
-      type: String,
-      default: null,
-    },
-    splitButton: {
-      type: Boolean,
-      default: false,
-    },
-    defaultSelectedIndex: {
-      type: Number,
-      required: false,
-    },
-    arrowDirection: {
-      type: String as PropType<Direction>,
-      default: null,
-    },
-    menuAlignEnd: {
-      type: Object as PropType<Responsive<boolean> | boolean>,
-      default: null,
-    },
+    label: { type: String, default: null },
+    datasource: { type: Array as PropType<MenuItem[]>, default: [] },
+    invert: { type: Boolean, default: false },
+    anchor: { type: Boolean, default: false },
+    outline: { type: Boolean, default: false },
+    variant: { type: String, default: null },
+    size: { type: String as PropType<SizeVariant>, default: null },
+    splitButton: { type: Boolean, default: false },
+    defaultSelectedIndex: { type: Number, required: false },
+    arrowDirection: { type: String as PropType<Direction>, default: null },
+    ['menuAlignEnd']: { type: Boolean, default: false },
+    ['menuAlignEnd:xs']: { type: Boolean, default: false },
+    ['menuAlignEnd:sm']: { type: Boolean, default: false },
+    ['menuAlignEnd:md']: { type: Boolean, default: false },
+    ['menuAlignEnd:lg']: { type: Boolean, default: false },
+    ['menuAlignEnd:xl']: { type: Boolean, default: false },
+    ['menuAlignEnd:xxl']: { type: Boolean, default: false },
+    ['aria:expanded']: { type: String, default: null },
+    ['aria:groupRole']: { type: String, default: null },
   },
   components: {
     UiDropdownButton: DropdownButtonComponent,
     UiDropdownMenu: ControlMenuComponent,
   },
   emits: ['select', 'show', 'hide'],
-  setup(props, { emit, slots }) {
+  setup(props, { emit, slots, attrs }) {
     const {
       outline,
       anchor,
@@ -103,51 +79,52 @@ export default defineComponent({
       variant,
       splitButton,
       arrowDirection,
-      menuAlignEnd,
     } = toRefs(props)
 
     const expanded = ref(false)
     const mainContainer = ref<HTMLElement | null>(null)
     const mainButton = ref<HTMLElement | null>(null)
 
+    const theme = getReactiveThemeConfig<ControlDropdownThemeConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
+    const aria = getReactiveAriaConfig<ControlDropdownAccessibilityConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
+
     const arrowDirectionClass = (direction: Direction): string => {
-      if (!direction) return ''
-      switch (direction) {
-        case Directions.Up:
-          return 'dropup'
-        case Directions.Down:
-          return 'dropdown'
-        case Directions.Left:
-          return 'dropstart'
-        case Directions.Right:
-          return 'dropend'
-        default:
-          return ''
-      }
+      if (!direction || !theme.value.cssClass.directions[direction])
+        return ''
+
+      return theme.value.cssClass.directions[direction]
     }
-    // TODO: Popper??
+
+    // TODO: Popper: adding the class is not enough to move the menu at enc
     const menuAlignEndClass = (
-      menuAlignEnd: Responsive<boolean> | boolean
+      menuAlignEnd: ResponsiveConfig
     ): string[] => {
       if (!menuAlignEnd) return []
-      if (typeof menuAlignEnd === 'boolean') {
-        return [menuAlignEnd === true ? '' : 'dropdown-menu-end']
-      }
-      console.log('menuAlignEnd', menuAlignEnd)
       return [
-        menuAlignEnd.all === true ? 'dropdown-menu-end' : '',
+        menuAlignEnd.all ? theme.value.cssClass.menuEndAll : '',
         ...Object.entries(menuAlignEnd.variants).map(([key, value]) =>
-          value ? `dropdown-menu-${key}-end` : ''
+          value ? theme.value.cssClass.menuEndVariants[key] : ''
         ),
       ]
     }
 
     const classes = computed((): string[] => {
-      return [className, arrowDirectionClass(arrowDirection.value)]
+      return [
+        theme.value.cssClass.main,
+        arrowDirectionClass(arrowDirection.value),
+      ]
     })
 
     const menuClasses = computed((): string[] => {
-      return menuAlignEndClass(menuAlignEnd.value)
+      return menuAlignEndClass(getReactiveResponsiveConfig('menuAlignEnd', attrs, props).value)
     })
 
     const buttonProps = computed(() => ({
@@ -187,17 +164,18 @@ export default defineComponent({
     return {
       classes,
       menuClasses,
+      aria,
       expanded,
       buttonProps,
+      mainContainer,
+      mainButton,
+      slots,
       toggle,
       select,
       watchExpanded,
       hide,
       show,
       focusout,
-      mainContainer,
-      mainButton,
-      slots,
     }
   },
 })
