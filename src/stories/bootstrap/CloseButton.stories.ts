@@ -1,5 +1,5 @@
-import { ButtonCloseModel } from '../components';
-import { ButtonCloseComponent } from '../index';
+import { ButtonCloseModel } from '../../components';
+import { ButtonCloseComponent } from '../../index';
 import { action } from '@storybook/addon-actions'
 
 export default {

@@ -2,7 +2,7 @@
   <component
     :is="componentTag"
     :type="componentType"
-    :role="componentRole"
+    :role="aria.role"
     :class="classes"
     @click="attemptToggle"
   >
@@ -11,44 +11,40 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, watchEffect, ref, toRefs } from 'vue'
-import { cssClassPrefix } from '../../utils'
+import { computed, defineComponent, watchEffect, ref, toRefs, PropType } from 'vue'
+import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
+import { ButtonControlThemeConfigModel } from './models/button-control-theme-config.model'
+import { ButtonControlAccessibilityConfigModel } from './models/button-control-accessibility-config.model'
+import { ButtonSizeVariant } from '../../types'
 
-const className = 'btn'
-const classPrefix = cssClassPrefix(className)
+const TAG_NAME = 'buttonControl'
 
 export default defineComponent({
-  TAG_NAME: className,
+  TAG_NAME,
   props: {
-    anchor: {
-      type: Boolean,
-      default: false,
-    },
-    toggle: {
-      type: Boolean,
-      default: false,
-    },
-    outline: {
-      type: Boolean,
-      default: false,
-    },
-    variant: {
-      type: String,
-      required: true,
-    },
-    size: {
-      type: String,
-      default: null,
-    },
-    active: {
-      type: Boolean,
-      default: false,
-    },
+    anchor: { type: Boolean, default: false },
+    toggle: { type: Boolean, default: false },
+    outline: { type: Boolean, default: false },
+    variant: { type: String, required: true },
+    size: { type: String as PropType<ButtonSizeVariant>, default: null },
+    active: { type: Boolean, default: false },
+    ['aria:role']: { type: String, default: null },
   },
   emits: ['toggle'],
-  setup(props, { emit }) {
+  setup(props, { emit, attrs }) {
     const { anchor, toggle, outline, variant, size, active } = toRefs(props)
     const activeState = ref(active.value)
+
+    const theme = getReactiveThemeConfig<ButtonControlThemeConfigModel>(
+      TAG_NAME,
+      attrs,
+      props,
+    )
+    const ariaConfig = getReactiveAriaConfig<ButtonControlAccessibilityConfigModel>(
+      TAG_NAME,
+      attrs,
+      props,
+    )
 
     const componentTag = computed((): 'button' | 'a' => {
       return anchor.value ? 'a' : 'button'
@@ -58,17 +54,25 @@ export default defineComponent({
       return anchor.value ? null : 'button'
     })
 
-    const componentRole = computed((): 'button' | null => {
-      return anchor.value ? 'button' : null
+    const componentRole = computed((): string | null => {
+      return anchor.value ? ariaConfig.value.role : null
     })
 
     const classes = computed((): string[] => {
-      const modifier = outline.value ? 'outline-' : ''
+      const sizeClass =
+        theme.value.cssClass.sizes[size.value as ButtonSizeVariant]
+      let variantClass = theme.value.cssClass.variants[variant.value]
+
+      if (outline.value) {
+        variantClass = theme.value.cssClass.outlineVariants[variant.value]
+      }
+
       return [
-        className,
-        ...(variant.value ? [`${classPrefix}${modifier}${variant.value}`] : []),
-        ...(size.value ? [`${classPrefix}${size.value}`] : []),
-        ...(activeState.value ? ['active'] : []),
+        theme.value.cssClass.main,
+        ...(variant.value ? [variantClass] : []),
+        ...(size.value ? [sizeClass] : []),
+        ...(outline.value ? [theme.value.cssClass.outline] : []),
+        ...(activeState.value ? [theme.value.cssClass.active] : []),
       ]
     })
 
@@ -89,6 +93,7 @@ export default defineComponent({
       componentType,
       componentRole,
       classes,
+      aria: ariaConfig,
       attemptToggle,
     }
   },

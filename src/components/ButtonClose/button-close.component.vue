@@ -1,45 +1,56 @@
 <template>
   <button
     type="button"
-    :aria-label="ariaLabel"
+    :aria-label="aria.label"
     :class="classes"
     @click="close"
   ></button>
 </template>
 
 <script lang="ts">
+import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
 import { computed, defineComponent, toRefs } from 'vue'
-import { cssClassPrefix } from '../../utils'
+import { ButtonCloseAccessibilityConfigModel } from './models/button-close-accessibility-config.model'
+import { ButtonCloseThemeConfigModel } from './models/button-close-theme-config.model'
 
-const className = 'btn-close'
-const classPrefix = cssClassPrefix(className)
+const TAG_NAME = 'buttonClose'
 
 export default defineComponent({
-  TAG_NAME: className,
+  TAG_NAME,
   props: {
-    ariaLabel: {
-      type: String,
-      default: 'Close',
-    },
-    invert: {
-      type: Boolean,
-      default: false,
-    },
+    invert: { type: Boolean, default: false },
+    ['aria:label']: { type: String, default: null },
   },
   emits: ['close'],
-  setup(props, { emit }) {
+  setup(props, { emit, attrs }) {
     const { invert } = toRefs(props)
 
+    const theme = getReactiveThemeConfig<ButtonCloseThemeConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
+    const aria = getReactiveAriaConfig<ButtonCloseAccessibilityConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
+
     const classes = computed((): string[] => {
-      return [className, invert.value ? `${classPrefix}white` : '']
+      return [
+        theme.value.cssClass.main,
+        invert.value ? theme.value.cssClass.inverted : '',
+      ]
     })
 
     const close = (): void => {
       emit('close')
     }
+
     return {
       classes,
       close,
+      aria,
     }
   },
 })

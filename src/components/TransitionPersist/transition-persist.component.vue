@@ -5,7 +5,7 @@
     leave-to-class=""
     leave-active-class=""
     leave-from-class=""
-    :enter-to-class="presistentClass"
+    :enter-to-class="theme.cssClass.persistent"
     enter-active-class=""
     enter-from-class=""
   >
@@ -14,23 +14,25 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, toRefs } from 'vue'
+import { getReactiveThemeConfig } from '../../utils'
+import { computed, defineComponent } from 'vue'
+import { TransitionPersistThemeConfigModel } from './models/transition-persist-theme-config.model'
 
-const className = 'transition-persist'
+const TAG_NAME = 'transitionPersist'
 
 export default defineComponent({
-  TAG_NAME: className,
+  TAG_NAME,
   props: {
-    presistentClass: {
-      type: String,
-      default: 'show',
-    },
+    ['class:persistent']: { type: String, default: null },
   },
-  setup(props) {
-    const { presistentClass } = toRefs(props)
+  setup(props, { attrs }) {
+
+    const theme = getReactiveThemeConfig<
+      TransitionPersistThemeConfigModel
+    >(TAG_NAME, attrs, props)
 
     const classes = computed((): string[] => {
-      return presistentClass.value
+      return theme.value.cssClass.persistent
         .split(' ')
         .filter((cssClass: string) => cssClass)
     })
@@ -53,6 +55,7 @@ export default defineComponent({
 
     return {
       classes,
+      theme,
       afterEnter,
       beforeLeave,
       atachPresistentClass,

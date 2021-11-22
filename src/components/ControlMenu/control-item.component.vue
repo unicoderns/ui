@@ -12,13 +12,17 @@
     >
       <slot />
     </button>
-    <h6 v-else-if="isHeader" class="dropdown-header" v-bind="elementAttrs">
+    <h6
+      v-else-if="isHeader"
+      :class="theme.cssClass.header"
+      v-bind="elementAttrs"
+    >
       <slot />
     </h6>
-    <span v-else-if="isText" class="dropdown-item-text" v-bind="elementAttrs">
+    <span v-else-if="isText" :class="theme.cssClass.text" v-bind="elementAttrs">
       <slot />
     </span>
-    <hr v-else-if="isDivider" class="dropdown-divider" />
+    <hr v-else-if="isDivider" :class="theme.cssClass.divider" />
     <slot ref="item" v-else-if="isRaw" :class="classes" />
   </li>
 </template>
@@ -26,8 +30,10 @@
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
 import { MenuItemType, MenuItemTypes } from '../../types'
+import { ControlMenuThemeConfigModel } from './models/control-menu-theme-config.model'
+import { getReactiveThemeConfig } from '../../utils'
 
-const className = 'dropdown-item'
+const TAG_NAME = 'menu'
 
 export default defineComponent({
   props: {
@@ -35,29 +41,29 @@ export default defineComponent({
       type: String as PropType<MenuItemType>,
       default: 'link',
     },
-    active: {
-      type: Boolean,
-      default: false,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+    active: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
     elementAttrs: {
       type: Object,
       default: null,
     },
   },
   emits: ['select'],
-  setup(props, { emit }) {
+  setup(props, { emit, attrs }) {
     const { type, active, disabled } = toRefs(props)
     const item = ref<HTMLElement | null>(null)
 
+    const theme = getReactiveThemeConfig<ControlMenuThemeConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
+
     const classes = computed((): string[] => {
       return [
-        className,
-        active.value ? 'active' : '',
-        disabled.value ? 'disabled' : '',
+        theme.value.cssClass.item,
+        active.value ? theme.value.cssClass.itemActive : '',
+        disabled.value ? theme.value.cssClass.itemDisabled : '',
       ]
     })
 
@@ -83,6 +89,7 @@ export default defineComponent({
       isDivider,
       isRaw,
       item,
+      theme,
       select,
       focus,
     }

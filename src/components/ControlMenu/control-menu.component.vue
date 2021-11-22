@@ -7,7 +7,7 @@
     @keydown.space.stop.prevent="selectCurrent"
     @keydown.enter.stop.prevent="selectCurrent"
   >
-    <UiDropdownItem
+    <UiControlItem
       v-for="(item, i) in datasource"
       :key="i"
       @select="select(item, i)"
@@ -21,54 +21,48 @@
     >
       <slot v-if="slots.default" :item="item" />
       <span v-else>{{ item.content }}</span>
-    </UiDropdownItem>
+    </UiControlItem>
   </ul>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
-import { cssClassPrefix } from '../../utils'
 import { isSelectable, MenuItem } from '../../types'
+import { ControlMenuThemeConfigModel } from './models/control-menu-theme-config.model'
+import { getReactiveThemeConfig } from '../../utils'
 import ControlItemComponent from './control-item.component.vue'
 
-const className = 'dropdown-menu'
-const classPrefix = cssClassPrefix(className)
+const TAG_NAME = 'menu'
 
 export default defineComponent({
-  TAG_NAME: className,
+  TAG_NAME,
   props: {
-    datasource: {
-      type: Array as PropType<MenuItem[]>,
-      default: [],
-    },
-    defaultSelectedIndex: {
-      type: Number,
-      required: false,
-    },
-    invert: {
-      type: Boolean,
-      default: false,
-    },
-    dropdown: {
-      type: Boolean,
-      default: false,
-    },
+    datasource: { type: Array as PropType<MenuItem[]>, default: [] },
+    defaultSelectedIndex: { type: Number, required: false },
+    invert: { type: Boolean, default: false },
+    dropdown: { type: Boolean, default: false },
   },
   components: {
-    UiDropdownItem: ControlItemComponent,
+    UiControlItem: ControlItemComponent,
   },
   emits: ['select'],
-  setup(props, { emit, slots }) {
+  setup(props, { emit, slots, attrs }) {
     const { datasource, invert, dropdown, defaultSelectedIndex } = toRefs(props)
     const selectedIndex = ref(defaultSelectedIndex?.value)
     let focusedIndex = -1
     const items = ref<HTMLElement[]>([])
 
+    const theme = getReactiveThemeConfig<ControlMenuThemeConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
+
     const classes = computed((): string[] => {
       return [
-        className,
-        invert.value ? `${classPrefix}dark` : '',
-        !dropdown.value ? `${classPrefix}static` : '',
+        theme.value.cssClass.main,
+        invert.value ? theme.value.cssClass.invert : '',
+        !dropdown.value ? theme.value.cssClass.static : '',
       ]
     })
 

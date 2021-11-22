@@ -1,14 +1,15 @@
-import { ContextualVariant } from '../../../types'
+import { Position } from '../../../types';
 
 export interface ToastMessageModel {
-  variant?: ContextualVariant
+  animate?: boolean
   headerText?: string
   message?: string
-  animate?: boolean
-  ariaLabelCloseButton?: string
-  ariaLive?: string
-  role?: string
   dismissible?: boolean
-  show?: boolean
   msTimer?: number
+  show?: boolean
+  variant?: string
+  position?: Position
+  ['aria:live']: string
+  ['aria:role']: string
+  ['aria:buttonClose']: string
 }

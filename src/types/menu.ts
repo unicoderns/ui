@@ -79,6 +79,11 @@ export const isSelectable = (item: MenuItem): boolean => {
   if (typeof item === 'string') return false
   if ('disabled' in item && item.disabled) return false
   if ([MenuItemTypes.Link, MenuItemTypes.Button].indexOf(item.type) >= 0) return true
-  if (item.type === MenuItemTypes.Raw && 'selectable' in item && item.selectable) return true
+  if (
+    item.type === MenuItemTypes.Raw &&
+    'selectable' in item &&
+    item.selectable
+  )
+    return true
   return false
 }
