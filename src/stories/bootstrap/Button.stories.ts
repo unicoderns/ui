@@ -35,10 +35,11 @@ const Template = (args: StoryModel) => ({
 const baseArgs: StoryModel = {
   label: 'Label',
   variant: BootstrapVariants.Primary,
-  size: SizeVariants.Small,
+  size: ButtonSizeVariants.Small,
   anchor: false,
   outline: false,
   active: false,
+  toggle: false,
 };
 
 
@@ -88,4 +89,36 @@ export const Dark = Template.bind({});
 Dark.args = {
   ...baseArgs,
   variant: BootstrapVariants.Dark,
+};
+
+export const Medium = Template.bind({});
+Medium.args = {
+  ...baseArgs,
+  size: ButtonSizeVariants.Medium,
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  ...baseArgs,
+  size: ButtonSizeVariants.Large,
+};
+
+export const Active = Template.bind({});
+Active.args = {
+  ...baseArgs,
+  variant: BootstrapVariants.Warning,
+  active: true,
+};
+
+export const Toggle = Template.bind({});
+Toggle.args = {
+  ...baseArgs,
+  variant: BootstrapVariants.Warning,
+  toggle: true,
+};
+
+export const Anchor = Template.bind({});
+Anchor.args = {
+  ...baseArgs,
+  anchor: true,
 };

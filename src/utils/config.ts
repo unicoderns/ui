@@ -10,7 +10,7 @@ import {
   ResponsiveVariants,
   ResponsiveConfig,
 } from '../types'
-import { inject, toRefs, computed, Ref, provide } from 'vue'
+import { inject, toRefs, computed, Ref } from 'vue'
 
 declare type ConfigLevel = { [key: string]: string | ConfigLevel }
 
@@ -58,7 +58,7 @@ function getGlobalThemeConfig(): UiThemeConfigModel {
     uiThemeConfigInjectionToken,
     bsThemeDefauls
   )
-  return globalThemeConfig
+  return JSON.parse(JSON.stringify(globalThemeConfig))
 }
 
 function getComponentThemeConfig(
@@ -83,21 +83,6 @@ function getComponentAriaConfig(
   return { ...globalAriaConfig[componentTag] }
 }
 
-export function getThemeProps(
-  componentTag: string
-): { [key: string]: unknown } {
-  const themeConfig = getComponentThemeConfig(componentTag)
-
-  return keyPaths(themeConfig.cssClass)
-    .map(key => ({
-      [`class:${key}`]: {
-        type: String,
-        default: null,
-      },
-    }))
-    .reduce((o, e) => ({ ...o, ...e }), {})
-}
-
 export function getThemeConfig<T extends UiComponentThemeConfigModel>(
   componentTag: string,
   attrs: Readonly<{ [key: string]: unknown }>,
@@ -106,7 +91,7 @@ export function getThemeConfig<T extends UiComponentThemeConfigModel>(
 
   // replace cssClass
   keyPaths(themeConfig.cssClass)
-    .map(key => [key, `class:${key}`])
+    .map(key => [key, `theme:${key}`])
     .filter(([key, propName]) => !!attrs[propName])
     .forEach(([key, propName]) =>
       setValue(themeConfig.cssClass, key, attrs[propName] as string)
@@ -114,7 +99,7 @@ export function getThemeConfig<T extends UiComponentThemeConfigModel>(
 
   // append cssClass
   keyPaths(themeConfig.cssClass)
-    .map(key => [key, `class:${key}.append`])
+    .map(key => [key, `theme:${key}.add`])
     .filter(([key, propName]) => !!attrs[propName])
     .forEach(([key, propName]) =>
       setValue(themeConfig.cssClass, key, attrs[propName] as string, true)
@@ -122,7 +107,7 @@ export function getThemeConfig<T extends UiComponentThemeConfigModel>(
 
   // remove cssClass
   keyPaths(themeConfig.cssClass)
-    .map(key => [key, `class:${key}.remove`])
+    .map(key => [key, `theme:${key}.remove`])
     .filter(([key, propName]) => !!attrs[propName])
     .forEach(([key, propName]) =>
       unsetValue(themeConfig.cssClass, key, attrs[propName] as string)
@@ -137,7 +122,7 @@ export function getAriaConfig<T extends UiComponentAccessibilityConfigModel>(
 
   const ariaConfig = getComponentAriaConfig(componentTag)
 
-  // replace cssClass
+  // replace aria
   keyPaths(ariaConfig)
     .map(key => [key, `aria:${key}`])
     .filter(([key, propName]) => !!attrs[propName])

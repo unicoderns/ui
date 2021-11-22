@@ -1,6 +1,6 @@
 import { App, DirectiveBinding, createApp, ComponentPublicInstance } from 'vue'
 import { createPopper, Placement } from '@popperjs/core'
-import { TooltipComponent } from '../../components/Tooltip/'
+import { TooltipComponent } from '../../components/TooltipMessage'
 
 const tooltipDirective = (app: App) => {
   interface Props {

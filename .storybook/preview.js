@@ -7,4 +7,15 @@ export const parameters = {
     },
     exclude: /^(class|aria):*/,
   },
+  html: {
+    prettier: {
+      tabWidth: 4,
+      useTabs: false,
+      htmlWhitespaceSensitivity: 'strict',
+    },
+    removeEmptyComments: true,
+    highlighter: {
+      showLineNumbers: true,
+    },
+  },
 }

@@ -8,8 +8,10 @@
       <slot></slot>
       <UiBtnClose
         v-if="dismissible"
+        v-bind="buttonCloseProps"
         :class="theme.cssClass.components.buttonClose"
         :aria:label="aria.buttonClose"
+        :invert="invert"
         @close="close"
       />
     </div>
@@ -36,13 +38,14 @@ export default defineComponent({
     animate: { type: Boolean, default: false },
     dismissible: { type: Boolean, default: false },
     show: { type: Boolean, default: true },
-    variant: { type: String, required: true },
+    variant: { type: String, default: null },
+    invert: { type: Boolean, default: false },
     ['aria:role']: { type: String, default: null },
     ['aria:buttonClose']: { type: String, default: null },
   },
   emits: ['show', 'hide', 'close'],
   setup(props, { emit, attrs }) {
-    const { animate, dismissible, show, variant, ...extraProps } = toRefs(props)
+    const { animate, dismissible, show, variant, ...other } = toRefs(props)
     const remove = ref(false)
     const visible = computed(() => show.value && !remove.value)
 
