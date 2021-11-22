@@ -7,6 +7,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-actions",
+    '@whitespace/storybook-addon-html',
   ],
   typescript: {
     check: false,
