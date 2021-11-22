@@ -1,6 +1,6 @@
 import { App, DirectiveBinding, createApp, ComponentPublicInstance } from 'vue'
 import { createPopper, Placement } from '@popperjs/core'
-import { TooltipComponent } from '../../components/Tooltip/'
+import { TooltipComponent } from '../../components/TooltipMessage/'
 
 const tooltipDirective = (app: App) => {
   interface Props {
@@ -11,13 +11,13 @@ const tooltipDirective = (app: App) => {
   app.directive('ui-tooltip', {
     mounted(el: HTMLElement, binding: DirectiveBinding<Props>) {
       const position = (binding.arg as Placement) || 'top'
-      const tooltipText = binding.value || 'Tooltip text'
+      const tooltipText = binding.value || ''
 
-      const location = () => {
-        if (position === 'right') return 'end'
-        else if (position === 'left') return 'start'
-        return position
-      }
+      // const location = () => {
+      //   if (position === 'right') return 'end'
+      //   else if (position === 'left') return 'start'
+      //   return position
+      // }
 
       interface Tooltip extends ComponentPublicInstance {
         text: Props
@@ -32,7 +32,7 @@ const tooltipDirective = (app: App) => {
         const app = createApp(TooltipComponent)
         const tooltipApp = app.mount(tooltip) as Tooltip
         tooltipApp.text = tooltipText
-        tooltipApp.location = location()
+        tooltipApp.location = position
         tooltipApp.hostElement = tooltip
         const wrapper = tooltip.getElementsByClassName(
           'tooltip'

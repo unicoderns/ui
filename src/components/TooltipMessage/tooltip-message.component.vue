@@ -10,9 +10,10 @@
 import { defineComponent, ref } from 'vue'
 import { TransitionPersistComponent } from '../../components/TransitionPersist'
 
-const className = 'UiTooltip'
+// const className = 'UiTooltip'
+const TAG_NAME = 'tooltipMessage'
 export default defineComponent({
-  TAG_NAME: className,
+  TAG_NAME,
   components: {
     UiTransitionPersist: TransitionPersistComponent,
   },
@@ -22,6 +23,12 @@ export default defineComponent({
     const location = ref('')
     const hostElement = ref(null as HTMLElement | null)
     const afterLeave = () => hostElement.value?.remove()
+
+    const theme = getReactiveThemeConfig<AlertMessageThemeConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
 
     return {
       afterLeave,
