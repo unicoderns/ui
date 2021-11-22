@@ -11,7 +11,6 @@ export default {
   argTypes: {
     label: { control: { type: 'text' } },
     variant: { control: { type: 'select' }, options: Object.values(TailwindVariants) },
-    ariaLabelCloseButton: { control: { type: 'text' } },
   },
 };
 

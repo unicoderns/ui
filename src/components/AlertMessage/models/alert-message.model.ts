@@ -1,5 +1,5 @@
 export interface AlertMessageModel {
-  variant: string
+  variant?: string
   animate?: boolean
   ariaLabelCloseButton?: string
   dismissible?: boolean

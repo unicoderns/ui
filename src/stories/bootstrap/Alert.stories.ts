@@ -8,13 +8,13 @@ export default {
   title: 'UI/Bootstrap/Alert',
   component: AlertMessageComponent,
   argTypes: {
-    label: { control: { type: 'text' } },
+    default: { control: { type: 'text' } },
     variant: { control: { type: 'select' }, options: Object.values(BootstrapVariants) },
-  }
+  },
 }
 
 type StoryModel = AlertMessageModel | {
-  label: string
+  default: string
   [key: string]: string
 }
 
@@ -33,22 +33,21 @@ const Template = (args: StoryModel) => ({
   template: `
     <a href="" @click.prevent="toggle=!toggle">Toggle visible</a>
     <br>
-    <alert-message-component :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.label }}</alert-message-component>
+    <alert-message-component :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.default }}</alert-message-component>
   `,
 })
 
 const baseArgs: StoryModel = {
-  label: 'Label',
-  variant: BootstrapVariants.Primary,
-  animate: true,
-  dismissible: true,
+  default: 'Some content',
+  animate: false,
+  dismissible: false,
   show: true,
+  variant: BootstrapVariants.Primary,
 }
 
 export const Primary = Template.bind({})
 Primary.args = {
   ...baseArgs,
-  variant: BootstrapVariants.Primary,
 }
 
 export const Secondary = Template.bind({})
@@ -91,4 +90,25 @@ export const Dark = Template.bind({})
 Dark.args = {
   ...baseArgs,
   variant: BootstrapVariants.Dark,
+}
+
+export const Inverted = Template.bind({})
+Inverted.args = {
+  ...baseArgs,
+  invert: true,
+  dismissible: true,
+  variant: BootstrapVariants.Dark,
+  ['theme:variants:dark']: 'bg-dark text-white',
+}
+
+export const Dismissible = Template.bind({})
+Dismissible.args = {
+  ...baseArgs,
+  dismissible: true,
+}
+
+export const Animated = Template.bind({})
+Animated.args = {
+  ...baseArgs,
+  animate: true,
 }
