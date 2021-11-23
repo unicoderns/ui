@@ -1,5 +1,5 @@
 import { App } from 'vue'
-import tooltipDirective from './Tooltip'
+import tooltipDirective from './TooltipDirective'
 
 // register all directives
 const directives = (app: App) => {

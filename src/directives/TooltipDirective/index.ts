@@ -35,9 +35,7 @@ const tooltipDirective = (app: App) => {
         tooltipApp.text = tooltipText
         tooltipApp.location = position
         tooltipApp.hostElement = tooltip
-        const wrapper = tooltip.getElementsByClassName(
-          'tooltip'
-        )[0] as HTMLElement
+        const wrapper = tooltip.getElementsByTagName('div')[0] as HTMLElement
 
         document.body.appendChild(tooltip)
         createPopper(el, wrapper, {

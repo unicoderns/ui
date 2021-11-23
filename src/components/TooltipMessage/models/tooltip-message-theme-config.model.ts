@@ -9,16 +9,8 @@ export interface TooltipMessageThemeConfigModel
     arrow: string
     positions: {
       [PopperPlacement.Top]: string
-      [PopperPlacement.TopStart]: string
-      [PopperPlacement.TopEnd]: string
       [PopperPlacement.Bottom]: string
-      [PopperPlacement.BottomStart]: string
-      [PopperPlacement.BottomEnd]: string
-      [PopperPlacement.RightStart]: string
-      [PopperPlacement.RightEnd]: string
       [PopperPlacement.Right]: string
-      [PopperPlacement.LeftStart]: string
-      [PopperPlacement.LeftEnd]: string
       [PopperPlacement.Left]: string
     }
   }
