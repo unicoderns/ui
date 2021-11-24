@@ -1,16 +1,18 @@
-import { TabsPanelComponent, TabComponent } from '../../index';
+import { TabsPanelComponent, TabComponent } from '../../index'
+import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'UI/Bootstrap/Tabs',
   components: { TabsPanelComponent, TabComponent },
-};
+}
 
-const Template = (args) => ({
+const Template = (args: any) => ({
   components: { TabsPanelComponent, TabComponent },
   setup() {
-    return { args };
+    return { args }
   },
-  template: `<tabs-panel-component>
+  template: `
+  <tabs-panel-component>
     <tab-component title="Tab 1">
       Hello From Tab 1
     </tab-component>
@@ -24,8 +26,7 @@ const Template = (args) => ({
       Hello From Tab 4
     </tab-component>
   </tabs-panel-component>`,
-});
+})
 
-export const Default = Template.bind({});
-Default.args = {
-};
+export const Default = Template.bind({})
+Default.args = {}

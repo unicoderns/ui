@@ -6,6 +6,7 @@ import { bsButtonControlThemeConfigDefaults } from './bs-button-control-theme.co
 import { bsControlDropdownThemeConfigDefaults } from './bs-control-dropdown-theme.config'
 import { bsControlMenuThemeConfigDefaults } from './bs-control-menu-theme.config'
 import { bsModalDialogThemeConfigDefaults } from './bs-modal-dialog-theme.config'
+import { bsTabsPanelThemeConfigDefaults } from './bs-tabs-panel-theme.config'
 import { bsToastMessageThemeConfigDefaults } from './bs-toast-message-theme.config'
 import { bsTooltipMessageThemeConfigDefaults } from './bs-tooltip-message-theme.config'
 import { bsTransitionPersistThemeConfigDefaults } from './bs-transition-persist-theme.config'
@@ -35,4 +36,5 @@ export const bsThemeDefauls: UiThemeConfigModel = {
   toast: bsToastMessageThemeConfigDefaults,
   modal: bsModalDialogThemeConfigDefaults,
   tooltipMessage: bsTooltipMessageThemeConfigDefaults,
+  tabsPanel: bsTabsPanelThemeConfigDefaults,
 }

@@ -1,12 +1,18 @@
 <template>
-  <ul class="nav nav-tabs">
-    <li v-for="(tab, index) in tabsState.tabs" :key="index" class="nav-item">
+  <ul :class="theme.cssClass.main">
+    <li
+      v-for="(tab, index) in tabsState.tabs"
+      :key="index"
+      :class="theme.cssClass.item"
+    >
       <a
-        class="nav-link"
-        :class="{
-          active: tabsState.active === index,
-          disabled: tab.props.disabled === 'true',
-        }"
+        :class="
+          `${theme.cssClass.link} + ${
+            tabsState.active === index ? theme.cssClass.itemActive : ''
+          } + ${
+            tab.props.disabled === 'true' ? theme.cssClass.itemDisabled : ''
+          }`
+        "
         @click="tabsState.active = index"
         aria-current="page"
       >
@@ -20,18 +26,26 @@
 <script lang="ts">
 import { defineComponent, reactive, provide } from 'vue'
 import { TabPropsModel } from './models/tabs-panel.model'
+import { getReactiveThemeConfig } from '../../utils'
+import { TabsPanelThemeConfigModel } from './models/tabs-panel-theme-config.model'
 
-const className = 'UiTabs'
+const TAG_NAME = 'tabsPanel'
 export default defineComponent({
-  TAG_NAME: className,
-  setup() {
+  TAG_NAME,
+  setup(props, { emit, attrs }) {
     const tabsState = reactive({
       tabs: new Array<TabPropsModel>(),
       active: 0,
     })
     provide('tabsState', tabsState)
 
-    return { tabsState }
+    const theme = getReactiveThemeConfig<TabsPanelThemeConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
+
+    return { tabsState, theme }
   },
 })
 </script>
