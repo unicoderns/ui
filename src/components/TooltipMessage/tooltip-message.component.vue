@@ -4,9 +4,9 @@
     @after-leave="afterLeave"
     @before-leave="beforeLeave"
   >
-    <div v-if="visible" :class="classes">
-      <div :class="theme.cssClass.message" v-html="text" />
-      <div :class="theme.cssClass.arrow" data-popper-arrow></div>
+    <div v-if="visible" :class="`tooltip fade bs-tooltip-${location} show`">
+      <div class="tooltip-inner" v-html="text" />
+      <div class="tooltip-arrow" id="arrow" data-popper-arrow></div>
     </div>
   </UiTransitionPersist>
 </template>
@@ -44,9 +44,9 @@ export default defineComponent({
 
     const classes = computed(() => [
       theme.value.cssClass.main,
-      ...(location.value
-        ? [theme.value.cssClass.positions[location.value]]
-        : []),
+      // ...(location.value
+      //   ? [theme.value.cssClass.positions[location.value]]
+      //   : []),
     ])
 
     return {

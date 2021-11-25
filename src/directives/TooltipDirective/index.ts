@@ -14,11 +14,11 @@ const tooltipDirective = (app: App) => {
       const position = (binding.arg as Placement) || 'top'
       const tooltipText = binding.value || ''
 
-      // const location = () => {
-      //   if (position === 'right') return 'end'
-      //   else if (position === 'left') return 'start'
-      //   return position
-      // }
+      const location = () => {
+        if (position === 'right') return 'end'
+        else if (position === 'left') return 'start'
+        return position
+      }
 
       interface Tooltip extends ComponentPublicInstance {
         text: Props
@@ -33,7 +33,7 @@ const tooltipDirective = (app: App) => {
         const app = createApp(TooltipComponent)
         const tooltipApp = app.mount(tooltip) as Tooltip
         tooltipApp.text = tooltipText
-        tooltipApp.location = position
+        tooltipApp.location = location()
         tooltipApp.hostElement = tooltip
         const wrapper = tooltip.getElementsByTagName('div')[0] as HTMLElement
 

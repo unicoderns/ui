@@ -17,22 +17,23 @@ import { TabPropsModel } from './models/tabs-panel.model'
 const className = 'UiTab'
 export default defineComponent({
   TAG_NAME: className,
+
   props: {
     title: {
       type: String,
       required: true,
     },
     active: {
-      type: Boolean, //TODO: Boolean
+      type: Boolean,
       required: false,
     },
     disabled: {
-      type: Boolean, //TODO: Boolean
+      type: Boolean,
       required: false,
     },
   },
-
-  setup(props) {
+  emits: ['select'],
+  setup(props, { emit }) {
     const { active, disabled } = toRefs(props)
     const instance: ComponentInternalInstance | null = getCurrentInstance()
 

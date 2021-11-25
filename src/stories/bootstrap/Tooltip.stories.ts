@@ -11,6 +11,14 @@ export default {
     default: { control: { type: 'text' } },
     tooltip: { control: { type: 'text' } },
   },
+  parameters: {
+    layout: 'centered',
+  },
+  // parameters: {
+  //   actions: {
+  //     handles: ['mouseover', 'mouseleave'],
+  //   },
+  // },
 }
 
 type StoryModel = {
@@ -22,13 +30,8 @@ const TemplateFn = (position: PopperPlacement) => (args: StoryModel) => ({
   setup() {
     return { args }
   },
-  methods: {
-    show: action('show'),
-    hide: action('hide'),
-    close: action('close'),
-  },
   template: `
-    <button v-ui-tooltip:${position}="args.tooltip" @show="show" @close="close" @hide="hide">
+    <button v-ui-tooltip:${position}="args.tooltip">
     {{args.default}}
     </button>
   `,

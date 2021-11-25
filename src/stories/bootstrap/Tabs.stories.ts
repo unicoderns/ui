@@ -4,6 +4,10 @@ import { action } from '@storybook/addon-actions'
 export default {
   title: 'UI/Bootstrap/Tabs',
   components: { TabsPanelComponent, TabComponent },
+  argTypes: {
+    title: { control: { type: 'text' } },
+    body: { control: { type: 'text' } },
+  },
 }
 
 const Template = (args: any) => ({
@@ -12,11 +16,11 @@ const Template = (args: any) => ({
     return { args }
   },
   methods: {
-    // select: action('select'),
+    select: action('select'),
   },
   template: `
   <tabs-panel-component>
-    <tab-component title="${args.tab1}" :active="args.tab1Active" :disabled="args.tab1Disabled">
+    <tab-component title="${args.tab1}" :active="args.tab1Active" :disabled="args.tab1Disabled" @select="select">
       Hello From Tab 1
     </tab-component>
     <tab-component title="${args.tab2}" :active="args.tab2Active" :disabled="args.tab2Disabled">
