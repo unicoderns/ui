@@ -9,11 +9,9 @@
         :class="
           `${theme.cssClass.link} + ${
             tabsState.active === index ? theme.cssClass.itemActive : ''
-          } + ${
-            tab.props.disabled === 'true' ? theme.cssClass.itemDisabled : ''
-          }`
+          } + ${tab.props.disabled === true ? theme.cssClass.itemDisabled : ''}`
         "
-        @click="tabsState.active = index"
+        @click="select(index)"
         aria-current="page"
       >
         {{ tab.props.title }}
@@ -32,6 +30,7 @@ import { TabsPanelThemeConfigModel } from './models/tabs-panel-theme-config.mode
 const TAG_NAME = 'tabsPanel'
 export default defineComponent({
   TAG_NAME,
+  emits: ['select'],
   setup(props, { emit, attrs }) {
     const tabsState = reactive({
       tabs: new Array<TabPropsModel>(),
@@ -39,13 +38,18 @@ export default defineComponent({
     })
     provide('tabsState', tabsState)
 
+    const select = (index: number): void => {
+      tabsState.active = index
+      emit('select', index)
+    }
+
     const theme = getReactiveThemeConfig<TabsPanelThemeConfigModel>(
       TAG_NAME,
       attrs,
       props
     )
 
-    return { tabsState, theme }
+    return { tabsState, theme, select }
   },
 })
 </script>

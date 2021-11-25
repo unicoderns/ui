@@ -23,11 +23,11 @@ export default defineComponent({
       required: true,
     },
     active: {
-      type: String, //TODO: Boolean
+      type: Boolean, //TODO: Boolean
       required: false,
     },
     disabled: {
-      type: String,  //TODO: Boolean
+      type: Boolean, //TODO: Boolean
       required: false,
     },
   },
@@ -54,7 +54,7 @@ export default defineComponent({
         const aux: TabPropsModel = {
           props: {
             title: String(instance.props.title),
-            disabled: String(instance.props.disabled),
+            disabled: Boolean(instance.props.disabled),
           },
           uid: Number(instance.uid),
         }
