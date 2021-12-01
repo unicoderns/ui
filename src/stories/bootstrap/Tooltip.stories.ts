@@ -13,12 +13,10 @@ export default {
   },
   parameters: {
     layout: 'centered',
+    actions: {
+      handles: ['mouseover', 'mouseleave'],
+    },
   },
-  // parameters: {
-  //   actions: {
-  //     handles: ['mouseover', 'mouseleave'],
-  //   },
-  // },
 }
 
 type StoryModel = {

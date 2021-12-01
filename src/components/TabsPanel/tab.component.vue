@@ -62,7 +62,7 @@ export default defineComponent({
 
         state.tabs.push(aux)
       }
-      if (active && !disabled) {
+      if (instance?.props.active && !instance?.props.disabled) {
         state.active = index.value
       }
     })

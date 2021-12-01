@@ -19,8 +19,8 @@ const Template = (args: any) => ({
     select: action('select'),
   },
   template: `
-  <tabs-panel-component>
-    <tab-component title="${args.tab1}" :active="args.tab1Active" :disabled="args.tab1Disabled" @select="select">
+  <tabs-panel-component @select="select">
+    <tab-component title="${args.tab1}" :active="args.tab1Active" :disabled="args.tab1Disabled">
       Hello From Tab 1
     </tab-component>
     <tab-component title="${args.tab2}" :active="args.tab2Active" :disabled="args.tab2Disabled">
