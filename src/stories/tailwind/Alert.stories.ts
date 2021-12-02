@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { AlertMessageComponent } from '../../index';
 import { AlertMessageModel } from '../../components';
 import { ref } from 'vue';
-import { provideTailwind, TailwindVariants } from './config';
+import { provideTailwind, TailwindVariants } from './theme';
 
 
 export default {
@@ -21,8 +21,9 @@ type StoryModel = AlertMessageModel | {
 const Template = (args: StoryModel) => ({
   components: { AlertMessageComponent },
   setup() {
-    const toggle = ref(true)
     provideTailwind()
+    const toggle = ref(true)
+
     return { args, toggle };
   },
   methods: {

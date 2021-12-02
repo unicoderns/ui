@@ -8,7 +8,7 @@ const getPrefixedClass = (value: string) => `${classPrefix}${value}`
 export const bsControlMenuThemeConfigDefaults: ControlMenuThemeConfigModel = {
   cssClass: {
     main: baseClass,
-    invert: getPrefixedClass('invert'),
+    invert: getPrefixedClass('dark'),
     static: getPrefixedClass('static'),
     item: 'dropdown-item',
     itemActive: 'active',

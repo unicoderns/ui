@@ -70,7 +70,7 @@ const datasource: MenuItem[] =
   },
   ];
 const Template = (args: ControlDropdownModel) => ({
-  components: { ControlDropdownComponent, sisi: true },
+  components: { ControlDropdownComponent },
   setup() {
     return { args };
   },

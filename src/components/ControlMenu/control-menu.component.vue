@@ -68,13 +68,13 @@ export default defineComponent({
 
     const getNextActivable = (step: number) => {
       const maxLength = items.value?.length - 1
-      let index = focusedIndex + step
+      let index = Math.min(focusedIndex + step, maxLength)
       for (; index >= 0 && index <= maxLength; index += step) {
         if (isSelectable(datasource.value[index])) {
-          break
+          return index
         }
       }
-      return index
+      return focusedIndex
     }
 
     const moveFocus = (step: number) => {
