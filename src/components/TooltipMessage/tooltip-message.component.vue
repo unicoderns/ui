@@ -1,5 +1,5 @@
 <template>
-  <UiTransitionPersist
+  <UiTransition
     @enter="enter"
     @after-enter="afterEnter"
     @after-leave="afterLeave"
@@ -9,21 +9,21 @@
       <div :class="theme.cssClass.message" v-html="text" />
       <div :class="theme.cssClass.arrow" data-popper-arrow></div>
     </div>
-  </UiTransitionPersist>
+  </UiTransition>
 </template>
 <script lang="ts">
 import { TooltipMessageThemeConfigModel } from './models/tooltip-message-theme-config.model'
 import { computed, defineComponent, Ref, ref } from 'vue'
-import { TransitionPersistComponent } from '../../components/TransitionPersist'
+import { UiTransition } from '../../components/TransitionPersist'
 import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
-import { PopperPlacement } from '@/types'
+import { PopperPlacement } from '../../types'
 import { TooltipMessageAccessibilityConfigModel } from './models/tooltip-message-accessibility-config.model'
 
 const TAG_NAME = 'tooltipMessage'
 export default defineComponent({
   TAG_NAME,
   components: {
-    UiTransitionPersist: TransitionPersistComponent,
+    UiTransition,
   },
   setup(props, { attrs }) {
     const text = ref('')

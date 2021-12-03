@@ -35,7 +35,7 @@
 <script lang="ts">
 import { computed, defineComponent, toRefs, ref, watch, PropType } from 'vue'
 import { Direction, MenuItem, ResponsiveConfig, SizeVariant } from '../../types'
-import ControlMenuComponent from '../../components/ControlMenu/control-menu.component.vue'
+import UiMenu from '../../components/ControlMenu/control-menu.component.vue'
 import DropdownButtonComponent from './control-dropdown-button.component.vue'
 import { ControlDropdownThemeConfigModel } from './models/control-dropdown-theme-config.model'
 import { ControlDropdownAccessibilityConfigModel } from './models/control-dropdown-accessibility-config.model'
@@ -68,7 +68,7 @@ export default defineComponent({
   },
   components: {
     UiDropdownButton: DropdownButtonComponent,
-    UiDropdownMenu: ControlMenuComponent,
+    UiDropdownMenu: UiMenu,
   },
   emits: ['select', 'show', 'hide'],
   setup(props, { emit, slots, attrs }) {

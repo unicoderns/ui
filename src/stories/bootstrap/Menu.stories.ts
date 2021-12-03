@@ -1,10 +1,10 @@
 import { MenuItem } from '../../types';
-import { ControlMenuComponent, ControlMenuModel } from '../../components';
+import { UiMenu, ControlMenuModel } from '../../components';
 import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'UI/Bootstrap/Menu',
-  component: ControlMenuComponent,
+  component: UiMenu,
   argTypes: {
     custom: { control: { type: 'boolean' } },
   },
@@ -15,7 +15,7 @@ type StoryModel = ControlMenuModel | {
 }
 
 const Template = (args: StoryModel) => ({
-  components: { ControlMenuComponent },
+  components: { UiMenu },
   setup() {
     return { args };
   },
@@ -23,16 +23,16 @@ const Template = (args: StoryModel) => ({
     toggle: action('toggle'),
   },
   template: `
-    <ControlMenuComponent v-if="args.custom" :="args">
+    <ui-menu v-if="args.custom" :="args">
       <template #default="{ item }">
         <i>
           &#9917; <b>{{ item.content }}</b>
         </i>
       </template>
-    </ControlMenuComponent>
-    <ControlMenuComponent v-else :="args">
+    </ui-menu>
+    <ui-menu v-else :="args">
       <template #default="{ item }">{{ item.content }}</template>
-    </ControlMenuComponent>
+    </ui-menu>
   `,
 });
 

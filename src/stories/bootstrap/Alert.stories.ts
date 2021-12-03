@@ -1,12 +1,12 @@
 import { BootstrapVariants } from '../../defaults'
 import { action } from '@storybook/addon-actions'
-import { AlertMessageComponent } from '../../index'
+import { UiAlert } from '../../index'
 import { AlertMessageModel } from '../../components'
 import { ref } from 'vue'
 
 export default {
   title: 'UI/Bootstrap/Alert',
-  component: AlertMessageComponent,
+  component: UiAlert,
   argTypes: {
     default: { control: { type: 'text' } },
     variant: { control: { type: 'select' }, options: Object.values(BootstrapVariants) },
@@ -19,7 +19,7 @@ type StoryModel = AlertMessageModel | {
 }
 
 const Template = (args: StoryModel) => ({
-  components: { AlertMessageComponent },
+  components: { UiAlert },
   setup() {
     const toggle = ref(true)
 
@@ -33,7 +33,7 @@ const Template = (args: StoryModel) => ({
   template: `
     <a href="" @click.prevent="toggle=!toggle">Toggle visible</a>
     <br>
-    <alert-message-component :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.default }}</alert-message-component>
+    <ui-alert :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.default }}</ui-alert>
   `,
 })
 

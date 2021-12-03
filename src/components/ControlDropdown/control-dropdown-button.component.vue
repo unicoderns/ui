@@ -38,7 +38,7 @@
 <script lang="ts">
 import { computed, defineComponent, toRefs, ref, PropType } from 'vue'
 import { Direction, Directions } from '../../types/menu'
-import { ButtonControlComponent } from '../../components/ButtonControl'
+import { UiButton } from '../../components/ButtonControl'
 import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
 import { ControlDropdownAccessibilityConfigModel } from './models/control-dropdown-accessibility-config.model'
 import { ControlDropdownThemeConfigModel } from './models/control-dropdown-theme-config.model'
@@ -59,7 +59,7 @@ export default defineComponent({
     ['aria:groupRole']: { type: String, default: null },
   },
   components: {
-    UiButton: ButtonControlComponent,
+    UiButton,
   },
   emits: ['toggle'],
   setup(props, { emit, attrs }) {

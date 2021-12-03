@@ -1,14 +1,14 @@
 import { ButtonCloseModel } from '../../components';
-import { ButtonCloseComponent } from '../../index';
+import { UiButtonClose } from '../../index';
 import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'UI/Bootstrap/CloseButton',
-  component: ButtonCloseComponent,
+  component: UiButtonClose,
 };
 
 const Template = (args: ButtonCloseModel) => ({
-  components: { ButtonCloseComponent },
+  components: { UiButtonClose },
   setup() {
     return { args };
   },
@@ -17,7 +17,7 @@ const Template = (args: ButtonCloseModel) => ({
   },
   template: `
     <div :class="{ 'bg-dark': args.invert }">
-      <button-close-component v-bind="args" @close="close" >Button</button-close-component>
+      <ui-button-close v-bind="args" @close="close" >Button</ui-button-close>
     </div>
   `,
 });

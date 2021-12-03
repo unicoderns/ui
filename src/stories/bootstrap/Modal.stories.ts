@@ -1,11 +1,11 @@
 import { ModalSizeVariants } from '../../types'
 import { action } from '@storybook/addon-actions'
-import { ModalDialogComponent, ModalDialogModel } from '../../index'
+import { UiModal, ModalDialogModel } from '../../index'
 import { ref } from 'vue'
 
 export default {
   title: 'UI/Bootstrap/Modal',
-  component: ModalDialogComponent,
+  component: UiModal,
   argTypes: {
     title: { control: { type: 'text' } },
     body: { control: { type: 'text' } },
@@ -16,7 +16,7 @@ export default {
 type StoryModel = ModalDialogModel
 
 const Template = (args: StoryModel) => ({
-  components: { ModalDialogComponent },
+  components: { UiModal },
   setup() {
     const toggle = ref(false)
 
@@ -30,7 +30,7 @@ const Template = (args: StoryModel) => ({
   template: `
     <a href="" @click.prevent="toggle=!toggle">Toggle visible</a>
     <br>
-    <modal-dialog-component :="args" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide"></modal-dialog-component>
+    <ui-modal :="args" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide"></ui-modal>
   `,
 })
 

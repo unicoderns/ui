@@ -1,11 +1,11 @@
 import { action } from '@storybook/addon-actions'
 import { inject } from 'vue'
-import { ToastMessageModel, ToastMessagePlugin, ToastMessageService } from '../../components'
+import { ToastMessageModel, UiToastMessagePlugin, ToastMessageService } from '../../components'
 import { app } from '@storybook/vue3'
 import { BootstrapVariants } from '../../defaults'
 import { Position } from '../../types/position'
 
-app.use(ToastMessagePlugin)
+app.use(UiToastMessagePlugin)
 
 export default {
   title: 'UI/Bootstrap/Toast',
@@ -28,7 +28,7 @@ let service: ToastMessageService | undefined
 
 const Template = (args: StoryModel) => ({
   setup() {
-    service = inject(ToastMessagePlugin.ServiceInjectionToken);
+    service = inject(UiToastMessagePlugin.ServiceInjectionToken);
     return { args, service }
   },
   methods: {

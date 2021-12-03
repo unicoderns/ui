@@ -1,12 +1,12 @@
 <template>
-  <UiTransitionPersist
+  <UiTransition
     @after-enter="afterEnter"
     @after-leave="afterLeave"
     @before-leave="beforeLeave"
   >
     <div v-if="visible" :class="classes" :role="aria.role">
       <slot></slot>
-      <UiBtnClose
+      <UiButtonClose
         v-if="dismissible"
         v-bind="buttonCloseProps"
         :class="theme.cssClass.components.buttonClose"
@@ -15,13 +15,13 @@
         @close="close"
       />
     </div>
-  </UiTransitionPersist>
+  </UiTransition>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, ref, toRefs } from 'vue'
-import { ButtonCloseComponent } from '../../components/ButtonClose'
-import { TransitionPersistComponent } from '../../components/TransitionPersist'
+import { UiButtonClose } from '../../components/ButtonClose'
+import { UiTransition } from '../../components/TransitionPersist'
 import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
 import { AlertMessageThemeConfigModel } from './models/alert-message-theme-config.model'
 import { AlertMessageAccessibilityConfigModel } from './models/alert-message-accessibility-config.model'
@@ -31,8 +31,8 @@ const TAG_NAME = 'alertMessage'
 export default defineComponent({
   TAG_NAME,
   components: {
-    UiBtnClose: ButtonCloseComponent,
-    UiTransitionPersist: TransitionPersistComponent,
+    UiButtonClose,
+    UiTransition,
   },
   props: {
     animate: { type: Boolean, default: false },

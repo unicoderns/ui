@@ -1,12 +1,12 @@
 import { provideTailwind, TailwindVariants } from './theme'
 import { ButtonSizeVariants } from '../../types';
-import { ButtonControlComponent } from '../../index';
+import { UiButton } from '../../index';
 import { ButtonControlModel } from '../../components';
 import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'UI/Tailwind/Button',
-  component: ButtonControlComponent,
+  component: UiButton,
   argTypes: {
     label: { control: { type: 'text' } },
     size: { control: { type: 'select' }, options: Object.values(ButtonSizeVariants) },
@@ -20,7 +20,7 @@ type StoryModel = ButtonControlModel | {
 }
 
 const Template = (args: StoryModel) => ({
-  components: { ButtonControlComponent },
+  components: { UiButton },
   setup() {
     provideTailwind()
 
@@ -30,7 +30,7 @@ const Template = (args: StoryModel) => ({
     toggle: action('toggle'),
   },
   template: `
-    <button-control-component :="args" @toggle="toggle" >{{ args.label }}</button-control-component>
+    <ui-button :="args" @toggle="toggle" >{{ args.label }}</ui-button>
   `,
 });
 

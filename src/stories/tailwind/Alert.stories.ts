@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import { AlertMessageComponent } from '../../index';
+import { UiAlert } from '../../index';
 import { AlertMessageModel } from '../../components';
 import { ref } from 'vue';
 import { provideTailwind, TailwindVariants } from './theme';
@@ -7,7 +7,7 @@ import { provideTailwind, TailwindVariants } from './theme';
 
 export default {
   title: 'UI/Tailwind/Alert',
-  component: AlertMessageComponent,
+  component: UiAlert,
   argTypes: {
     label: { control: { type: 'text' } },
     variant: { control: { type: 'select' }, options: Object.values(TailwindVariants) },
@@ -19,7 +19,7 @@ type StoryModel = AlertMessageModel | {
 }
 
 const Template = (args: StoryModel) => ({
-  components: { AlertMessageComponent },
+  components: { UiAlert },
   setup() {
     provideTailwind()
     const toggle = ref(true)
@@ -34,7 +34,7 @@ const Template = (args: StoryModel) => ({
   template: `
     <a href="" @click.prevent="toggle=!toggle">Toggle visible</a>
     <br>
-    <alert-message-component :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.label }}</alert-message-component>
+    <ui-alert :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.label }}</ui-alert>
   `,
 });
 

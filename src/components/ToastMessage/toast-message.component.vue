@@ -1,5 +1,5 @@
 <template>
-  <UiTransitionPersist
+  <UiTransition
     @after-enter="afterEnter"
     @after-leave="afterLeave"
     @before-leave="beforeLeave"
@@ -14,7 +14,7 @@
       <div :class="theme.cssClass.header" v-if="!!headerText || slots.header">
         <slot v-if="slots.header" name="header" :item="props" />
         <strong v-else-if="!!headerText">{{ headerText }}</strong>
-        <UiBtnClose
+        <UiButtonClose
           v-if="dismissible"
           :class="theme.cssClass.components.buttonCloseHeader"
           :aria:label="aria.buttonClose"
@@ -29,7 +29,7 @@
             {{ message }}
           </span>
         </div>
-        <UiBtnClose
+        <UiButtonClose
           :class="theme.cssClass.components.buttonCloseBody"
           :aria:label="aria.buttonClose"
           @close="close"
@@ -43,7 +43,7 @@
         }}</span>
       </div>
     </div>
-  </UiTransitionPersist>
+  </UiTransition>
 </template>
 
 <script lang="ts">
@@ -55,8 +55,8 @@ import {
   ref,
   toRefs,
 } from 'vue'
-import { ButtonCloseComponent } from '../../components/ButtonClose'
-import { TransitionPersistComponent } from '../../components/TransitionPersist'
+import { UiButtonClose } from '../../components/ButtonClose'
+import { UiTransition } from '../../components/TransitionPersist'
 import { ToastMessageThemeConfigModel } from './models/toast-message-theme-config.model'
 import { ToastMessageAccessibilityConfigModel } from './models/toast-message-accessibility-config.model'
 import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
@@ -67,8 +67,8 @@ const TAG_NAME = 'toast'
 export default defineComponent({
   TAG_NAME,
   components: {
-    UiBtnClose: ButtonCloseComponent,
-    UiTransitionPersist: TransitionPersistComponent,
+    UiButtonClose,
+    UiTransition,
   },
   props: {
     animate: { type: Boolean, default: true },

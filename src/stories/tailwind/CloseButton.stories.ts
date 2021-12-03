@@ -1,15 +1,15 @@
 import { ButtonCloseModel } from '../../components';
-import { ButtonCloseComponent } from '../../index';
+import { UiButtonClose } from '../../index';
 import { action } from '@storybook/addon-actions'
 import { provideTailwind } from './theme'
 
 export default {
   title: 'UI/Tailwind/CloseButton',
-  component: ButtonCloseComponent,
+  component: UiButtonClose,
 };
 
 const Template = (args: ButtonCloseModel) => ({
-  components: { ButtonCloseComponent },
+  components: { UiButtonClose },
   setup() {
     provideTailwind()
 
@@ -20,7 +20,7 @@ const Template = (args: ButtonCloseModel) => ({
   },
   template: `
     <div :class="{ 'bg-gray-500': args.invert }">
-      <button-close-component v-bind="args" @close="close" >Button</button-close-component>
+      <ui-button-close v-bind="args" @close="close" >Button</ui-button-close>
     </div>
   `,
 });

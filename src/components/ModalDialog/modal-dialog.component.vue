@@ -1,5 +1,5 @@
 <template>
-  <UiTransitionPersist
+  <UiTransition
     @after-enter="afterEnter"
     @after-leave="afterLeave"
     @before-leave="beforeLeave"
@@ -26,7 +26,7 @@
               <span v-if="!!title">{{ title }}</span>
               <slot v-else-if="slots.title" name="title" />
             </component>
-            <UiBtnClose
+            <UiButtonClose
               :class="theme.cssClass.components.buttonClose"
               v-if="dismissible"
               @close="close"
@@ -43,14 +43,14 @@
         </div>
       </div>
     </div>
-  </UiTransitionPersist>
+  </UiTransition>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, PropType, Ref, ref, toRefs, watch } from 'vue'
 import { ModalSizeVariant } from '../../types'
-import { ButtonCloseComponent } from '../../components/ButtonClose'
-import { TransitionPersistComponent } from '../../components/TransitionPersist'
+import { UiButtonClose } from '../../components/ButtonClose'
+import { UiTransition } from '../../components/TransitionPersist'
 import { ModalDialogThemeConfigModel } from './models/modal-dialog-theme-config.model'
 import { ModalDialogAccessibilityConfigModel } from './models/modal-dialog-accessibility-config.model'
 import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
@@ -60,8 +60,8 @@ const TAG_NAME = 'modal'
 export default defineComponent({
   TAG_NAME,
   components: {
-    UiBtnClose: ButtonCloseComponent,
-    UiTransitionPersist: TransitionPersistComponent,
+    UiButtonClose,
+    UiTransition,
   },
   props: {
     title: { type: String, default: null },

@@ -1,3 +1,3 @@
-import { ToastMessagePlugin } from './ToastMessage'
+import { UiToastMessagePlugin } from './ToastMessage'
 
-export { ToastMessagePlugin }
+export { UiToastMessagePlugin }

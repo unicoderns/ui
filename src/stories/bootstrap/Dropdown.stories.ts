@@ -2,11 +2,11 @@ import { ControlDropdownModel } from '../../components';
 import { BootstrapVariants } from '../../defaults'
 import { SizeVariants, Directions, ButtonSizeVariants } from '../../types';
 import { action } from '@storybook/addon-actions'
-import { MenuItem, MenuItemTypes, ControlDropdownComponent } from '../../index';
+import { MenuItem, MenuItemTypes, UiDropdown } from '../../index';
 
 export default {
   title: 'UI/Bootstrap/Dropdown',
-  component: ControlDropdownComponent,
+  component: UiDropdown,
   argTypes: {
     label: { control: { type: 'text' } },
     arrowDirection: { control: { type: 'select'}, options: Object.values(Directions) },
@@ -70,7 +70,7 @@ const datasource: MenuItem[] =
   },
   ];
 const Template = (args: ControlDropdownModel) => ({
-  components: { ControlDropdownComponent },
+  components: { UiDropdown },
   setup() {
     return { args };
   },
@@ -80,7 +80,7 @@ const Template = (args: ControlDropdownModel) => ({
     select: action('select'),
   },
   template: `
-    <control-dropdown-component v-bind="args" @show="show" @hide="hide" @select="select"></control-dropdown-component>
+    <ui-dropdown v-bind="args" @show="show" @hide="hide" @select="select"></ui-dropdown>
   `,
 });
 
@@ -90,7 +90,7 @@ const baseArgs: ControlDropdownModel = {
   datasource,
   outline: false,
   anchor: false,
-  invert: true,
+  invert: false,
   size: SizeVariants.Small,
   defaultSelectedIndex: -1,
   splitButton: true,
@@ -144,4 +144,5 @@ export const Dark = Template.bind({});
 Dark.args = {
   ...baseArgs,
   variant: BootstrapVariants.Dark,
+  invert: true,
 };

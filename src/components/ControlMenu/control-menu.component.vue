@@ -7,7 +7,7 @@
     @keydown.space.stop.prevent="selectCurrent"
     @keydown.enter.stop.prevent="selectCurrent"
   >
-    <UiControlItem
+    <UiMenuItem
       v-for="(item, i) in datasource"
       :key="i"
       @select="select(item, i)"
@@ -21,7 +21,7 @@
     >
       <slot v-if="slots.default" :item="item" />
       <span v-else>{{ item.content }}</span>
-    </UiControlItem>
+    </UiMenuItem>
   </ul>
 </template>
 
@@ -43,7 +43,7 @@ export default defineComponent({
     dropdown: { type: Boolean, default: false },
   },
   components: {
-    UiControlItem: ControlItemComponent,
+    UiMenuItem: ControlItemComponent,
   },
   emits: ['select'],
   setup(props, { emit, slots, attrs }) {
