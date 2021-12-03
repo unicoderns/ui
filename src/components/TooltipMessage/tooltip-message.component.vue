@@ -1,16 +1,13 @@
 <template>
   <UiTransitionPersist
+    @enter="enter"
     @after-enter="afterEnter"
     @after-leave="afterLeave"
     @before-leave="beforeLeave"
   >
-    <div
-      v-if="visible"
-      :class="`tooltip fade bs-tooltip-${location} show`"
-      :role="aria.role"
-    >
-      <div class="tooltip-inner" v-html="text" />
-      <div class="tooltip-arrow" id="arrow" data-popper-arrow></div>
+    <div v-if="visible" :class="classes" :role="aria.role">
+      <div :class="theme.cssClass.message" v-html="text" />
+      <div :class="theme.cssClass.arrow" data-popper-arrow></div>
     </div>
   </UiTransitionPersist>
 </template>
@@ -33,22 +30,26 @@ export default defineComponent({
     const visible = ref(false)
     const location: Ref<PopperPlacement | null> = ref(null)
     const hostElement = ref(null as HTMLElement | null)
-    const show = new CustomEvent('show')
-    const hide = new CustomEvent('hide')
-    const close = new CustomEvent('close')
+    const openEvent = new CustomEvent('open')
+    const showEvent = new CustomEvent('show')
+    const hideEvent = new CustomEvent('hide')
+    const closeEvent = new CustomEvent('close')
+
+    const enter = () => {
+      hostElement.value?.dispatchEvent(openEvent)
+    }
 
     const afterEnter = () => {
-      console.log('ok')
-      hostElement.value?.dispatchEvent(show)
+      hostElement.value?.dispatchEvent(showEvent)
     }
 
     const afterLeave = () => {
-      hostElement.value?.dispatchEvent(hide)
+      hostElement.value?.dispatchEvent(hideEvent)
       hostElement.value?.remove()
     }
 
     const beforeLeave = () => {
-      hostElement.value?.dispatchEvent(close)
+      hostElement.value?.dispatchEvent(closeEvent)
     }
 
     const theme = getReactiveThemeConfig<TooltipMessageThemeConfigModel>(
@@ -62,9 +63,16 @@ export default defineComponent({
       props
     )
 
-    const classes = computed(() => [theme.value.cssClass.main])
+    const classes = computed(() => [
+      theme.value.cssClass.main,
+      theme.value.cssClass.animated,
+      ...(location.value
+        ? [theme.value.cssClass.positions[location.value]]
+        : []),
+    ])
 
     return {
+      enter,
       afterEnter,
       beforeLeave,
       afterLeave,

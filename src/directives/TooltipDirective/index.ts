@@ -30,10 +30,10 @@ const tooltipDirective = (app: App) => {
 
         show: () => void
       }
-
-      const show = new CustomEvent('show')
-      const hide = new CustomEvent('hide')
-      const close = new CustomEvent('close')
+      const openEvent = new CustomEvent('open')
+      const showEvent = new CustomEvent('show')
+      const hideEvent = new CustomEvent('hide')
+      const closeEvent = new CustomEvent('close')
 
       const createTooltip = () => {
         const tooltip = document.createElement('div')
@@ -43,15 +43,19 @@ const tooltipDirective = (app: App) => {
         tooltipApp.location = location()
         tooltipApp.hostElement = tooltip
         tooltipApp.show()
-        tooltipApp.$forceUpdate()
-        const wrapper = tooltip.getElementsByTagName('div')[0] as HTMLElement
-        tooltip.addEventListener('show', () => el.dispatchEvent(show))
-        tooltip.addEventListener('hide', () => el.dispatchEvent(hide))
-        tooltip.addEventListener('close', () => el.dispatchEvent(close))
-        document.body.appendChild(tooltip)
-        createPopper(el, wrapper, {
-          placement: position,
+
+        tooltip.addEventListener('open', () => {
+          el.dispatchEvent(openEvent)
+          const wrapper = tooltip.getElementsByTagName('div')[0] as HTMLElement
+
+          createPopper(el, wrapper, {
+            placement: position,
+          })
         })
+        tooltip.addEventListener('show', () => el.dispatchEvent(showEvent))
+        tooltip.addEventListener('hide', () => el.dispatchEvent(hideEvent))
+        tooltip.addEventListener('close', () => el.dispatchEvent(closeEvent))
+        document.body.appendChild(tooltip)
 
         return tooltipApp.hide
       }
