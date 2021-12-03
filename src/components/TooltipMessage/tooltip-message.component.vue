@@ -28,18 +28,28 @@ export default defineComponent({
   components: {
     UiTransitionPersist: TransitionPersistComponent,
   },
-  emits: ['show', 'hide', 'close'],
-  setup(props, { emit, attrs }) {
+  setup(props, { attrs }) {
     const text = ref('')
-    const visible = ref(true)
+    const visible = ref(false)
     const location: Ref<PopperPlacement | null> = ref(null)
     const hostElement = ref(null as HTMLElement | null)
-    const afterLeave = () => {
-      hostElement.value?.remove()
-      emit('hide')
+    const show = new CustomEvent('show')
+    const hide = new CustomEvent('hide')
+    const close = new CustomEvent('close')
+
+    const afterEnter = () => {
+      console.log('ok')
+      hostElement.value?.dispatchEvent(show)
     }
-    const afterEnter = () => emit('show')
-    const beforeLeave = () => emit('close')
+
+    const afterLeave = () => {
+      hostElement.value?.dispatchEvent(hide)
+      hostElement.value?.remove()
+    }
+
+    const beforeLeave = () => {
+      hostElement.value?.dispatchEvent(close)
+    }
 
     const theme = getReactiveThemeConfig<TooltipMessageThemeConfigModel>(
       TAG_NAME,
@@ -52,12 +62,7 @@ export default defineComponent({
       props
     )
 
-    const classes = computed(() => [
-      theme.value.cssClass.main,
-      // ...(location.value
-      //   ? [theme.value.cssClass.positions[location.value]]
-      //   : []),
-    ])
+    const classes = computed(() => [theme.value.cssClass.main])
 
     return {
       afterEnter,
@@ -75,6 +80,10 @@ export default defineComponent({
   methods: {
     hide() {
       this.visible = false
+    },
+    show() {
+      this.visible = true
+      this.$forceUpdate()
     },
   },
 })

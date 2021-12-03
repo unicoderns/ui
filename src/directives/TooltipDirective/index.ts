@@ -24,9 +24,16 @@ const tooltipDirective = (app: App) => {
         text: Props
         location: string
         hostElement: HTMLDivElement
+        dispatchEvent: () => void
 
         hide: () => void
+
+        show: () => void
       }
+
+      const show = new CustomEvent('show')
+      const hide = new CustomEvent('hide')
+      const close = new CustomEvent('close')
 
       const createTooltip = () => {
         const tooltip = document.createElement('div')
@@ -35,8 +42,12 @@ const tooltipDirective = (app: App) => {
         tooltipApp.text = tooltipText
         tooltipApp.location = location()
         tooltipApp.hostElement = tooltip
+        tooltipApp.show()
+        tooltipApp.$forceUpdate()
         const wrapper = tooltip.getElementsByTagName('div')[0] as HTMLElement
-
+        tooltip.addEventListener('show', () => el.dispatchEvent(show))
+        tooltip.addEventListener('hide', () => el.dispatchEvent(hide))
+        tooltip.addEventListener('close', () => el.dispatchEvent(close))
         document.body.appendChild(tooltip)
         createPopper(el, wrapper, {
           placement: position,
