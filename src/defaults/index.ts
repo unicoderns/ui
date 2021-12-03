@@ -14,6 +14,7 @@ import { buttonCloseAccessibilityDefaults } from './button-close-accessibility.c
 import { buttonControlAccessibilityDefaults } from './button-control-accessibility.config'
 import { controlDropdownAccessibilityDefaults } from './control-dropdown-accessibility.config'
 import { modalDialogAccessibilityDefaults } from './modal-dialog-accessibility.config'
+import { tabsPanelAccessibilityDefaults } from './tabs-panel-accessibility.config'
 import { toastMessageAccessibilityDefaults } from './toast-message-accessibility.config'
 export * from './bootstrap-variant'
 
@@ -24,6 +25,7 @@ export const uiAccessibilityDefauls: UiAccessibilityConfigModel = {
   dropdown: controlDropdownAccessibilityDefaults,
   toast: toastMessageAccessibilityDefaults,
   modal: modalDialogAccessibilityDefaults,
+  tabsPanel: tabsPanelAccessibilityDefaults,
 }
 
 export const bsThemeDefauls: UiThemeConfigModel = {

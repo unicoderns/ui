@@ -4,10 +4,6 @@ import { action } from '@storybook/addon-actions'
 export default {
   title: 'UI/Bootstrap/Tabs',
   components: { TabsPanelComponent, TabComponent },
-  argTypes: {
-    title: { control: { type: 'text' } },
-    body: { control: { type: 'text' } },
-  },
 }
 
 const Template = (args: any) => ({

@@ -19,18 +19,9 @@ export default defineComponent({
   TAG_NAME: className,
 
   props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    active: {
-      type: Boolean,
-      required: false,
-    },
-    disabled: {
-      type: Boolean,
-      required: false,
-    },
+    title: { type: String, required: true },
+    active: { type: Boolean, required: false },
+    disabled: { type: Boolean, required: false },
   },
   emits: ['select'],
   setup(props, { emit }) {
