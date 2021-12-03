@@ -4,7 +4,11 @@
     @after-leave="afterLeave"
     @before-leave="beforeLeave"
   >
-    <div v-if="visible" :class="`tooltip fade bs-tooltip-${location} show`">
+    <div
+      v-if="visible"
+      :class="`tooltip fade bs-tooltip-${location} show`"
+      :role="aria.role"
+    >
       <div class="tooltip-inner" v-html="text" />
       <div class="tooltip-arrow" id="arrow" data-popper-arrow></div>
     </div>
@@ -14,8 +18,9 @@
 import { TooltipMessageThemeConfigModel } from './models/tooltip-message-theme-config.model'
 import { computed, defineComponent, Ref, ref } from 'vue'
 import { TransitionPersistComponent } from '../../components/TransitionPersist'
-import { getReactiveThemeConfig } from '../../utils'
+import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
 import { PopperPlacement } from '@/types'
+import { TooltipMessageAccessibilityConfigModel } from './models/tooltip-message-accessibility-config.model'
 
 const TAG_NAME = 'tooltipMessage'
 export default defineComponent({
@@ -41,6 +46,11 @@ export default defineComponent({
       attrs,
       props
     )
+    const aria = getReactiveAriaConfig<TooltipMessageAccessibilityConfigModel>(
+      TAG_NAME,
+      attrs,
+      props
+    )
 
     const classes = computed(() => [
       theme.value.cssClass.main,
@@ -59,6 +69,7 @@ export default defineComponent({
       location,
       classes,
       theme,
+      aria,
     }
   },
   methods: {

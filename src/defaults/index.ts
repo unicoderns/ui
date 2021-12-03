@@ -16,6 +16,7 @@ import { controlDropdownAccessibilityDefaults } from './control-dropdown-accessi
 import { modalDialogAccessibilityDefaults } from './modal-dialog-accessibility.config'
 import { tabsPanelAccessibilityDefaults } from './tabs-panel-accessibility.config'
 import { toastMessageAccessibilityDefaults } from './toast-message-accessibility.config'
+import { tooltipMessageAccessibilityDefaults } from './tooltip-message-accessibility.config'
 export * from './bootstrap-variant'
 
 export const uiAccessibilityDefauls: UiAccessibilityConfigModel = {
@@ -26,6 +27,7 @@ export const uiAccessibilityDefauls: UiAccessibilityConfigModel = {
   toast: toastMessageAccessibilityDefaults,
   modal: modalDialogAccessibilityDefaults,
   tabsPanel: tabsPanelAccessibilityDefaults,
+  tooltipMessage: tooltipMessageAccessibilityDefaults,
 }
 
 export const bsThemeDefauls: UiThemeConfigModel = {
