@@ -39,7 +39,7 @@ import UiMenu from '../../components/ControlMenu/control-menu.component.vue'
 import DropdownButtonComponent from './control-dropdown-button.component.vue'
 import { ControlDropdownThemeConfigModel } from './models/control-dropdown-theme-config.model'
 import { ControlDropdownAccessibilityConfigModel } from './models/control-dropdown-accessibility-config.model'
-import { getReactiveAriaConfig, getReactiveThemeConfig, getReactiveResponsiveConfig } from '../../utils'
+import { useReactiveAriaConfig, useReactiveThemeConfig, useReactiveResponsiveConfig } from '../../utils'
 
 const TAG_NAME = 'dropdown'
 
@@ -85,12 +85,12 @@ export default defineComponent({
     const mainContainer = ref<HTMLElement | null>(null)
     const mainButton = ref<HTMLElement | null>(null)
 
-    const theme = getReactiveThemeConfig<ControlDropdownThemeConfigModel>(
+    const theme = useReactiveThemeConfig<ControlDropdownThemeConfigModel>(
       TAG_NAME,
       attrs,
       props
     )
-    const aria = getReactiveAriaConfig<ControlDropdownAccessibilityConfigModel>(
+    const aria = useReactiveAriaConfig<ControlDropdownAccessibilityConfigModel>(
       TAG_NAME,
       attrs,
       props
@@ -124,7 +124,7 @@ export default defineComponent({
     })
 
     const menuClasses = computed((): string[] => {
-      return menuAlignEndClass(getReactiveResponsiveConfig('menuAlignEnd', attrs, props).value)
+      return menuAlignEndClass(useReactiveResponsiveConfig('menuAlignEnd', attrs, props).value)
     })
 
     const buttonProps = computed(() => ({

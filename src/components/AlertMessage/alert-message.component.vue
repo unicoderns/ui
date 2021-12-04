@@ -22,7 +22,7 @@
 import { computed, defineComponent, ref, toRefs } from 'vue'
 import { UiButtonClose } from '../../components/ButtonClose'
 import { UiTransition } from '../../components/TransitionPersist'
-import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '../../utils'
 import { AlertMessageThemeConfigModel } from './models/alert-message-theme-config.model'
 import { AlertMessageAccessibilityConfigModel } from './models/alert-message-accessibility-config.model'
 
@@ -49,13 +49,13 @@ export default defineComponent({
     const remove = ref(false)
     const visible = computed(() => show.value && !remove.value)
 
-    const theme = getReactiveThemeConfig<AlertMessageThemeConfigModel>(
+    const theme = useReactiveThemeConfig<AlertMessageThemeConfigModel>(
       TAG_NAME,
       attrs,
       props
     )
 
-    const aria = getReactiveAriaConfig<AlertMessageAccessibilityConfigModel>(
+    const aria = useReactiveAriaConfig<AlertMessageAccessibilityConfigModel>(
       TAG_NAME,
       attrs,
       props

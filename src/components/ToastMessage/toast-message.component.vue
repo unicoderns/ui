@@ -59,7 +59,7 @@ import { UiButtonClose } from '../../components/ButtonClose'
 import { UiTransition } from '../../components/TransitionPersist'
 import { ToastMessageThemeConfigModel } from './models/toast-message-theme-config.model'
 import { ToastMessageAccessibilityConfigModel } from './models/toast-message-accessibility-config.model'
-import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '../../utils'
 import { Position } from '../../types'
 
 const TAG_NAME = 'toast'
@@ -90,12 +90,12 @@ export default defineComponent({
     const remove = ref(false)
     const visible = computed(() => show.value && !remove.value)
 
-    const theme = getReactiveThemeConfig<ToastMessageThemeConfigModel>(
+    const theme = useReactiveThemeConfig<ToastMessageThemeConfigModel>(
       TAG_NAME,
       attrs,
       props
     )
-    const aria = getReactiveAriaConfig<ToastMessageAccessibilityConfigModel>(
+    const aria = useReactiveAriaConfig<ToastMessageAccessibilityConfigModel>(
       TAG_NAME,
       attrs,
       props

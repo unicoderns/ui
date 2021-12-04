@@ -29,7 +29,7 @@ import { Position } from '../../types'
 import { ToastMessageModel } from './models/toast-message.model'
 import { ToastQueueModel } from './models/toast-queue.model'
 import ToastMessageComponent from '../../components/ToastMessage/toast-message.component.vue'
-import { getReactiveThemeConfig } from '../../utils'
+import { useReactiveThemeConfig } from '../../utils'
 import { ToastMessageThemeConfigModel } from './models/toast-message-theme-config.model'
 
 const TAG_NAME = 'toast'
@@ -60,7 +60,7 @@ export default defineComponent({
       toastService.remove(key)
     }
 
-    const theme = getReactiveThemeConfig<ToastMessageThemeConfigModel>(
+    const theme = useReactiveThemeConfig<ToastMessageThemeConfigModel>(
       TAG_NAME,
       attrs,
       props

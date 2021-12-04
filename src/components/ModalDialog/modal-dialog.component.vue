@@ -53,7 +53,7 @@ import { UiButtonClose } from '../../components/ButtonClose'
 import { UiTransition } from '../../components/TransitionPersist'
 import { ModalDialogThemeConfigModel } from './models/modal-dialog-theme-config.model'
 import { ModalDialogAccessibilityConfigModel } from './models/modal-dialog-accessibility-config.model'
-import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '../../utils'
 
 const TAG_NAME = 'modal'
 
@@ -97,13 +97,13 @@ export default defineComponent({
     watch(show, value => remove.value = !value)
     const visible = computed(() => show.value && !remove.value)
 
-    const theme = getReactiveThemeConfig<ModalDialogThemeConfigModel>(
+    const theme = useReactiveThemeConfig<ModalDialogThemeConfigModel>(
       TAG_NAME,
       attrs,
       props
     )
 
-    const aria = getReactiveAriaConfig<ModalDialogAccessibilityConfigModel>(
+    const aria = useReactiveAriaConfig<ModalDialogAccessibilityConfigModel>(
       TAG_NAME,
       attrs,
       props

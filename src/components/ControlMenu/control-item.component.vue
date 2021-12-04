@@ -31,7 +31,7 @@
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
 import { MenuItemType, MenuItemTypes } from '../../types'
 import { ControlMenuThemeConfigModel } from './models/control-menu-theme-config.model'
-import { getReactiveThemeConfig } from '../../utils'
+import { useReactiveThemeConfig } from '../../utils'
 
 const TAG_NAME = 'menu'
 
@@ -53,7 +53,7 @@ export default defineComponent({
     const { type, active, disabled } = toRefs(props)
     const item = ref<HTMLElement | null>(null)
 
-    const theme = getReactiveThemeConfig<ControlMenuThemeConfigModel>(
+    const theme = useReactiveThemeConfig<ControlMenuThemeConfigModel>(
       TAG_NAME,
       attrs,
       props

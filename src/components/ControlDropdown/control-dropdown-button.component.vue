@@ -39,7 +39,7 @@
 import { computed, defineComponent, toRefs, ref, PropType } from 'vue'
 import { Direction, Directions } from '../../types/menu'
 import { UiButton } from '../../components/ButtonControl'
-import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '../../utils'
 import { ControlDropdownAccessibilityConfigModel } from './models/control-dropdown-accessibility-config.model'
 import { ControlDropdownThemeConfigModel } from './models/control-dropdown-theme-config.model'
 import { SizeVariant } from '../../types'
@@ -75,12 +75,12 @@ export default defineComponent({
 
     const expanded = ref(false)
 
-    const theme = getReactiveThemeConfig<ControlDropdownThemeConfigModel>(
+    const theme = useReactiveThemeConfig<ControlDropdownThemeConfigModel>(
       TAG_NAME,
       attrs,
       props
     )
-    const aria = getReactiveAriaConfig<ControlDropdownAccessibilityConfigModel>(
+    const aria = useReactiveAriaConfig<ControlDropdownAccessibilityConfigModel>(
       TAG_NAME,
       attrs,
       props

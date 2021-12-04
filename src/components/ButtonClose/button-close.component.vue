@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '../../utils'
 import { computed, defineComponent, toRefs } from 'vue'
 import { ButtonCloseAccessibilityConfigModel } from './models/button-close-accessibility-config.model'
 import { ButtonCloseThemeConfigModel } from './models/button-close-theme-config.model'
@@ -25,12 +25,12 @@ export default defineComponent({
   setup(props, { emit, attrs }) {
     const { invert } = toRefs(props)
 
-    const theme = getReactiveThemeConfig<ButtonCloseThemeConfigModel>(
+    const theme = useReactiveThemeConfig<ButtonCloseThemeConfigModel>(
       TAG_NAME,
       attrs,
       props
     )
-    const aria = getReactiveAriaConfig<ButtonCloseAccessibilityConfigModel>(
+    const aria = useReactiveAriaConfig<ButtonCloseAccessibilityConfigModel>(
       TAG_NAME,
       attrs,
       props

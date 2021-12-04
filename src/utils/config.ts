@@ -83,7 +83,7 @@ function getComponentAriaConfig(
   return { ...globalAriaConfig[componentTag] }
 }
 
-export function getThemeConfig<T extends UiComponentThemeConfigModel>(
+function getThemeConfig<T extends UiComponentThemeConfigModel>(
   componentTag: string,
   attrs: Readonly<{ [key: string]: unknown }>,
 ): T {
@@ -115,7 +115,7 @@ export function getThemeConfig<T extends UiComponentThemeConfigModel>(
   return themeConfig as T
 }
 
-export function getAriaConfig<T extends UiComponentAccessibilityConfigModel>(
+function getAriaConfig<T extends UiComponentAccessibilityConfigModel>(
   componentTag: string,
   attrs: Readonly<{ [key: string]: unknown }>
 ): T {
@@ -148,7 +148,7 @@ function flattenProps(
   }
 }
 
-export function getReactiveThemeConfig<T extends UiComponentThemeConfigModel>(
+export function useReactiveThemeConfig<T extends UiComponentThemeConfigModel>(
   componentTag: string,
   _attrs: Readonly<{ [key: string]: unknown }>,
   _props: Readonly<{ [key: string]: unknown }>,
@@ -162,7 +162,7 @@ export function getReactiveThemeConfig<T extends UiComponentThemeConfigModel>(
   return result
 }
 
-export function getReactiveAriaConfig<
+export function useReactiveAriaConfig<
   T extends UiComponentAccessibilityConfigModel
 >(
   componentTag: string,
@@ -194,7 +194,7 @@ function getResponsiveConfig(
   }
 }
 
-export function getReactiveResponsiveConfig(
+export function useReactiveResponsiveConfig(
   property: string,
   _attrs: Readonly<{ [key: string]: unknown }>,
   _props: Readonly<{ [key: string]: unknown }>,

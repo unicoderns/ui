@@ -15,7 +15,7 @@
 import { TooltipMessageThemeConfigModel } from './models/tooltip-message-theme-config.model'
 import { computed, defineComponent, Ref, ref } from 'vue'
 import { UiTransition } from '../../components/TransitionPersist'
-import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '../../utils'
 import { PopperPlacement } from '../../types'
 import { TooltipMessageAccessibilityConfigModel } from './models/tooltip-message-accessibility-config.model'
 
@@ -52,12 +52,12 @@ export default defineComponent({
       hostElement.value?.dispatchEvent(closeEvent)
     }
 
-    const theme = getReactiveThemeConfig<TooltipMessageThemeConfigModel>(
+    const theme = useReactiveThemeConfig<TooltipMessageThemeConfigModel>(
       TAG_NAME,
       attrs,
       props
     )
-    const aria = getReactiveAriaConfig<TooltipMessageAccessibilityConfigModel>(
+    const aria = useReactiveAriaConfig<TooltipMessageAccessibilityConfigModel>(
       TAG_NAME,
       attrs,
       props

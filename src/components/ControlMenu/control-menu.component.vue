@@ -29,7 +29,7 @@
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
 import { isSelectable, MenuItem } from '../../types'
 import { ControlMenuThemeConfigModel } from './models/control-menu-theme-config.model'
-import { getReactiveThemeConfig } from '../../utils'
+import { useReactiveThemeConfig } from '../../utils'
 import ControlItemComponent from './control-item.component.vue'
 
 const TAG_NAME = 'menu'
@@ -52,7 +52,7 @@ export default defineComponent({
     let focusedIndex = -1
     const items = ref<HTMLElement[]>([])
 
-    const theme = getReactiveThemeConfig<ControlMenuThemeConfigModel>(
+    const theme = useReactiveThemeConfig<ControlMenuThemeConfigModel>(
       TAG_NAME,
       attrs,
       props

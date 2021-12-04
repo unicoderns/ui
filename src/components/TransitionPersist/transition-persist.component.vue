@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { getReactiveThemeConfig } from '../../utils'
+import { useReactiveThemeConfig } from '../../utils'
 import { computed, defineComponent } from 'vue'
 import { TransitionPersistThemeConfigModel } from './models/transition-persist-theme-config.model'
 
@@ -27,7 +27,7 @@ export default defineComponent({
   },
   setup(props, { attrs }) {
 
-    const theme = getReactiveThemeConfig<
+    const theme = useReactiveThemeConfig<
       TransitionPersistThemeConfigModel
     >(TAG_NAME, attrs, props)
 

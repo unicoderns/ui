@@ -25,7 +25,7 @@
 <script lang="ts">
 import { defineComponent, reactive, provide } from 'vue'
 import { TabPropsModel } from './models/tabs-panel.model'
-import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '../../utils'
 import { TabsPanelThemeConfigModel } from './models/tabs-panel-theme-config.model'
 import { TabsPanelAccessibilityConfigModel } from './models/tabs-panel-accessibility-config.model'
 
@@ -45,13 +45,13 @@ export default defineComponent({
       emit('select')
     }
 
-    const theme = getReactiveThemeConfig<TabsPanelThemeConfigModel>(
+    const theme = useReactiveThemeConfig<TabsPanelThemeConfigModel>(
       TAG_NAME,
       attrs,
       props
     )
 
-    const aria = getReactiveAriaConfig<TabsPanelAccessibilityConfigModel>(
+    const aria = useReactiveAriaConfig<TabsPanelAccessibilityConfigModel>(
       TAG_NAME,
       attrs,
       props

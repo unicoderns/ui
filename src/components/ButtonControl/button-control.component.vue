@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, watchEffect, ref, toRefs, PropType } from 'vue'
-import { getReactiveAriaConfig, getReactiveThemeConfig } from '../../utils'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '../../utils'
 import { ButtonControlThemeConfigModel } from './models/button-control-theme-config.model'
 import { ButtonControlAccessibilityConfigModel } from './models/button-control-accessibility-config.model'
 import { ButtonSizeVariant } from '../../types'
@@ -35,12 +35,12 @@ export default defineComponent({
     const { anchor, toggle, outline, variant, size, active } = toRefs(props)
     const activeState = ref(active.value)
 
-    const theme = getReactiveThemeConfig<ButtonControlThemeConfigModel>(
+    const theme = useReactiveThemeConfig<ButtonControlThemeConfigModel>(
       TAG_NAME,
       attrs,
       props,
     )
-    const ariaConfig = getReactiveAriaConfig<ButtonControlAccessibilityConfigModel>(
+    const ariaConfig = useReactiveAriaConfig<ButtonControlAccessibilityConfigModel>(
       TAG_NAME,
       attrs,
       props,
