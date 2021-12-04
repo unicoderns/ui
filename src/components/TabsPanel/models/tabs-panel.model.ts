@@ -1,7 +1,7 @@
 export interface TabPropsModel {
   props?: {
     title: string
-    disabled?: string
+    disabled?: boolean
   }
   uid?: number
 }

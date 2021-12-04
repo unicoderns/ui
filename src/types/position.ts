@@ -9,3 +9,10 @@ export enum Position {
   BottomCenter = 'bottomCenter',
   BottomRight = 'bottomRight',
 }
+
+export enum PopperPlacement {
+  Top = 'top',
+  Bottom = 'bottom',
+  Right = 'right',
+  Left = 'left',
+}

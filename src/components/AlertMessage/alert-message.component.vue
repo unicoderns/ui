@@ -45,7 +45,7 @@ export default defineComponent({
   },
   emits: ['show', 'hide', 'close'],
   setup(props, { emit, attrs }) {
-    const { animate, dismissible, show, variant, ...other } = toRefs(props)
+    const { animate, dismissible, show, variant } = toRefs(props)
     const remove = ref(false)
     const visible = computed(() => show.value && !remove.value)
 
@@ -63,9 +63,7 @@ export default defineComponent({
 
     const classes = computed(() => [
       theme.value.cssClass.main,
-      ...(variant.value
-        ? [theme.value.cssClass.variants[variant.value]]
-        : []),
+      ...(variant.value ? [theme.value.cssClass.variants[variant.value]] : []),
       ...(dismissible.value ? [theme.value.cssClass.dismissible] : []),
       ...(animate.value ? [theme.value.cssClass.animated] : []),
     ])

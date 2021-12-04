@@ -17,22 +17,14 @@ import { TabPropsModel } from './models/tabs-panel.model'
 const className = 'UiTab'
 export default defineComponent({
   TAG_NAME: className,
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    active: {
-      type: String, //TODO: Boolean
-      required: false,
-    },
-    disabled: {
-      type: String,  //TODO: Boolean
-      required: false,
-    },
-  },
 
-  setup(props) {
+  props: {
+    title: { type: String, required: true },
+    active: { type: Boolean, required: false },
+    disabled: { type: Boolean, required: false },
+  },
+  emits: ['select'],
+  setup(props, { emit }) {
     const { active, disabled } = toRefs(props)
     const instance: ComponentInternalInstance | null = getCurrentInstance()
 
@@ -54,14 +46,14 @@ export default defineComponent({
         const aux: TabPropsModel = {
           props: {
             title: String(instance.props.title),
-            disabled: String(instance.props.disabled),
+            disabled: Boolean(instance.props.disabled),
           },
           uid: Number(instance.uid),
         }
 
         state.tabs.push(aux)
       }
-      if (active && !disabled) {
+      if (instance?.props.active && !instance?.props.disabled) {
         state.active = index.value
       }
     })

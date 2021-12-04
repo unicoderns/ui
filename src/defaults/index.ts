@@ -6,13 +6,17 @@ import { bsButtonControlThemeConfigDefaults } from './bs-button-control-theme.co
 import { bsControlDropdownThemeConfigDefaults } from './bs-control-dropdown-theme.config'
 import { bsControlMenuThemeConfigDefaults } from './bs-control-menu-theme.config'
 import { bsModalDialogThemeConfigDefaults } from './bs-modal-dialog-theme.config'
+import { bsTabsPanelThemeConfigDefaults } from './bs-tabs-panel-theme.config'
 import { bsToastMessageThemeConfigDefaults } from './bs-toast-message-theme.config'
+import { bsTooltipMessageThemeConfigDefaults } from './bs-tooltip-message-theme.config'
 import { bsTransitionPersistThemeConfigDefaults } from './bs-transition-persist-theme.config'
 import { buttonCloseAccessibilityDefaults } from './button-close-accessibility.config'
 import { buttonControlAccessibilityDefaults } from './button-control-accessibility.config'
 import { controlDropdownAccessibilityDefaults } from './control-dropdown-accessibility.config'
 import { modalDialogAccessibilityDefaults } from './modal-dialog-accessibility.config'
+import { tabsPanelAccessibilityDefaults } from './tabs-panel-accessibility.config'
 import { toastMessageAccessibilityDefaults } from './toast-message-accessibility.config'
+import { tooltipMessageAccessibilityDefaults } from './tooltip-message-accessibility.config'
 export * from './bootstrap-variant'
 
 export const uiAccessibilityDefauls: UiAccessibilityConfigModel = {
@@ -22,6 +26,8 @@ export const uiAccessibilityDefauls: UiAccessibilityConfigModel = {
   dropdown: controlDropdownAccessibilityDefaults,
   toast: toastMessageAccessibilityDefaults,
   modal: modalDialogAccessibilityDefaults,
+  tabsPanel: tabsPanelAccessibilityDefaults,
+  tooltipMessage: tooltipMessageAccessibilityDefaults,
 }
 
 export const bsThemeDefauls: UiThemeConfigModel = {
@@ -33,4 +39,6 @@ export const bsThemeDefauls: UiThemeConfigModel = {
   menu: bsControlMenuThemeConfigDefaults,
   toast: bsToastMessageThemeConfigDefaults,
   modal: bsModalDialogThemeConfigDefaults,
+  tooltipMessage: bsTooltipMessageThemeConfigDefaults,
+  tabsPanel: bsTabsPanelThemeConfigDefaults,
 }
