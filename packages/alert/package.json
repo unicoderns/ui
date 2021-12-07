@@ -1,0 +1,19 @@
+{
+    "name": "@unicodernsui/alert",
+    "version": "0.0.1",
+    "description": "Alert message component",
+    "main": "dist/index.js",
+    "module": "src/index.ts",
+    "scripts": {
+      "tsc": "tsc",
+      "transpile": "vue-cli-service build --target lib ./src/index.ts"
+    },
+    "dependencies": {
+      "@unicodernsui/core": "*",
+      "@unicodernsui/button-close": "*",
+      "@unicodernsui/transition": "*"
+    },
+    "devDependencies": {
+      "@unicodernsui/custom-theme": "*"
+    }
+  }

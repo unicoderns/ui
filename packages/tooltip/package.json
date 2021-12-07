@@ -1,0 +1,15 @@
+{
+    "name": "@unicodernsui/tooltip",
+    "version": "0.0.1",
+    "description": "Tooltip message component",
+    "main": "dist/index.js",
+    "module": "src/index.ts",
+    "scripts": {
+      "tsc": "tsc",
+      "transpile": "vue-cli-service build --target lib ./src/index.ts"
+    },
+    "dependencies": {
+      "@unicodernsui/core": "*",
+      "@unicodernsui/transition": "*"
+    }
+  }

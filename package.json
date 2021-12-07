@@ -2,14 +2,16 @@
   "name": "ui",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
-    "storybook-tailwind": "start-storybook -p 6007 -c .storybook-tailwind  -s ./src/storybook-static",
-    "build-storybook": "build-storybook"
+    "storybook-tailwind": "start-storybook -p 6007 -c .storybook-tailwind  -s ./storybook-static",
+    "build-storybook": "build-storybook",
+    "bootstrap": "lerna bootstrap"
   },
   "dependencies": {
     "@popperjs/core": "^2.10.2",
@@ -40,6 +42,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^7.0.0-0",
+    "lerna": "^4.0.0",
     "prettier": "^1.19.1",
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-0",
