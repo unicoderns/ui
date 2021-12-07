@@ -27,3 +27,8 @@ pnpm-debug.log*
 # Bootstrap sample files
 *.reference.js
 /src/components/readmes/
+
+# Lerna
+lerna-debug.log
+npm-debug.log
+packages/*/lib

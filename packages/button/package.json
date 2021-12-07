@@ -1,0 +1,17 @@
+{
+    "name": "@unicodernsui/button",
+    "version": "0.0.1",
+    "description": "Generic button component",
+    "main": "dist/index.js",
+    "module": "src/index.ts",
+    "scripts": {
+      "tsc": "tsc",
+      "transpile": "vue-cli-service build --target lib ./src/index.ts"
+    },
+    "dependencies": {
+      "@unicodernsui/core": "*"
+    },
+    "devDependencies": {
+      "@unicodernsui/custom-theme": "*"
+    }
+  }

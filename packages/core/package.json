@@ -1,0 +1,7 @@
+{
+    "name": "@unicodernsui/core",
+    "version": "0.0.1",
+    "description": "Core functions for ui components",
+    "main": "dist/index.js",
+    "module": "src/index.ts"
+  }

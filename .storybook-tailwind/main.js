@@ -1,7 +1,7 @@
 module.exports = {
   stories: [
-    "../src/stories/tailwind/*.stories.mdx",
-    "../src/stories/tailwind/*.stories.@(js|jsx|ts|tsx)"
+    "../**/stories/*.tw.stories.mdx",
+    "../**/stories/*.tw.stories.@(js|jsx|ts|tsx)"
   ],
   addons: [
     "@storybook/addon-links",
