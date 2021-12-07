@@ -1,5 +1,5 @@
 import installTooltipDirective from './tooltip.directive'
 
 export { installTooltipDirective }
-export * from './models/tooltip-message-theme-config.model'
-export * from './models/tooltip-message-accessibility-config.model'
+export * from './models/ui-tooltip-message-theme-config.model'
+export * from './models/ui-tooltip-message-aria-config.model'

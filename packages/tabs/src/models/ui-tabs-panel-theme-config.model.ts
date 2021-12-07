@@ -1,6 +1,7 @@
 import { UiComponentThemeConfigModel } from '@unicodernsui/core'
 
-export interface TabsPanelThemeConfigModel extends UiComponentThemeConfigModel {
+export interface UiTabsPanelThemeConfigModel
+  extends UiComponentThemeConfigModel {
   cssClass: {
     main: string
     item: string

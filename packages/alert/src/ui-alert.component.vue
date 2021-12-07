@@ -28,7 +28,7 @@ import { UiTransition } from '@unicodernsui/transition'
 import { UiAlertThemeConfigModel } from './models/ui-alert-theme-config.model'
 import { UiAlertAriaConfigModel } from './models/ui-alert-aria-config.model'
 import { bsUiAlertThemeConfigDefaults } from './defaults/bs-ui-alert-theme.config'
-import { uiAlertAriaDefaults } from './defaults/ui-alert-aria.config'
+import { UiAlertAriaDefaults } from './defaults/ui-alert-aria.config'
 
 const TAG_NAME = 'uiAlert'
 
@@ -57,14 +57,14 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiAlertThemeConfigDefaults,
+      bsUiAlertThemeConfigDefaults
     )
 
     const aria = useReactiveAriaConfig<UiAlertAriaConfigModel>(
       TAG_NAME,
       attrs,
       props,
-      uiAlertAriaDefaults
+      UiAlertAriaDefaults
     )
 
     const classes = computed(() => [

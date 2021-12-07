@@ -1,6 +1,6 @@
 import { UiComponentAriaConfigModel } from '@unicodernsui/core'
 
-export interface TooltipMessageAriaConfigModel
+export interface UiTooltipMessageAriaConfigModel
   extends UiComponentAriaConfigModel {
   role: string
 }

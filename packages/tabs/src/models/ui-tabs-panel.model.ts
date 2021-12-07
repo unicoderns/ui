@@ -1,4 +1,4 @@
-export interface TabPropsModel {
+export interface UiTabPropsModel {
   props?: {
     title: string
     disabled?: boolean

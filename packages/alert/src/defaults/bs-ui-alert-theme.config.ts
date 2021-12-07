@@ -8,7 +8,7 @@ import { UiAlertThemeConfigModel } from '../'
 const baseClass = 'alert'
 const classPrefix = cssClassPrefix(baseClass)
 const getPrefixedClass = (value: string) => `${classPrefix}${value}`
-const variantClasses = enumToObjectByValue(BootstrapVariants);
+const variantClasses = enumToObjectByValue(BootstrapVariants)
 Object.keys(variantClasses).forEach(
   value => (variantClasses[value] = getPrefixedClass(value))
 )

@@ -1,6 +1,6 @@
 import { UiAlertAriaConfigModel } from '../'
 
-export const uiAlertAriaDefaults: UiAlertAriaConfigModel = {
+export const UiAlertAriaDefaults: UiAlertAriaConfigModel = {
   role: 'alert',
   buttonClose: 'Close',
 }

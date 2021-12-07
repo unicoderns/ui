@@ -13,12 +13,16 @@
 </template>
 <script lang="ts">
 import { computed, defineComponent, Ref, ref } from 'vue'
-import { useReactiveAriaConfig, useReactiveThemeConfig,  PopperPlacement } from '@unicodernsui/core'
+import {
+  useReactiveAriaConfig,
+  useReactiveThemeConfig,
+  PopperPlacement,
+} from '@unicodernsui/core'
 import { UiTransition } from '@unicodernsui/transition'
+import { UiTooltipMessageAriaConfigModel } from './models/ui-tooltip-message-aria-config.model'
+import { UiTooltipMessageThemeConfigModel } from './models/ui-tooltip-message-theme-config.model'
 import { bsTooltipMessageThemeConfigDefaults } from './defaults/bs-tooltip-message-theme.config'
-import { TooltipMessageAriaConfigModel } from './models/tooltip-message-accessibility-config.model'
-import { TooltipMessageThemeConfigModel } from './models/tooltip-message-theme-config.model'
-import { tooltipMessageAriaDefaults } from './defaults/tooltip-message-accessibility.config'
+import { UiTooltipMessageAriaDefaults } from './defaults/ui-tooltip-message-aria.config'
 
 const TAG_NAME = 'uiTooltip'
 export default defineComponent({
@@ -53,17 +57,17 @@ export default defineComponent({
       hostElement.value?.dispatchEvent(closeEvent)
     }
 
-    const theme = useReactiveThemeConfig<TooltipMessageThemeConfigModel>(
+    const theme = useReactiveThemeConfig<UiTooltipMessageThemeConfigModel>(
       TAG_NAME,
       attrs,
       props,
       bsTooltipMessageThemeConfigDefaults
     )
-    const aria = useReactiveAriaConfig<TooltipMessageAriaConfigModel>(
+    const aria = useReactiveAriaConfig<UiTooltipMessageAriaConfigModel>(
       TAG_NAME,
       attrs,
       props,
-      tooltipMessageAriaDefaults
+      UiTooltipMessageAriaDefaults
     )
 
     const classes = computed(() => [

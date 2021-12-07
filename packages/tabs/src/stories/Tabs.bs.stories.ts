@@ -6,7 +6,22 @@ export default {
   components: { UiTabs, UiTab },
 }
 
-const Template = (args: any) => ({
+type StoryModel = {
+  tab1: string
+  tab1Active: boolean
+  tab1Disabled: boolean
+  tab2: string
+  tab2Active: boolean
+  tab2Disabled: boolean
+  tab3: string
+  tab3Active: boolean
+  tab3Disabled: boolean
+  tab4: string
+  tab4Active: boolean
+  tab4Disabled: boolean
+}
+
+const Template = (args: StoryModel) => ({
   components: { UiTabs, UiTab },
   setup() {
     return { args }
@@ -31,7 +46,7 @@ const Template = (args: any) => ({
   </ui-tabs>`,
 })
 
-const baseArgs: any = {
+const baseArgs: StoryModel = {
   tab1: 'Tab 1',
   tab1Active: false,
   tab1Disabled: false,
