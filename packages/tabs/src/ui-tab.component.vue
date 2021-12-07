@@ -12,7 +12,7 @@ import {
   onBeforeMount,
   toRefs,
 } from 'vue'
-import { UiTabPropsModel } from './models/ui-tabs-panel.model'
+import { UiTabPropsModel } from './models/ui-tabs-props.model'
 
 const TAG_NAME = 'uiTab'
 export default defineComponent({
