@@ -48,7 +48,6 @@ const baseArgs: StoryModel = {
   toggle: false,
 }
 
-
 export const Primary = Template.bind({})
 Primary.args = {
   ...baseArgs,

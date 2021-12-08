@@ -15,15 +15,12 @@ interface EnumInterface {
 }
 
 export const enumEntries = (enumType: EnumInterface) =>
-  Object.entries(enumType)
-    .map(([name, value]) => ({
-      name,
-      value,
-    }))
+  Object.entries(enumType).map(([name, value]) => ({
+    name,
+    value,
+  }))
 
-export const enumToObjectByValue = (
-  enumType: EnumInterface
-) => {
+export const enumToObjectByValue = (enumType: EnumInterface) => {
   return enumEntries(enumType)
     .map(({ name, value }) => ({ [value]: name }))
     .reduce((acum, entry) => ({ ...acum, ...entry }), {})

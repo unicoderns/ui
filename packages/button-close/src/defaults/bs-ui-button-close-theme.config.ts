@@ -9,5 +9,5 @@ export const bsUiButtonCloseThemeConfigDefaults: UiButtonCloseThemeConfigModel =
   cssClass: {
     main: baseClass,
     inverted: getPrefixedClass('white'),
-  }
+  },
 }

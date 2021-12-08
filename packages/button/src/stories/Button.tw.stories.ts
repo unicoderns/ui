@@ -52,7 +52,6 @@ const baseArgs: StoryModel = {
   toggle: false,
 }
 
-
 export const Blue = Template.bind({})
 Blue.args = {
   ...baseArgs,
@@ -70,7 +69,6 @@ Purple.args = {
   ...baseArgs,
   variant: TailwindVariants.Purple,
 }
-
 
 export const Medium = Template.bind({})
 Medium.args = {

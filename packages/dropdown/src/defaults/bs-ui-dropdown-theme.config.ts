@@ -10,11 +10,11 @@ import { UiDropdownThemeConfigModel } from '../'
 const baseClass = 'dropdown'
 const classPrefix = cssClassPrefix(baseClass)
 const getPrefixedClass = (value: string) => `${classPrefix}${value}`
-const variantClasses = enumToObjectByValue(BootstrapVariants);
+const variantClasses = enumToObjectByValue(BootstrapVariants)
 Object.keys(variantClasses).forEach(
   value => (variantClasses[value] = getPrefixedClass(value))
 )
-const menuVariantClasses = enumToObjectByValue(ResponsiveVariants);
+const menuVariantClasses = enumToObjectByValue(ResponsiveVariants)
 Object.keys(menuVariantClasses).forEach(
   value => (menuVariantClasses[value] = `dropdown-menu-${value}-end`)
 )
@@ -40,6 +40,6 @@ export const bsUiDropdownThemeConfigDefaults: UiDropdownThemeConfigModel = {
       [Directions.Down]: '',
       [Directions.Left]: 'dropstart',
       [Directions.Right]: 'dropend',
-    }
+    },
   },
 }

@@ -41,7 +41,7 @@ const TAG_NAME = 'uiMenu'
 export default defineComponent({
   TAG_NAME,
   props: {
-    datasource: { type: Array as PropType<MenuItem[]>, default: [] },
+    datasource: { type: Array as PropType<MenuItem[]>, default: () => [] },
     defaultSelectedIndex: { type: Number, required: false },
     invert: { type: Boolean, default: false },
     dropdown: { type: Boolean, default: false },

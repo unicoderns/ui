@@ -119,7 +119,7 @@ export default defineComponent({
       theme.value.cssClass.message,
       ...(dark.value ? [theme.value.cssClass.textLight] : []),
     ])
-    let timeoutInterval: number | null = null
+    let timeoutInterval: ReturnType<typeof setTimeout> | null = null
     const close = () => {
       remove.value = true
       timeoutInterval && clearInterval(timeoutInterval)

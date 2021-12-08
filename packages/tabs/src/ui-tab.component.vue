@@ -10,7 +10,6 @@ import {
   getCurrentInstance,
   inject,
   onBeforeMount,
-  toRefs,
 } from 'vue'
 import { UiTabPropsModel } from './models/ui-tabs-props.model'
 
@@ -24,8 +23,7 @@ export default defineComponent({
     disabled: { type: Boolean, required: false },
   },
   emits: ['select'],
-  setup(props, { emit }) {
-    const { active, disabled } = toRefs(props)
+  setup() {
     const instance: ComponentInternalInstance | null = getCurrentInstance()
 
     const state = inject('tabsState', {

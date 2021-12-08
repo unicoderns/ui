@@ -7,7 +7,7 @@ export interface UiAlertThemeConfigModel extends UiComponentThemeConfigModel {
     animated: string
     variants: KeyPairString
     components: {
-      buttonClose: string,
+      buttonClose: string
     }
   }
 }

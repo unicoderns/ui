@@ -6,18 +6,18 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
     "storybook-tailwind": "start-storybook -p 6007 -c .storybook-tailwind  -s ./storybook-static",
     "build-storybook": "build-storybook",
-    "bootstrap": "lerna bootstrap"
+    "bootstrap": "lerna bootstrap",
+    "transpile": "lerna run transpile",
+    "test": "lerna run test",
+    "lint": "lerna run lint"
   },
   "dependencies": {
     "@popperjs/core": "^2.10.2",
     "core-js": "^3.6.5",
-    "vue": "^3.0.0",
-    "vue-class-component": "^8.0.0-0"
+    "vue": "3.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -33,7 +33,7 @@
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/compiler-sfc": "3.1.5",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^2.0.0-0",
