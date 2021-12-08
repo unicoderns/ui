@@ -16,8 +16,8 @@
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
 import { useReactiveThemeConfig } from '@unicodernsui/core'
-import { TransitionPersistThemeConfigModel } from './models/transition-persist-theme-config.model'
-import { bsTransitionPersistThemeConfigDefaults } from './defaults/bs-transition-persist-theme.config'
+import { UiTransitionThemeConfigModel } from './models/ui-transition-theme-config.model'
+import { bsUiTransitionThemeConfigDefaults } from './defaults/bs-ui-transition-theme.config'
 
 const TAG_NAME = 'uiTransition'
 
@@ -28,11 +28,11 @@ export default defineComponent({
   },
   setup(props, { attrs }) {
 
-    const theme = useReactiveThemeConfig<TransitionPersistThemeConfigModel>(
+    const theme = useReactiveThemeConfig<UiTransitionThemeConfigModel>(
       TAG_NAME,
       attrs,
       props,
-      bsTransitionPersistThemeConfigDefaults
+      bsUiTransitionThemeConfigDefaults
     )
 
     const classes = computed((): string[] => {
