@@ -12,7 +12,7 @@ import {
   onBeforeMount,
   toRefs,
 } from 'vue'
-import { TabPropsModel } from './models/tabs-panel.model'
+import { UiTabPropsModel } from './models/ui-tabs-props.model'
 
 const TAG_NAME = 'uiTab'
 export default defineComponent({
@@ -29,13 +29,13 @@ export default defineComponent({
     const instance: ComponentInternalInstance | null = getCurrentInstance()
 
     const state = inject('tabsState', {
-      tabs: new Array<TabPropsModel>(),
+      tabs: new Array<UiTabPropsModel>(),
       active: 0,
     })
 
     const index = computed(() =>
       state.tabs.findIndex(
-        (target: TabPropsModel) => target.uid === instance?.uid
+        (target: UiTabPropsModel) => target.uid === instance?.uid
       )
     )
 
@@ -43,7 +43,7 @@ export default defineComponent({
 
     onBeforeMount(() => {
       if (instance && index.value === -1) {
-        const aux: TabPropsModel = {
+        const aux: UiTabPropsModel = {
           props: {
             title: String(instance.props.title),
             disabled: Boolean(instance.props.disabled),

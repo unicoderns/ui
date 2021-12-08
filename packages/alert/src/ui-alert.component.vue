@@ -57,7 +57,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiAlertThemeConfigDefaults,
+      bsUiAlertThemeConfigDefaults
     )
 
     const aria = useReactiveAriaConfig<UiAlertAriaConfigModel>(

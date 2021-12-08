@@ -1,6 +1,9 @@
-import { UiComponentThemeConfigModel, PopperPlacement } from '@unicodernsui/core'
+import {
+  UiComponentThemeConfigModel,
+  PopperPlacement,
+} from '@unicodernsui/core'
 
-export interface TooltipMessageThemeConfigModel
+export interface UiTooltipMessageThemeConfigModel
   extends UiComponentThemeConfigModel {
   cssClass: {
     main: string

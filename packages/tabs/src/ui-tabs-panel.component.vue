@@ -24,12 +24,15 @@
 
 <script lang="ts">
 import { defineComponent, reactive, provide } from 'vue'
-import { useReactiveAriaConfig, useReactiveThemeConfig } from '@unicodernsui/core'
-import { TabPropsModel } from './models/tabs-panel.model'
+import { UiTabPropsModel } from './models/ui-tabs-props.model'
 import { bsTabsPanelThemeConfigDefaults } from './defaults/bs-tabs-panel-theme.config'
-import { TabsPanelAriaConfigModel } from './models/tabs-panel-accessibility-config.model'
-import { tabsPanelAriaDefaults } from './defaults/tabs-panel-accessibility.config'
-import { TabsPanelThemeConfigModel } from './models/tabs-panel-theme-config.model'
+import { uiTabsPanelAriaConfigModel } from './models/ui-tabs-panel-aria-config.model'
+import { UiTabsPanelAriaDefaults } from './defaults/ui-tabs-panel-aria.config'
+import { UiTabsPanelThemeConfigModel } from './models/ui-tabs-panel-theme-config.model'
+import {
+  useReactiveAriaConfig,
+  useReactiveThemeConfig,
+} from '@unicodernsui/core'
 
 const TAG_NAME = 'uiTabs'
 export default defineComponent({
@@ -37,7 +40,7 @@ export default defineComponent({
   emits: ['select'],
   setup(props, { emit, attrs }) {
     const tabsState = reactive({
-      tabs: new Array<TabPropsModel>(),
+      tabs: new Array<UiTabPropsModel>(),
       active: 0,
     })
     provide('tabsState', tabsState)
@@ -47,18 +50,18 @@ export default defineComponent({
       emit('select')
     }
 
-    const theme = useReactiveThemeConfig<TabsPanelThemeConfigModel>(
+    const theme = useReactiveThemeConfig<UiTabsPanelThemeConfigModel>(
       TAG_NAME,
       attrs,
       props,
       bsTabsPanelThemeConfigDefaults
     )
 
-    const aria = useReactiveAriaConfig<TabsPanelAriaConfigModel>(
+    const aria = useReactiveAriaConfig<uiTabsPanelAriaConfigModel>(
       TAG_NAME,
       attrs,
       props,
-      tabsPanelAriaDefaults
+      UiTabsPanelAriaDefaults
     )
 
     return { tabsState, theme, aria, select }

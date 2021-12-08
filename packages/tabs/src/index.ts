@@ -1,7 +1,7 @@
-import UiTabs from './tabs-panel.component.vue'
-import UiTab from './tab.component.vue'
+import UiTabs from './ui-tabs-panel.component.vue'
+import UiTab from './ui-tab.component.vue'
 
 export { UiTabs, UiTab }
-export { TabPropsModel } from './models/tabs-panel.model'
-export * from './models/tabs-panel-theme-config.model'
-export * from './models/tabs-panel-accessibility-config.model'
+export { UiTabPropsModel } from './models/ui-tabs-props.model'
+export * from './models/ui-tabs-panel-theme-config.model'
+export * from './models/ui-tabs-panel-aria-config.model'
