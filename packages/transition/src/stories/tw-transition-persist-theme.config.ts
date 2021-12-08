@@ -1,6 +1,6 @@
-import { TransitionPersistThemeConfigModel } from '../'
+import { UiTransitionThemeConfigModel } from '../'
 
-export const twTransitionPersistThemeConfigDefaults: TransitionPersistThemeConfigModel = {
+export const twUiTransitionThemeConfigDefaults: UiTransitionThemeConfigModel = {
   cssClass: {
     persistent: 'opacity-100',
   },

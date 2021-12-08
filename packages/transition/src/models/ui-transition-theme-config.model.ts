@@ -1,6 +1,6 @@
 import { UiComponentThemeConfigModel } from '@unicodernsui/core'
 
-export interface TransitionPersistThemeConfigModel
+export interface UiTransitionThemeConfigModel
   extends UiComponentThemeConfigModel {
   cssClass: {
     persistent: string

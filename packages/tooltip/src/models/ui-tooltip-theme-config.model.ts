@@ -3,8 +3,7 @@ import {
   PopperPlacement,
 } from '@unicodernsui/core'
 
-export interface UiTooltipMessageThemeConfigModel
-  extends UiComponentThemeConfigModel {
+export interface UiTooltipThemeConfigModel extends UiComponentThemeConfigModel {
   cssClass: {
     main: string
     animated: string

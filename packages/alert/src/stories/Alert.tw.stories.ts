@@ -8,7 +8,7 @@ import {
 } from '@unicodernsui/button-close'
 import {
   UiTransition,
-  twTransitionPersistThemeConfigDefaults,
+  twUiTransitionThemeConfigDefaults,
 } from '@unicodernsui/transition'
 import { UiAlert, UiAlertModel } from '../'
 import { twUiAlertThemeConfigDefaults } from './tw-ui-alert-theme.config'
@@ -35,7 +35,7 @@ const Template = (args: StoryModel) => ({
   components: { UiAlert },
   setup() {
     setThemeConfig({
-      [UiTransition.TAG_NAME]: twTransitionPersistThemeConfigDefaults,
+      [UiTransition.TAG_NAME]: twUiTransitionThemeConfigDefaults,
       [UiButtonClose.TAG_NAME]: twUiButtonCloseThemeConfigDefaults,
       [UiAlert.TAG_NAME]: twUiAlertThemeConfigDefaults,
     })

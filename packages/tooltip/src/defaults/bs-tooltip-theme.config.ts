@@ -1,11 +1,11 @@
 import { PopperPlacement } from '@unicodernsui/core'
-import { UiTooltipMessageThemeConfigModel } from '../models/ui-tooltip-message-theme-config.model'
+import { UiTooltipThemeConfigModel } from '../models/ui-tooltip-theme-config.model'
 
 const baseClass = 'tooltip'
 
 const getPlacement = (value: PopperPlacement | string) => `bs-tooltip-${value}`
 
-export const bsTooltipMessageThemeConfigDefaults: UiTooltipMessageThemeConfigModel = {
+export const bsUiTooltipThemeConfigDefaults: UiTooltipThemeConfigModel = {
   cssClass: {
     main: `${baseClass} show`,
     animated: 'fade',
