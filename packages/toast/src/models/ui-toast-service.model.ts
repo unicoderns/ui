@@ -1,4 +1,4 @@
-import { UiToastModel } from './toast-message.model'
+import { UiToastModel } from './ui-toast.model'
 
 export interface UiToastService {
   add(message: UiToastModel): void

@@ -9,7 +9,8 @@
       ref="mainButton"
       v-bind="buttonProps"
       :aria:groupRole="aria.groupRole"
-      @toggle="toggle">
+      @toggle="toggle"
+    >
       <span v-if="!!label">{{ label }}</span>
       <slot v-else-if="slots.label" name="label" />
     </UiDropdownButton>
@@ -56,7 +57,7 @@ export default defineComponent({
   TAG_NAME,
   props: {
     label: { type: String, default: null },
-    datasource: { type: Array as PropType<MenuItem[]>, default: [] },
+    datasource: { type: Array as PropType<MenuItem[]>, default: () => [] },
     invert: { type: Boolean, default: false },
     anchor: { type: Boolean, default: false },
     outline: { type: Boolean, default: false },

@@ -107,14 +107,14 @@ export default defineComponent({
     } = toRefs(props)
     const main: Ref<HTMLElement | null> = ref(null)
     const remove = ref(false)
-    watch(show, value => remove.value = !value)
+    watch(show, value => (remove.value = !value))
     const visible = computed(() => show.value && !remove.value)
 
     const theme = useReactiveThemeConfig<UiModalThemeConfigModel>(
       TAG_NAME,
       attrs,
       props,
-      bsUiModalThemeConfigDefaults,
+      bsUiModalThemeConfigDefaults
     )
 
     const aria = useReactiveAriaConfig<UiModalAriaConfigModel>(
@@ -173,6 +173,5 @@ export default defineComponent({
     }
   },
 })
-//TODO: fullscreen, dynamic height, 
-
+//TODO: fullscreen, dynamic height,
 </script>

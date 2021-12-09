@@ -27,7 +27,6 @@ export default defineComponent({
     ['class:persistent']: { type: String, default: null },
   },
   setup(props, { attrs }) {
-
     const theme = useReactiveThemeConfig<UiTransitionThemeConfigModel>(
       TAG_NAME,
       attrs,

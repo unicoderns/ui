@@ -29,8 +29,8 @@ export default {
   },
 }
 
-const datasource: MenuItem[] =
-  [{
+const datasource: MenuItem[] = [
+  {
     type: MenuItemTypes.Header,
     content: 'This is a header item',
   },
@@ -82,7 +82,7 @@ const datasource: MenuItem[] =
     type: MenuItemTypes.Raw,
     content: '<i>This is a <b>raw</b> item</i>',
   },
-  ]
+]
 const Template = (args: UiDropdownModel) => ({
   components: { UiDropdown },
   setup() {
@@ -110,7 +110,6 @@ const baseArgs: UiDropdownModel = {
   splitButton: true,
   arrowDirection: Directions.Down,
 }
-
 
 export const Primary = Template.bind({})
 Primary.args = {

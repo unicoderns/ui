@@ -1,6 +1,6 @@
 import { Ref, ref } from 'vue'
 import { UiToastQueueModel } from './models/ui-toast-queue.model'
-import { UiToastModel } from './models/toast-message.model'
+import { UiToastModel } from './models/ui-toast.model'
 import { UiToastService } from './models/ui-toast-service.model'
 
 export class ToastMessageQueueService implements UiToastService {
