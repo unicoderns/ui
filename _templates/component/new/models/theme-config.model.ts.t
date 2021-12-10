@@ -3,7 +3,8 @@ to: packages/<%= h.changeCase.param(name) %>/src/models/ui-<%= h.changeCase.para
 ---
 import { UiComponentThemeConfigModel, KeyPairString } from '@unicodernsui/core'
 
-export interface Ui<%= h.changeCase.pascal(name) %>ThemeConfigModel extends UiComponentThemeConfigModel {
+export interface Ui<%= h.changeCase.pascal(name) %>ThemeConfigModel
+  extends UiComponentThemeConfigModel {
   cssClass: {
     main: string
     variants: KeyPairString

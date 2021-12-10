@@ -57,6 +57,6 @@ export default defineComponent({
       aria,
       classes,
     }
-  }
+  },
 })
 </script>

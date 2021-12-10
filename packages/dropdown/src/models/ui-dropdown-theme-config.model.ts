@@ -1,7 +1,7 @@
 import {
   KeyPairString,
   Directions,
-  UiComponentThemeConfigModel
+  UiComponentThemeConfigModel,
 } from '@unicodernsui/core'
 
 export interface UiDropdownThemeConfigModel
