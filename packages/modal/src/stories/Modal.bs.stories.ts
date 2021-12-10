@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
-import { ModalSizeVariants } from '@unicodernsui/core'
+import { ModalSizeVariants, ResponsiveVariants } from '@unicodernsui/core'
 import { UiModal, UiModalModel } from '../'
 
 export default {
@@ -12,6 +12,10 @@ export default {
     size: {
       control: { type: 'select' },
       options: Object.values(ModalSizeVariants),
+    },
+    fullscreen: {
+      control: { type: 'select' },
+      options: [false, true, ...Object.values(ResponsiveVariants)],
     },
   },
 }

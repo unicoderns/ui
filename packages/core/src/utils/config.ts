@@ -224,7 +224,6 @@ export function useReactiveResponsiveConfig(
 
 export function setThemeConfig(custom: UiThemeConfigModel) {
   const current = getGlobalThemeConfig()
-  console.log('global', current)
   provide(uiThemeConfigInjectionToken, {
     ...current,
     ...custom,

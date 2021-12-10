@@ -1,4 +1,8 @@
-import { SizeVariants, UiComponentThemeConfigModel } from '@unicodernsui/core'
+import {
+  ResponsiveVariants,
+  SizeVariants,
+  UiComponentThemeConfigModel,
+} from '@unicodernsui/core'
 
 export interface UiModalThemeConfigModel extends UiComponentThemeConfigModel {
   tags: {
@@ -15,6 +19,15 @@ export interface UiModalThemeConfigModel extends UiComponentThemeConfigModel {
     headerTitle: string
     body: string
     footer: string
+    fullscreenAll: string
+    fullscreenVariants: {
+      [ResponsiveVariants.ExtraExtraLarge]: string
+      [ResponsiveVariants.ExtraLarge]: string
+      [ResponsiveVariants.Large]: string
+      [ResponsiveVariants.Medium]: string
+      [ResponsiveVariants.Small]: string
+      [ResponsiveVariants.ExtraSmall]: string
+    }
     components: {
       buttonClose: string
     }

@@ -58,6 +58,7 @@ import {
 } from 'vue'
 import {
   ModalSizeVariant,
+  ResponsiveVariant,
   useReactiveAriaConfig,
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
@@ -88,6 +89,10 @@ export default defineComponent({
     verticalCenter: { type: Boolean, default: false },
     show: { type: Boolean, default: true },
     size: { type: String as PropType<ModalSizeVariant>, default: null },
+    fullscreen: {
+      type: String as PropType<ResponsiveVariant | boolean>,
+      default: null,
+    },
     ['aria:role']: { type: String, default: null },
     ['aria:buttonClose']: { type: String, default: null },
     ['aria:title']: { type: String, default: null },
@@ -104,6 +109,7 @@ export default defineComponent({
       verticalCenter,
       size,
       animate,
+      fullscreen,
     } = toRefs(props)
     const main: Ref<HTMLElement | null> = ref(null)
     const remove = ref(false)
@@ -124,6 +130,19 @@ export default defineComponent({
       uiModalAriaDefaults
     )
 
+    const fullscrenClass = (): string[] => {
+      const fullscren = fullscreen.value
+      if (!fullscren) return []
+
+      return [
+        fullscren === true
+          ? theme.value.cssClass.fullscreenAll
+          : theme.value.cssClass.fullscreenVariants[
+              fullscren as ResponsiveVariant
+            ],
+      ]
+    }
+
     const classes = computed(() => [
       theme.value.cssClass.main,
       ...(animate.value ? [theme.value.cssClass.animated] : []),
@@ -136,7 +155,9 @@ export default defineComponent({
         ? [theme.value.cssClass.verticallyCentered]
         : []),
       ...(scrollable.value ? [theme.value.cssClass.scrollable] : []),
+      ...fullscrenClass(),
     ])
+
     const close = (type: 'esc' | 'backdrop') => {
       console.log('close', type)
       if (type === 'esc' && disableEscKey.value) {

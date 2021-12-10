@@ -43,6 +43,7 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
   useReactiveResponsiveConfig,
+  ResponsiveVariant,
 } from '@unicodernsui/core'
 import { UiMenu } from '@unicodernsui/menu'
 import { bsUiDropdownThemeConfigDefaults } from './defaults/bs-ui-dropdown-theme.config'
@@ -122,7 +123,9 @@ export default defineComponent({
       return [
         menuAlignEnd.all ? theme.value.cssClass.menuEndAll : '',
         ...Object.entries(menuAlignEnd.variants).map(([key, value]) =>
-          value ? theme.value.cssClass.menuEndVariants[key] : ''
+          value
+            ? theme.value.cssClass.menuEndVariants[key as ResponsiveVariant]
+            : ''
         ),
       ]
     }
