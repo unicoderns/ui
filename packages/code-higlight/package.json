@@ -10,16 +10,13 @@
     "transpile": "vue-cli-service build --target lib src/index.ts"
   },
   "dependencies": {
-    "@highlightjs/vue-plugin": "^2.1.0",
     "@unicodernsui/button-close": "*",
     "@unicodernsui/core": "*",
     "@unicodernsui/transition": "*",
     "core-js": "^3.6.5",
     "highlight.js": "^11.3.1",
     "prismjs": "^1.25.0",
-    "vue": "3.1.5",
-    "vue-highlight.js": "^3.1.0",
-    "vue-prism-component": "^2.0.0"
+    "vue": "3.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
