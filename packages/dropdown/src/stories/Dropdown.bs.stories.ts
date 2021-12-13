@@ -1,3 +1,4 @@
+import { Ref, ref, watch } from 'vue'
 import {
   BootstrapVariants,
   SizeVariants,
@@ -26,6 +27,9 @@ export default {
       control: { type: 'select' },
       options: Object.values(BootstrapVariants),
     },
+  },
+  parameters: {
+    layout: 'centered',
   },
 }
 
@@ -86,7 +90,13 @@ const datasource: MenuItem[] = [
 const Template = (args: UiDropdownModel) => ({
   components: { UiDropdown },
   setup() {
-    return { args }
+    const container: Ref<HTMLElement | null> = ref(null)
+
+    watch(container, elem =>
+      elem?.scrollIntoView({ block: 'center', inline: 'center' })
+    )
+
+    return { args, container }
   },
   methods: {
     show: action('show'),
@@ -94,7 +104,11 @@ const Template = (args: UiDropdownModel) => ({
     select: action('select'),
   },
   template: `
-    <ui-dropdown v-bind="args" @show="show" @hide="hide" @select="select"></ui-dropdown>
+    <div style="overflow: scroll">
+      <div ref="container" style="width: 4000px; height: 4000px; display: flex; align-items: center; justify-content: center;">
+        <ui-dropdown v-bind="args" @show="show" @hide="hide" @select="select"></ui-dropdown>
+      <div>
+    <div>
   `,
 })
 
@@ -158,4 +172,33 @@ Dark.args = {
   ...baseArgs,
   variant: BootstrapVariants.Dark,
   invert: true,
+}
+
+export const MenuAlignEnd = Template.bind({})
+MenuAlignEnd.args = {
+  ...baseArgs,
+  variant: BootstrapVariants.Success,
+  menuAlignEnd: true,
+}
+
+
+export const Left = Template.bind({})
+Left.args = {
+  ...baseArgs,
+  variant: BootstrapVariants.Warning,
+  arrowDirection: Directions.Left,
+}
+
+export const Right = Template.bind({})
+Right.args = {
+  ...baseArgs,
+  variant: BootstrapVariants.Warning,
+  arrowDirection: Directions.Right,
+}
+
+export const Up = Template.bind({})
+Up.args = {
+  ...baseArgs,
+  variant: BootstrapVariants.Warning,
+  arrowDirection: Directions.Up,
 }
