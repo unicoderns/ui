@@ -1,6 +1,6 @@
 import {
   UiComponentThemeConfigModel,
-  PopperPlacement,
+  PopperCardinalPlacement,
 } from '@unicodernsui/core'
 
 export interface UiTooltipThemeConfigModel extends UiComponentThemeConfigModel {
@@ -10,10 +10,10 @@ export interface UiTooltipThemeConfigModel extends UiComponentThemeConfigModel {
     message: string
     arrow: string
     positions: {
-      [PopperPlacement.Top]: string
-      [PopperPlacement.Bottom]: string
-      [PopperPlacement.Right]: string
-      [PopperPlacement.Left]: string
+      [PopperCardinalPlacement.Top]: string
+      [PopperCardinalPlacement.Bottom]: string
+      [PopperCardinalPlacement.Right]: string
+      [PopperCardinalPlacement.Left]: string
     }
   }
 }

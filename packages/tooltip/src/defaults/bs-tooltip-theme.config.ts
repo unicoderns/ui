@@ -1,9 +1,9 @@
-import { PopperPlacement } from '@unicodernsui/core'
+import { PopperCardinalPlacement } from '@unicodernsui/core'
 import { UiTooltipThemeConfigModel } from '../models/ui-tooltip-theme-config.model'
 
 const baseClass = 'tooltip'
 
-const getPlacement = (value: PopperPlacement | string) => `bs-tooltip-${value}`
+const getPlacement = (value: PopperCardinalPlacement | string) => `bs-tooltip-${value}`
 
 export const bsUiTooltipThemeConfigDefaults: UiTooltipThemeConfigModel = {
   cssClass: {
@@ -12,10 +12,12 @@ export const bsUiTooltipThemeConfigDefaults: UiTooltipThemeConfigModel = {
     message: 'tooltip-inner',
     arrow: 'tooltip-arrow',
     positions: {
-      [PopperPlacement.Top]: getPlacement(PopperPlacement.Top),
-      [PopperPlacement.Bottom]: getPlacement(PopperPlacement.Bottom),
-      [PopperPlacement.Right]: getPlacement('end'),
-      [PopperPlacement.Left]: getPlacement('start'),
+      [PopperCardinalPlacement.Top]: getPlacement(PopperCardinalPlacement.Top),
+      [PopperCardinalPlacement.Bottom]: getPlacement(
+        PopperCardinalPlacement.Bottom
+      ),
+      [PopperCardinalPlacement.Right]: getPlacement('end'),
+      [PopperCardinalPlacement.Left]: getPlacement('start'),
     },
   },
 }
