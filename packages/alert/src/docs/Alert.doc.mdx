@@ -1,0 +1,87 @@
+import { Story, Canvas, Preview } from '@storybook/addon-docs';
+
+# Alerts
+Display an alert with text to users.
+
+```javascript
+    <ui-alert :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.default }}</ui-alert>
+```
+
+## Variants
+
+Alerts support multiple variants
+
+- [Primary](?path=/docs/ui-bootstrap-alert--primary&args=#primary)
+- [Secondary](?path=/docs/ui-bootstrap-alert--secondary&args=#secondary)
+- [Success](?path=/docs/ui-bootstrap-alert--success&args=#success)
+- [Danger](?path=/docs/ui-bootstrap-alert--danger&args=#danger)
+- [Warning](?path=/docs/ui-bootstrap-alert--warning&args=#warning)
+- [Info](?path=/docs/ui-bootstrap-alert--info&args=#info)
+- [Light](?path=/docs/ui-bootstrap-alert--light&args=#light)
+- [Dark](?path=/docs/ui-bootstrap-alert--dark&args=#dark)
+- [Inverted](?path=/docs/ui-bootstrap-alert--inverted&args=#inverted)
+- [Animated](?path=/docs/ui-bootstrap-alert--animated&args=#animated)
+
+<>
+
+### Primary
+<Canvas>
+  <Story id="ui-bootstrap-alert--primary"/>
+</Canvas>
+
+### Secondary
+<Canvas>
+  <Story id="ui-bootstrap-alert--secondary" />
+</Canvas>
+
+### Success
+<Canvas>
+  <Story id="ui-bootstrap-alert--success" />
+</Canvas>
+
+### Danger
+<Canvas>
+  <Story id="ui-bootstrap-alert--danger" />
+</Canvas>
+
+### Warning
+<Canvas>
+  <Story id="ui-bootstrap-alert--warning" />
+</Canvas>
+
+### Info
+<Canvas>
+  <Story id="ui-bootstrap-alert--info" />
+</Canvas>
+
+### Light
+<Canvas>
+  <Story id="ui-bootstrap-alert--light" />
+</Canvas>
+
+### Dark
+<Canvas>
+  <Story id="ui-bootstrap-alert--dark" />
+</Canvas>
+
+### Inverted
+
+Use the `invert` prop to alternate styles 
+<Canvas>
+  <Story id="ui-bootstrap-alert--inverted" />
+</Canvas>
+
+### Dismissible
+
+Use the `dismissible` prop to add a closable alert
+<Canvas>
+  <Story id="ui-bootstrap-alert--dismissible" />
+</Canvas>
+
+### Animated
+
+Use the `animate` prop to animate an alert
+<Canvas>
+  <Story id="ui-bootstrap-alert--animated" />
+</Canvas>
+</>

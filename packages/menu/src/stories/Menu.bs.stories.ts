@@ -1,12 +1,18 @@
 import { action } from '@storybook/addon-actions'
 import { MenuItem } from '@unicodernsui/core'
 import { UiMenu, UiMenuModel } from '../'
+import { UiMenuDoc } from '../dev'
 
 export default {
   title: 'UI/Bootstrap/Menu',
   component: UiMenu,
   argTypes: {
     custom: { control: { type: 'boolean' } },
+  },
+  parameters: {
+    docs: {
+      page: UiMenuDoc,
+    },
   },
 }
 

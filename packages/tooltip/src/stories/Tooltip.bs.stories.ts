@@ -2,6 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
 import { PopperCardinalPlacement } from '@unicodernsui/core'
 import { installTooltipDirective } from '../'
+import { UiTooltipDoc } from '../dev'
 
 installTooltipDirective(app)
 
@@ -13,6 +14,9 @@ export default {
   },
   parameters: {
     layout: 'centered',
+    docs: {
+      page: UiTooltipDoc,
+    },
   },
 }
 

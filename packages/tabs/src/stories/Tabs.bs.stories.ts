@@ -1,9 +1,15 @@
 import { action } from '@storybook/addon-actions'
 import { UiTabs, UiTab } from '../'
+import { UiTabsDoc } from '../dev'
 
 export default {
   title: 'UI/Bootstrap/Tabs',
   components: { UiTabs, UiTab },
+  parameters: {
+    docs: {
+      page: UiTabsDoc,
+    },
+  },
 }
 
 type StoryModel = {

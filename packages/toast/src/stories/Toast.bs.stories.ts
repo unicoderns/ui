@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
 import { BootstrapVariants, Position } from '@unicodernsui/core'
 import { UiToastModel, UiToastMessagePlugin, UiToastService } from '../'
+import { UiToastDoc } from '../dev'
 
 app.use(UiToastMessagePlugin)
 
@@ -24,6 +25,11 @@ export default {
     ['aria:buttonClose']: {
       name: 'aria:buttonClose',
       control: { type: 'text' },
+    },
+  },
+  parameters: {
+    docs: {
+      page: UiToastDoc,
     },
   },
 }

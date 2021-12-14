@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { ModalSizeVariants, ResponsiveVariants } from '@unicodernsui/core'
 import { UiModal, UiModalModel } from '../'
+import { UiModalDoc } from '../dev'
 
 export default {
   title: 'UI/Bootstrap/Modal',
@@ -16,6 +17,11 @@ export default {
     fullscreen: {
       control: { type: 'select' },
       options: [false, true, ...Object.values(ResponsiveVariants)],
+    },
+  },
+  parameters: {
+    docs: {
+      page: UiModalDoc,
     },
   },
 }
