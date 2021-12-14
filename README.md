@@ -22,7 +22,7 @@ yarn storybook-tailwind
 
 ### Compiles and minifies for production
 ```
-yarn transpile
+yarn build
 ```
 
 ### Run your unit tests
@@ -60,8 +60,6 @@ After this you should manually include the new path in the tsconfig.json paths
 },
 ```
 
-This are the steps that the hygen command will execute
-
 #### Add other dependencies
 If your project uses other dependencies from other components add the, to your package local package.json
 i.e lets say your project needs the transition component
@@ -75,7 +73,11 @@ i.e lets say your project needs the transition component
 },
 ```
 
+#### Add unit testing
+By default the code generation will add a unit test with a basic test, make sure you also add the testing to your component.
+
 ### What does hyden do
+This are the steps that the hygen command will execute
 1. Create a package: This creates a folder inside the packages dir with the next structure
 ```
 -- packages

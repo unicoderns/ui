@@ -2,14 +2,10 @@ import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { setThemeConfig } from '@unicodernsui/core'
 import { TailwindVariants } from '@unicodernsui/custom-theme'
-import {
-  UiButtonClose,
-  twUiButtonCloseThemeConfigDefaults,
-} from '@unicodernsui/button-close'
-import {
-  UiTransition,
-  twUiTransitionThemeConfigDefaults,
-} from '@unicodernsui/transition'
+import { UiButtonClose } from '@unicodernsui/button-close'
+import { twUiButtonCloseThemeConfigDefaults } from '@unicodernsui/button-close/src/dev'
+import { UiTransition } from '@unicodernsui/transition'
+import { twUiTransitionThemeConfigDefaults } from '@unicodernsui/transition/src/dev'
 import { UiAlert, UiAlertModel } from '../'
 import { twUiAlertThemeConfigDefaults } from './tw-ui-alert-theme.config'
 
