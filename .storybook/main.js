@@ -1,5 +1,6 @@
 module.exports = {
   stories: [
+    "../docs/*.mdx",
     "../**/stories/*.bs.stories.mdx",
     "../**/stories/*.bs.stories.@(js|jsx|ts|tsx)"
   ],
@@ -7,7 +8,13 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-actions",
-    '@whitespace/storybook-addon-html',
+    "@whitespace/storybook-addon-html",
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        transcludeMarkdown: true,
+      },
+    },
   ],
   typescript: {
     check: false,

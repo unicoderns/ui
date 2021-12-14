@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { BootstrapVariants } from '@unicodernsui/core'
 import { UiAlert, UiAlertModel } from '../'
+import { UiAlertDoc } from '../dev'
 
 export default {
   title: 'UI/Bootstrap/Alert',
@@ -11,6 +12,11 @@ export default {
     variant: {
       control: { type: 'select' },
       options: Object.values(BootstrapVariants),
+    },
+  },
+  parameters: {
+    docs: {
+      page: UiAlertDoc,
     },
   },
 }

@@ -1,6 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { BootstrapVariants, ButtonSizeVariants } from '@unicodernsui/core'
 import { UiButton, UiButtonModel } from '../'
+import { UiButtonDoc } from '../dev'
 
 export default {
   title: 'UI/Bootstrap/Button',
@@ -16,6 +17,11 @@ export default {
       options: Object.values(BootstrapVariants),
     },
     toggle: { control: { type: 'boolean' } },
+  },
+  parameters: {
+    docs: {
+      page: UiButtonDoc,
+    },
   },
 }
 

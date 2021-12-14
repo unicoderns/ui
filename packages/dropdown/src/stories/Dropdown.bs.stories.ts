@@ -9,6 +9,7 @@ import {
 } from '@unicodernsui/core'
 import { action } from '@storybook/addon-actions'
 import { UiDropdown, UiDropdownModel } from '../'
+import { UiDropdownDoc } from '../dev'
 
 export default {
   title: 'UI/Bootstrap/Dropdown',
@@ -30,6 +31,9 @@ export default {
   },
   parameters: {
     layout: 'centered',
+    docs: {
+      page: UiDropdownDoc,
+    },
   },
 }
 
