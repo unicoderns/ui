@@ -6,6 +6,9 @@ const classPrefix = cssClassPrefix(baseClass)
 const getPrefixedClass = (value: string) => `${classPrefix}${value}`
 
 export const bsUiMenuThemeConfigDefaults: UiMenuThemeConfigModel = {
+  tags: {
+    headerItem: 'h6',
+  },
   cssClass: {
     main: baseClass,
     invert: getPrefixedClass('dark'),

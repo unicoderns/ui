@@ -194,5 +194,5 @@ export default defineComponent({
     }
   },
 })
-//TODO: fullscreen, dynamic height,
+//TODO: dynamic height,
 </script>

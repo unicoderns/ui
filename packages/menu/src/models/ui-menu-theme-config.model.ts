@@ -1,6 +1,9 @@
 import { UiComponentThemeConfigModel } from '@unicodernsui/core'
 
 export interface UiMenuThemeConfigModel extends UiComponentThemeConfigModel {
+  tags: {
+    headerItem: string
+  }
   cssClass: {
     main: string
     invert: string
