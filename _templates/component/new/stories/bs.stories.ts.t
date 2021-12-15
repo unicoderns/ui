@@ -4,6 +4,7 @@ to: packages/<%= h.changeCase.param(name) %>/src/stories/<%= h.changeCase.pascal
 import { action } from '@storybook/addon-actions'
 import { BootstrapVariants } from '@unicodernsui/core'
 import { Ui<%= h.changeCase.pascal(name) %>, Ui<%= h.changeCase.pascal(name) %>Model } from '../'
+import { Ui<%= h.changeCase.pascal(name) %>Doc } from '../dev'
 
 export default {
   title: 'UI/Bootstrap/<%= h.changeCase.pascal(name) %>',
@@ -15,6 +16,11 @@ export default {
       options: Object.values(BootstrapVariants),
     },
     toggle: { control: { type: 'boolean' } },
+  },
+  parameters: {
+    docs: {
+      page: Ui<%= h.changeCase.pascal(name) %>Doc,
+    },
   },
 }
 

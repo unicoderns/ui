@@ -86,6 +86,8 @@ This are the steps that the hygen command will execute
         -- defaults
           -- bs-ui-<component-name>-theme.config.ts
           -- ui-<component-name>-aria.config.ts
+        -- docs
+          -- <ComponentName>.doc.mdx
         -- models
           -- ui-<component-name>-aria.model.ts
           -- ui-<component-name>-theme.model.ts
@@ -95,11 +97,16 @@ This are the steps that the hygen command will execute
           -- <ComponentName>.tw.stories.ts
           -- tw-ui-<component-name>-theme.config.ts
         -- index.ts
+        -- dev.ts
         -- shims-vue.d.ts
         -- ui-<component-name>.component.vue
+      -- .eslintrc.js
       -- babel.config.js
+      -- jest.config.js
       -- package.json
       -- tsconfig.json
+      -- test
+        -- ui-<component-name>.spec.ts
 ```
 1. Create a custom model: This includes 3 files:
   - the theme model `ui-<component-name>-aria.model.ts`
@@ -111,3 +118,5 @@ This are the steps that the hygen command will execute
 1. Create the bootstrap stories: `<ComponentName>.bs.stories.ts`
 1. Create the tailwind stories: `<ComponentName>.tw.stories.ts`
 1. Create the main vue component using composition api for Vue 3 with the respective project configuration files.
+1. Create the docs file `<ComponentName>.doc.mdx` and inject it in the stories. Includes it in the `dev.ts` file for easy importing.
+1. create the test file `ui-<component-name>.spec.ts` with other static files required by jest `.eslintrc.js` and `jest.config.js`

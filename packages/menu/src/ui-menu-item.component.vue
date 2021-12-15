@@ -1,6 +1,12 @@
 <template>
   <li @click="select">
-    <a ref="item" v-if="isLink" :class="classes" v-bind="elementAttrs">
+    <a
+      ref="item"
+      v-if="isLink"
+      :class="classes"
+      v-bind="elementAttrs"
+      @focus="focused"
+    >
       <slot />
     </a>
     <button
@@ -9,16 +15,18 @@
       :class="classes"
       type="button"
       v-bind="elementAttrs"
+      @focus="focused"
     >
       <slot />
     </button>
-    <h6
+    <component
+      :is="theme.tags.headerItem"
       v-else-if="isHeader"
       :class="theme.cssClass.header"
       v-bind="elementAttrs"
     >
       <slot />
-    </h6>
+    </component>
     <span v-else-if="isText" :class="theme.cssClass.text" v-bind="elementAttrs">
       <slot />
     </span>
@@ -52,7 +60,7 @@ export default defineComponent({
       default: null,
     },
   },
-  emits: ['select'],
+  emits: ['select', 'focus'],
   setup(props, { emit, attrs }) {
     const { type, active, disabled } = toRefs(props)
     const item = ref<HTMLElement | null>(null)
@@ -84,7 +92,8 @@ export default defineComponent({
         emit('select')
       }
     }
-    const focus = (): void => item.value?.focus()
+    const focus = () => item.value?.focus()
+    const focused = () => emit('focus')
     return {
       classes,
       isLink,
@@ -97,6 +106,7 @@ export default defineComponent({
       theme,
       select,
       focus,
+      focused,
     }
   },
 })

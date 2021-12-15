@@ -28,19 +28,17 @@ const Template = (args: StoryModel) => ({
     return { args }
   },
   methods: {
-    toggle: action('toggle'),
+    select: action('select'),
   },
   template: `
-    <ui-menu v-if="args.custom" :="args">
+    <ui-menu v-if="args.custom" :="args" @select="select">
       <template #default="{ item }">
         <i>
           &#9917 <b>{{ item.content }}</b>
         </i>
       </template>
     </ui-menu>
-    <ui-menu v-else :="args">
-      <template #default="{ item }">{{ item.content }}</template>
-    </ui-menu>
+    <ui-menu v-else :="args"  @select="select"></ui-menu>
   `,
 })
 
