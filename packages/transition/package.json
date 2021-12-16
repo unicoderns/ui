@@ -3,7 +3,6 @@
     "version": "0.0.1",
     "description": "Custom transition component",
     "scripts": {
-      "test:unit": "vue-cli-service test:unit",
       "lint": "vue-cli-service lint",
       "build": "vue-cli-service build --target lib src/index.ts"
     },
