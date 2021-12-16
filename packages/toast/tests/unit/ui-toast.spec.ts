@@ -17,8 +17,6 @@ describe('ui-toast-container.vue', () => {
   })
 
   it('should render when props are set', () => {
-    const wrapper = mount(UiToastContainer)
-
     expect(wrapper.exists()).toBeTruthy()
   })
 
