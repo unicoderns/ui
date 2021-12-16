@@ -94,7 +94,6 @@ describe('ui-toast-container.vue', () => {
     await wrapper2.vm.$nextTick()
 
     const toastBody = wrapper2.find(`div.${theme.cssClass.body} a`)
-    console.log()
     expect(toastBody.text()).toEqual('some message')
   })
 
