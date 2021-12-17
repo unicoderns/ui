@@ -211,11 +211,12 @@ export default defineComponent({
       }
     }
 
-    const watchExpanded = watch(expanded, value => {
+    const watchExpanded = watch(
+      expanded,
+      value => {
         value ? emit('show') : emit('hide')
 
         if (value && mainButton.value && menu.value) {
-          console.log('menu.value', popperConfig())
           createPopper(mainButton.value.$el, menu.value?.$el, popperConfig())
         }
       },

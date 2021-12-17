@@ -15,5 +15,5 @@ export interface UiModalModel {
   ['aria:role']: string
   ['aria:buttonClose']: string
   ['aria:title']: string
-  ['aria:body']: string
+  ['aria:description']: string
 }
