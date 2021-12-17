@@ -1,5 +1,4 @@
 import { App, ComponentPublicInstance, createApp } from 'vue'
-
 import { ToastMessageQueueService } from './toast-message-queue.service'
 import { UiToastModel } from './models/ui-toast.model'
 import { UiToastService } from './models/ui-toast-service.model'
@@ -12,8 +11,6 @@ type ToastContainerPublicInstance = ComponentPublicInstance & {
 }
 
 class PluginToastMessageService implements UiToastService {
-  constructor(private VueApp: App) {}
-
   add(message: UiToastModel): void {
     this.queueService.add(message)
   }
@@ -41,7 +38,7 @@ class PluginToastMessageService implements UiToastService {
 export default {
   ServiceInjectionToken,
   install(VueApp: App) {
-    const service = new PluginToastMessageService(VueApp)
+    const service = new PluginToastMessageService()
     VueApp.provide(ServiceInjectionToken, service)
   },
 }

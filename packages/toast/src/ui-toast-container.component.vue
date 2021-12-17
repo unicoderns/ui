@@ -47,7 +47,10 @@ export default defineComponent({
     UiToast,
   },
   props: {
-    defaultPosition: { type: String as PropType<Position>, default: null },
+    defaultPosition: {
+      type: String as PropType<Position>,
+      default: Position.BottomRight,
+    },
   },
   setup(props, { slots, attrs }) {
     const toastService =

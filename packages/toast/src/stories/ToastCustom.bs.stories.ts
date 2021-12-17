@@ -62,7 +62,10 @@ const Template = (args: StoryModel) => ({
       <ui-toast-container 
         :defaultPosition="args.position"
         style="position: absolute; width: 100%; height: 100%; "
-      ></ui-toast-container>
+      >
+      <template #toastHeader="{ item }"> &#9917 {{ item.headerText }}</template>
+      <template #toastBody="{ item }"><a>{{ item.message }}</a></template>
+      </ui-toast-container>
     </div>
   `,
 })
