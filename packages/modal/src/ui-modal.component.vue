@@ -96,7 +96,7 @@ export default defineComponent({
     ['aria:role']: { type: String, default: null },
     ['aria:buttonClose']: { type: String, default: null },
     ['aria:title']: { type: String, default: null },
-    ['aria:body']: { type: String, default: null },
+    ['aria:description']: { type: String, default: null },
   },
   emits: ['show', 'hide', 'close'],
   setup(props, { emit, slots, attrs }) {
@@ -159,7 +159,6 @@ export default defineComponent({
     ])
 
     const close = (type: 'esc' | 'backdrop') => {
-      console.log('close', type)
       if (type === 'esc' && disableEscKey.value) {
         return
       }

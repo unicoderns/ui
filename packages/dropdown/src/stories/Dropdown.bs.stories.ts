@@ -111,8 +111,8 @@ const Template = (args: UiDropdownModel) => ({
     <div style="overflow: scroll">
       <div ref="container" style="width: 4000px; height: 4000px; display: flex; align-items: center; justify-content: center;">
         <ui-dropdown v-bind="args" @show="show" @hide="hide" @select="select"></ui-dropdown>
-      <div>
-    <div>
+      </div>
+    </div>
   `,
 })
 
