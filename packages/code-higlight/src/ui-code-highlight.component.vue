@@ -15,6 +15,7 @@ import Prism from 'prismjs'
 import 'prismjs/themes/prism.css'
 import 'prismjs/components/prism-markdown'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
 
 const TAG_NAME = 'uiCodeHighlight'
 export default defineComponent({
