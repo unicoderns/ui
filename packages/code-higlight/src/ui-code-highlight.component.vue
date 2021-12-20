@@ -1,12 +1,16 @@
 <template>
-  <div ref="code">
+  <div ref="codeBlock">
     <slot />
   </div>
-  <pre class="line-numbers"><code class="language-html">{{newText}}</code></pre>
+  <pre
+    class="line-numbers"
+  ><code class="language-html">{{codeToShow}}</code></pre>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue'
+import { defineComponent, ref, watch, Ref, onUnmounted } from 'vue'
+import prettier from 'prettier'
+import parserHtml from 'prettier/parser-html'
 import Prism from 'prismjs'
 import 'prismjs/themes/prism.css'
 import 'prismjs/components/prism-markdown'
@@ -15,21 +19,45 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 const TAG_NAME = 'uiCodeHighlight'
 export default defineComponent({
   TAG_NAME,
-  setup(props, { emit, attrs }) {
-    const code = ref('')
-    const html = `<div><ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link
-          " role="tab">Tab 1</a></li><li class="nav-item"><a class="nav-link
-          " role="tab">Tab 2</a></li><li class="nav-item"><a class="nav-link
-          active
-          " aria-current="page" role="tab">Tab 3</a></li><li class="nav-item"><a class="nav-link
-          disabled" role="tab">Tab 4</a></li></ul><!--v-if--><!--v-if--> Hello From Tab 3 <!--v-if--></div>`
-    const newText = html.replace(/^[\r\n\s]*|[\r\n\s]*$/g, '')
-    onMounted(() => {
-      Prism.highlightAll()
-      console.log(code.value)
+  props: {
+    code: { type: String, default: null },
+    lang: { type: String, default: null },
+  },
+  setup(props, { slots }) {
+    const codeBlock: Ref<HTMLElement | null> = ref(null)
+    const codeToShow = ref()
+
+    // const newText = html.replace(/^[\r\n\s]*|[\r\n\s]*$/g, '')
+    // onMounted(() => {
+    //   // console.log(codeBlock.value)
+    //   Prism.highlightAll()
+    // })
+
+    const intervalID = setInterval(() => {
+      if (codeToShow.value !== codeBlock.value?.outerHTML) {
+        if (codeBlock.value?.outerHTML) {
+          const result = prettier.format(codeBlock.value.outerHTML, {
+            parser: 'html',
+            plugins: [parserHtml],
+          })
+          codeToShow.value = result
+        }
+      }
+    }, 500)
+
+    watch(
+      codeToShow,
+      () => {
+        Prism.highlightAll()
+      },
+      { flush: 'post' }
+    )
+
+    onUnmounted(() => {
+      clearInterval(intervalID)
     })
 
-    return { code, html, newText }
+    return { codeBlock, codeToShow }
   },
 })
 </script>

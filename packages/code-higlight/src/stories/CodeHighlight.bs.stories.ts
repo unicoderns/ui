@@ -31,7 +31,8 @@ const Template = (args: any) => ({
         Hello From Tab 4
         </ui-tab>
     </ui-tabs>
- </ui-code-highlight>`,
+ </ui-code-highlight>
+ `,
 })
 
 export const Default = Template.bind({})
