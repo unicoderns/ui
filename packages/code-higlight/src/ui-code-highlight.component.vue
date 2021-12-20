@@ -23,15 +23,9 @@ export default defineComponent({
     code: { type: String, default: null },
     lang: { type: String, default: null },
   },
-  setup(props, { slots }) {
+  setup(props) {
     const codeBlock: Ref<HTMLElement | null> = ref(null)
     const codeToShow = ref()
-
-    // const newText = html.replace(/^[\r\n\s]*|[\r\n\s]*$/g, '')
-    // onMounted(() => {
-    //   // console.log(codeBlock.value)
-    //   Prism.highlightAll()
-    // })
 
     const intervalID = setInterval(() => {
       if (codeToShow.value !== codeBlock.value?.outerHTML) {
