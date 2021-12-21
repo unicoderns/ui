@@ -24,10 +24,13 @@ export default {
     animate: { control: { type: 'boolean' } },
     dismissible: { control: { type: 'boolean' } },
     msTimer: { control: { type: 'number', required: false } },
-    ['aria:live']: { name:'aria:live', control: { type: 'text' } },
-    ['aria:role']: { name:'aria:role', control: { type: 'text' } },
-    ['aria:buttonClose']: { name:'aria:buttonClose', control: { type: 'text' } },
-  }
+    ['aria:live']: { name: 'aria:live', control: { type: 'text' } },
+    ['aria:role']: { name: 'aria:role', control: { type: 'text' } },
+    ['aria:buttonClose']: {
+      name: 'aria:buttonClose',
+      control: { type: 'text' },
+    },
+  },
 }
 
 type StoryModel = UiToastModel
@@ -49,7 +52,7 @@ const Template = (args: StoryModel) => ({
     },
     clear: () => {
       service?.clear()
-    }
+    },
   },
   template: `
   <a href="" @click.prevent="open">Click here to open Toast</a>
@@ -59,7 +62,10 @@ const Template = (args: StoryModel) => ({
       <ui-toast-container 
         :defaultPosition="args.position"
         style="position: absolute; width: 100%; height: 100%; "
-      ></ui-toast-container>
+      >
+      <template #toastHeader="{ item }"> &#9917 {{ item.headerText }}</template>
+      <template #toastBody="{ item }"><a>{{ item.message }}</a></template>
+      </ui-toast-container>
     </div>
   `,
 })

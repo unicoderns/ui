@@ -8,8 +8,9 @@ export interface UiToastModel {
   msTimer?: number
   show?: boolean
   variant?: string
+  dark?: boolean
   position?: Position
-  ['aria:live']: string
-  ['aria:role']: string
-  ['aria:buttonClose']: string
+  ['aria:live']?: string
+  ['aria:role']?: string
+  ['aria:buttonClose']?: string
 }

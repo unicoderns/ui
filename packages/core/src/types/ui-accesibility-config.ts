@@ -1,6 +1,4 @@
-export const uiAriaConfigInjectionToken = Symbol(
-  'UiAriaConfig'
-)
+export const uiAriaConfigInjectionToken = Symbol('UiAriaConfig')
 
 export interface UiComponentAriaConfigModel {
   [key: string]: string

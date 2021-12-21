@@ -1,6 +1,6 @@
 import { UiComponentAriaConfigModel } from '@unicodernsui/core'
 
-export interface uiTabsPanelAriaConfigModel extends UiComponentAriaConfigModel {
+export interface UiTabsPanelAriaConfigModel extends UiComponentAriaConfigModel {
   currentPage: string
   role: string
 }

@@ -15,4 +15,19 @@ export enum PopperPlacement {
   Bottom = 'bottom',
   Right = 'right',
   Left = 'left',
+  TopEnd = 'top-end',
+  BottomEnd = 'bottom-end',
+  TopStart = 'top-start',
+  BottomStart = 'bottom-start',
+  RightStart = 'right-start',
+  LeftStart = 'left-start',
 }
+
+export enum PopperCardinalPlacement {
+  Top = 'top',
+  Bottom = 'bottom',
+  Right = 'right',
+  Left = 'left',
+}
+
+export const isRTL = () => document.documentElement.dir === 'rtl'

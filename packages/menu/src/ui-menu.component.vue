@@ -11,6 +11,7 @@
       v-for="(item, i) in datasource"
       :key="i"
       @select="select(item, i)"
+      @focus="focus(item, i)"
       v-bind="item"
       :active="selectedIndex === i"
       :ref="
@@ -41,7 +42,7 @@ const TAG_NAME = 'uiMenu'
 export default defineComponent({
   TAG_NAME,
   props: {
-    datasource: { type: Array as PropType<MenuItem[]>, default: [] },
+    datasource: { type: Array as PropType<MenuItem[]>, default: () => [] },
     defaultSelectedIndex: { type: Number, required: false },
     invert: { type: Boolean, default: false },
     dropdown: { type: Boolean, default: false },
@@ -93,16 +94,17 @@ export default defineComponent({
       }
     }
 
-    const focusUp = (): void => moveFocus(-1)
-    const focusDown = (): void => moveFocus(1)
+    const focusUp = () => moveFocus(-1)
+    const focusDown = () => moveFocus(1)
+    const focus = (elem: MenuItem, i: number) => (focusedIndex = i)
 
-    const select = (item: MenuItem, index: number): void => {
+    const select = (item: MenuItem, index: number) => {
       selectedIndex.value = focusedIndex = index
       emit('select', item, index)
     }
 
-    const selectCurrent = (): void => {
-      emit('select', items.value[focusedIndex])
+    const selectCurrent = () => {
+      emit('select', datasource.value[focusedIndex])
     }
 
     return {
@@ -111,6 +113,7 @@ export default defineComponent({
       selectCurrent,
       focusUp,
       focusDown,
+      focus,
       moveFocus,
       items,
       selectedIndex,

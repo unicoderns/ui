@@ -9,7 +9,8 @@
       ref="mainButton"
       v-bind="buttonProps"
       :aria:groupRole="aria.groupRole"
-      @toggle="toggle">
+      @toggle="toggle"
+    >
       <span v-if="!!label">{{ label }}</span>
       <slot v-else-if="slots.label" name="label" />
     </UiDropdownButton>
@@ -22,7 +23,6 @@
       :invert="invert"
       :defaultSelectedIndex="defaultSelectedIndex"
       :aria-expanded="aria.expanded"
-      :class="menuClasses"
       @select="select(item)"
     >
       <template v-if="slots.item" v-slot="{ item }">
@@ -34,14 +34,16 @@
 
 <script lang="ts">
 import { computed, defineComponent, toRefs, ref, watch, PropType } from 'vue'
+import { createPopper, Placement } from '@popperjs/core'
 import {
   Direction,
+  Directions,
   MenuItem,
-  ResponsiveConfig,
   SizeVariant,
   useReactiveAriaConfig,
   useReactiveThemeConfig,
-  useReactiveResponsiveConfig,
+  isRTL,
+  PopperPlacement,
 } from '@unicodernsui/core'
 import { UiMenu } from '@unicodernsui/menu'
 import { bsUiDropdownThemeConfigDefaults } from './defaults/bs-ui-dropdown-theme.config'
@@ -56,7 +58,7 @@ export default defineComponent({
   TAG_NAME,
   props: {
     label: { type: String, default: null },
-    datasource: { type: Array as PropType<MenuItem[]>, default: [] },
+    datasource: { type: Array as PropType<MenuItem[]>, default: () => [] },
     invert: { type: Boolean, default: false },
     anchor: { type: Boolean, default: false },
     outline: { type: Boolean, default: false },
@@ -64,14 +66,9 @@ export default defineComponent({
     size: { type: String as PropType<SizeVariant>, default: null },
     splitButton: { type: Boolean, default: false },
     defaultSelectedIndex: { type: Number, required: false },
+    disableBackdrop: { type: Boolean, default: false },
     arrowDirection: { type: String as PropType<Direction>, default: null },
-    ['menuAlignEnd']: { type: Boolean, default: false },
-    ['menuAlignEnd:xs']: { type: Boolean, default: false },
-    ['menuAlignEnd:sm']: { type: Boolean, default: false },
-    ['menuAlignEnd:md']: { type: Boolean, default: false },
-    ['menuAlignEnd:lg']: { type: Boolean, default: false },
-    ['menuAlignEnd:xl']: { type: Boolean, default: false },
-    ['menuAlignEnd:xxl']: { type: Boolean, default: false },
+    menuAlignEnd: { type: Boolean, default: false },
     ['aria:expanded']: { type: String, default: null },
     ['aria:groupRole']: { type: String, default: null },
   },
@@ -87,12 +84,15 @@ export default defineComponent({
       size,
       variant,
       splitButton,
+      disableBackdrop,
       arrowDirection,
+      menuAlignEnd,
     } = toRefs(props)
 
     const expanded = ref(false)
     const mainContainer = ref<HTMLElement | null>(null)
-    const mainButton = ref<HTMLElement | null>(null)
+    const mainButton = ref<{ $el: HTMLElement; focus: () => void } | null>(null)
+    const menu = ref<{ $el: HTMLElement } | null>(null)
 
     const theme = useReactiveThemeConfig<UiDropdownThemeConfigModel>(
       TAG_NAME,
@@ -115,28 +115,11 @@ export default defineComponent({
       return theme.value.cssClass.directions[direction]
     }
 
-    // TODO: Popper: adding the class is not enough to move the menu at enc
-    const menuAlignEndClass = (menuAlignEnd: ResponsiveConfig): string[] => {
-      if (!menuAlignEnd) return []
-      return [
-        menuAlignEnd.all ? theme.value.cssClass.menuEndAll : '',
-        ...Object.entries(menuAlignEnd.variants).map(([key, value]) =>
-          value ? theme.value.cssClass.menuEndVariants[key] : ''
-        ),
-      ]
-    }
-
     const classes = computed((): string[] => {
       return [
         theme.value.cssClass.main,
         arrowDirectionClass(arrowDirection.value),
       ]
-    })
-
-    const menuClasses = computed((): string[] => {
-      return menuAlignEndClass(
-        useReactiveResponsiveConfig('menuAlignEnd', attrs, props).value
-      )
     })
 
     const buttonProps = computed(() => ({
@@ -160,27 +143,94 @@ export default defineComponent({
     const show = () => {
       expanded.value = true
     }
+
+    const getPlacement = () => {
+      const PLACEMENT_TOP: Placement = isRTL()
+        ? PopperPlacement.TopEnd
+        : PopperPlacement.TopStart
+      const PLACEMENT_TOPEND: Placement = isRTL()
+        ? PopperPlacement.TopStart
+        : PopperPlacement.TopEnd
+      const PLACEMENT_BOTTOM: Placement = isRTL()
+        ? PopperPlacement.BottomEnd
+        : PopperPlacement.BottomStart
+      const PLACEMENT_BOTTOMEND: Placement = isRTL()
+        ? PopperPlacement.BottomStart
+        : PopperPlacement.BottomEnd
+      const PLACEMENT_RIGHT: Placement = isRTL()
+        ? PopperPlacement.LeftStart
+        : PopperPlacement.RightStart
+      const PLACEMENT_LEFT: Placement = isRTL()
+        ? PopperPlacement.RightStart
+        : PopperPlacement.LeftStart
+
+      if (arrowDirection.value === Directions.Right) {
+        return PLACEMENT_RIGHT
+      }
+      if (arrowDirection.value === Directions.Left) {
+        return PLACEMENT_LEFT
+      }
+
+      const isEnd = menuAlignEnd.value
+
+      if (arrowDirection.value === Directions.Up) {
+        return isEnd ? PLACEMENT_TOPEND : PLACEMENT_TOP
+      }
+
+      return isEnd ? PLACEMENT_BOTTOMEND : PLACEMENT_BOTTOM
+    }
+
+    const popperConfig = () => ({
+      placement: getPlacement(),
+      modifiers: [
+        {
+          name: 'preventOverflow',
+          options: {
+            boundary: 'clippingParents',
+          },
+        },
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 2],
+          },
+        },
+        {
+          name: 'flip',
+        },
+      ],
+    })
+
     const focusout = (event: FocusEvent) => {
       if (
-        !event.relatedTarget ||
-        !mainContainer.value?.contains(event.relatedTarget as Node)
+        !disableBackdrop.value &&
+        (!event.relatedTarget ||
+          !mainContainer.value?.contains(event.relatedTarget as Node))
       ) {
         expanded.value = false
       }
     }
 
-    const watchExpanded = watch(expanded, value =>
-      value ? emit('show') : emit('hide')
+    const watchExpanded = watch(
+      expanded,
+      value => {
+        value ? emit('show') : emit('hide')
+
+        if (value && mainButton.value && menu.value) {
+          createPopper(mainButton.value.$el, menu.value?.$el, popperConfig())
+        }
+      },
+      { flush: 'post' }
     )
 
     return {
       classes,
-      menuClasses,
       aria,
       expanded,
       buttonProps,
       mainContainer,
       mainButton,
+      menu,
       slots,
       toggle,
       select,

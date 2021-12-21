@@ -6,7 +6,7 @@ import { twUiButtonCloseThemeConfigDefaults } from './tw-ui-button-close-theme.c
 export default {
   title: 'UI/Tailwind/CloseButton',
   component: UiButtonClose,
-};
+}
 
 const Template = (args: UiButtonCloseModel) => ({
   components: { UiButtonClose },
@@ -23,22 +23,22 @@ const Template = (args: UiButtonCloseModel) => ({
       <ui-button-close v-bind="args" @close="close" >Button</ui-button-close>
     </div>
   `,
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   disabled: false,
-  invert: false
-};
+  invert: false,
+}
 
-export const Disabled = Template.bind({});
+export const Disabled = Template.bind({})
 Disabled.args = {
   disabled: true,
-  invert: false
-};
+  invert: false,
+}
 
-export const Inverted = Template.bind({});
+export const Inverted = Template.bind({})
 Inverted.args = {
   disabled: false,
-  invert: true
-};
+  invert: true,
+}

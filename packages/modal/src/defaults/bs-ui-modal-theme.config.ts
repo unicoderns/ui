@@ -2,6 +2,7 @@ import {
   BootstrapVariants,
   SizeVariants,
   enumToObjectByValue,
+  ResponsiveVariants,
 } from '@unicodernsui/core'
 import { UiModalThemeConfigModel } from '../'
 
@@ -28,6 +29,15 @@ export const bsUiModalThemeConfigDefaults: UiModalThemeConfigModel = {
     footer: 'modal-footer',
     components: {
       buttonClose: 'ms-auto',
+    },
+    fullscreenAll: 'modal-fullscreen',
+    fullscreenVariants: {
+      [ResponsiveVariants.ExtraExtraLarge]: 'modal-fullscreen-xxl-down',
+      [ResponsiveVariants.ExtraLarge]: 'modal-fullscreen-xl-down',
+      [ResponsiveVariants.Large]: 'modal-fullscreen-lg-down',
+      [ResponsiveVariants.Medium]: 'modal-fullscreen-md-down',
+      [ResponsiveVariants.Small]: 'modal-fullscreen-sm-down',
+      [ResponsiveVariants.ExtraSmall]: '',
     },
     sizes: {
       [SizeVariants.Small]: 'modal-sm',

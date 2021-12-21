@@ -9,7 +9,8 @@ export const twUiAlertThemeConfigDefaults: UiAlertThemeConfigModel = {
     variants: {
       [TailwindVariants.Blue]: 'bg-blue-300 text-blue-800 border-blue-400',
       [TailwindVariants.Pink]: 'bg-pink-300 text-pink-800 border-pink-400',
-      [TailwindVariants.Purple]: 'bg-purple-300 text-purple-800 border-purple-400',
+      [TailwindVariants.Purple]:
+        'bg-purple-300 text-purple-800 border-purple-400',
     },
     components: {
       buttonClose: 'absolute top-0 right-0 pt-5 pb-5 pr-4 pl-4 z-2',

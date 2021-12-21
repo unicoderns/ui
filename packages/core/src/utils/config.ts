@@ -1,3 +1,4 @@
+import { inject, toRefs, computed, Ref, provide } from 'vue'
 import {
   KeyPairString,
   uiAriaConfigInjectionToken,
@@ -9,7 +10,6 @@ import {
   ResponsiveVariants,
   ResponsiveConfig,
 } from '../types'
-import { inject, toRefs, computed, Ref, provide } from 'vue'
 
 declare type ConfigLevel = { [key: string]: string | ConfigLevel }
 
@@ -128,9 +128,8 @@ function getThemeConfig<T extends UiComponentThemeConfigModel>(
 function getAriaConfig<T extends UiComponentAriaConfigModel>(
   componentTag: string,
   attrs: Readonly<{ [key: string]: unknown }>,
-  defaults: T,
+  defaults: T
 ): T {
-
   const ariaConfig = getComponentAriaConfig(componentTag) || { ...defaults }
 
   // replace aria
@@ -146,8 +145,8 @@ function getAriaConfig<T extends UiComponentAriaConfigModel>(
 
 function flattenProps(
   _attrs: Readonly<{ [key: string]: unknown }>,
-  _props: Readonly<{ [key: string]: unknown }>,
-  ) {
+  _props: Readonly<{ [key: string]: unknown }>
+) {
   const propsReactive = toRefs(_props)
   const props = Object.keys(propsReactive)
     .map(p => ({ [p]: propsReactive[p].value }))
@@ -173,9 +172,7 @@ export function useReactiveThemeConfig<T extends UiComponentThemeConfigModel>(
   return result
 }
 
-export function useReactiveAriaConfig<
-  T extends UiComponentAriaConfigModel
->(
+export function useReactiveAriaConfig<T extends UiComponentAriaConfigModel>(
   componentTag: string,
   _attrs: Readonly<{ [key: string]: unknown }>,
   _props: Readonly<{ [key: string]: unknown }>,
@@ -191,17 +188,23 @@ export function useReactiveAriaConfig<
 
 function getResponsiveConfig(
   property: string,
-  attrs: Readonly<{ [key: string]: unknown }>,
+  attrs: Readonly<{ [key: string]: unknown }>
 ): ResponsiveConfig {
   return {
     all: !!attrs[property] || false,
     variants: {
-      [ResponsiveVariants.ExtraSmall]: !!attrs[`${property}:${ResponsiveVariants.ExtraSmall}`] || false,
-      [ResponsiveVariants.Small]: !!attrs[`${property}:${ResponsiveVariants.Small}`] || false,
-      [ResponsiveVariants.Medium]: !!attrs[`${property}:${ResponsiveVariants.Medium}`] || false,
-      [ResponsiveVariants.Large]: !!attrs[`${property}:${ResponsiveVariants.Large}`] || false,
-      [ResponsiveVariants.ExtraLarge]: !!attrs[`${property}:${ResponsiveVariants.ExtraLarge}`] || false,
-      [ResponsiveVariants.ExtraExtraLarge]: !!attrs[`${property}:${ResponsiveVariants.ExtraExtraLarge}`] || false,
+      [ResponsiveVariants.ExtraSmall]:
+        !!attrs[`${property}:${ResponsiveVariants.ExtraSmall}`] || false,
+      [ResponsiveVariants.Small]:
+        !!attrs[`${property}:${ResponsiveVariants.Small}`] || false,
+      [ResponsiveVariants.Medium]:
+        !!attrs[`${property}:${ResponsiveVariants.Medium}`] || false,
+      [ResponsiveVariants.Large]:
+        !!attrs[`${property}:${ResponsiveVariants.Large}`] || false,
+      [ResponsiveVariants.ExtraLarge]:
+        !!attrs[`${property}:${ResponsiveVariants.ExtraLarge}`] || false,
+      [ResponsiveVariants.ExtraExtraLarge]:
+        !!attrs[`${property}:${ResponsiveVariants.ExtraExtraLarge}`] || false,
     },
   }
 }
@@ -209,7 +212,7 @@ function getResponsiveConfig(
 export function useReactiveResponsiveConfig(
   property: string,
   _attrs: Readonly<{ [key: string]: unknown }>,
-  _props: Readonly<{ [key: string]: unknown }>,
+  _props: Readonly<{ [key: string]: unknown }>
 ): Ref<ResponsiveConfig> {
   const result = computed(() => {
     const attrs = flattenProps(_attrs, _props)
@@ -221,7 +224,6 @@ export function useReactiveResponsiveConfig(
 
 export function setThemeConfig(custom: UiThemeConfigModel) {
   const current = getGlobalThemeConfig()
-  console.log('global', current)
   provide(uiThemeConfigInjectionToken, {
     ...current,
     ...custom,
@@ -235,7 +237,6 @@ export function setAriaConfig(custom: UiAriaConfigModel) {
     ...custom,
   })
 }
-
 
 export function setComponentThemeConfig(
   { TAG_NAME }: { TAG_NAME: string },

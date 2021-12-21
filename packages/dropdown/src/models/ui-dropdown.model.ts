@@ -1,8 +1,4 @@
-import {
-  SizeVariant,
-  Direction,
-  MenuItem,
-} from '@unicodernsui/core'
+import { SizeVariant, Direction, MenuItem } from '@unicodernsui/core'
 
 export interface UiDropdownModel {
   label?: string
@@ -13,15 +9,10 @@ export interface UiDropdownModel {
   variant: string
   size?: SizeVariant
   splitButton?: boolean
+  disableBackdrop?: boolean
   defaultSelectedIndex?: number
   arrowDirection?: Direction
-  ['menuAlignEnd']: boolean
-  ['menuAlignEnd:xs']: boolean
-  ['menuAlignEnd:sm']: boolean
-  ['menuAlignEnd:md']: boolean
-  ['menuAlignEnd:lg']: boolean
-  ['menuAlignEnd:xl']: boolean
-  ['menuAlignEnd:xxl']: boolean
+  menuAlignEnd?: boolean
   ['aria:expanded']: string
   ['aria:groupRole']: string
 }

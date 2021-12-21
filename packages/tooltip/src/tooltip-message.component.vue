@@ -16,13 +16,13 @@ import { computed, defineComponent, Ref, ref } from 'vue'
 import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
-  PopperPlacement,
+  PopperCardinalPlacement,
 } from '@unicodernsui/core'
 import { UiTransition } from '@unicodernsui/transition'
-import { UiTooltipMessageAriaConfigModel } from './models/ui-tooltip-message-aria-config.model'
-import { UiTooltipMessageThemeConfigModel } from './models/ui-tooltip-message-theme-config.model'
-import { bsTooltipMessageThemeConfigDefaults } from './defaults/bs-tooltip-message-theme.config'
-import { UiTooltipMessageAriaDefaults } from './defaults/ui-tooltip-message-aria.config'
+import { UiTooltipAriaConfigModel } from './models/ui-tooltip-aria-config.model'
+import { UiTooltipThemeConfigModel } from './models/ui-tooltip-theme-config.model'
+import { bsUiTooltipThemeConfigDefaults } from './defaults/bs-tooltip-theme.config'
+import { UiTooltipAriaDefaults } from './defaults/ui-tooltip-aria.config'
 
 const TAG_NAME = 'uiTooltip'
 export default defineComponent({
@@ -33,7 +33,7 @@ export default defineComponent({
   setup(props, { attrs }) {
     const text = ref('')
     const visible = ref(false)
-    const location: Ref<PopperPlacement | null> = ref(null)
+    const location: Ref<PopperCardinalPlacement | null> = ref(null)
     const hostElement = ref(null as HTMLElement | null)
     const openEvent = new CustomEvent('open')
     const showEvent = new CustomEvent('show')
@@ -57,17 +57,17 @@ export default defineComponent({
       hostElement.value?.dispatchEvent(closeEvent)
     }
 
-    const theme = useReactiveThemeConfig<UiTooltipMessageThemeConfigModel>(
+    const theme = useReactiveThemeConfig<UiTooltipThemeConfigModel>(
       TAG_NAME,
       attrs,
       props,
-      bsTooltipMessageThemeConfigDefaults
+      bsUiTooltipThemeConfigDefaults
     )
-    const aria = useReactiveAriaConfig<UiTooltipMessageAriaConfigModel>(
+    const aria = useReactiveAriaConfig<UiTooltipAriaConfigModel>(
       TAG_NAME,
       attrs,
       props,
-      UiTooltipMessageAriaDefaults
+      UiTooltipAriaDefaults
     )
 
     const classes = computed(() => [
