@@ -3,42 +3,83 @@
     <slot />
   </div>
   <pre
-    class="line-numbers"
-  ><code class="language-html">{{codeToShow}}</code></pre>
+    v-if="showCode"
+    :class="lineNumbers ? 'line-numbers' : ''"
+  ><code :class="classes">{{codeToShow}}</code></pre>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch, Ref, onUnmounted } from 'vue'
-import prettier from 'prettier'
-import parserHtml from 'prettier/parser-html'
+import {
+  defineComponent,
+  ref,
+  watch,
+  Ref,
+  toRefs,
+  computed,
+  PropType,
+  onUnmounted,
+  onMounted,
+} from 'vue'
+import { SupportedLanguaje, SupportedLanguajes } from './types'
+import { prismClass, prettierFormat } from './utils'
 import Prism from 'prismjs'
 import 'prismjs/themes/prism.css'
-import 'prismjs/components/prism-markdown'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
+import 'prismjs/components/prism-json'
 
 const TAG_NAME = 'uiCodeHighlight'
 export default defineComponent({
   TAG_NAME,
   props: {
-    code: { type: String, default: null },
-    lang: { type: String, default: null },
+    refCode: { type: String, default: null },
+    lang: { type: String as PropType<SupportedLanguaje>, default: null },
+    slot: { type: Boolean, default: false },
+    lineNumbers: { type: Boolean, default: false },
   },
   setup(props) {
+    const { refCode, lang } = toRefs(props)
     const codeBlock: Ref<HTMLElement | null> = ref(null)
     const codeToShow = ref()
+    const showCode = computed(() => !!codeToShow.value)
 
-    const intervalID = setInterval(() => {
-      if (codeToShow.value !== codeBlock.value?.outerHTML) {
-        if (codeBlock.value?.outerHTML) {
-          const result = prettier.format(codeBlock.value.outerHTML, {
-            parser: 'html',
-            plugins: [parserHtml],
-          })
-          codeToShow.value = result
+    const updateCode = () => {
+      if (
+        codeBlock.value?.innerHTML !== undefined &&
+        codeBlock.value?.innerHTML.length > 0
+      ) {
+        if (codeBlock.value?.innerHTML) {
+          codeToShow.value = prettierFormat(
+            codeBlock.value.innerHTML,
+            SupportedLanguajes.HTML
+          )
         }
+      } else if (refCode.value) {
+        codeToShow.value = prettierFormat(refCode.value, lang.value)
       }
-    }, 500)
+    }
+
+    const config = { attributes: true, childList: true, subtree: true }
+
+    // Callback function to execute when mutations are observed
+    const callback = function() {
+      updateCode()
+    }
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback)
+
+    onMounted(() => {
+      if (codeBlock.value) {
+        // Start an observer instance
+        observer.observe(codeBlock.value, config)
+      }
+      updateCode()
+    })
+
+    const classes = computed(() => {
+      return [prismClass(lang.value)]
+    })
 
     watch(
       codeToShow,
@@ -49,10 +90,11 @@ export default defineComponent({
     )
 
     onUnmounted(() => {
-      clearInterval(intervalID)
+      // Stop the observer
+      observer.disconnect()
     })
 
-    return { codeBlock, codeToShow }
+    return { codeBlock, codeToShow, showCode, classes }
   },
 })
 </script>
