@@ -1,0 +1,62 @@
+
+<Meta title="Docs/Theming" />
+
+# What is a theme
+The whole idea beind UI library is to be theme agnostic, so each component does not use a css class or a tag directly into the template but one that is configured in an injected object.
+Each component uses a configuration model for the theme and each one has its defaults in case no injection is provided.
+
+# Injection
+When a theme is `provided` in an upper component or app, then the component get its value using the `provide/inject` pattern.
+Here is an example of the injection of a component custom theme:
+
+```js
+import { setComponentThemeConfig } from '@unicodernsui/core'
+...
+setup() {
+    const myCustomTheme: UiButtonThemeConfigModel = {
+      ...
+    }
+    setComponentThemeConfig(UiButton, myCustomTheme)
+}
+```
+
+in this example `setComponentThemeConfig` is a function provided by the ui library common package that receives two params:
+ - the component that will be configured, from wich it will stract the TAG_NAME constant.
+ - the custom theme that will replace the default.
+
+# Multiple components
+Sometimes we want multiple components to change its theme, to do this another function is provided for this purpose called `setThemeConfig`.
+Here is an example:
+
+```js
+import { setThemeConfig } from '@unicodernsui/core'
+...
+setup() {
+  const customThemeUiTransition = { ... }
+  const customThemeUiButtonClose = { ... }
+  const customThemeUiAlert = { ... }
+
+  setThemeConfig({
+    [UiTransition.TAG_NAME]: customThemeUiTransition,
+    [UiButtonClose.TAG_NAME]: customThemeUiButtonClose,
+    [UiAlert.TAG_NAME]: customThemeUiAlert,
+  })
+}
+```
+
+As you can see by providing a structure with the type `{ [key as string]: object }` where the key is the component TAG_NAME and the value is the theme we want to replace.
+
+# Model
+
+Each component defines its own theme model usually your will find it in the form `Ui<Name>ThemeConfigModel` for example `UiAlertThemeConfigModel`.
+This interface allows easy application of a theme based on its properties.
+
+# TAG_NAME
+To define the key that each component needs to inject it's theme a TAG_NAME is associated for ALL components in the library.
+This key is also used in the accessibility injection.
+
+# Why not use css for this?
+As you can see theaming using this method could be accomplished by just replacing the respective css classes in a css file.
+But with this method you can have two advantages:
+1. By having models to reflect the theame is easier to know what you are changing.
+2. JSON can be dynamically generated, wich allows frameworks like tailwind to only use the classes that are needed.
