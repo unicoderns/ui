@@ -1,7 +1,6 @@
+import { UiTabModel } from './ui-tab.model'
+
 export interface UiTabPropsModel {
-  props?: {
-    title: string
-    disabled?: boolean
-  }
+  props?: UiTabModel
   uid?: number
 }
