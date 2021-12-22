@@ -1,1 +1,70 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { UiTabs } from '../index'
+
 # Tabs
+Toggle between tabs and display content according the selected tab. It includes support for active and disabled states tabs.
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/tabs)
+
+<Canvas>
+  <Story id="ui-bootstrap-tabs--default"/>
+</Canvas>
+
+## Props
+
+### Select
+
+| Name | Description |
+| ---- | ---- |
+| `select` | Callback when the index of selected tab changes. |
+
+```html
+<ui-tabs @select="select">
+  <ui-tab title="Tab1" :active="true" :disabled="false">
+    Tab 1 content
+  </ui-tab>
+</ui-tabs>
+```
+
+### Active
+| Name | Description | Type |
+| ---- | ---- | ---- |
+| `active` | Indicates that the tab is selected and shows its content. | `Boolean` |
+
+
+### Disabled
+| Name | Description | Type |
+| ---- | ---- | ---- |
+| `disabled` | When a tab is disable it can't be selected. | `Boolean`
+
+```html
+<ui-tabs @select="select">
+  <ui-tab title="Tab1" :active="true" :disabled="false">
+    Tab 1 content
+  </ui-tab>
+  <ui-tab title="Tab2" :active="false" :disabled="true">
+    Tab 2 content
+  </ui-tab>
+</ui-tabs>
+```
+
+## Aria Roles
+| Name | Property | Value | Description |
+| ---- | -------- | ----- | ----------- |
+| role | aria:role | `tab` | It indicates that it is a tab |
+| currentPage | aria:current | `page` |It indicates which tab is active |
+
+```html
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" role="tab">
+      Tab 1
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" role="tab">
+      Tab 2
+    </a>
+  </li>
+</ul>
+```

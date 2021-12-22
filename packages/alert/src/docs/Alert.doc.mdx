@@ -3,7 +3,9 @@ import { Story, Canvas, Preview } from '@storybook/addon-docs';
 # Alerts
 Display an alert with text to users.
 
-```javascript
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/alert)
+
+```html
     <ui-alert :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.default }}</ui-alert>
 ```
 
@@ -20,9 +22,8 @@ Alerts support multiple variants
 - [Light](?path=/docs/ui-bootstrap-alert--light&args=#light)
 - [Dark](?path=/docs/ui-bootstrap-alert--dark&args=#dark)
 - [Inverted](?path=/docs/ui-bootstrap-alert--inverted&args=#inverted)
+- [Dismissible](?path=/docs/ui-bootstrap-alert--dismissible&args=#dismissible)
 - [Animated](?path=/docs/ui-bootstrap-alert--animated&args=#animated)
-
-<>
 
 ### Primary
 <Canvas>
@@ -73,15 +74,22 @@ Use the `invert` prop to alternate styles
 
 ### Dismissible
 
-Use the `dismissible` prop to add a closable alert
+Use the `dismissible` prop to add a close icon
 <Canvas>
   <Story id="ui-bootstrap-alert--dismissible" />
 </Canvas>
 
 ### Animated
 
-Use the `animate` prop to animate an alert
+Use the `animate` prop to animate an alert with a fade effect
 <Canvas>
   <Story id="ui-bootstrap-alert--animated" />
 </Canvas>
-</>
+
+## Accesibility
+Use the following properties to change the default accesibility text
+
+| Name | Property | Default |
+| ---- | ---- | ----------- |
+| role | aria:role | `alert` |
+| buttonClose | aria:buttonClose | `close` |
