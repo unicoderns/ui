@@ -2,7 +2,7 @@
 <Meta title="Docs/Theming" />
 
 # What is a theme
-The whole idea beind UI library is to be theme agnostic, so each component does not use a css class or a tag directly into the template but one that is configured in an injected object.
+The whole idea behind UI library is to be theme agnostic, so each component does not use a css class or a tag directly into the template but one that is configured in an injected object.
 Each component uses a configuration model for the theme and each one has its defaults in case no injection is provided.
 
 # Injection
@@ -21,7 +21,7 @@ setup() {
 ```
 
 in this example `setComponentThemeConfig` is a function provided by the ui library common package that receives two params:
- - the component that will be configured, from wich it will stract the TAG_NAME constant.
+ - the component that will be configured, from which it will stract the TAG_NAME constant.
  - the custom theme that will replace the default.
 
 # Multiple components
