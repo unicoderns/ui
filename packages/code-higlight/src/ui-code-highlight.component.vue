@@ -61,17 +61,14 @@ export default defineComponent({
 
     const config = { attributes: true, childList: true, subtree: true }
 
-    // Callback function to execute when mutations are observed
     const callback = function() {
       updateCode()
     }
 
-    // Create an observer instance linked to the callback function
     const observer = new MutationObserver(callback)
 
     onMounted(() => {
       if (codeBlock.value) {
-        // Start an observer instance
         observer.observe(codeBlock.value, config)
       }
       updateCode()
@@ -90,7 +87,6 @@ export default defineComponent({
     )
 
     onUnmounted(() => {
-      // Stop the observer
       observer.disconnect()
     })
 

@@ -21,11 +21,6 @@ const prettierOptions = (lang: string) => {
         parser: 'css',
         plugins: [parserCSS],
       }
-    case SupportedLanguajes.React:
-      return {
-        parser: 'react',
-        plugins: [parserHtml],
-      }
     case SupportedLanguajes.Json:
       return {
         parser: 'json',
@@ -46,8 +41,6 @@ export const prismClass = (lang: string) => {
       return 'language-javascript'
     case SupportedLanguajes.CSS:
       return 'language-css'
-    case SupportedLanguajes.React:
-      return 'language-jsx'
     case SupportedLanguajes.Json:
       return 'language-json'
   }
