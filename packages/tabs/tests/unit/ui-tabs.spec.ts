@@ -129,7 +129,7 @@ describe('ui-tabs.vue', () => {
     )
   })
 
-  it('should show default accesibility strings', async () => {
+  it('should show default accessibility strings', async () => {
     const wrapper = mount(TestComponent, {
       props: {
         tabs: [

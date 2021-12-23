@@ -215,7 +215,7 @@ describe('ui-modal.vue', () => {
     )
   })
 
-  it('should show accesibility strings', () => {
+  it('should show accessibility strings', () => {
     const wrapper = mount(UiModal, {
       props: {
         'aria:role': 'some role',

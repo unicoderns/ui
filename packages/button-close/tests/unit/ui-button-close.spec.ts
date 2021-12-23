@@ -44,7 +44,7 @@ describe('ui-button-close.vue', () => {
     expect(wrapper.attributes('disabled')).toBeDefined()
   })
 
-  it('should render custom accesibility label when props.label is set', () => {
+  it('should render custom accessibility label when props.label is set', () => {
     const label = 'some label'
     const wrapper = shallowMount(UiButtonClose, {
       props: { ['aria:label']: label, variant: BootstrapVariants.Primary },

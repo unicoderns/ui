@@ -53,7 +53,7 @@ describe('ui-alert.vue', () => {
     expect(wrapper.find('div').exists()).toBeFalsy()
   })
 
-  it('should render custom accesibility role when props.role is set', () => {
+  it('should render custom accessibility role when props.role is set', () => {
     const role = 'some role'
 
     const wrapper = mount(UiAlert, {
@@ -64,7 +64,7 @@ describe('ui-alert.vue', () => {
     expect(div.attributes().role).toEqual(role)
   })
 
-  it('should render custom accesibility label when props.label is set', () => {
+  it('should render custom accessibility label when props.label is set', () => {
     const buttonClose = 'some buttonClose'
 
     const wrapper = mount(UiAlert, {

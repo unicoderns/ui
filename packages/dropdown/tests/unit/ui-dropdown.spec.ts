@@ -136,7 +136,7 @@ describe('ui-dropdown.vue', () => {
     )
   })
 
-  it('should show accesibility strings', async () => {
+  it('should show accessibility strings', async () => {
     const wrapper = mount(UiDropdown, {
       props: {
         variant: BootstrapVariants.Primary,

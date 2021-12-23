@@ -37,7 +37,7 @@ describe('ui-button.vue', () => {
     expect(button.exists()).toBeFalsy()
   })
 
-  it('should render custom accesibility role when props.role is set', () => {
+  it('should render custom accessibility role when props.role is set', () => {
     const role = 'some role'
 
     const wrapper = shallowMount(UiButton, {
