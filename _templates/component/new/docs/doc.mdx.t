@@ -3,10 +3,10 @@ to: packages/<%= h.changeCase.param(name) %>/src/docs/<%= h.changeCase.pascal(na
 ---
 import { Story, Canvas, Preview } from '@storybook/addon-docs';
 
-# <%= h.changeCase.pascal(name) %>
+# <%= h.changeCase.pascal(name) %>s
 Display an <%= h.changeCase.param(name) %> with text to users.
 
-```javascript
+```html
     <ui-<%= h.changeCase.param(name) %> :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.default }}</ui-<%= h.changeCase.param(name) %>>
 ```
 
@@ -14,77 +14,50 @@ Display an <%= h.changeCase.param(name) %> with text to users.
 
 Support multiple variants
 
-- [Primary](?path=/docs/ui-bootstrap-<%= h.changeCase.param(name) %>--primary&args=#primary)
-- [Secondary](?path=/docs/ui-bootstrap-<%= h.changeCase.param(name) %>--secondary&args=#secondary)
-- [Success](?path=/docs/ui-bootstrap-<%= h.changeCase.param(name) %>--success&args=#success)
-- [Danger](?path=/docs/ui-bootstrap-<%= h.changeCase.param(name) %>--danger&args=#danger)
-- [Warning](?path=/docs/ui-bootstrap-<%= h.changeCase.param(name) %>--warning&args=#warning)
-- [Info](?path=/docs/ui-bootstrap-<%= h.changeCase.param(name) %>--info&args=#info)
-- [Light](?path=/docs/ui-bootstrap-<%= h.changeCase.param(name) %>--light&args=#light)
-- [Dark](?path=/docs/ui-bootstrap-<%= h.changeCase.param(name) %>--dark&args=#dark)
-- [Inverted](?path=/docs/ui-bootstrap-<%= h.changeCase.param(name) %>--inverted&args=#inverted)
-- [Animated](?path=/docs/ui-bootstrap-<%= h.changeCase.param(name) %>--animated&args=#animated)
 
-<>
-
-### Primary
 <Canvas>
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--primary"/>
-</Canvas>
-
-### Secondary
-<Canvas>
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--secondary" />
-</Canvas>
-
-### Success
-<Canvas>
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--success" />
-</Canvas>
-
-### Danger
-<Canvas>
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--danger" />
-</Canvas>
-
-### Warning
-<Canvas>
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--warning" />
-</Canvas>
-
-### Info
-<Canvas>
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--info" />
-</Canvas>
-
-### Light
-<Canvas>
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--light" />
-</Canvas>
-
-### Dark
-<Canvas>
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--dark" />
 </Canvas>
 
-### Inverted
+# Events
+Button will emit this events while changing state
 
-Use the `invert` prop to alternate styles 
-<Canvas>
-  <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--inverted" />
-</Canvas>
+| Event | Params | Desription |
+| ---- | ---- | ----------- |
+| Toggle | active: `boolean` | Will only raise when `toggle = true` |
 
-### Dismissible
+# Accessibility
+Change the next properties to change the default accessibility text
 
-Use the `dismissible` prop to add a closable <%= h.changeCase.param(name) %>
-<Canvas>
-  <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--dismissible" />
-</Canvas>
+| Name | Property | Default |
+| ---- | ---- | ----------- |
+| role | aria:role | `button` |
 
-### Animated
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for buttons.
 
-Use the `animate` prop to animate an <%= h.changeCase.param(name) %>
-<Canvas>
-  <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--animated" />
-</Canvas>
-</>
+
+# Theme
+Use the next `json` to define a new theme for the component
+
+```json
+{
+  cssClass: {
+    main: string, // main class
+    variants: { // define a custom list of variants
+      'variant1': string,
+      'variant2': string,
+      ...
+      'variantN': string,
+    },
+  },
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json

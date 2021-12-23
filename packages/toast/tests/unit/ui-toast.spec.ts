@@ -172,7 +172,7 @@ describe('ui-toast-container.vue', () => {
     expect(toasts).toHaveLength(1)
   })
 
-  it('should show toast message with custom accesibility strings', async () => {
+  it('should show toast message with custom accessibility strings', async () => {
     service?.add({
       message: 'some message',
       'aria:buttonClose': 'some button text',

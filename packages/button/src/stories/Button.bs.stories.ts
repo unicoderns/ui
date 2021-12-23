@@ -47,7 +47,7 @@ const Template = (args: StoryModel) => ({
 const baseArgs: StoryModel = {
   label: 'Label',
   variant: BootstrapVariants.Primary,
-  size: ButtonSizeVariants.Small,
+  size: ButtonSizeVariants.Medium,
   anchor: false,
   outline: false,
   active: false,
@@ -57,79 +57,317 @@ const baseArgs: StoryModel = {
 export const Primary = Template.bind({})
 Primary.args = {
   ...baseArgs,
+  label: 'Primary',
   variant: BootstrapVariants.Primary,
+}
+Primary.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="primary">Primary</ui-button>',
+    },
+  },
 }
 
 export const Secondary = Template.bind({})
 Secondary.args = {
   ...baseArgs,
+  label: 'Secondary',
   variant: BootstrapVariants.Secondary,
+}
+Secondary.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="secondary">Secondary</ui-button>',
+    },
+  },
 }
 
 export const Success = Template.bind({})
 Success.args = {
   ...baseArgs,
+  label: 'Success',
   variant: BootstrapVariants.Success,
+}
+Success.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="success">Success</ui-button>',
+    },
+  },
 }
 
 export const Danger = Template.bind({})
 Danger.args = {
   ...baseArgs,
+  label: 'Danger',
   variant: BootstrapVariants.Danger,
+}
+Danger.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="danger">Danger</ui-button>',
+    },
+  },
 }
 
 export const Warning = Template.bind({})
 Warning.args = {
   ...baseArgs,
+  label: 'Warning',
   variant: BootstrapVariants.Warning,
+}
+Warning.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="warning">Warning</ui-button>',
+    },
+  },
 }
 
 export const Info = Template.bind({})
 Info.args = {
   ...baseArgs,
+  label: 'Info',
   variant: BootstrapVariants.Info,
+}
+Info.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="info">Info</ui-button>',
+    },
+  },
 }
 
 export const Light = Template.bind({})
 Light.args = {
   ...baseArgs,
+  label: 'Light',
   variant: BootstrapVariants.Light,
+}
+Light.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="light">Light</ui-button>',
+    },
+  },
 }
 
 export const Dark = Template.bind({})
 Dark.args = {
   ...baseArgs,
+  label: 'Dark',
   variant: BootstrapVariants.Dark,
+}
+Dark.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="dark">Dark</ui-button>',
+    },
+  },
+}
+
+export const OutlinePrimary = Template.bind({})
+OutlinePrimary.args = {
+  ...baseArgs,
+  label: 'Primary',
+  variant: BootstrapVariants.Primary,
+  outline: true,
+}
+OutlinePrimary.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="primary" :outline="true">Primary</ui-button>',
+    },
+  },
+}
+
+export const OutlineSecondary = Template.bind({})
+OutlineSecondary.args = {
+  ...baseArgs,
+  label: 'Secondary',
+  variant: BootstrapVariants.Secondary,
+  outline: true,
+}
+OutlineSecondary.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="secondary" :outline="true">Secondary</ui-button>',
+    },
+  },
+}
+
+export const OutlineSuccess = Template.bind({})
+OutlineSuccess.args = {
+  ...baseArgs,
+  label: 'Success',
+  variant: BootstrapVariants.Success,
+  outline: true,
+}
+OutlineSuccess.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="success" :outline="true">Success</ui-button>',
+    },
+  },
+}
+
+export const OutlineDanger = Template.bind({})
+OutlineDanger.args = {
+  ...baseArgs,
+  label: 'Danger',
+  variant: BootstrapVariants.Danger,
+  outline: true,
+}
+OutlineDanger.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="danger" :outline="true">Danger</ui-button>',
+    },
+  },
+}
+
+export const OutlineWarning = Template.bind({})
+OutlineWarning.args = {
+  ...baseArgs,
+  label: 'Warning',
+  variant: BootstrapVariants.Warning,
+  outline: true,
+}
+OutlineWarning.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="warning" :outline="true">Warning</ui-button>',
+    },
+  },
+}
+
+export const OutlineInfo = Template.bind({})
+OutlineInfo.args = {
+  ...baseArgs,
+  label: 'Primary',
+  variant: BootstrapVariants.Info,
+  outline: true,
+}
+OutlineInfo.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="info" :outline="true">Info</ui-button>',
+    },
+  },
+}
+
+export const OutlineLight = Template.bind({})
+OutlineLight.args = {
+  ...baseArgs,
+  label: 'Light',
+  variant: BootstrapVariants.Light,
+  outline: true,
+}
+OutlineLight.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="light" :outline="true">Light</ui-button>',
+    },
+  },
+}
+
+export const OutlineDark = Template.bind({})
+OutlineDark.args = {
+  ...baseArgs,
+  label: 'Dark',
+  variant: BootstrapVariants.Dark,
+  outline: true,
+}
+OutlineDark.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="dark" :outline="true">Dark</ui-button>',
+    },
+  },
+}
+
+export const Small = Template.bind({})
+Small.args = {
+  ...baseArgs,
+  label: 'Small',
+  size: ButtonSizeVariants.Small,
+}
+Small.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="primary" size="sm">Small</ui-button>',
+    },
+  },
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
   ...baseArgs,
+  label: 'Medium',
   size: ButtonSizeVariants.Medium,
+}
+Medium.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="primary" size="md">Medium</ui-button>',
+    },
+  },
 }
 
 export const Large = Template.bind({})
 Large.args = {
   ...baseArgs,
+  label: 'Large',
   size: ButtonSizeVariants.Large,
+}
+Large.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="primary" size="lg">Large</ui-button>',
+    },
+  },
 }
 
 export const Active = Template.bind({})
 Active.args = {
   ...baseArgs,
-  variant: BootstrapVariants.Warning,
+  label: 'Active',
+  variant: BootstrapVariants.Danger,
   active: true,
+}
+Active.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="danger" :active="true">Active</ui-button>',
+    },
+  },
 }
 
 export const Toggle = Template.bind({})
 Toggle.args = {
   ...baseArgs,
-  variant: BootstrapVariants.Warning,
+  label: 'Toggle',
+  variant: BootstrapVariants.Danger,
   toggle: true,
+}
+Toggle.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="danger" :toggle="true">Toggle</ui-button>',
+    },
+  },
 }
 
 export const Anchor = Template.bind({})
 Anchor.args = {
   ...baseArgs,
+  label: 'Anchor',
   anchor: true,
+}
+Anchor.parameters = {
+  docs: {
+    source: {
+      code: '<ui-button variant="primary" :anchor="true">Anchor</ui-button>',
+    },
+  },
 }

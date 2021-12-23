@@ -1,1 +1,114 @@
-# Button
+import { Story, Canvas, Preview, Source,  } from '@storybook/addon-docs';
+import { UiButton } from '../'
+
+# Buttons
+Use custom theme to define button styles based on your own variants. Buttons support multiple sizes, state and more.
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/button)
+
+```html
+    <ui-button
+      :anchor="false" :toggle="false" :outline="false" :active="false" :variant="'primary'" :size="'sm'"
+      @toggle="toggle"
+      >Button</ui-button>
+```
+
+# Variants
+Variants can be defined in whatever way we want in the theme, here are some examples taken from bootstrap.
+
+<Canvas>
+  <Story id="ui-bootstrap-button--primary" />
+  <Story id="ui-bootstrap-button--secondary" />
+  <Story id="ui-bootstrap-button--success" />
+  <Story id="ui-bootstrap-button--danger" />
+  <Story id="ui-bootstrap-button--warning" />
+  <Story id="ui-bootstrap-button--info" />
+  <Story id="ui-bootstrap-button--light" />
+  <Story id="ui-bootstrap-button--dark" />
+</Canvas>
+
+# Outline
+Variants can accept the outline shape
+
+<Canvas>
+  <Story id="ui-bootstrap-button--outline-primary" />
+  <Story id="ui-bootstrap-button--outline-secondary" />
+  <Story id="ui-bootstrap-button--outline-success" />
+  <Story id="ui-bootstrap-button--outline-danger" />
+  <Story id="ui-bootstrap-button--outline-warning" />
+  <Story id="ui-bootstrap-button--outline-info" />
+  <Story id="ui-bootstrap-button--outline-light" />
+  <Story id="ui-bootstrap-button--outline-dark" />
+</Canvas>
+
+# Size
+It supports 3 sizes buttons, small, large and medium, the latter being the default.
+
+<Canvas>
+  <Story id="ui-bootstrap-button--small" />
+  <Story id="ui-bootstrap-button--medium" />
+  <Story id="ui-bootstrap-button--large" />
+</Canvas>
+
+# State
+A button can have an active state to reflect it being active or not. it also can toogle between states if stated
+
+<Canvas>
+  <Story id="ui-bootstrap-button--active" />
+  <Story id="ui-bootstrap-button--toggle" />
+</Canvas>
+
+# Anchor
+A button can be of anchor tag type `<a>` if stated
+
+<Canvas>
+  <Story id="ui-bootstrap-button--anchor" />
+</Canvas>
+
+# Events
+Button will emit this events while changing state
+
+| Event | Params | Desription |
+| ---- | ---- | ----------- |
+| Toggle | active: `boolean` | Will only raise when `toggle = true` |
+
+# Accessibility
+Change the next properties to change the default accessibility text
+
+| Name | Property | Default |
+| ---- | ---- | ----------- |
+| role | aria:role | `button` |
+
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for buttons.
+
+# Theme
+Use the next `json` to define a new theme for the button
+
+```json
+{
+  cssClass: {
+    main: string, // main button class
+    active: string, // css class for the active state
+    outline: string, // css class for outline buttons
+    variants: { // define a custom list of variants
+      'variant1': string,
+      'variant2': string,
+      ...
+      'variantN': string,
+    },
+    outlineVariants: { // must match the same variants as before
+      'variant1': string,
+      'variant2': string,
+      ...
+      'variantN': string,
+    },
+    sizes: { // provide clases for 3 size variants: sm, md, lg
+      [SizeVariants.Large]: string,
+      [SizeVariants.Medium]: string,
+      [SizeVariants.Small]: string,
+    },
+  },
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
