@@ -60,10 +60,26 @@ Primary.args = {
   ...baseArgs,
 }
 
+Primary.parameters = {
+  docs: {
+    source: {
+      code: '<ui-alert variant="primary">Primary</ui-alert>',
+    },
+  },
+}
+
 export const Secondary = Template.bind({})
 Secondary.args = {
   ...baseArgs,
   variant: BootstrapVariants.Secondary,
+}
+
+Secondary.parameters = {
+  docs: {
+    source: {
+      code: '<ui-alert variant="secondary">Secondary</ui-alert>',
+    },
+  },
 }
 
 export const Success = Template.bind({})
@@ -72,10 +88,27 @@ Success.args = {
   variant: BootstrapVariants.Success,
 }
 
+Success.parameters = {
+  docs: {
+    source: {
+      code: '<ui-alert variant="success">Success</ui-alert>',
+    },
+  },
+}
+
+
 export const Danger = Template.bind({})
 Danger.args = {
   ...baseArgs,
   variant: BootstrapVariants.Danger,
+}
+
+Danger.parameters = {
+  docs: {
+    source: {
+      code: '<ui-alert variant="danger">Danger</ui-alert>',
+    },
+  },
 }
 
 export const Warning = Template.bind({})
@@ -84,10 +117,26 @@ Warning.args = {
   variant: BootstrapVariants.Warning,
 }
 
+Warning.parameters = {
+  docs: {
+    source: {
+      code: '<ui-alert variant="warning">Warning</ui-alert>',
+    },
+  },
+}
+
 export const Info = Template.bind({})
 Info.args = {
   ...baseArgs,
   variant: BootstrapVariants.Info,
+}
+
+Info.parameters = {
+  docs: {
+    source: {
+      code: '<ui-alert variant="info">Info</ui-alert>',
+    },
+  },
 }
 
 export const Light = Template.bind({})
@@ -96,10 +145,26 @@ Light.args = {
   variant: BootstrapVariants.Light,
 }
 
+Light.parameters = {
+  docs: {
+    source: {
+      code: '<ui-alert variant="light">Light</ui-alert>',
+    },
+  },
+}
+
 export const Dark = Template.bind({})
 Dark.args = {
   ...baseArgs,
   variant: BootstrapVariants.Dark,
+}
+
+Dark.parameters = {
+  docs: {
+    source: {
+      code: '<ui-alert variant="dark">Dark</ui-alert>',
+    },
+  },
 }
 
 export const Inverted = Template.bind({})
@@ -111,14 +176,38 @@ Inverted.args = {
   ['theme:variants:dark']: 'bg-dark text-white',
 }
 
+Inverted.parameters = {
+  docs: {
+    source: {
+      code: '<ui-alert variant="dark" invert dismissible>Inverted</ui-alert>',
+    },
+  },
+}
+
 export const Dismissible = Template.bind({})
 Dismissible.args = {
   ...baseArgs,
   dismissible: true,
 }
 
+Dismissible.parameters = {
+  docs: {
+    source: {
+      code: '<ui-alert dismissible>Dismissible</ui-alert>',
+    },
+  },
+}
+
 export const Animated = Template.bind({})
 Animated.args = {
   ...baseArgs,
   animate: true,
+}
+
+Animated.parameters = {
+  docs: {
+    source: {
+      code: '<ui-alert animated>Animated</ui-alert>',
+    },
+  },
 }
