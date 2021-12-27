@@ -23,22 +23,19 @@ import {
 import { SupportedLanguaje, SupportedLanguajes } from './types'
 import { prismClass, prettierFormat } from './utils'
 import Prism from 'prismjs'
-import 'prismjs/themes/prism.css'
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
-import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
+import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import 'prismjs/components/prism-json'
 
 const TAG_NAME = 'uiCodeHighlight'
 export default defineComponent({
   TAG_NAME,
   props: {
-    refCode: { type: String, default: null },
+    code: { type: [String, Object], default: null },
     lang: { type: String as PropType<SupportedLanguaje>, default: null },
-    slot: { type: Boolean, default: false },
     lineNumbers: { type: Boolean, default: false },
   },
   setup(props) {
-    const { refCode, lang } = toRefs(props)
+    const { code, lang } = toRefs(props)
     const codeBlock: Ref<HTMLElement | null> = ref(null)
     const codeToShow = ref()
     const showCode = computed(() => !!codeToShow.value)
@@ -54,14 +51,17 @@ export default defineComponent({
             SupportedLanguajes.HTML
           )
         }
-      } else if (refCode.value) {
-        codeToShow.value = prettierFormat(refCode.value, lang.value)
+      } else if (typeof code.value === 'string') {
+        codeToShow.value = prettierFormat(code.value, lang.value)
+      } else if (code.value) {
+        const codeElement: HTMLElement = code.value
+        codeToShow.value = prettierFormat(codeElement.outerHTML, lang.value)
       }
     }
 
     const config = { attributes: true, childList: true, subtree: true }
 
-    const callback = function() {
+    const callback = function () {
       updateCode()
     }
 
@@ -70,6 +70,10 @@ export default defineComponent({
     onMounted(() => {
       if (codeBlock.value) {
         observer.observe(codeBlock.value, config)
+      }
+      if (typeof code.value !== 'string' && code.value) {
+        const codeElement: HTMLElement = code.value
+        observer.observe(codeElement, config)
       }
       updateCode()
     })
@@ -94,3 +98,8 @@ export default defineComponent({
   },
 })
 </script>
+
+<style>
+@import '~prismjs/themes/prism.css';
+@import '~prismjs/plugins/line-numbers/prism-line-numbers.css';
+</style>
