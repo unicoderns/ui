@@ -1,1 +1,31 @@
+import { Story, Canvas } from '@storybook/addon-docs';
+
 # Button Close
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/button-close)
+
+<Canvas>
+  <Story id="ui-bootstrap-closebutton--default"/>
+</Canvas>
+
+```html
+<ui-button-close :="args" :invert="invert" @close="close" />
+```
+
+## Props
+
+| Name | Description | Type |
+| ---- | ----------- | ---- |
+| `disabled` | If true, the button won't be clickable. | `boolean` |
+| `invert` | It adds the `inverted` class variant. | `boolean` |
+
+## Events
+Close button will emit a callback when is clicked.
+| Name | Description | Type |
+| ---- | ----------- | ---- |
+| `close` | Callback when the button is clicked. | `callback` |
+
+## Accessibility
+| Name | Property | Default | Description |
+| ---- | -------- | ----- | ----------- |
+| label | aria:label | `close` | Indicates that it is a closable element |
