@@ -73,7 +73,6 @@ export type MenuItem =
   | MenuItemText
   | MenuItemDivider
   | MenuItemRaw
-// TODO: | string
 
 export const isSelectable = (item: MenuItem): boolean => {
   if (typeof item === 'string') return false

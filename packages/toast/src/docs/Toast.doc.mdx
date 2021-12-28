@@ -1,1 +1,133 @@
-# Toast
+import { Story, Canvas } from '@storybook/addon-docs'
+
+# Toasts
+Toasts works primarly by a service, this services creates a container component in the body that works as a holder for all the toast messages the services gets.
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/toast)
+
+```js
+service = inject(UiToastMessagePlugin.ServiceInjectionToken)
+service?.add({
+  animate: false,
+  headerText: 'some header',
+  message: 'some message',
+  dismissible: false,
+  msTimer: 3000,
+  variant: 'primary',
+  dark: false,
+  position?: Positions.BottomRight,
+  ['aria:live']: 'alert',
+  ['aria:role']: 'assertive',
+  ['aria:buttonClose']: 'Close',
+})
+```
+
+# Service
+When injecting the service using the `UiToastMessagePlugin.ServiceInjectionToken` token, you will have access to three methods:
+1. add: adds a message using the message configuration provided by the `UiToastModel` model
+1. remove: remove a message with the id given by the add method.
+1. clear: removes all the toast messages.
+
+# Toast message
+<Canvas>
+  <Story id="ui-bootstrap-toast--normal" />
+</Canvas>
+
+# Positioned
+<Canvas>
+  <Story id="ui-bootstrap-toast--positioned" />
+</Canvas>
+
+# Timer
+<Canvas>
+  <Story id="ui-bootstrap-toast--timer" />
+</Canvas>
+
+# Non dismissible
+<Canvas>
+  <Story id="ui-bootstrap-toast--non-dismissable" />
+</Canvas>
+
+# Without header
+<Canvas>
+  <Story id="ui-bootstrap-toast--no-header" />
+</Canvas>
+
+# Custom template
+If you need to change the toast message slots then you can use your very own `<ui-toast-cotainer>`.
+where you can configure the slots for a toast header and/or body.
+
+you can check that behavior [here](/story/ui-bootstrap-toast--custom-container)
+
+## Message configuration
+
+| Name | Type  | Description |
+| ---- | ---- | ----------- |
+| `animate` | `boolean` | if the toast message is animated |
+| `headerText` | `string` | the header of the toast message, if not present then no header is displayed |
+| `message` | `string` | actial toast message |
+| `dismissible` | `boolean` | if the close button appears on the toast |
+| `msTimer` | `number` | if the message should dissapear after given millisecs |
+| `variant` | `string` | theme variant |
+| `dark` | `boolean` | if the text light class is added to the toast |
+| `position` | `string <Position>` | the Position enum value of the message in the container |
+
+## Container Props
+
+| Name | Type  | Description |
+| ---- | ---- | ----------- |
+| `defaultPosition` | `string` | default Position enum value |
+
+# Slots
+TODO
+
+# Accessibility
+Change the next properties to change the default accessibility text
+
+| Name | Property | Default |
+| ---- | ---- | ----------- |
+| live | aria:live | `assertive` |
+| role | aria:expanded | `alert` |
+| buttonClose | aria:buttonClose | `Close` |
+
+
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for buttons.
+
+# Theme
+Use the next `json` to define a new theme for the modal
+
+```json
+{
+  cssClass: {
+    main: string // single toast message class
+    container: string // container class for a group of toast messages
+    animated: string // single toast message animated class
+    textLight: string // single toast message class for dark toast
+    header: string // single toast message header class
+    body: string // single toast message body class
+    message: string // single toast message span class
+    variants: KeyPairString // color variants for toasts
+    components: {
+      buttonCloseHeader: string // class for close button on header
+      buttonCloseBody: string // class for close button on body
+    }
+    positions: { // container classes for all positions
+      [Position.TopLeft]: string
+      [Position.TopCenter]: string
+      [Position.TopRight]: string
+      [Position.MiddleLeft]: string
+      [Position.MiddleCenter]: string
+      [Position.MiddleRight]: string
+      [Position.BottomLeft]: string
+      [Position.BottomCenter]: string
+      [Position.BottomRight]: string
+    }
+  }
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
+
+## Inner components
+
+Note that the Modal uses [UiTransition](?path=/docs/ui-bootstrap-transition-default&args=#transitions) and [UiButtonclose](?path=/docs/ui-bootstrap-closebutton--default&args=#close-button) components internally, so when providing a theme you should provide for them as well.

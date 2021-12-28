@@ -8,7 +8,7 @@
     @keydown.enter.stop.prevent="selectCurrent"
   >
     <UiMenuItem
-      v-for="(item, i) in datasource"
+      v-for="(item, i) in newDatasource"
       :key="i"
       @select="select(item, i)"
       @focus="focus(item, i)"
@@ -31,6 +31,7 @@ import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
 import {
   isSelectable,
   MenuItem,
+  MenuItemTypes,
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
 import { bsUiMenuThemeConfigDefaults } from './defaults/bs-ui-menu-theme.config'
@@ -42,7 +43,10 @@ const TAG_NAME = 'uiMenu'
 export default defineComponent({
   TAG_NAME,
   props: {
-    datasource: { type: Array as PropType<MenuItem[]>, default: () => [] },
+    datasource: {
+      type: Array as PropType<(MenuItem | string)[]>,
+      default: () => [],
+    },
     defaultSelectedIndex: { type: Number, required: false },
     invert: { type: Boolean, default: false },
     dropdown: { type: Boolean, default: false },
@@ -64,6 +68,19 @@ export default defineComponent({
       bsUiMenuThemeConfigDefaults
     )
 
+    const newDatasource = computed(() => {
+      return datasource.value.map(item => {
+        if (typeof item !== 'string') {
+          return item
+        }
+
+        return {
+          type: MenuItemTypes.Button,
+          content: item,
+        }
+      })
+    })
+
     const classes = computed((): string[] => {
       return [
         theme.value.cssClass.main,
@@ -76,7 +93,7 @@ export default defineComponent({
       const maxLength = items.value?.length - 1
       let index = Math.min(focusedIndex + step, maxLength)
       for (; index >= 0 && index <= maxLength; index += step) {
-        if (isSelectable(datasource.value[index])) {
+        if (isSelectable(newDatasource.value[index])) {
           return index
         }
       }
@@ -108,6 +125,7 @@ export default defineComponent({
     }
 
     return {
+      newDatasource,
       classes,
       select,
       selectCurrent,

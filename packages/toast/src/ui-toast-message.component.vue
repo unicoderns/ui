@@ -81,7 +81,6 @@ export default defineComponent({
     message: { type: String, default: null },
     dismissible: { type: Boolean, default: false },
     msTimer: { type: Number, required: false },
-    show: { type: Boolean, default: true },
     variant: { type: String, default: null },
     dark: { type: Boolean, default: false },
     position: { type: String as PropType<Position>, default: null },
@@ -91,9 +90,8 @@ export default defineComponent({
   },
   emits: ['show', 'close'],
   setup(props, { emit, slots, attrs }) {
-    const { show, variant, animate, dark, msTimer } = toRefs(props)
-    const remove = ref(false)
-    const visible = computed(() => show.value && !remove.value)
+    const { variant, animate, dark, msTimer } = toRefs(props)
+    const visible = ref(true)
 
     const theme = useReactiveThemeConfig<UiToastThemeConfigModel>(
       TAG_NAME,
@@ -110,9 +108,7 @@ export default defineComponent({
 
     const classes = computed(() => [
       theme.value.cssClass.main,
-      ...(variant.value
-        ? [theme.value.cssClass.bgVariants[variant.value]]
-        : []),
+      ...(variant.value ? [theme.value.cssClass.variants[variant.value]] : []),
       ...(animate.value ? [theme.value.cssClass.animated] : []),
     ])
     const bodyTextClasses = computed(() => [
@@ -121,12 +117,12 @@ export default defineComponent({
     ])
     let timeoutInterval: ReturnType<typeof setTimeout> | null = null
     const close = () => {
-      remove.value = true
+      visible.value = false
       timeoutInterval && clearInterval(timeoutInterval)
     }
-    const afterEnter = () => emit('show', !remove.value)
+    const afterEnter = () => emit('show', visible.value)
     const beforeLeave = () => emit('close')
-    const afterLeave = () => emit('show', !remove.value)
+    const afterLeave = () => emit('show', visible.value)
 
     onMounted(() => {
       if ((msTimer?.value || 0) > 0) {
@@ -135,7 +131,6 @@ export default defineComponent({
     })
 
     return {
-      remove,
       visible,
       classes,
       bodyTextClasses,

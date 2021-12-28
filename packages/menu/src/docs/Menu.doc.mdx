@@ -1,1 +1,93 @@
+import { Story, Canvas } from '@storybook/addon-docs'
+
 # Menu
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/menu)
+
+```html
+<ui-menu
+  :datasource="[]"
+  :defaultSelectedIndex="null"
+  :invert="false"
+  :dropdown="false",
+  @select="select">
+</ui-menu>
+```
+
+# Datasource
+Datasource can be an array of strings in which case they will all be converted to button items.
+This are the times of items you can have in the datasource:
+1. header: `{ type: 'header', content: '...' }`
+1. plain text (span): `{ type: 'text', content: '...' }`
+1. raw text into the slot: `{ type: 'raw', content: '...' }`
+1. divider: `{ type: 'divider' }`
+1. link: `{ type: 'link', content: '...' }`
+1. button: `{ type: 'button', content: '...' }`
+1. plain string that morphs as a button: `'plain string'`
+
+From the above the last three, link and buttons are the only ones selectable.
+
+<Canvas>
+  <Story id="ui-bootstrap-menu--normal" />
+</Canvas>
+
+# Inverted
+
+<Canvas>
+  <Story id="ui-bootstrap-menu--inverted" />
+</Canvas>
+
+# Default Index
+
+<Canvas>
+  <Story id="ui-bootstrap-menu--default-index" />
+</Canvas>
+
+# Custom slots
+
+<Canvas>
+  <Story id="ui-bootstrap-menu--custom" />
+</Canvas>
+
+## Props
+
+| Name | Type  | Description |
+| ---- | ---- | ----------- |
+| `datasource` | `array<MenuItem | string>` | configuration for the (menu component](?path=/docs/ui-bootstrap-menu-normal&args=#menu) |
+| `defaultSelectedIndex` | `number` | the menu component default selected index |
+| `invert` | `boolean` | inverts the menu component by adding the invert class |
+| `dropdown` | `boolean` | removes the static class from the menu |
+
+# Slots
+TODO
+
+# Events
+Menu will emit this events while changing state
+
+| Event | Params | Desription |
+| ---- | ---- | ----------- |
+| select | `item: MenuItem | string` | will raise when a link or button item is clicked |
+
+# Theme
+Use the next `json` to define a new theme for the menu
+
+```json
+{
+  tags: {
+    headerItem: string // title element type. i.e h5, h3, h1
+  }
+  cssClass: {
+    main: string // class for the menu wrapper
+    invert: string // class for when inverted menu
+    static: string // class for non dropdown menu
+    item: string // each item class
+    itemActive: string // class for when an item is active
+    itemDisabled: string // class for when an item is dissabled
+    header: string // the header class
+    text: string // class for text type
+    divider: string // class for the divider
+  }
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json

@@ -1,1 +1,129 @@
-# Dropdown
+import { Story, Canvas } from '@storybook/addon-docs'
+
+# Dropdowns
+Dropdown is basically a button that opens a [menu](?path=/docs/ui-bootstrap-menu--normal&args=#menu) component using [popper js]
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/dropdown)
+
+```html
+<ui-dropdown
+  :label="'some label'"
+  :datasource="[]"
+  :invert="false"
+  :anchor="false"
+  :outline="false"
+  :variant="'primary'"
+  :size?: SizeVariant
+  :splitButton="false"
+  :disableBackdrop="false"
+  :defaultSelectedIndex="null"
+  :arrowDirection="down"
+  :menuAlignEnd="false"
+  :aria:expanded="'expanded'"
+  :aria:groupRole="'group'"
+  @show="show" @select="select" @hide="hide">
+</ui-dropdown>
+```
+
+# Variants
+
+<Canvas>
+  <Story id="ui-bootstrap-dropdown--primary" />
+  <Story id="ui-bootstrap-dropdown--secondary" />
+  <Story id="ui-bootstrap-dropdown--success" />
+  <Story id="ui-bootstrap-dropdown--danger" />
+  <Story id="ui-bootstrap-dropdown--warning" />
+  <Story id="ui-bootstrap-dropdown--info" />
+  <Story id="ui-bootstrap-dropdown--light" />
+  <Story id="ui-bootstrap-dropdown--dark" />
+</Canvas>
+
+# Split button
+
+<Canvas>
+  <Story id="ui-bootstrap-dropdown--split-button" />
+</Canvas>
+
+# Menu align end
+
+<Canvas>
+  <Story id="ui-bootstrap-dropdown--menu-align-end" />
+</Canvas>
+
+# Arrow Direction
+
+<Canvas>
+  <Story id="ui-bootstrap-dropdown--left" />
+  <Story id="ui-bootstrap-dropdown--right" />
+  <Story id="ui-bootstrap-dropdown--up" />
+</Canvas>
+
+# Popper Js and menu on the edges
+By using Popper Js the menu can accomodate itself when it gets to the edges.
+You can play around with that functionallity [here](/story/ui-bootstrap-dropdown--edge)
+
+## Props
+
+| Name | Type  | Description |
+| ---- | ---- | ----------- |
+| `label` | `string` | button label, it overrides the slot content if present |
+| `datasource` | `array` | configuration for the (menu component](?path=/docs/ui-bootstrap-menu-normal&args=#menu) |
+| `invert` | `boolean` | inverts the menu component |
+| `outline` | `boolean` | outline class is added to the button |
+| `variant` | `string` | varian class defined in the theme |
+| `size` | `string <ButtonSizeVariant>` | ButtonSizeVariant enum for sm, md or lg size.  |
+| `splitButton` | `boolean` | shows button as a split button from the arrow part |
+| `defaultSelectedIndex` | `number` | the menu component default selected index |
+| `disableBackdrop` | `boolean` | if true menu won't close when click outside |
+| `arrowDirection` | `string` | if true menu won't close when esc key pressed |
+| `menuAlignEnd` | `boolean` | if true menu will align to the right (or to the left if is RTL) |
+
+# Events
+Modal will emit this events while changing state
+
+| Event | Params | Desription |
+| ---- | ---- | ----------- |
+| show | NONE | will raise when the modal is shown after animation |
+| hide | NONE | will raise when the modal is closed after animation |
+| select | `item: MenuItem | string` | will raise when a link or button item is clicked |
+
+# Accessibility
+Change the next properties to change the default accessibility text
+
+| Name | Property | Default |
+| ---- | ---- | ----------- |
+| role | aria:expanded | `expanded` |
+| title | aria:groupRole | `group` |
+
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for buttons.
+
+# Theme
+Use the next `json` to define a new theme for the modal
+
+```json
+{
+  cssClass: {
+    main: string // main class for the container div
+    menuEndAll: string // class for the menu when its align to the end
+    variants: KeyPairString // classes for all the variants
+    components: {
+      buttonToggle: string // class for the main button
+      buttonSplit: string // class for the splitted button part
+      buttonGroup: string // class for the button div container when splitted
+      buttonAtStart: string // class for the splitted button part when left arrow direction is set
+    }
+    directions: { // classes for the arrow direction
+      [Directions.Up]: string
+      [Directions.Down]: string
+      [Directions.Left]: string
+      [Directions.Right]: string
+    }
+  }
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
+
+## Inner components
+
+Note that the Modal uses [UiMenu](?path=/docs/ui-bootstrap-menu-normal&args=#menu) and [UiButton](?path=/docs/ui-bootstrap-button--primary&args=#buttons) components internally, so when providing a theme you should provide for them as well.

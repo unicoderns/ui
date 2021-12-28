@@ -67,42 +67,126 @@ const baseArgs: StoryModel = {
   dismissible: true,
   msTimer: undefined,
   variant: BootstrapVariants.Primary,
-  position: Position.BottomRight,
 }
 
 export const Normal = Template.bind({})
 Normal.args = {
   ...baseArgs,
 }
+Normal.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+      code:`
+inject(UiToastMessagePlugin.ServiceInjectionToken)
+service?.add({ headerText: 'some header', message: 'some message' })
+      `,
+    },
+  },
+}
 
 export const Positioned = Template.bind({})
 Positioned.args = {
   ...baseArgs,
+  headerText: 'Warning variant',
+  message: 'Middle position',
   variant: BootstrapVariants.Warning,
   position: Position.MiddleCenter,
+}
+Positioned.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+      code:`
+inject(UiToastMessagePlugin.ServiceInjectionToken)
+service?.add({
+  headerText: 'Warning variant',
+  message: 'Middle position',
+  variant: BootstrapVariants.Warning,
+  position: Position.MiddleCenter,
+})
+      `,
+    },
+  },
 }
 
 export const Timer = Template.bind({})
 Timer.args = {
   ...baseArgs,
+  headerText: 'Danger variant',
+  message: '3s Timer',
   msTimer: 3000,
   variant: BootstrapVariants.Danger,
   position: Position.TopRight,
 }
+Timer.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+      code:`
+inject(UiToastMessagePlugin.ServiceInjectionToken)
+service?.add({
+  headerText: 'Danger variant',
+  message: '3s Timer',
+  msTimer: 3000,
+  variant: BootstrapVariants.Danger,
+  position: Position.TopRight,
+})
+      `,
+    },
+  },
+}
 
-export const NoDismissable = Template.bind({})
-NoDismissable.args = {
+export const NonDismissable = Template.bind({})
+NonDismissable.args = {
   ...baseArgs,
+  headerText: 'Success variant',
+  message: 'Non dismissible',
   dismissible: false,
   msTimer: 3000,
   variant: BootstrapVariants.Success,
   position: Position.TopCenter,
+}
+NonDismissable.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+      code:`
+inject(UiToastMessagePlugin.ServiceInjectionToken)
+service?.add({
+  headerText: 'Success variant',
+  message: 'Non dismissible',
+  dismissible: false,
+  msTimer: 3000,
+  variant: BootstrapVariants.Success,
+  position: Position.TopCenter,
+})
+      `,
+    },
+  },
 }
 
 export const NoHeader = Template.bind({})
 NoHeader.args = {
   ...baseArgs,
   headerText: undefined,
+  message: 'No header',
   variant: BootstrapVariants.Info,
   position: Position.BottomLeft,
+}
+NoHeader.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+      code:`
+inject(UiToastMessagePlugin.ServiceInjectionToken)
+service?.add({
+  headerText: undefined,
+  message: 'No header',
+  variant: BootstrapVariants.Info,
+  position: Position.BottomLeft,
+})
+      `,
+    },
+  },
 }

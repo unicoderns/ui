@@ -63,6 +63,7 @@ const datasource = [
     type: 'button',
     content: 'This is a button item',
   },
+  'This is a plain string only button item',
   {
     type: 'divider',
   },
@@ -109,11 +110,26 @@ export const Normal = Template.bind({})
 Normal.args = {
   ...baseArgs,
 }
+Normal.parameters = {
+  docs: {
+    source: {
+      code: '<ui-menu :datasource="datasource" @select="select"></ui-menu>',
+    },
+  },
+}
 
 export const Inverted = Template.bind({})
 Inverted.args = {
   ...baseArgs,
   invert: true,
+}
+Inverted.parameters = {
+  docs: {
+    source: {
+      code:
+        '<ui-menu inverted :datasource="datasource" @select="select"></ui-menu>',
+    },
+  },
 }
 
 export const DefaultIndex = Template.bind({})
@@ -121,9 +137,30 @@ DefaultIndex.args = {
   ...baseArgs,
   defaultSelectedIndex: 4,
 }
+DefaultIndex.parameters = {
+  docs: {
+    source: {
+      code:
+        '<ui-menu defaultSelectedIndex="4" :datasource="datasource" @select="select"></ui-menu>',
+    },
+  },
+}
 
 export const Custom = Template.bind({})
 Custom.args = {
   ...baseArgs,
   custom: true,
+}
+Custom.parameters = {
+  docs: {
+    source: {
+      code:`
+<ui-menu :datasource="datasource" @select="select">
+  <template #default="{ item }">
+    <b>{{ item.content }}</b>
+  </template>
+</ui-menu>
+        `,
+    },
+  },
 }

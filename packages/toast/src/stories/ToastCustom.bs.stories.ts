@@ -8,6 +8,7 @@ import {
   UiToastMessagePlugin,
   UiToastService,
 } from '../'
+import { UiToastDoc } from '../dev'
 
 app.use(UiToastMessagePlugin)
 
@@ -29,6 +30,11 @@ export default {
     ['aria:buttonClose']: {
       name: 'aria:buttonClose',
       control: { type: 'text' },
+    },
+  },
+  parameters: {
+    docs: {
+      page: UiToastDoc,
     },
   },
 }
@@ -64,7 +70,7 @@ const Template = (args: StoryModel) => ({
         style="position: absolute; width: 100%; height: 100%; "
       >
       <template #toastHeader="{ item }"> &#9917 {{ item.headerText }}</template>
-      <template #toastBody="{ item }"><a>{{ item.message }}</a></template>
+      <template #toastBody="{ item }"> &#9917 <a>{{ item.message }}</a></template>
       </ui-toast-container>
     </div>
   `,

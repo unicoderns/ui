@@ -11,8 +11,8 @@ type ToastContainerPublicInstance = ComponentPublicInstance & {
 }
 
 class PluginToastMessageService implements UiToastService {
-  add(message: UiToastModel): void {
-    this.queueService.add(message)
+  add(message: UiToastModel): string {
+    return this.queueService.add(message)
   }
   remove(key: string): void {
     this.queueService.remove(key)
