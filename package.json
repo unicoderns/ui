@@ -12,7 +12,8 @@
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "test": "lerna run test:unit",
-    "lint": "lerna run lint"
+    "lint": "lerna run lint",
+    "generate": "npx hygen component new"
   },
   "dependencies": {
     "@popperjs/core": "^2.10.2",
