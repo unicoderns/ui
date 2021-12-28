@@ -29,7 +29,7 @@
       "@unicodernsui/modal": ["packages/modal/src"],
       "@unicodernsui/dropdown": ["packages/dropdown/src"],
       "@unicodernsui/toast": ["packages/toast/src"],
-      "@unicodernsui/text-area": ["packages/text-area/src"],
+      "@unicodernsui/code-highlight": ["packages/code-higlight/src"],
     },
     "lib": [
       "esnext",

@@ -1,5 +1,4 @@
-import { Story, Canvas, Preview, Source,  } from '@storybook/addon-docs';
-import { UiButton } from '../'
+import { Story, Canvas } from '@storybook/addon-docs'
 
 # Buttons
 Use custom theme to define button styles based on your own variants. Buttons support multiple sizes, state and more.
@@ -9,6 +8,7 @@ Use custom theme to define button styles based on your own variants. Buttons sup
 ```html
     <ui-button
       :anchor="false" :toggle="false" :outline="false" :active="false" :variant="'primary'" :size="'sm'"
+      :aria:role="'some role'"
       @toggle="toggle"
       >Button</ui-button>
 ```
@@ -64,6 +64,17 @@ A button can be of anchor tag type `<a>` if stated
 <Canvas>
   <Story id="ui-bootstrap-button--anchor" />
 </Canvas>
+
+## Props
+
+| Name | Type  | Description |
+| ---- | ---- | ----------- |
+| `anchor` | `boolean` | if true the button is rendered as an anchor tag `<a>` |
+| `toggle` | `boolean` | if true the button shows as state of active or inactive and sends the `toggle` event |
+| `outline` | `boolean` | outline class is added to the button |
+| `variant` | `string` | variant class defined in the theme |
+| `size` | `string <ButtonSizeVariant>` | ButtonSizeVariant enum for sm, md or lg size.  |
+| `active` | `boolean` | shows button as active adding the active class |
 
 # Events
 Button will emit this events while changing state

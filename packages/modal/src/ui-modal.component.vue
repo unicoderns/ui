@@ -8,15 +8,19 @@
       v-if="visible"
       :class="classes"
       :role="aria.role"
-      :aria-labelledby="aria.title"
-      :aria-describedby="aria.description"
-      :tabindex="autoFocus ? 0 : -1"
+      :aria-labelledby="aria.title || title"
+      :aria-describedby="aria.description || body"
       ref="main"
       style="display: block"
       @click="close('backdrop')"
       @keydown.esc="close('esc')"
     >
-      <div :class="wrapperClasses" @click.stop="">
+      <div
+        ref="wrapper"
+        :class="wrapperClasses"
+        :tabindex="autoFocus ? 0 : -1"
+        @click.stop=""
+      >
         <div :class="theme.cssClass.content">
           <div :class="theme.cssClass.header">
             <component
@@ -36,6 +40,7 @@
           <div :class="theme.cssClass.body">
             <span v-if="!!body">{{ body }}</span>
             <slot v-else-if="slots.body" name="body" />
+            <slot v-else-if="slots.default" name="default" />
           </div>
           <div :class="theme.cssClass.footer" v-if="slots.footer">
             <slot name="footer" />
@@ -90,7 +95,7 @@ export default defineComponent({
     show: { type: Boolean, default: true },
     size: { type: String as PropType<ModalSizeVariant>, default: null },
     fullscreen: {
-      type: String as PropType<ResponsiveVariant | boolean>,
+      type: [String, Boolean] as PropType<ResponsiveVariant | boolean>,
       default: null,
     },
     ['aria:role']: { type: String, default: null },
@@ -112,6 +117,7 @@ export default defineComponent({
       fullscreen,
     } = toRefs(props)
     const main: Ref<HTMLElement | null> = ref(null)
+    const wrapper: Ref<HTMLElement | null> = ref(null)
     const remove = ref(false)
     watch(show, value => (remove.value = !value))
     const visible = computed(() => show.value && !remove.value)
@@ -169,7 +175,7 @@ export default defineComponent({
     }
     const afterEnter = () => {
       if (autoFocus.value) {
-        main.value?.focus()
+        wrapper.value?.focus() // TODO: not working
       }
       emit('show')
     }
@@ -178,6 +184,7 @@ export default defineComponent({
 
     return {
       main,
+      wrapper,
       remove,
       visible,
       classes,

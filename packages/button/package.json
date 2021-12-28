@@ -21,6 +21,7 @@
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@unicodernsui/custom-theme": "*",
+    "@unicodernsui/code-highlight": "*",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",

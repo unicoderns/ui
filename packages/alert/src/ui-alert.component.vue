@@ -92,8 +92,4 @@ export default defineComponent({
     }
   },
 })
-
-//   // TODO htmlElem dismiss, close, etc
-//   // TODO 2 way binding
-// }
 </script>

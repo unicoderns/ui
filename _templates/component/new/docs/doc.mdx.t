@@ -1,10 +1,12 @@
 ---
 to: packages/<%= h.changeCase.param(name) %>/src/docs/<%= h.changeCase.pascal(name) %>.doc.mdx
 ---
-import { Story, Canvas, Preview } from '@storybook/addon-docs';
+import { Story, Canvas } from '@storybook/addon-docs';
 
 # <%= h.changeCase.pascal(name) %>s
 Display an <%= h.changeCase.param(name) %> with text to users.
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/<%= h.changeCase.pascal(name) %>)
 
 ```html
     <ui-<%= h.changeCase.param(name) %> :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.default }}</ui-<%= h.changeCase.param(name) %>>
@@ -25,6 +27,19 @@ Support multiple variants
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--light" />
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--dark" />
 </Canvas>
+
+## Props
+
+| Name | Type  | Description |
+| ---- | ---- | ----------- |
+| `variant` | `string` | varian class defined in the theme |
+
+## Slots
+
+| Name | Description |
+| ---- | ----------- |
+| `default` | actual span content |
+
 
 # Events
 Button will emit this events while changing state

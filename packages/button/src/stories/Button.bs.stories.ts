@@ -17,6 +17,7 @@ export default {
       options: Object.values(BootstrapVariants),
     },
     toggle: { control: { type: 'boolean' } },
+    ['aria:role']: { name: 'role(aria)', control: { type: 'text' } },
   },
   parameters: {
     docs: {
@@ -176,7 +177,7 @@ OutlinePrimary.args = {
 OutlinePrimary.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="primary" :outline="true">Primary</ui-button>',
+      code: '<ui-button variant="primary" outline>Primary</ui-button>',
     },
   },
 }
@@ -191,7 +192,7 @@ OutlineSecondary.args = {
 OutlineSecondary.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="secondary" :outline="true">Secondary</ui-button>',
+      code: '<ui-button variant="secondary" outline>Secondary</ui-button>',
     },
   },
 }
@@ -206,7 +207,7 @@ OutlineSuccess.args = {
 OutlineSuccess.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="success" :outline="true">Success</ui-button>',
+      code: '<ui-button variant="success" outline>Success</ui-button>',
     },
   },
 }
@@ -221,7 +222,7 @@ OutlineDanger.args = {
 OutlineDanger.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="danger" :outline="true">Danger</ui-button>',
+      code: '<ui-button variant="danger" outline>Danger</ui-button>',
     },
   },
 }
@@ -236,7 +237,7 @@ OutlineWarning.args = {
 OutlineWarning.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="warning" :outline="true">Warning</ui-button>',
+      code: '<ui-button variant="warning" outline>Warning</ui-button>',
     },
   },
 }
@@ -251,7 +252,7 @@ OutlineInfo.args = {
 OutlineInfo.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="info" :outline="true">Info</ui-button>',
+      code: '<ui-button variant="info" outline>Info</ui-button>',
     },
   },
 }
@@ -266,7 +267,7 @@ OutlineLight.args = {
 OutlineLight.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="light" :outline="true">Light</ui-button>',
+      code: '<ui-button variant="light" outline>Light</ui-button>',
     },
   },
 }
@@ -281,7 +282,7 @@ OutlineDark.args = {
 OutlineDark.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="dark" :outline="true">Dark</ui-button>',
+      code: '<ui-button variant="dark" outline>Dark</ui-button>',
     },
   },
 }
@@ -338,7 +339,7 @@ Active.args = {
 Active.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="danger" :active="true">Active</ui-button>',
+      code: '<ui-button variant="danger" active>Active</ui-button>',
     },
   },
 }
@@ -353,21 +354,8 @@ Toggle.args = {
 Toggle.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="danger" :toggle="true">Toggle</ui-button>',
-    },
-  },
-}
-
-export const Anchor = Template.bind({})
-Anchor.args = {
-  ...baseArgs,
-  label: 'Anchor',
-  anchor: true,
-}
-Anchor.parameters = {
-  docs: {
-    source: {
-      code: '<ui-button variant="primary" :anchor="true">Anchor</ui-button>',
+      code:
+        '<ui-button variant="danger" toggle @toggle="toggle">Toggle</ui-button>',
     },
   },
 }
