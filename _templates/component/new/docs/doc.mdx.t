@@ -1,7 +1,7 @@
 ---
 to: packages/<%= h.changeCase.param(name) %>/src/docs/<%= h.changeCase.pascal(name) %>.doc.mdx
 ---
-import { Story, Canvas, Preview } from '@storybook/addon-docs';
+import { Story, Canvas } from '@storybook/addon-docs';
 
 # <%= h.changeCase.pascal(name) %>s
 Display an <%= h.changeCase.param(name) %> with text to users.
