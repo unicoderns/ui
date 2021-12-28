@@ -65,7 +65,7 @@ you can check that behavior [here](/story/ui-bootstrap-toast--custom-container)
 | ---- | ---- | ----------- |
 | `animate` | `boolean` | if the toast message is animated |
 | `headerText` | `string` | the header of the toast message, if not present then no header is displayed |
-| `message` | `string` | actial toast message |
+| `message` | `string` | actual toast message |
 | `dismissible` | `boolean` | if the close button appears on the toast |
 | `msTimer` | `number` | if the message should dissapear after given millisecs |
 | `variant` | `string` | theme variant |
@@ -94,7 +94,7 @@ Change the next properties to change the default accessibility text
 Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for buttons.
 
 # Theme
-Use the next `json` to define a new theme for the modal
+Use the next `json` to define a new theme for the toasts
 
 ```json
 {
@@ -130,4 +130,4 @@ Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to se
 
 ## Inner components
 
-Note that the Modal uses [UiTransition](?path=/docs/ui-bootstrap-transition-default&args=#transitions) and [UiButtonclose](?path=/docs/ui-bootstrap-closebutton--default&args=#close-button) components internally, so when providing a theme you should provide for them as well.
+Note that the Toast uses [UiTransition](?path=/docs/ui-bootstrap-transition-default&args=#transitions) and [UiButtonclose](?path=/docs/ui-bootstrap-closebutton--default&args=#close-button) components internally, so when providing a theme you should provide for them as well.
