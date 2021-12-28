@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { UiTabs, UiTab } from '@unicodernsui/tabs'
-import { UiCodeHighlight } from '../'
+import { UiCodeHighlight } from '..'
 import { SupportedLanguajes } from '../types'
 
 export default {
@@ -15,17 +15,25 @@ export default {
   },
 }
 
-const Template = (args: any) => ({
+type CodeHighlightModel = {
+  code: string | null
+  lang: SupportedLanguajes
+  slot: boolean
+  lineNumbers: boolean
+}
+
+const Template = (args: CodeHighlightModel) => ({
   components: { UiCodeHighlight, UiTabs, UiTab },
   setup() {
-    return { args }
+    const { slot, ...newArgs } = args
+    return { args: newArgs, slot }
   },
   methods: {
     select: action('select'),
   },
   template: `
   <div>
-  <template v-if="${args['slot'] === true}">
+  <template v-if="slot">
     <ui-code-highlight v-bind="args">
       <ui-tabs @select="select">
           <ui-tab title="Tab 1">
@@ -43,7 +51,7 @@ const Template = (args: any) => ({
       </ui-tabs>
     </ui-code-highlight>
   </template>
-  <template v-if="${args['slot'] === false}">
+  <template v-else>
     <ui-code-highlight v-bind="args">
     </ui-code-highlight>
   </template>
@@ -51,15 +59,15 @@ const Template = (args: any) => ({
  `,
 })
 
-const htmlArgs: any = {
-  refCode: null,
+const htmlArgs: CodeHighlightModel = {
+  code: null,
   lang: SupportedLanguajes.HTML,
   slot: true,
   lineNumbers: true,
 }
 
-const jsArgs: any = {
-  refCode: `// program to include constants
+const jsArgs: CodeHighlightModel = {
+  code: `// program to include constants
         const a = 5;
         console.log(a);
         
@@ -89,8 +97,8 @@ const jsArgs: any = {
   lineNumbers: true,
 }
 
-const cssArgs: any = {
-  refCode: `p {
+const cssArgs: CodeHighlightModel = {
+  code: `p {
     color: red;
     width: 500px;
     border: 1px solid black;
@@ -113,8 +121,8 @@ const cssArgs: any = {
   lineNumbers: true,
 }
 
-const jsonArgs: any = {
-  refCode: `{
+const jsonArgs: CodeHighlightModel = {
+  code: `{
     "glossary": {
         "title": "example glossary",
 		"GlossDiv": {
