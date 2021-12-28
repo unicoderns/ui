@@ -16,7 +16,6 @@ Display an <%= h.changeCase.param(name) %> with text to users.
 
 Support multiple variants
 
-
 <Canvas>
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--primary"/>
   <Story id="ui-bootstrap-<%= h.changeCase.param(name) %>--secondary" />
@@ -40,7 +39,6 @@ Support multiple variants
 | ---- | ----------- |
 | `default` | actual span content |
 
-
 # Events
 Button will emit this events while changing state
 
@@ -56,7 +54,6 @@ Change the next properties to change the default accessibility text
 | role | aria:role | `button` |
 
 Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for buttons.
-
 
 # Theme
 Use the next `json` to define a new theme for the component
