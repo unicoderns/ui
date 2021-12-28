@@ -8,7 +8,6 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-actions",
-    "@whitespace/storybook-addon-html",
     {
       name: "@storybook/addon-docs",
       options: {

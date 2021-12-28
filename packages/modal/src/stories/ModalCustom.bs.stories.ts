@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { ModalSizeVariants, ResponsiveVariants } from '@unicodernsui/core'
+import { UiCodeHighlight } from '@unicodernsui/code-highlight'
 import { UiModal, UiModalModel } from '../'
 import { UiModalDoc } from '../dev'
 
@@ -19,6 +20,16 @@ export default {
       control: { type: 'select' },
       options: [false, true, ...Object.values(ResponsiveVariants)],
     },
+    ['aria:title']: { name: 'title(aria)', control: { type: 'text' } },
+    ['aria:description']: {
+      name: 'description(aria)',
+      control: { type: 'text' },
+    },
+    ['aria:role']: { name: 'role(aria)', control: { type: 'text' } },
+    ['aria:buttonClose']: {
+      name: 'button close(aria)',
+      control: { type: 'text' },
+    },
   },
   parameters: {
     docs: {
@@ -27,20 +38,19 @@ export default {
   },
 }
 
-type StoryModel =
-  | UiModalModel
-  | {
-      titleSlot: string
-      bodySlot: string
-      footerSlot: string
-    }
+type StoryModel = UiModalModel & {
+  titleSlot: string
+  bodySlot: string
+  footerSlot: string
+}
 
 const Template = (args: StoryModel) => ({
-  components: { UiModal },
+  components: { UiModal, UiCodeHighlight },
   setup() {
+    const { titleSlot, bodySlot, footerSlot, ...newArgs } = args;
     const toggle = ref(false)
 
-    return { args, toggle }
+    return { args, newArgs, toggle }
   },
   methods: {
     show: action('show'),
@@ -48,13 +58,15 @@ const Template = (args: StoryModel) => ({
     close: action('close'),
   },
   template: `
-    <a href="" @click.prevent="toggle=!toggle">Toggle visible</a>
-    <br>
-    <ui-modal :="args" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide">
-      <template #title>Slot: <a href>{{ args.titleSlot }}</a></template>
-      <template #body>Slot: &#1083; {{ args.bodySlot }} &#1083; &#1083; &#1083;</template>
-      <template #footer><button>{{ args.footerSlot }}</button></template>
-    </ui-modal>
+    <div>
+      <a href="" @click.prevent="toggle=!toggle">Toggle visible</a>
+      <br>
+      <ui-modal :="newArgs" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide">
+        <template #title>Slot: <a href>{{ args.titleSlot }}</a></template>
+        <template #body>Slot: &#1083; {{ args.bodySlot }} &#1083; &#1083; &#1083;</template>
+        <template #footer><button>{{ args.footerSlot }}</button></template>
+      </ui-modal>
+    </div>
   `,
 })
 
@@ -75,4 +87,15 @@ const baseArgs: StoryModel = {
 export const CustomSlots = Template.bind({})
 CustomSlots.args = {
   ...baseArgs,
+}
+CustomSlots.parameters = {
+  docs: {
+    source: {
+      code: `<ui-modal title="Custom Slots" scrollable show>
+  <template #title>Some title</template>
+  <template #body>Some body</template>
+  <template #footer><button>Some button</button></template>
+</ui-modal>`,
+    },
+  },
 }

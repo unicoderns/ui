@@ -1,1 +1,164 @@
-# Modal
+import { Story, Canvas, Preview, Source } from '@storybook/addon-docs'
+
+# Modals
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/modal)
+
+```html
+<ui-modal
+  :title="'title'"
+  :body="'body'"
+  :animate="true"
+  :dismissible="false"
+  :disableBackdrop="false"
+  :disableEscKey="false"
+  :autoFocus="true"
+  :scrollable="false"
+  :verticalCenter="false"
+  :show="true"
+  :size"'md'"
+  :fullscreen="false"
+  @show="show" @close="close" @hide="hide">
+</ui-modal>
+```
+
+# Regular
+
+<Canvas>
+  <Story id="ui-bootstrap-modal--normal" />
+</Canvas>
+
+# Sizes
+
+<Canvas>
+  <Story id="ui-bootstrap-modal--small" />
+  <Story id="ui-bootstrap-modal--large" />
+  <Story id="ui-bootstrap-modal--extra-large" />
+</Canvas>
+
+# Dismissible
+
+<Canvas>
+  <Story id="ui-bootstrap-modal--dismissible" />
+</Canvas>
+
+# Fullscreen
+
+<Canvas>
+  <Story id="ui-bootstrap-modal--fullscreen" />
+</Canvas>
+
+# Vertical Center
+
+<Canvas>
+  <Story id="ui-bootstrap-modal--vertical-center" />
+</Canvas>
+
+# Disable Backdrop and Esc Key
+
+<Canvas>
+  <Story id="ui-bootstrap-modal--disable-backdrop" />
+</Canvas>
+
+# Autofocus
+
+<Canvas>
+  <Story id="ui-bootstrap-modal--autofocus" />
+</Canvas>
+
+# Scrollable
+
+<Canvas>
+  <Story id="ui-bootstrap-modal--scrollable" />
+</Canvas>
+
+# Custom slots
+
+<Canvas>
+  <Story id="ui-bootstrap-modal--custom-slots" />
+</Canvas>
+
+## Props
+
+| Name | Type  | Description |
+| ---- | ---- | ----------- |
+| `title` | `string` | the title of the modal, this replaces the `header` slot if present |
+| `body` | `string` | the body of the modal, this replaces the `body` slot if present |
+| `animate` | `boolean` | if the modal is animated |
+| `dismissible` | `boolean` | if the close button appears on the modal |
+| `disableBackdrop` | `boolean` | if true the modal won't close when clicked outside |
+| `disableEscKey` | `boolean` | if true the modal won't close when esc key is pressed |
+| `autoFocus` | `boolean` | if true the modal will focus when open |
+| `scrollable` | `boolean` | a max height with a scroll will appear if the content is to large |
+| `verticalCenter` | `boolean` | the moddal will apear on the center of the screen |
+| `show` | `boolean` | actually shows or hides the modal |
+| `size` | `string<ModalSizeVariant>` | modal size based on the ModalSizeVariant enum  |
+| `fullscreen` | `string<ResponsiveVariant> | boolean` | if true the modal will always be fullscreen, or if string it will be fullscreen if the breakpoint is bellow given ResponsiveVariant enum value |
+
+# Events
+Modal will emit this events while changing state
+
+| Event | Params | Desription |
+| ---- | ---- | ----------- |
+| show | NONE | will raise when the modal is shown after animation |
+| close | NONE | will raise when the modal is closing |
+| hide | NONE | will raise when the modal is closed after animation |
+
+# Accessibility
+Change the next properties to change the default accessibility text
+
+| Name | Property | Default |
+| ---- | ---- | ----------- |
+| role | aria:role | `dialog` |
+| title | aria:title | EMTPY |
+| description | aria:description | EMTPY |
+| buttonClose | aria:buttonClose | `Close` |
+
+
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for buttons.
+
+# Theme
+Use the next `json` to define a new theme for the modal
+
+```json
+{
+  tags: {
+    title: string // title element type. i.e h5, h3, h1
+  }
+  cssClass: {
+    main: string // class for the overlay
+    animated: string // class for the overlay when the modal is animated
+    wrapper: string // class for the wrapper of the main dialog box
+    verticallyCentered: string // class for the wrapper when the dialog is centerd vertically
+    scrollable: string // class for the wrapper when the content should be scrollable
+    content: string // class for the main content of the dialog
+    header: string // header block class
+    headerTitle: string // title class
+    body: string // body block class
+    footer: string // footer block class
+    fullscreenAll: string // for when the dialog is always fullscreen
+    fullscreenVariants: { // for fullscreen responsiveness, bellow the given variant
+      [ResponsiveVariants.ExtraExtraLarge]: string
+      [ResponsiveVariants.ExtraLarge]: string
+      [ResponsiveVariants.Large]: string
+      [ResponsiveVariants.Medium]: string
+      [ResponsiveVariants.Small]: string
+      [ResponsiveVariants.ExtraSmall]: string
+    }
+    components: {
+      buttonClose: string // for the close button when the dialog is dismissible
+    }
+    sizes: { // size variant classes
+      [SizeVariants.Small]: string
+      [SizeVariants.Large]: string
+      [SizeVariants.ExtraLarge]: string
+    }
+  }
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
+
+## Inner components
+
+Note that the Modal uses [UiTransition](?path=/docs/ui-bootstrap-transition-default&args=#transitions) and [UiButtonclose](?path=/docs/ui-bootstrap-closebutton--default&args=#close-button) components internally, so when providing a theme you should provide for them as well.
