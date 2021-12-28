@@ -20,7 +20,7 @@ export const bsUiToastThemeConfigDefaults: UiToastThemeConfigModel = {
     header: 'toast-header',
     body: 'toast-body',
     message: 'me-auto',
-    bgVariants: {
+    variants: {
       ...bgVariantClasses,
     },
     components: {

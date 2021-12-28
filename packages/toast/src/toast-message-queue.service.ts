@@ -13,7 +13,7 @@ export class ToastMessageQueueService implements UiToastService {
     ToastMessageQueueService.singletonInstance = this
   }
 
-  public add(message: UiToastModel) {
+  public add(message: UiToastModel): string {
     if (!this.queueList.length) {
       throw new Error('No container has been register yet')
     }
@@ -24,6 +24,8 @@ export class ToastMessageQueueService implements UiToastService {
 
     const queue = this.queueList[this.queueList.length - 1]
     queue.value = { ...queue.value, messages: Object.entries(this.queueHash) }
+
+    return key
   }
 
   public remove(key: string) {

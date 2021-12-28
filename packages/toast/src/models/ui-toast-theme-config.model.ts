@@ -13,7 +13,7 @@ export interface UiToastThemeConfigModel extends UiComponentThemeConfigModel {
     header: string
     body: string
     message: string
-    bgVariants: KeyPairString
+    variants: KeyPairString
     components: {
       buttonCloseHeader: string
       buttonCloseBody: string

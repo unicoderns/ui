@@ -1,7 +1,6 @@
 import {
   BootstrapVariants,
   Directions,
-  ResponsiveVariants,
   cssClassPrefix,
   enumToObjectByValue,
 } from '@unicodernsui/core'
@@ -14,10 +13,6 @@ const variantClasses = enumToObjectByValue(BootstrapVariants)
 Object.keys(variantClasses).forEach(
   value => (variantClasses[value] = getPrefixedClass(value))
 )
-const menuVariantClasses = enumToObjectByValue(ResponsiveVariants)
-Object.keys(menuVariantClasses).forEach(
-  value => (menuVariantClasses[value] = `dropdown-menu-${value}-end`)
-)
 
 export const bsUiDropdownThemeConfigDefaults: UiDropdownThemeConfigModel = {
   cssClass: {
@@ -25,9 +20,6 @@ export const bsUiDropdownThemeConfigDefaults: UiDropdownThemeConfigModel = {
     menuEndAll: 'dropdown-menu-end',
     variants: {
       ...variantClasses,
-    },
-    menuEndVariants: {
-      ...menuVariantClasses,
     },
     components: {
       buttonToggle: 'dropdown-toggle',

@@ -6,7 +6,6 @@ export interface UiToastModel {
   message?: string
   dismissible?: boolean
   msTimer?: number
-  show?: boolean
   variant?: string
   dark?: boolean
   position?: Position

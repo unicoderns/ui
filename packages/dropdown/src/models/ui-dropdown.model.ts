@@ -13,6 +13,6 @@ export interface UiDropdownModel {
   defaultSelectedIndex?: number
   arrowDirection?: Direction
   menuAlignEnd?: boolean
-  ['aria:expanded']: string
-  ['aria:groupRole']: string
+  ['aria:expanded']?: string
+  ['aria:groupRole']?: string
 }

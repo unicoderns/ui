@@ -9,7 +9,6 @@ export interface UiDropdownThemeConfigModel
   cssClass: {
     main: string
     menuEndAll: string
-    menuEndVariants: KeyPairString
     variants: KeyPairString
     components: {
       buttonToggle: string
