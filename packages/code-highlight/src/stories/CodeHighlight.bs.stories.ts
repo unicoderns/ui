@@ -1,7 +1,15 @@
 import { action } from '@storybook/addon-actions'
 import { UiTabs, UiTab } from '@unicodernsui/tabs'
+import { ref } from 'vue'
 import { UiCodeHighlight } from '..'
 import { SupportedLanguajes } from '../types'
+import { UiCodeHighlightDoc } from '../dev'
+
+enum storyType {
+  slot = 'slot',
+  code = 'code',
+  ref = 'ref',
+}
 
 export default {
   title: 'UI/Bootstrap/CodeHighlight',
@@ -12,45 +20,75 @@ export default {
       control: { type: 'select' },
       options: Object.values(SupportedLanguajes),
     },
+    storyType: {
+      control: { type: 'select' },
+      options: Object.values(storyType),
+    },
+  },
+  parameters: {
+    docs: {
+      page: UiCodeHighlightDoc,
+    },
   },
 }
 
 type CodeHighlightModel = {
   code: string | null
   lang: SupportedLanguajes
-  slot: boolean
+  storyType: string
   lineNumbers: boolean
 }
 
 const Template = (args: CodeHighlightModel) => ({
   components: { UiCodeHighlight, UiTabs, UiTab },
   setup() {
-    const { slot, ...newArgs } = args
-    return { args: newArgs, slot }
+    const { storyType, ...newArgs } = args
+    const codeElement = ref()
+    return { args: newArgs, storyType, codeElement }
   },
   methods: {
     select: action('select'),
   },
   template: `
   <div>
-  <template v-if="slot">
+  <template v-if="storyType === 'slot'">
     <ui-code-highlight v-bind="args">
-      <ui-tabs @select="select">
-          <ui-tab title="Tab 1">
-          Hello From Tab 1
-          </ui-tab>
-          <ui-tab title="Tab 2">
-          Hello From Tab 2
-          </ui-tab>
-          <ui-tab title="Tab 3" :active="true">
-          Hello From Tab 3
-          </ui-tab>
-          <ui-tab title="Tab 4" :disabled="true">
-          Hello From Tab 4
-          </ui-tab>
-      </ui-tabs>
+        <ui-tabs @select="select" >
+            <ui-tab title="Tab 1">
+            Hello From Tab 1
+            </ui-tab>
+            <ui-tab title="Tab 2">
+            Hello From Tab 2
+            </ui-tab>
+            <ui-tab title="Tab 3" :active="true">
+            Hello From Tab 3
+            </ui-tab>
+            <ui-tab title="Tab 4" :disabled="true">
+            Hello From Tab 4
+            </ui-tab>
+        </ui-tabs>
     </ui-code-highlight>
   </template>
+  <template v-if="storyType === 'ref'">
+  <div ref="codeElement">
+    <ui-tabs @select="select" >
+        <ui-tab title="Tab 1">
+        Hello From Tab 1
+        </ui-tab>
+        <ui-tab title="Tab 2">
+        Hello From Tab 2
+        </ui-tab>
+        <ui-tab title="Tab 3" :active="true">
+        Hello From Tab 3
+        </ui-tab>
+        <ui-tab title="Tab 4" :disabled="true">
+        Hello From Tab 4
+        </ui-tab>
+    </ui-tabs>
+  </div>
+  <ui-code-highlight v-bind="args" v-if="codeElement" :code="codeElement">
+  </ui-code-highlight>
+</template>
   <template v-else>
     <ui-code-highlight v-bind="args">
     </ui-code-highlight>
@@ -62,7 +100,14 @@ const Template = (args: CodeHighlightModel) => ({
 const htmlArgs: CodeHighlightModel = {
   code: null,
   lang: SupportedLanguajes.HTML,
-  slot: true,
+  storyType: storyType.slot,
+  lineNumbers: true,
+}
+
+const refArgs: CodeHighlightModel = {
+  code: null,
+  lang: SupportedLanguajes.HTML,
+  storyType: storyType.ref,
   lineNumbers: true,
 }
 
@@ -93,7 +138,7 @@ const jsArgs: CodeHighlightModel = {
         // throws an error
         // const x; `,
   lang: SupportedLanguajes.Javascript,
-  slot: false,
+  storyType: storyType.code,
   lineNumbers: true,
 }
 
@@ -117,7 +162,7 @@ const cssArgs: CodeHighlightModel = {
     letter-spacing: 1px;
   }`,
   lang: SupportedLanguajes.CSS,
-  slot: false,
+  storyType: storyType.code,
   lineNumbers: true,
 }
 
@@ -146,13 +191,18 @@ const jsonArgs: CodeHighlightModel = {
 }
 `,
   lang: SupportedLanguajes.Json,
-  slot: false,
+  storyType: storyType.code,
   lineNumbers: false,
 }
 
 export const Default = Template.bind({})
 Default.args = {
   ...htmlArgs,
+}
+
+export const CodeByReference = Template.bind({})
+CodeByReference.args = {
+  ...refArgs,
 }
 
 export const Javascript = Template.bind({})
