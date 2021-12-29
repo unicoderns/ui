@@ -2,13 +2,13 @@
   "name": "@unicodernsui/code-highlight",
   "version": "0.0.1",
   "description": "Code highlight component",
-  "main": "dist/index.js",
-  "module": "src/index.ts",
   "scripts": {
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "transpile": "vue-cli-service build --target lib src/index.ts"
   },
+  "main": "dist/index.js",
+  "module": "src/index.ts",
   "dependencies": {
     "@unicodernsui/button-close": "*",
     "@unicodernsui/core": "*",
@@ -22,9 +22,10 @@
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@types/highlight.js": "^10.1.0",
-    "@types/jest": "^24.0.19",
-    "@types/prismjs": "^1.16.6",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.12",
     "@types/prettier": "^2.4.2",
+    "@types/prismjs": "^1.16.6",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@unicodernsui/custom-theme": "*",
