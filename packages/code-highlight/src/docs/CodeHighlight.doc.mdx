@@ -1,0 +1,79 @@
+import { Story, Canvas, Preview, Source } from '@storybook/addon-docs'
+import { UiCodeHighlightDoc } from '../'
+
+# Code Highlight
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/code-highlight)
+
+# Usage
+
+Using slot to show the rendered code
+
+```html
+<ui-code-highlight :code="code" :lang="lang" :lineNumbers="lineNumbers">
+  <ui-tabs @select="select">
+    <ui-tab title="Tab 1"> Hello From Tab 1 </ui-tab>
+    <ui-tab title="Tab 2"> Hello From Tab 2 </ui-tab>
+    <ui-tab title="Tab 3" :active="true"> Hello From Tab 3 </ui-tab>
+    <ui-tab title="Tab 4" :disabled="true"> Hello From Tab 4 </ui-tab>
+  </ui-tabs>
+</ui-code-highlight>
+```
+
+Using a ref attribute to show the rendered code, this required to define the attribute on the setup of the parent component
+
+```html
+<div ref="codeElement">
+  <ui-tabs @select="select">
+    <ui-tab title="Tab 1"> Hello From Tab 1 </ui-tab>
+    <ui-tab title="Tab 2"> Hello From Tab 2 </ui-tab>
+    <ui-tab title="Tab 3" :active="true"> Hello From Tab 3 </ui-tab>
+    <ui-tab title="Tab 4" :disabled="true"> Hello From Tab 4 </ui-tab>
+  </ui-tabs>
+</div>:code="code" :lang="lang" :lineNumbers="lineNumbers" v-if="codeElement" :code="codeElement">
+</ui-code-highlight>
+```
+
+Using the code prop, this property allows to highlight code on HTML, Javacript, CSS and JSON
+
+```html
+<ui-code-highlight
+  :code="code"
+  :lang="lang"
+  :lineNumbers="lineNumbers"
+></ui-code-highlight>
+```
+
+# Supported languages
+
+## HTML
+
+<Canvas>
+  <Story id="ui-bootstrap-codehighlight--default" />
+</Canvas>
+
+## Javacript
+
+<Canvas>
+  <Story id="ui-bootstrap-codehighlight--javascript" />
+</Canvas>
+
+## CSS
+
+<Canvas>
+  <Story id="ui-bootstrap-codehighlight--css" />
+</Canvas>
+
+## JSON
+
+<Canvas>
+  <Story id="ui-bootstrap-codehighlight--json" />
+</Canvas>
+
+# Props
+
+| Name          | Type                         | Description                                                       |
+| ------------- | ---------------------------- | ----------------------------------------------------------------- |
+| `code`        | `string or Object`           | receive an string or an object with the code to highlight         |
+| `lang`        | `string <SupportedLanguaje>` | SupportedLanguaje enum for html, javascript, css or json language |
+| `lineNumbers` | `boolean`                    | show line numbers                                                 |

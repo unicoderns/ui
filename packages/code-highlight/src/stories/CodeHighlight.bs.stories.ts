@@ -3,6 +3,7 @@ import { UiTabs, UiTab } from '@unicodernsui/tabs'
 import { ref } from 'vue'
 import { UiCodeHighlight } from '..'
 import { SupportedLanguajes } from '../types'
+import { UiCodeHighlightDoc } from '../dev'
 
 enum storyType {
   slot = 'slot',
@@ -22,6 +23,11 @@ export default {
     storyType: {
       control: { type: 'select' },
       options: Object.values(storyType),
+    },
+  },
+  parameters: {
+    docs: {
+      page: UiCodeHighlightDoc,
     },
   },
 }
@@ -47,7 +53,6 @@ const Template = (args: CodeHighlightModel) => ({
   <div>
   <template v-if="storyType === 'slot'">
     <ui-code-highlight v-bind="args">
-      <div>
         <ui-tabs @select="select" >
             <ui-tab title="Tab 1">
             Hello From Tab 1
@@ -62,7 +67,6 @@ const Template = (args: CodeHighlightModel) => ({
             Hello From Tab 4
             </ui-tab>
         </ui-tabs>
-      </div>
     </ui-code-highlight>
   </template>
   <template v-if="storyType === 'ref'">
