@@ -4,26 +4,51 @@ import { SupportedLanguajes, UiCodeHighlight } from '../../src'
 import { prismClass } from '../../src/utils'
 
 describe('ui-code-highlight.vue', () => {
+  const cssCode = `p {
+    color: red;
+    width: 500px;
+    border: 1px solid black;
+  }
+  p, li, h1 {
+    color: red;
+  }
+  h1 {
+    font-size: 60px;
+      text-align: center;
+    }
+  p, li { 
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+  }`
+
+  const jsonCode = `{
+    "glossary": {
+        "title": "example glossary",
+        "GlossDiv": {
+            "title": "S",
+            "GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML",
+                    "SortAs": "SGML",
+                    "GlossTerm": "Standard Generalized Markup Language",
+                    "Acronym": "SGML",
+                    "Abbrev": "ISO 8879:1986",
+                    "GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+                        "GlossSeeAlso": ["GML", "XML"]
+                    },
+                    "GlossSee": "markup"
+                }
+            }
+        }
+    }
+}
+`
   it('should render line-numbers class when props.linenumbers is set true', async () => {
     const wrapper = shallowMount(UiCodeHighlight, {
       props: {
-        code: `p {
-                color: red;
-                width: 500px;
-                border: 1px solid black;
-              }
-              p, li, h1 {
-                color: red;
-              }
-              h1 {
-                font-size: 60px;
-                  text-align: center;
-                }
-              p, li { 
-                font-size: 16px;
-                line-height: 2;
-                letter-spacing: 1px;
-              }`,
+        code: cssCode,
         lang: SupportedLanguajes.CSS,
         lineNumbers: true,
       },
@@ -39,23 +64,7 @@ describe('ui-code-highlight.vue', () => {
   it("shouldn't render line-numbers class when props.linenumbers is set false", async () => {
     const wrapper = shallowMount(UiCodeHighlight, {
       props: {
-        code: `p {
-                color: red;
-                width: 500px;
-                border: 1px solid black;
-              }
-              p, li, h1 {
-                color: red;
-              }
-              h1 {
-                font-size: 60px;
-                  text-align: center;
-                }
-              p, li { 
-                font-size: 16px;
-                line-height: 2;
-                letter-spacing: 1px;
-              }`,
+        code: cssCode,
         lang: SupportedLanguajes.CSS,
         lineNumbers: false,
       },
@@ -72,33 +81,19 @@ describe('ui-code-highlight.vue', () => {
     const lang = SupportedLanguajes.Json
     const wrapper = shallowMount(UiCodeHighlight, {
       props: {
-        code: `{
-            "glossary": {
-                "title": "example glossary",
-                "GlossDiv": {
-                    "title": "S",
-                    "GlossList": {
-                        "GlossEntry": {
-                            "ID": "SGML",
-                            "SortAs": "SGML",
-                            "GlossTerm": "Standard Generalized Markup Language",
-                            "Acronym": "SGML",
-                            "Abbrev": "ISO 8879:1986",
-                            "GlossDef": {
-                                "para": "A meta-markup language, used to create markup languages such as DocBook.",
-                                "GlossSeeAlso": ["GML", "XML"]
-                            },
-                            "GlossSee": "markup"
-                        }
-                    }
-                }
-            }
-        }
-        `,
+        code: jsonCode,
         lang: lang,
         lineNumbers: false,
       },
     })
+
+    await wrapper.vm.$nextTick()
+
+    const pre = wrapper.find('pre')
+
+    const code = pre.find('code')
+
+    expect(code.classes()).toContain(prismClass(lang))
   })
 
   it("pre tag shouldn't exist, when code equal null and the slot is empty", async () => {
@@ -122,29 +117,7 @@ describe('ui-code-highlight.vue', () => {
     const lang = SupportedLanguajes.Json
     const wrapper = shallowMount(UiCodeHighlight, {
       props: {
-        code: `{
-            "glossary": {
-                "title": "example glossary",
-                "GlossDiv": {
-                    "title": "S",
-                    "GlossList": {
-                        "GlossEntry": {
-                            "ID": "SGML",
-                            "SortAs": "SGML",
-                            "GlossTerm": "Standard Generalized Markup Language",
-                            "Acronym": "SGML",
-                            "Abbrev": "ISO 8879:1986",
-                            "GlossDef": {
-                                "para": "A meta-markup language, used to create markup languages such as DocBook.",
-                                "GlossSeeAlso": ["GML", "XML"]
-                            },
-                            "GlossSee": "markup"
-                        }
-                    }
-                }
-            }
-        }
-        `,
+        code: jsonCode,
         lang: lang,
         lineNumbers: false,
       },
@@ -154,9 +127,7 @@ describe('ui-code-highlight.vue', () => {
 
     const pre = wrapper.find('pre')
 
-    const code = pre.find('code')
-
-    expect(code.classes()).toContain(prismClass(lang))
+    expect(pre.exists()).toBeTruthy()
   })
 })
 
