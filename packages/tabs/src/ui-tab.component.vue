@@ -26,7 +26,7 @@ export default defineComponent({
   setup() {
     const instance: ComponentInternalInstance | null = getCurrentInstance()
 
-    const state = inject('tabsState', {
+    const state = inject('uiTabsState', {
       tabs: new Array<UiTabPropsModel>(),
       active: 0,
     })

@@ -1,0 +1,72 @@
+import { Story, Canvas } from '@storybook/addon-docs';
+
+# Accordions
+Display an accordion with text to users.
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/Accordion)
+
+```html
+    <ui-accordion :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.default }}</ui-accordion>
+```
+
+## Variants
+
+Support multiple variants
+
+<Canvas>
+  <Story id="ui-bootstrap-accordion--primary"/>
+  <Story id="ui-bootstrap-accordion--secondary" />
+  <Story id="ui-bootstrap-accordion--success" />
+  <Story id="ui-bootstrap-accordion--danger" />
+  <Story id="ui-bootstrap-accordion--warning" />
+  <Story id="ui-bootstrap-accordion--info" />
+  <Story id="ui-bootstrap-accordion--light" />
+  <Story id="ui-bootstrap-accordion--dark" />
+</Canvas>
+
+## Props
+
+| Name | Type  | Description |
+| ---- | ---- | ----------- |
+| `variant` | `string` | varian class defined in the theme |
+
+## Slots
+
+| Name | Description |
+| ---- | ----------- |
+| `default` | actual span content |
+
+# Events
+Button will emit this events while changing state
+
+| Event | Params | Desription |
+| ---- | ---- | ----------- |
+| Toggle | active: `boolean` | Will only raise when `toggle = true` |
+
+# Accessibility
+Change the next properties to change the default accessibility text
+
+| Name | Property | Default |
+| ---- | ---- | ----------- |
+| role | aria:role | `button` |
+
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for buttons.
+
+# Theme
+Use the next `json` to define a new theme for the component
+
+```json
+{
+  cssClass: {
+    main: string, // main class
+    variants: { // define a custom list of variants
+      'variant1': string,
+      'variant2': string,
+      ...
+      'variantN': string,
+    },
+  },
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
