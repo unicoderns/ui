@@ -51,18 +51,46 @@ export const Top = TemplateFn(PopperCardinalPlacement.Top).bind({})
 Top.args = {
   ...baseArgs,
 }
+Top.parameters = {
+  docs: {
+    source: {
+      code: '<button v-ui-tooltip:top="tooltip">Top</button>',
+    },
+  },
+}
 
 export const Left = TemplateFn(PopperCardinalPlacement.Left).bind({})
 Left.args = {
   ...baseArgs,
+}
+Left.parameters = {
+  docs: {
+    source: {
+      code: '<button v-ui-tooltip:left="tooltip">Top</button>',
+    },
+  },
 }
 
 export const Right = TemplateFn(PopperCardinalPlacement.Right).bind({})
 Right.args = {
   ...baseArgs,
 }
+Right.parameters = {
+  docs: {
+    source: {
+      code: '<button v-ui-tooltip:right="tooltip">Top</button>',
+    },
+  },
+}
 
 export const Bottom = TemplateFn(PopperCardinalPlacement.Bottom).bind({})
 Bottom.args = {
   ...baseArgs,
+}
+Bottom.parameters = {
+  docs: {
+    source: {
+      code: '<button v-ui-tooltip:bottom="tooltip">Top</button>',
+    },
+  },
 }

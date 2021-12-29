@@ -1,1 +1,86 @@
+import { Story, Canvas } from '@storybook/addon-docs';
+
 # Tooltip
+
+The tooltip is a directive that display useful and informative text near other components when user mouse-hover gesture.
+
+<Canvas>
+<Story id="ui-bootstrap-tooltip--top" />
+</Canvas>
+
+## Popper Js and tooltip on the edges
+By using Popper Js the tooltip can accomodate itself when it gets to the edges.
+You can find a demo of this functionality applied to [dropdown component](/story/ui-bootstrap-dropdown--edge)
+
+## Props
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `text`| `string` | text shown in tooltip |
+| `location`| `string` | position where the tooltip will be displayed |
+
+### Location
+
+By default tooltips are shown on the top, but it can be customizable through location option: `v-ui-tooltip:${postion}`, where position can be `top`, `bottom`, `left` or `right`.
+
+<Canvas>
+<Story id="ui-bootstrap-tooltip--top"/>
+<Story id="ui-bootstrap-tooltip--left"/>
+<Story id="ui-bootstrap-tooltip--right"/>
+<Story id="ui-bootstrap-tooltip--bottom"/>
+</Canvas>
+
+### Text
+Set tooltip's text simply passing a string as value i.e:
+```html
+<div v-ui-tooltip:top="Some text">
+  Some content
+</div>
+```
+## Events
+
+```html
+<button v-ui-tooltip:top="tooltip text" @open="open" @show="show" @close="close" @hide="hide">
+  Button Text
+</button>
+```
+
+You can set callbacks for the following events:
+
+| Event | Params | Desription |
+| ----- | ------ | ---------- |
+| `open` | NONE | will raise when the tooltip is open before animation |
+| `show` | NONE | will raise when the tooltip is shown after animation |
+| `hide` | NONE | will raise when the tooltip is closing |
+| `close` | NONE | will raise when the tooltip is closed after animation |
+
+## Accessibility
+Change the next properties to change the default accessibility text
+
+| Name | Property | Default |
+| ---- | -------- | ------- |
+| role | aria:role | `tooltip` |
+
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for tooltips.
+
+## Theme
+Use the next `json` to define a new theme for the dropdown
+
+```json
+{
+  cssClass: {
+    main: string // main class for the container div
+    animated: string // classes for animated state
+    message: string // classes for the message container
+    arrow: string // classes for tooltip's arrow
+    positions: { // classes for the arrow direction
+      [PopperCardinalPlacement.Top]: string
+      [PopperCardinalPlacement.Bottom]: string
+      [PopperCardinalPlacement.Right]: string
+      [PopperCardinalPlacement.Left]: string
+    }
+  }
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
