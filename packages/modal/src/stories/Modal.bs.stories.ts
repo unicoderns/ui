@@ -10,7 +10,6 @@ export default {
   component: UiModal,
   argTypes: {
     title: { control: { type: 'text' } },
-    body: { control: { type: 'text' } },
     size: {
       control: { type: 'select' },
       options: Object.values(ModalSizeVariants),
@@ -54,21 +53,24 @@ const Template = (args: StoryModel) => ({
   },
   template: `
     <ui-inspector>
+      <ui-modal :="args" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide">
+        Some body
+        <button>Some button</button>
+      </ui-modal>
       <a href="" @click.prevent="toggle=!toggle">Toggle visible {{ label }}</a>
       <br>
-      <ui-modal :="args" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide"></ui-modal>
     </ui-inspector>
   `,
 })
 
 const baseArgs: StoryModel = {
   title: 'Some title',
-  body: 'Some body',
+  body: undefined,
   animate: true,
   dismissible: false,
   disableBackdrop: false,
   disableEscKey: false,
-  autoFocus: true,
+  autoFocus: false,
   scrollable: false,
   verticalCenter: false,
   fullscreen: false,
@@ -193,20 +195,19 @@ VerticalCenter.parameters = {
   },
 }
 
-// TODO: not working
-// export const Autofocus = Template.bind({})
-// Autofocus.args = {
-//   ...baseArgs,
-//   autofocus: true,
-//   label: 'autofocus',
-// }
-// Autofocus.parameters = {
-//   docs: {
-//     source: {
-//       code: '<ui-modal title="Autofocus" autofocus show>Some body</ui-modal>',
-//     },
-//   },
-// }
+export const Autofocus = Template.bind({})
+Autofocus.args = {
+  ...baseArgs,
+  autoFocus: true,
+  label: 'autofocus',
+}
+Autofocus.parameters = {
+  docs: {
+    source: {
+      code: '<ui-modal title="Autofocus" autofocus show>Some body</ui-modal>',
+    },
+  },
+}
 
 export const Scrollable = Template.bind({})
 Scrollable.args = {
