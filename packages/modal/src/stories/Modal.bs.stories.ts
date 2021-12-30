@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { ModalSizeVariants, ResponsiveVariants } from '@unicodernsui/core'
-import { UiCodeHighlight } from '@unicodernsui/code-highlight'
+import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
 import { UiModal, UiModalModel } from '../'
 import { UiModalDoc } from '../dev'
 
@@ -40,7 +40,7 @@ export default {
 type StoryModel = UiModalModel & { label: string }
 
 const Template = (args: StoryModel) => ({
-  components: { UiModal, UiCodeHighlight },
+  components: { UiModal, UiInspector },
   setup() {
     const toggle = ref(false)
     const { label, ...newArgs } = args
@@ -53,11 +53,11 @@ const Template = (args: StoryModel) => ({
     close: action('close'),
   },
   template: `
-    <div>
+    <ui-inspector>
       <a href="" @click.prevent="toggle=!toggle">Toggle visible {{ label }}</a>
       <br>
       <ui-modal :="args" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide"></ui-modal>
-    </div>
+    </ui-inspector>
   `,
 })
 
@@ -140,7 +140,8 @@ Fullscreen.args = {
 Fullscreen.parameters = {
   docs: {
     source: {
-      code: '<ui-modal title="Fullscreen" fullscreen dismissible show>Some body</ui-modal>',
+      code:
+        '<ui-modal title="Fullscreen" fullscreen dismissible show>Some body</ui-modal>',
     },
   },
 }
@@ -154,7 +155,8 @@ Dismissible.args = {
 Dismissible.parameters = {
   docs: {
     source: {
-      code: '<ui-modal title="Dismissible" dismissible show>Some body</ui-modal>',
+      code:
+        '<ui-modal title="Dismissible" dismissible show>Some body</ui-modal>',
     },
   },
 }
@@ -170,7 +172,8 @@ DisableBackdrop.args = {
 DisableBackdrop.parameters = {
   docs: {
     source: {
-      code: '<ui-modal title="Disable Backdrop" disableBackdrop disableEscKey show>Some body</ui-modal>',
+      code:
+        '<ui-modal title="Disable Backdrop" disableBackdrop disableEscKey show>Some body</ui-modal>',
     },
   },
 }
@@ -184,24 +187,26 @@ VerticalCenter.args = {
 VerticalCenter.parameters = {
   docs: {
     source: {
-      code: '<ui-modal title="Vertical Center" verticalCenter show>Some body</ui-modal>',
+      code:
+        '<ui-modal title="Vertical Center" verticalCenter show>Some body</ui-modal>',
     },
   },
 }
 
-export const Autofocus = Template.bind({})
-Autofocus.args = {
-  ...baseArgs,
-  autofocus: true,
-  label: 'autofocus',
-}
-Autofocus.parameters = {
-  docs: {
-    source: {
-      code: '<ui-modal title="Autofocus" autofocus show>Some body</ui-modal>',
-    },
-  },
-}
+// TODO: not working
+// export const Autofocus = Template.bind({})
+// Autofocus.args = {
+//   ...baseArgs,
+//   autofocus: true,
+//   label: 'autofocus',
+// }
+// Autofocus.parameters = {
+//   docs: {
+//     source: {
+//       code: '<ui-modal title="Autofocus" autofocus show>Some body</ui-modal>',
+//     },
+//   },
+// }
 
 export const Scrollable = Template.bind({})
 Scrollable.args = {

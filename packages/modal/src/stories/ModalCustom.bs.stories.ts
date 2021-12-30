@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { ModalSizeVariants, ResponsiveVariants } from '@unicodernsui/core'
+import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
 import { UiModal, UiModalModel } from '../'
 import { UiModalDoc } from '../dev'
 
@@ -44,7 +45,7 @@ type StoryModel = UiModalModel & {
 }
 
 const Template = (args: StoryModel) => ({
-  components: { UiModal },
+  components: { UiModal, UiInspector },
   setup() {
     const { titleSlot, bodySlot, footerSlot, ...newArgs } = args;
     const toggle = ref(false)
@@ -57,7 +58,7 @@ const Template = (args: StoryModel) => ({
     close: action('close'),
   },
   template: `
-    <div>
+    <ui-inspector>
       <a href="" @click.prevent="toggle=!toggle">Toggle visible</a>
       <br>
       <ui-modal :="args" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide">
@@ -65,7 +66,7 @@ const Template = (args: StoryModel) => ({
         <template #body>Slot: &#1083; {{ bodySlot }} &#1083; &#1083; &#1083;</template>
         <template #footer><button>{{ footerSlot }}</button></template>
       </ui-modal>
-    </div>
+    </ui-inspector>
   `,
 })
 

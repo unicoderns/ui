@@ -30,6 +30,7 @@
       "@unicodernsui/dropdown": ["packages/dropdown/src"],
       "@unicodernsui/toast": ["packages/toast/src"],
       "@unicodernsui/code-highlight": ["packages/code-higlight/src"],
+      "@unicodernsui/accordion": ["packages/accordion/src"],
     },
     "lib": [
       "esnext",
