@@ -58,7 +58,6 @@ const Template = (args: StoryModel) => ({
         <button>Some button</button>
       </ui-modal>
       <a href="" @click.prevent="toggle=!toggle">Toggle visible {{ label }}</a>
-      <br>
     </ui-inspector>
   `,
 })

@@ -59,13 +59,12 @@ const Template = (args: StoryModel) => ({
   },
   template: `
     <ui-inspector>
-      <a href="" @click.prevent="toggle=!toggle">Toggle visible</a>
-      <br>
       <ui-modal :="args" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide">
         <template #title>Slot: <a href>{{ titleSlot }}</a></template>
         <template #body>Slot: &#1083; {{ bodySlot }} &#1083; &#1083; &#1083;</template>
         <template #footer><button>{{ footerSlot }}</button></template>
       </ui-modal>
+      <a href="" @click.prevent="toggle=!toggle">Toggle visible</a>
     </ui-inspector>
   `,
 })
