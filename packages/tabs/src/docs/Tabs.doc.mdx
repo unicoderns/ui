@@ -48,11 +48,26 @@ Toggle between tabs and display content according the selected tab. It includes 
 </ui-tabs>
 ```
 
-## Events
-TODO
+## Each Tab Props
+| Name | Type  | Description |
+| ---- | ---- | ----------- |
+| `title` | `string` | tab title |
+| `active` | `boolean` | if the tab is selected |
+| `disabled` | `boolean` | if the tab is disabled |
 
-## Slots
-TODO
+
+## Events
+Tab panel will emit this events while changing state
+
+| Event | Params | Desription |
+| ---- | ---- | ----------- |
+| select | `index: number` | Will raise when a tab is selected |
+
+
+## Each Tab Slots
+| Name | Description |
+| ---- | ----------- |
+| `default` | actual tab content |
 
 ## Accesibility
 | Name | Property | Value | Description |
@@ -76,4 +91,18 @@ TODO
 ```
 
 ## Theme
-TODO
+Use the next `json` to define a new theme for the component
+
+```json
+{
+  cssClass: {
+    main: string // main tab panel (ul) class
+    item: string // each tab class (li)
+    link: string // each tab link class (a)
+    itemActive: string // class for active tab
+    itemDisabled: string // class for disabled tab
+  }
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json

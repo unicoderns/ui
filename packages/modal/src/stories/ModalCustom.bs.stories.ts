@@ -20,14 +20,14 @@ export default {
       control: { type: 'select' },
       options: [false, true, ...Object.values(ResponsiveVariants)],
     },
-    ['aria:title']: { name: 'title(aria)', control: { type: 'text' } },
+    ['aria:title']: { name: 'title (aria)', control: { type: 'text' } },
     ['aria:description']: {
-      name: 'description(aria)',
+      name: 'description (aria)',
       control: { type: 'text' },
     },
-    ['aria:role']: { name: 'role(aria)', control: { type: 'text' } },
+    ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
     ['aria:buttonClose']: {
-      name: 'button close(aria)',
+      name: 'button close (aria)',
       control: { type: 'text' },
     },
   },

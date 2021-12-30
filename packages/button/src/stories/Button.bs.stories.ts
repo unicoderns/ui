@@ -17,7 +17,7 @@ export default {
       options: Object.values(BootstrapVariants),
     },
     toggle: { control: { type: 'boolean' } },
-    ['aria:role']: { name: 'role(aria)', control: { type: 'text' } },
+    ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
   },
   parameters: {
     docs: {

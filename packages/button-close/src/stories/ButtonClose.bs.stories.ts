@@ -5,6 +5,9 @@ import { UiButtonCloseDoc } from '../dev'
 export default {
   title: 'UI/Bootstrap/CloseButton',
   component: UiButtonClose,
+  argTypes: {
+    ['aria:label']: { name: 'label (aria)', control: { type: 'text' } },
+  },
   parameters: {
     docs: {
       page: UiButtonCloseDoc,

@@ -20,10 +20,10 @@ export default {
     animate: { control: { type: 'boolean' } },
     dismissible: { control: { type: 'boolean' } },
     msTimer: { control: { type: 'number', required: false } },
-    ['aria:live']: { name: 'aria:live', control: { type: 'text' } },
-    ['aria:role']: { name: 'aria:role', control: { type: 'text' } },
+    ['aria:live']: { name: 'live (aria)', control: { type: 'text' } },
+    ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
     ['aria:buttonClose']: {
-      name: 'aria:buttonClose',
+      name: 'button close (aria)',
       control: { type: 'text' },
     },
   },
