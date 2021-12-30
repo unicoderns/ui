@@ -1,4 +1,4 @@
-import { Position } from '@unicodernsui/core'
+import { Positions } from '@unicodernsui/core'
 
 export interface UiToastModel {
   animate?: boolean
@@ -8,7 +8,7 @@ export interface UiToastModel {
   msTimer?: number
   variant?: string
   dark?: boolean
-  position?: Position
+  position?: Positions
   ['aria:live']?: string
   ['aria:role']?: string
   ['aria:buttonClose']?: string

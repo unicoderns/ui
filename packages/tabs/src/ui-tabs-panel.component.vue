@@ -47,7 +47,7 @@ export default defineComponent({
 
     const select = (index: number): void => {
       tabsState.active = index
-      emit('select')
+      emit('select', index)
     }
 
     const theme = useReactiveThemeConfig<UiTabsPanelThemeConfigModel>(

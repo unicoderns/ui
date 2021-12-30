@@ -87,13 +87,29 @@ Use the `animate` prop to animate an alert with a fade effect
 </Canvas>
 
 ## Props
-TODO
+| Name | Type  | Description |
+| ---- | ---- | ----------- |
+| `animate` | `boolean` | add animate class to alert |
+| `dismissible` | `boolean` | show close button |
+| `show` | `boolean` | show/hide the alert |
+| `variant` | `string` | variant class defined in the theme |
+| `invert` | `boolean` | inverts the close button |
 
-## Events
-TODO
 
 ## Slots
-TODO
+| Name | Description |
+| ---- | ----------- |
+| `default` | actual alert content |
+
+## Events
+Alert will emit this events while changing state
+
+| Event | Params | Desription |
+| ---- | ---- | ----------- |
+| show | NONE | Will only raise after transition |
+| close | NONE | Will only when closing |
+| hide | NONE | Will only after closing animation |
+
 
 ## Accessibility
 Use the following properties to change the default accessibility text
@@ -104,5 +120,25 @@ Use the following properties to change the default accessibility text
 | buttonClose | aria:buttonClose | `close` |
 
 ## Theme
-TODO
+Use the next `json` to define a new theme for the component
 
+```json
+{
+  cssClass: {
+    main: string // main alert class
+    dismissible: string // class for dismissible state
+    animated: string // class for animated alerts
+    variants: KeyPairString // define a custom list of variants
+    components: {
+      buttonClose: string // class for button close
+    }
+  }
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
+
+
+## Inner components
+
+Note that the Alert uses [UiTransition](?path=/docs/ui-bootstrap-transition-default&args=#transitions) and [UiButtonclose](?path=/docs/ui-bootstrap-closebutton--default&args=#close-button) components internally, so when providing a theme you should provide for them as well.

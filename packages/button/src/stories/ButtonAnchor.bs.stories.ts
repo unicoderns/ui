@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { BootstrapVariants, ButtonSizeVariants } from '@unicodernsui/core'
-import { UiCodeHighlight } from '@unicodernsui/code-highlight'
+import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
 import { UiButton, UiButtonModel } from '../'
 import { UiButtonDoc } from '../dev'
 
@@ -18,7 +18,7 @@ export default {
       options: Object.values(BootstrapVariants),
     },
     toggle: { control: { type: 'boolean' } },
-    ['aria:role']: { name: 'role(aria)', control: { type: 'text' } },
+    ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
   },
   parameters: {
     docs: {
@@ -34,7 +34,7 @@ type StoryModel =
     }
 
 const Template = (args: StoryModel) => ({
-  components: { UiButton, UiCodeHighlight },
+  components: { UiButton, UiInspector },
   setup() {
     return { args }
   },
@@ -42,9 +42,9 @@ const Template = (args: StoryModel) => ({
     toggle: action('toggle'),
   },
   template: `
-    <ui-code-highlight>
+    <ui-inspector>
       <ui-button :="args" @toggle="toggle" >{{ args.label }}</ui-button>
-    </ui-code-highlight>
+    </ui-inspector>
   `,
 })
 

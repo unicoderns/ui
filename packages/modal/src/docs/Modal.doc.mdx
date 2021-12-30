@@ -30,9 +30,18 @@ import { Story, Canvas } from '@storybook/addon-docs'
 
 # Sizes
 
+## Small
 <Canvas>
   <Story id="ui-bootstrap-modal--small" />
+</Canvas>
+
+## Large
+<Canvas>
   <Story id="ui-bootstrap-modal--large" />
+</Canvas>
+
+## Extra Large
+<Canvas>
   <Story id="ui-bootstrap-modal--extra-large" />
 </Canvas>
 
@@ -105,7 +114,13 @@ Modal will emit this events while changing state
 | hide | NONE | will raise when the modal is closed after animation |
 
 ## Slots
-TODO
+
+| Name | Description |
+| ---- | ----------- |
+| `title` | header content, won't appear if `title` prop is set |  |
+| `body` | body content, won't appear if `body` prop is set |  |
+| `default` | body content, won't appear if `body` prop is set |
+| `footer` | footer content |
 
 # Accessibility
 Change the next properties to change the default accessibility text

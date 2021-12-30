@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { ModalSizeVariants, ResponsiveVariants } from '@unicodernsui/core'
-import { UiCodeHighlight } from '@unicodernsui/code-highlight'
+import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
 import { UiModal, UiModalModel } from '../'
 import { UiModalDoc } from '../dev'
 
@@ -10,7 +10,6 @@ export default {
   component: UiModal,
   argTypes: {
     title: { control: { type: 'text' } },
-    body: { control: { type: 'text' } },
     size: {
       control: { type: 'select' },
       options: Object.values(ModalSizeVariants),
@@ -19,14 +18,14 @@ export default {
       control: { type: 'select' },
       options: [false, true, ...Object.values(ResponsiveVariants)],
     },
-    ['aria:title']: { name: 'title(aria)', control: { type: 'text' } },
+    ['aria:title']: { name: 'title (aria)', control: { type: 'text' } },
     ['aria:description']: {
-      name: 'description(aria)',
+      name: 'description (aria)',
       control: { type: 'text' },
     },
-    ['aria:role']: { name: 'role(aria)', control: { type: 'text' } },
+    ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
     ['aria:buttonClose']: {
-      name: 'button close(aria)',
+      name: 'button close (aria)',
       control: { type: 'text' },
     },
   },
@@ -40,7 +39,7 @@ export default {
 type StoryModel = UiModalModel & { label: string }
 
 const Template = (args: StoryModel) => ({
-  components: { UiModal, UiCodeHighlight },
+  components: { UiModal, UiInspector },
   setup() {
     const toggle = ref(false)
     const { label, ...newArgs } = args
@@ -53,22 +52,24 @@ const Template = (args: StoryModel) => ({
     close: action('close'),
   },
   template: `
-    <div>
+    <ui-inspector>
+      <ui-modal :="args" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide">
+        Some body
+        <button>Some button</button>
+      </ui-modal>
       <a href="" @click.prevent="toggle=!toggle">Toggle visible {{ label }}</a>
-      <br>
-      <ui-modal :="args" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide"></ui-modal>
-    </div>
+    </ui-inspector>
   `,
 })
 
 const baseArgs: StoryModel = {
   title: 'Some title',
-  body: 'Some body',
+  body: undefined,
   animate: true,
   dismissible: false,
   disableBackdrop: false,
   disableEscKey: false,
-  autoFocus: true,
+  autoFocus: false,
   scrollable: false,
   verticalCenter: false,
   fullscreen: false,
@@ -140,7 +141,8 @@ Fullscreen.args = {
 Fullscreen.parameters = {
   docs: {
     source: {
-      code: '<ui-modal title="Fullscreen" fullscreen dismissible show>Some body</ui-modal>',
+      code:
+        '<ui-modal title="Fullscreen" fullscreen dismissible show>Some body</ui-modal>',
     },
   },
 }
@@ -154,7 +156,8 @@ Dismissible.args = {
 Dismissible.parameters = {
   docs: {
     source: {
-      code: '<ui-modal title="Dismissible" dismissible show>Some body</ui-modal>',
+      code:
+        '<ui-modal title="Dismissible" dismissible show>Some body</ui-modal>',
     },
   },
 }
@@ -170,7 +173,8 @@ DisableBackdrop.args = {
 DisableBackdrop.parameters = {
   docs: {
     source: {
-      code: '<ui-modal title="Disable Backdrop" disableBackdrop disableEscKey show>Some body</ui-modal>',
+      code:
+        '<ui-modal title="Disable Backdrop" disableBackdrop disableEscKey show>Some body</ui-modal>',
     },
   },
 }
@@ -184,7 +188,8 @@ VerticalCenter.args = {
 VerticalCenter.parameters = {
   docs: {
     source: {
-      code: '<ui-modal title="Vertical Center" verticalCenter show>Some body</ui-modal>',
+      code:
+        '<ui-modal title="Vertical Center" verticalCenter show>Some body</ui-modal>',
     },
   },
 }
@@ -192,7 +197,7 @@ VerticalCenter.parameters = {
 export const Autofocus = Template.bind({})
 Autofocus.args = {
   ...baseArgs,
-  autofocus: true,
+  autoFocus: true,
   label: 'autofocus',
 }
 Autofocus.parameters = {

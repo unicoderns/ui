@@ -31,7 +31,7 @@ Support multiple variants
 
 | Name | Type  | Description |
 | ---- | ---- | ----------- |
-| `variant` | `string` | varian class defined in the theme |
+| `variant` | `string` | variant class defined in the theme |
 
 ## Slots
 
@@ -40,7 +40,7 @@ Support multiple variants
 | `default` | actual span content |
 
 # Events
-Button will emit this events while changing state
+<%= h.changeCase.pascal(name) %> will emit this events while changing state
 
 | Event | Params | Desription |
 | ---- | ---- | ----------- |
@@ -51,9 +51,9 @@ Change the next properties to change the default accessibility text
 
 | Name | Property | Default |
 | ---- | ---- | ----------- |
-| role | aria:role | `button` |
+| role | aria:role | `<%= h.changeCase.lower(name) %>` |
 
-Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for buttons.
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for <%= h.changeCase.lower(name) %>s.
 
 # Theme
 Use the next `json` to define a new theme for the component

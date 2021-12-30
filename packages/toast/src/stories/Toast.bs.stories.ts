@@ -1,7 +1,7 @@
 import { inject } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
-import { BootstrapVariants, Position } from '@unicodernsui/core'
+import { BootstrapVariants, Positions } from '@unicodernsui/core'
 import { UiToastModel, UiToastMessagePlugin, UiToastService } from '../'
 import { UiToastDoc } from '../dev'
 
@@ -10,7 +10,10 @@ app.use(UiToastMessagePlugin)
 export default {
   title: 'UI/Bootstrap/Toast',
   argTypes: {
-    position: { control: { type: 'select' }, options: Object.values(Position) },
+    position: {
+      control: { type: 'select' },
+      options: Object.values(Positions),
+    },
     variant: {
       control: { type: 'select' },
       options: Object.values(BootstrapVariants),
@@ -20,10 +23,10 @@ export default {
     animate: { control: { type: 'boolean' } },
     dismissible: { control: { type: 'boolean' } },
     msTimer: { control: { type: 'number', required: false } },
-    ['aria:live']: { name: 'aria:live', control: { type: 'text' } },
-    ['aria:role']: { name: 'aria:role', control: { type: 'text' } },
+    ['aria:live']: { name: 'live (aria)', control: { type: 'text' } },
+    ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
     ['aria:buttonClose']: {
-      name: 'aria:buttonClose',
+      name: 'button close (aria)',
       control: { type: 'text' },
     },
   },
@@ -91,7 +94,7 @@ Positioned.args = {
   headerText: 'Warning variant',
   message: 'Middle position',
   variant: BootstrapVariants.Warning,
-  position: Position.MiddleCenter,
+  position: Positions.MiddleCenter,
 }
 Positioned.parameters = {
   docs: {
@@ -103,7 +106,7 @@ service?.add({
   headerText: 'Warning variant',
   message: 'Middle position',
   variant: BootstrapVariants.Warning,
-  position: Position.MiddleCenter,
+  position: Positions.MiddleCenter,
 })
       `,
     },
@@ -117,7 +120,7 @@ Timer.args = {
   message: '3s Timer',
   msTimer: 3000,
   variant: BootstrapVariants.Danger,
-  position: Position.TopRight,
+  position: Positions.TopRight,
 }
 Timer.parameters = {
   docs: {
@@ -130,7 +133,7 @@ service?.add({
   message: '3s Timer',
   msTimer: 3000,
   variant: BootstrapVariants.Danger,
-  position: Position.TopRight,
+  position: Positions.TopRight,
 })
       `,
     },
@@ -145,7 +148,7 @@ NonDismissable.args = {
   dismissible: false,
   msTimer: 3000,
   variant: BootstrapVariants.Success,
-  position: Position.TopCenter,
+  position: Positions.TopCenter,
 }
 NonDismissable.parameters = {
   docs: {
@@ -159,7 +162,7 @@ service?.add({
   dismissible: false,
   msTimer: 3000,
   variant: BootstrapVariants.Success,
-  position: Position.TopCenter,
+  position: Positions.TopCenter,
 })
       `,
     },
@@ -172,7 +175,7 @@ NoHeader.args = {
   headerText: undefined,
   message: 'No header',
   variant: BootstrapVariants.Info,
-  position: Position.BottomLeft,
+  position: Positions.BottomLeft,
 }
 NoHeader.parameters = {
   docs: {
@@ -184,7 +187,7 @@ service?.add({
   headerText: undefined,
   message: 'No header',
   variant: BootstrapVariants.Info,
-  position: Position.BottomLeft,
+  position: Positions.BottomLeft,
 })
       `,
     },

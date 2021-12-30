@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { ModalSizeVariants, ResponsiveVariants } from '@unicodernsui/core'
+import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
 import { UiModal, UiModalModel } from '../'
 import { UiModalDoc } from '../dev'
 
@@ -19,14 +20,14 @@ export default {
       control: { type: 'select' },
       options: [false, true, ...Object.values(ResponsiveVariants)],
     },
-    ['aria:title']: { name: 'title(aria)', control: { type: 'text' } },
+    ['aria:title']: { name: 'title (aria)', control: { type: 'text' } },
     ['aria:description']: {
-      name: 'description(aria)',
+      name: 'description (aria)',
       control: { type: 'text' },
     },
-    ['aria:role']: { name: 'role(aria)', control: { type: 'text' } },
+    ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
     ['aria:buttonClose']: {
-      name: 'button close(aria)',
+      name: 'button close (aria)',
       control: { type: 'text' },
     },
   },
@@ -44,7 +45,7 @@ type StoryModel = UiModalModel & {
 }
 
 const Template = (args: StoryModel) => ({
-  components: { UiModal },
+  components: { UiModal, UiInspector },
   setup() {
     const { titleSlot, bodySlot, footerSlot, ...newArgs } = args;
     const toggle = ref(false)
@@ -57,15 +58,14 @@ const Template = (args: StoryModel) => ({
     close: action('close'),
   },
   template: `
-    <div>
-      <a href="" @click.prevent="toggle=!toggle">Toggle visible</a>
-      <br>
+    <ui-inspector>
       <ui-modal :="args" :show="toggle" @show="show" @close="close() & (toggle = false)" @hide="hide">
         <template #title>Slot: <a href>{{ titleSlot }}</a></template>
         <template #body>Slot: &#1083; {{ bodySlot }} &#1083; &#1083; &#1083;</template>
         <template #footer><button>{{ footerSlot }}</button></template>
       </ui-modal>
-    </div>
+      <a href="" @click.prevent="toggle=!toggle">Toggle visible</a>
+    </ui-inspector>
   `,
 })
 

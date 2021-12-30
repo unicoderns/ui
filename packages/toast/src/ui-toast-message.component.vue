@@ -58,7 +58,7 @@ import {
 import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
-  Position,
+  Positions,
 } from '@unicodernsui/core'
 import { UiButtonClose } from '@unicodernsui/button-close'
 import { UiTransition } from '@unicodernsui/transition'
@@ -83,7 +83,7 @@ export default defineComponent({
     msTimer: { type: Number, required: false },
     variant: { type: String, default: null },
     dark: { type: Boolean, default: false },
-    position: { type: String as PropType<Position>, default: null },
+    position: { type: String as PropType<Positions>, default: null },
     ['aria:live']: { type: String, default: null },
     ['aria:role']: { type: String, default: null },
     ['aria:buttonClose']: { type: String, default: null },

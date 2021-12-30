@@ -33,9 +33,10 @@ export default defineComponent({
     code: { type: [String, Object], default: null },
     lang: { type: String as PropType<SupportedLanguaje>, default: null },
     lineNumbers: { type: Boolean, default: false },
+    innerHtml: { type: Boolean, default: false },
   },
   setup(props) {
-    const { code, lang } = toRefs(props)
+    const { code, lang, innerHtml } = toRefs(props)
     const codeBlock: Ref<HTMLElement | null> = ref(null)
     const codeToShow = ref()
     const showCode = computed(() => !!codeToShow.value)
@@ -55,7 +56,10 @@ export default defineComponent({
         codeToShow.value = prettierFormat(code.value, lang.value)
       } else if (code.value) {
         const codeElement: HTMLElement = code.value
-        codeToShow.value = prettierFormat(codeElement.outerHTML, lang.value)
+        codeToShow.value = prettierFormat(
+          innerHtml.value ? codeElement.innerHTML : codeElement.outerHTML,
+          lang.value
+        )
       }
     }
 
