@@ -2,7 +2,7 @@ import { mount, VueWrapper } from '@vue/test-utils'
 import { ToastMessageQueueService } from '../../src/toast-message-queue.service'
 import { UiToastContainer, UiToastService } from '../../src'
 import { bsUiToastThemeConfigDefaults } from '../../src/defaults/bs-ui-toast-theme.config'
-import { Position } from '@unicodernsui/core'
+import { Positions } from '@unicodernsui/core'
 
 describe('ui-toast-container.vue', () => {
   const theme = bsUiToastThemeConfigDefaults
@@ -49,7 +49,7 @@ describe('ui-toast-container.vue', () => {
   it('should have default position for toast message', async () => {
     const wrapper2 = mount(UiToastContainer, {
       props: {
-        defaultPosition: Position.TopCenter,
+        defaultPosition: Positions.TopCenter,
       },
     })
     service?.add({
@@ -162,7 +162,7 @@ describe('ui-toast-container.vue', () => {
   it('should show toast message with custom position', async() => {
     service?.add({
       message: 'some message',
-      position: Position.MiddleCenter,
+      position: Positions.MiddleCenter,
     })
     await wrapper.vm.$nextTick()
 

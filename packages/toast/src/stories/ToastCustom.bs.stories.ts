@@ -1,7 +1,7 @@
 import { inject } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
-import { BootstrapVariants, Position } from '@unicodernsui/core'
+import { BootstrapVariants, Positions } from '@unicodernsui/core'
 import {
   UiToastContainer,
   UiToastModel,
@@ -15,7 +15,10 @@ app.use(UiToastMessagePlugin)
 export default {
   title: 'UI/Bootstrap/Toast',
   argTypes: {
-    position: { control: { type: 'select' }, options: Object.values(Position) },
+    position: {
+      control: { type: 'select' },
+      options: Object.values(Positions),
+    },
     variant: {
       control: { type: 'select' },
       options: Object.values(BootstrapVariants),
@@ -83,7 +86,7 @@ const baseArgs: StoryModel = {
   dismissible: true,
   msTimer: undefined,
   variant: BootstrapVariants.Primary,
-  position: Position.BottomRight,
+  position: Positions.BottomRight,
 }
 
 export const CustomContainer = Template.bind({})

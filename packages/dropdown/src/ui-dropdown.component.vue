@@ -43,7 +43,7 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
   isRTL,
-  PopperPlacement,
+  PopperPlacements,
 } from '@unicodernsui/core'
 import { UiMenu } from '@unicodernsui/menu'
 import { bsUiDropdownThemeConfigDefaults } from './defaults/bs-ui-dropdown-theme.config'
@@ -146,23 +146,23 @@ export default defineComponent({
 
     const getPlacement = () => {
       const PLACEMENT_TOP: Placement = isRTL()
-        ? PopperPlacement.TopEnd
-        : PopperPlacement.TopStart
+        ? PopperPlacements.TopEnd
+        : PopperPlacements.TopStart
       const PLACEMENT_TOPEND: Placement = isRTL()
-        ? PopperPlacement.TopStart
-        : PopperPlacement.TopEnd
+        ? PopperPlacements.TopStart
+        : PopperPlacements.TopEnd
       const PLACEMENT_BOTTOM: Placement = isRTL()
-        ? PopperPlacement.BottomEnd
-        : PopperPlacement.BottomStart
+        ? PopperPlacements.BottomEnd
+        : PopperPlacements.BottomStart
       const PLACEMENT_BOTTOMEND: Placement = isRTL()
-        ? PopperPlacement.BottomStart
-        : PopperPlacement.BottomEnd
+        ? PopperPlacements.BottomStart
+        : PopperPlacements.BottomEnd
       const PLACEMENT_RIGHT: Placement = isRTL()
-        ? PopperPlacement.LeftStart
-        : PopperPlacement.RightStart
+        ? PopperPlacements.LeftStart
+        : PopperPlacements.RightStart
       const PLACEMENT_LEFT: Placement = isRTL()
-        ? PopperPlacement.RightStart
-        : PopperPlacement.LeftStart
+        ? PopperPlacements.RightStart
+        : PopperPlacements.LeftStart
 
       if (arrowDirection.value === Directions.Right) {
         return PLACEMENT_RIGHT

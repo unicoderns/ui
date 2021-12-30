@@ -1,5 +1,5 @@
 import {
-  Position,
+  Positions,
   BootstrapVariants,
   enumToObjectByValue,
 } from '@unicodernsui/core'
@@ -28,21 +28,21 @@ export const bsUiToastThemeConfigDefaults: UiToastThemeConfigModel = {
       buttonCloseBody: 'me-2 m-auto',
     },
     positions: {
-      [Position.TopLeft]: 'toast-container position-absolute p-3 top-0 start-0',
-      [Position.TopCenter]:
+      [Positions.TopLeft]: 'toast-container position-absolute p-3 top-0 start-0',
+      [Positions.TopCenter]:
         'toast-container position-absolute p-3 top-0 start-50 translate-middle-x',
-      [Position.TopRight]: 'toast-container position-absolute p-3 top-0 end-0',
-      [Position.MiddleLeft]:
+      [Positions.TopRight]: 'toast-container position-absolute p-3 top-0 end-0',
+      [Positions.MiddleLeft]:
         'toast-container position-absolute p-3 top-50 start-0 translate-middle-y',
-      [Position.MiddleCenter]:
+      [Positions.MiddleCenter]:
         'toast-container position-absolute p-3 top-50 start-50 translate-middle',
-      [Position.MiddleRight]:
+      [Positions.MiddleRight]:
         'toast-container position-absolute p-3 top-50 end-0 translate-middle-y',
-      [Position.BottomLeft]:
+      [Positions.BottomLeft]:
         'toast-container position-absolute p-3 bottom-0 start-0',
-      [Position.BottomCenter]:
+      [Positions.BottomCenter]:
         'toast-container position-absolute p-3 bottom-0 start-50 translate-middle-x',
-      [Position.BottomRight]:
+      [Positions.BottomRight]:
         'toast-container position-absolute p-3 bottom-0 end-0',
     },
   },
