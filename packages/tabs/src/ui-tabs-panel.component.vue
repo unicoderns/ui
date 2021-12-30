@@ -43,7 +43,7 @@ export default defineComponent({
       tabs: new Array<UiTabPropsModel>(),
       active: 0,
     })
-    provide('tabsState', tabsState)
+    provide('uiTabsState', tabsState)
 
     const select = (index: number): void => {
       tabsState.active = index

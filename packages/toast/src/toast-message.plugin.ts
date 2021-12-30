@@ -14,6 +14,7 @@ class PluginToastMessageService implements UiToastService {
   add(message: UiToastModel): string {
     return this.queueService.add(message)
   }
+
   remove(key: string): void {
     this.queueService.remove(key)
   }
