@@ -25,3 +25,9 @@ export const enumToObjectByValue = (enumType: EnumInterface) => {
     .map(({ name, value }) => ({ [value]: name }))
     .reduce((acum, entry) => ({ ...acum, ...entry }), {})
 }
+
+export const generateId = (): string =>
+  Date.now().toString(36) +
+  Math.random()
+    .toString(36)
+    .substring(2)
