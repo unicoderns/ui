@@ -1,4 +1,4 @@
-export enum Position {
+export enum Positions {
   TopLeft = 'topLeft',
   TopCenter = 'topCenter',
   TopRight = 'topRight',
@@ -10,7 +10,7 @@ export enum Position {
   BottomRight = 'bottomRight',
 }
 
-export enum PopperPlacement {
+export enum PopperPlacements {
   Top = 'top',
   Bottom = 'bottom',
   Right = 'right',
@@ -23,7 +23,7 @@ export enum PopperPlacement {
   LeftStart = 'left-start',
 }
 
-export enum PopperCardinalPlacement {
+export enum PopperCardinalPlacements {
   Top = 'top',
   Bottom = 'bottom',
   Right = 'right',

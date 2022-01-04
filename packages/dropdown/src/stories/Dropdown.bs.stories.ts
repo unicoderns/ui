@@ -28,6 +28,11 @@ export default {
       control: { type: 'select' },
       options: Object.values(BootstrapVariants),
     },
+    ['aria:expanded']: { name: 'expanded (aria)', control: { type: 'text' } },
+    ['aria:groupRole']: {
+      name: 'group role (aria)',
+      control: { type: 'text' },
+    },
   },
   parameters: {
     layout: 'centered',

@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { defineComponent, onUnmounted, PropType, ref, watch } from 'vue'
-import { Position, useReactiveThemeConfig } from '@unicodernsui/core'
+import { Positions, useReactiveThemeConfig } from '@unicodernsui/core'
 import { bsUiToastThemeConfigDefaults } from './defaults/bs-ui-toast-theme.config'
 import { UiToastQueueModel } from './models/ui-toast-queue.model'
 import { ToastMessageQueueService } from './toast-message-queue.service'
@@ -36,7 +36,7 @@ const TAG_NAME = 'uiToast'
 const TAG_NAME_CONTAINER = 'uiToast'
 
 interface PositionQueue {
-  position: Position
+  position: Positions
   classes: string
   messages: [string, UiToastModel][]
 }
@@ -48,8 +48,8 @@ export default defineComponent({
   },
   props: {
     defaultPosition: {
-      type: String as PropType<Position>,
-      default: Position.BottomRight,
+      type: String as PropType<Positions>,
+      default: Positions.BottomRight,
     },
   },
   setup(props, { slots, attrs }) {

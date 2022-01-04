@@ -13,6 +13,11 @@ export default {
       control: { type: 'select' },
       options: Object.values(BootstrapVariants),
     },
+    ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
+    ['aria:buttonClose']: {
+      name: 'button close (aria)',
+      control: { type: 'text' },
+    },
   },
   parameters: {
     docs: {

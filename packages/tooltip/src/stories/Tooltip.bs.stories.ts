@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
-import { PopperCardinalPlacement } from '@unicodernsui/core'
+import { PopperCardinalPlacements } from '@unicodernsui/core'
 import { installTooltipDirective } from '../'
 import { UiTooltipDoc } from '../dev'
 
@@ -25,7 +25,7 @@ type StoryModel = {
   tooltip: string
 }
 
-const TemplateFn = (position: PopperCardinalPlacement) => (args: StoryModel) => ({
+const TemplateFn = (position: PopperCardinalPlacements) => (args: StoryModel) => ({
   setup() {
     return { args }
   },
@@ -47,7 +47,7 @@ const baseArgs: StoryModel = {
   tooltip: 'tooltip',
 }
 
-export const Top = TemplateFn(PopperCardinalPlacement.Top).bind({})
+export const Top = TemplateFn(PopperCardinalPlacements.Top).bind({})
 Top.args = {
   ...baseArgs,
 }
@@ -59,7 +59,7 @@ Top.parameters = {
   },
 }
 
-export const Left = TemplateFn(PopperCardinalPlacement.Left).bind({})
+export const Left = TemplateFn(PopperCardinalPlacements.Left).bind({})
 Left.args = {
   ...baseArgs,
 }
@@ -71,7 +71,7 @@ Left.parameters = {
   },
 }
 
-export const Right = TemplateFn(PopperCardinalPlacement.Right).bind({})
+export const Right = TemplateFn(PopperCardinalPlacements.Right).bind({})
 Right.args = {
   ...baseArgs,
 }
@@ -83,7 +83,7 @@ Right.parameters = {
   },
 }
 
-export const Bottom = TemplateFn(PopperCardinalPlacement.Bottom).bind({})
+export const Bottom = TemplateFn(PopperCardinalPlacements.Bottom).bind({})
 Bottom.args = {
   ...baseArgs,
 }

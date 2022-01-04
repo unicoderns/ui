@@ -1,5 +1,5 @@
 import {
-  Position,
+  Positions,
   KeyPairString,
   UiComponentThemeConfigModel,
 } from '@unicodernsui/core'
@@ -19,15 +19,15 @@ export interface UiToastThemeConfigModel extends UiComponentThemeConfigModel {
       buttonCloseBody: string
     }
     positions: {
-      [Position.TopLeft]: string
-      [Position.TopCenter]: string
-      [Position.TopRight]: string
-      [Position.MiddleLeft]: string
-      [Position.MiddleCenter]: string
-      [Position.MiddleRight]: string
-      [Position.BottomLeft]: string
-      [Position.BottomCenter]: string
-      [Position.BottomRight]: string
+      [Positions.TopLeft]: string
+      [Positions.TopCenter]: string
+      [Positions.TopRight]: string
+      [Positions.MiddleLeft]: string
+      [Positions.MiddleCenter]: string
+      [Positions.MiddleRight]: string
+      [Positions.BottomLeft]: string
+      [Positions.BottomCenter]: string
+      [Positions.BottomRight]: string
     }
   }
 }

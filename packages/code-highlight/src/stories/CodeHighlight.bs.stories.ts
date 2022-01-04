@@ -5,7 +5,7 @@ import { UiCodeHighlight } from '..'
 import { SupportedLanguajes } from '../types'
 import { UiCodeHighlightDoc } from '../dev'
 
-enum storyType {
+enum StoryTypes {
   slot = 'slot',
   code = 'code',
   ref = 'ref',
@@ -22,7 +22,7 @@ export default {
     },
     storyType: {
       control: { type: 'select' },
-      options: Object.values(storyType),
+      options: Object.values(StoryTypes),
     },
   },
   parameters: {
@@ -100,14 +100,14 @@ const Template = (args: CodeHighlightModel) => ({
 const htmlArgs: CodeHighlightModel = {
   code: null,
   lang: SupportedLanguajes.HTML,
-  storyType: storyType.slot,
+  storyType: StoryTypes.slot,
   lineNumbers: true,
 }
 
 const refArgs: CodeHighlightModel = {
   code: null,
   lang: SupportedLanguajes.HTML,
-  storyType: storyType.ref,
+  storyType: StoryTypes.ref,
   lineNumbers: true,
 }
 
@@ -138,7 +138,7 @@ const jsArgs: CodeHighlightModel = {
         // throws an error
         // const x; `,
   lang: SupportedLanguajes.Javascript,
-  storyType: storyType.code,
+  storyType: StoryTypes.code,
   lineNumbers: true,
 }
 
@@ -162,7 +162,7 @@ const cssArgs: CodeHighlightModel = {
     letter-spacing: 1px;
   }`,
   lang: SupportedLanguajes.CSS,
-  storyType: storyType.code,
+  storyType: StoryTypes.code,
   lineNumbers: true,
 }
 
@@ -191,7 +191,7 @@ const jsonArgs: CodeHighlightModel = {
 }
 `,
   lang: SupportedLanguajes.Json,
-  storyType: storyType.code,
+  storyType: StoryTypes.code,
   lineNumbers: false,
 }
 

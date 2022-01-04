@@ -146,17 +146,6 @@ describe('ui-modal.vue', () => {
     expect(main.exists()).toBeTruthy()
   })
 
-  it('should autofocus', async () => {
-    const wrapper = mount(UiModal, {
-      props: { autoFocus: true },
-      attachTo: document.body,
-    })
-    await wrapper.vm.$nextTick()
-
-    const main = wrapper.find(`div.${theme.cssClass.main}`)
-    expect(main.attributes().tabindex).toEqual('0')
-  })
-
   it('should be scrollable', () => {
     const wrapper = mount(UiModal, {
       props: { scrollable: true },

@@ -16,7 +16,7 @@ import { computed, defineComponent, Ref, ref } from 'vue'
 import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
-  PopperCardinalPlacement,
+  PopperCardinalPlacements,
 } from '@unicodernsui/core'
 import { UiTransition } from '@unicodernsui/transition'
 import { UiTooltipAriaConfigModel } from './models/ui-tooltip-aria-config.model'
@@ -33,7 +33,7 @@ export default defineComponent({
   setup(props, { attrs }) {
     const text = ref('')
     const visible = ref(false)
-    const location: Ref<PopperCardinalPlacement | null> = ref(null)
+    const location: Ref<PopperCardinalPlacements | null> = ref(null)
     const hostElement = ref(null as HTMLElement | null)
     const openEvent = new CustomEvent('open')
     const showEvent = new CustomEvent('show')

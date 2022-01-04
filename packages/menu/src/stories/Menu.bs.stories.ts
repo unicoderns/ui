@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { MenuItem } from '@unicodernsui/core'
+import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
 import { UiMenu, UiMenuModel } from '../'
 import { UiMenuDoc } from '../dev'
 
@@ -23,7 +24,7 @@ type StoryModel =
     }
 
 const Template = (args: StoryModel) => ({
-  components: { UiMenu },
+  components: { UiMenu, UiInspector },
   setup() {
     return { args }
   },
@@ -31,14 +32,16 @@ const Template = (args: StoryModel) => ({
     select: action('select'),
   },
   template: `
-    <ui-menu v-if="args.custom" :="args" @select="select">
-      <template #default="{ item }">
-        <i>
-          &#9917 <b>{{ item.content }}</b>
-        </i>
-      </template>
-    </ui-menu>
-    <ui-menu v-else :="args"  @select="select"></ui-menu>
+    <ui-inspector>
+      <ui-menu v-if="args.custom" :="args" @select="select">
+        <template #default="{ item }">
+          <i>
+            &#9917 <b>{{ item.content }}</b>
+          </i>
+        </template>
+      </ui-menu>
+      <ui-menu v-else :="args"  @select="select"></ui-menu>
+    </ui-inspector>
   `,
 })
 

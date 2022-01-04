@@ -4,13 +4,15 @@ import { Story, Canvas } from '@storybook/addon-docs';
 
 [Github repo](https://github.com/unicoderns/ui/tree/master/packages/button-close)
 
+```html
+<ui-button-close :disabled="false" :invert="false" @close="close" />
+```
+
+# Sample
 <Canvas>
   <Story id="ui-bootstrap-closebutton--default"/>
 </Canvas>
 
-```html
-<ui-button-close :disabled="false" :invert="false" @close="close" />
-```
 
 ## Props
 
@@ -31,4 +33,15 @@ Close button will emit a callback when is clicked.
 | label | aria:label | `close` | Indicates that it is a closable element |
 
 ## Theme
-TODO
+Use the next `json` to define a new theme for the component
+
+```json
+{
+  cssClass: {
+    main: string // main button class
+    inverted: string // class for inverted button
+  }
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
