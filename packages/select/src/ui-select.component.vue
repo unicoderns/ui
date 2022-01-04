@@ -1,10 +1,10 @@
 <template>
   <select
-    :role="aria.role"
     :class="classes"
     v-model="selectedValue"
     :disabled="disabled"
     :multiple="multiple"
+    :role="aria.role"
     :aria-label="aria.label"
   >
     <slot></slot>
@@ -36,6 +36,7 @@ export default defineComponent({
     multiple: { type: Boolean, default: false },
     size: { type: String as PropType<InputSizeVariant>, default: null },
     disabled: { type: Boolean, default: false },
+    ['aria:role']: { type: String, default: null },
     ['aria:label']: { type: String, default: null },
   },
   emits: ['update:modelValue'],

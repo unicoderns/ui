@@ -1,8 +1,9 @@
 import { action } from '@storybook/addon-actions'
-import { BootstrapVariants, InputSizeVariants } from '@unicodernsui/core'
+import { InputSizeVariants } from '@unicodernsui/core'
 import { ref, watch } from 'vue'
 import { UiSelect, UiSelectModel } from '../'
 import { UiSelectDoc } from '../dev'
+import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
 
 export default {
   title: 'UI/Bootstrap/Select',
@@ -20,7 +21,7 @@ export default {
   },
 }
 
-const datasource: any = [
+const datasource = [
   {
     index: 1,
     text: 'One',
@@ -46,7 +47,7 @@ type StoryModel =
     }
 
 const Template = (args: StoryModel) => ({
-  components: { UiSelect },
+  components: { UiSelect, UiInspector },
   setup() {
     const selectedIndex = ref(1)
     watch(selectedIndex, () => {
@@ -54,16 +55,15 @@ const Template = (args: StoryModel) => ({
     })
     return { args, selectedIndex }
   },
-  methods: {
-    click: action('click'),
-  },
   template: `
-    <ui-select v-bind="args" @click="click" v-model="selectedIndex"></ui-select>
+  <ui-inspector>
+    <ui-select v-bind="args" v-model="selectedIndex"></ui-select>
+  </ui-inspector>
   `,
 })
 
 const MultipleTemplate = (args: StoryModel) => ({
-  components: { UiSelect },
+  components: { UiSelect, UiInspector },
   setup() {
     const selectedIndex = ref([1])
     watch(selectedIndex, () => {
@@ -71,11 +71,10 @@ const MultipleTemplate = (args: StoryModel) => ({
     })
     return { args, selectedIndex }
   },
-  methods: {
-    click: action('click'),
-  },
   template: `
-    <ui-select v-bind="args" @click="click" v-model="selectedIndex"></ui-select>
+    <ui-inspector>
+      <ui-select v-bind="args" v-model="selectedIndex"></ui-select>
+    </ui-inspector>
   `,
 })
 

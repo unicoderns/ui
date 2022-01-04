@@ -1,70 +1,95 @@
-import { Story, Canvas } from '@storybook/addon-docs';
+import { Story, Canvas } from '@storybook/addon-docs'
 
-# Selects
-Display an select with text to users.
+# Select
 
-[Github repo](https://github.com/unicoderns/ui/tree/master/packages/Select)
+Custom select that admits one or multiple selections with different sizes, and disabled option.
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/select)
 
 ```html
-    <ui-select :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.default }}</ui-select>
+<ui-select
+  :datasource="datasource"
+  multiple
+  size="md"
+  disabled
+  @click="click"
+  v-model="selectedIndex"
+></ui-select>
 ```
 
-## Variants
+# Size
 
-Support multiple variants
+It supports 3 sizes, small, large and medium, the latter being the default.
+
+## Small
 
 <Canvas>
-  <Story id="ui-bootstrap-select--primary"/>
-  <Story id="ui-bootstrap-select--secondary" />
-  <Story id="ui-bootstrap-select--success" />
-  <Story id="ui-bootstrap-select--danger" />
-  <Story id="ui-bootstrap-select--warning" />
-  <Story id="ui-bootstrap-select--info" />
-  <Story id="ui-bootstrap-select--light" />
-  <Story id="ui-bootstrap-select--dark" />
+  <Story id="ui-bootstrap-select--small" />
 </Canvas>
 
-## Props
+## Medium
 
-| Name | Type  | Description |
-| ---- | ---- | ----------- |
-| `variant` | `string` | varian class defined in the theme |
+<Canvas>
+  <Story id="ui-bootstrap-select--medium" />
+</Canvas>
 
-## Slots
+## Large
 
-| Name | Description |
-| ---- | ----------- |
-| `default` | actual span content |
+<Canvas>
+  <Story id="ui-bootstrap-select--large" />
+</Canvas>
 
-# Events
-Button will emit this events while changing state
+# Multiple select
 
-| Event | Params | Desription |
-| ---- | ---- | ----------- |
-| Toggle | active: `boolean` | Will only raise when `toggle = true` |
+<Canvas>
+  <Story id="ui-bootstrap-select--multiple" />
+</Canvas>
+
+# Disabled
+
+<Canvas>
+  <Story id="ui-bootstrap-select--disabled" />
+</Canvas>
+
+# Props
+
+| Name         | Type                         | Description                                  |
+| ------------ | ---------------------------- | -------------------------------------------- |
+| `datasource` | `array`                      | array with select options [(number, string)] |
+| `multiple`   | `boolean`                    | allow to select multiple options if true     |
+| `size`       | `PropType<InputSizeVariant>` | change select size                           |
+| `disabled`   | `boolean`                    | disable select if true                       |
+
+# Binding
+
+Select supports two way data binding, just use `v-model="variable"` as prop to pass the reference that you want to bind.
+
+The ref `variable` could be a number if it's a simple selection or could be an array if your using multiple selection.
 
 # Accessibility
+
 Change the next properties to change the default accessibility text
 
-| Name | Property | Default |
-| ---- | ---- | ----------- |
-| role | aria:role | `button` |
+| Name  | Property   | Default  |
+| ----- | ---------- | -------- |
+| role  | aria:role  | `select` |
+| label | aria:label | `null`   |
 
 Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for buttons.
 
 # Theme
+
 Use the next `json` to define a new theme for the component
 
 ```json
 {
   cssClass: {
-    main: string, // main class
-    variants: { // define a custom list of variants
-      'variant1': string,
-      'variant2': string,
-      ...
-      'variantN': string,
-    },
+    main: string  // main class
+    sizes: { /// class for each size variant: md, sm, lg.
+      [InputSizeVariants.Large]: string
+      [InputSizeVariants.Medium]: string
+      [InputSizeVariants.Small]: string
+    }
   },
 }
 ```
