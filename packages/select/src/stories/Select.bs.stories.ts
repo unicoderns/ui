@@ -1,4 +1,3 @@
-import { action } from '@storybook/addon-actions'
 import { InputSizeVariants } from '@unicodernsui/core'
 import { ref, watch } from 'vue'
 import { UiSelect, UiSelectModel } from '../'
