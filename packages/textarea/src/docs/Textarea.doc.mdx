@@ -1,0 +1,89 @@
+import { Story, Canvas } from '@storybook/addon-docs';
+
+# Textareas
+Display a multi-line text input control.
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/textarea)
+
+```html
+<ui-textarea 
+  :="args" 
+  :disabled="disabled" 
+  :max-length="maxLength" 
+  :size="size" 
+  input-group-text="inputGroupText"
+>
+</ui-textarea>
+```
+
+## Sizes
+
+Textarea supports three type of sizes `small`, `medium`and `large`. The `medium` size is the size by default.
+
+<Canvas>
+  <Story id="ui-bootstrap-textarea--small"/>
+</Canvas>
+
+<Canvas>
+  <Story id="ui-bootstrap-textarea--medium" />
+</Canvas>
+
+<Canvas>
+  <Story id="ui-bootstrap-textarea--large" />
+</Canvas>
+
+## Props
+
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| `maxLength` | `string` | set the maximum number of characters  |
+| `disabled` | `boolean` | disable the text area when this prop is true  |
+
+<Canvas>
+  <Story id="ui-bootstrap-textarea--disabled" />
+</Canvas>
+
+The following example display a textarea component with a `maxlength` of 15 characters.
+<Canvas>
+  <Story id="ui-bootstrap-textarea--with-max-length" />
+</Canvas>
+
+## Binding
+
+Textareas supports two way data binding, just use `v-model:content` as prop to pass the reference that you want to bind.
+
+<Canvas>
+  <Story id="ui-bootstrap-textarea--with-binding" />
+</Canvas>
+
+The example above `content` is a reference created in parent component that is passed to child component (`ui-textarea`) through `v-model:content` prop.
+# Accessibility
+Change the next property to change the default accessibility text
+
+| Name | Property | Default |
+| ---- | -------- | ------- |
+| role | aria:role | `textarea` |
+
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for textareas.
+
+# Theme
+Use the next `json` to define a new theme for the component
+
+```json
+{
+  cssClass: {
+    main: string, // input group class
+    disabled: string, // disabled class
+    inputGroupText: string, // input group text class
+    label: string, // class for label 
+    textArea: string, // class for text area
+    sizes: { // class for each size variant: md, sm, lg. 
+      '[SizeVariants.Large]': string,
+      [SizeVariants.Medium]: string,
+      [SizeVariants.Small]: string,
+    },
+  },
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
