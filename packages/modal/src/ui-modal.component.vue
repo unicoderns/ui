@@ -175,7 +175,7 @@ export default defineComponent({
     }
     const afterEnter = () => {
       if (autoFocus.value) {
-        wrapper.value?.focus() // TODO: not working
+        wrapper.value?.focus()
       }
       emit('show')
     }
