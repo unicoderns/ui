@@ -2,6 +2,8 @@ export type SizeVariant = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
 export type ButtonSizeVariant = 'sm' | 'lg'
 
+export type InputSizeVariant = 'sm' | 'md' | 'lg'
+
 export type ModalSizeVariant = 'sm' | 'lg' | 'xl'
 
 export enum SizeVariants {
@@ -14,6 +16,12 @@ export enum SizeVariants {
 }
 
 export enum ButtonSizeVariants {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg',
+}
+
+export enum InputSizeVariants {
   Small = 'sm',
   Medium = 'md',
   Large = 'lg',
