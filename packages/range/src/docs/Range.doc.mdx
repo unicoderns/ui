@@ -1,0 +1,52 @@
+import { Story, Canvas } from '@storybook/addon-docs'
+
+# Ranges
+
+Custom input range with label.
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/range)
+
+```html
+    <ui-range :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.default }}</ui-range>
+```
+
+## Variants
+
+Support multiple variants
+
+<Canvas>
+  <Story id="ui-bootstrap-range--default" />
+</Canvas>
+<Canvas>
+  <Story id="ui-bootstrap-range--disabled" />
+</Canvas>
+
+## Props
+
+| Name           | Type      | Description                                                                                  |
+| -------------- | --------- | -------------------------------------------------------------------------------------------- |
+| `currentValue` | `string`  | v-model value to define the default value and get the current value                          |
+| `min`          | `number`  | start value of the range                                                                     |
+| `max`          | `number`  | max value of the range                                                                       |
+| `step`         | `number`  | By default the it would be one, but you can define a bigger interger or even a double number |
+| `disabled`     | `boolean` | allows to desable the range                                                                  |
+| `label`        | `string`  | text above the range                                                                         |
+
+# Binding
+
+Range supports two way data binding, just use `v-model:currentValue="variable"` as prop to pass the reference that you want to bind.
+
+# Theme
+
+Use the next `json` to define a new theme for the component
+
+```json
+{
+  cssClass: {
+    main: string // Main class
+    label: string // Label class
+  },
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
