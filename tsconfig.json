@@ -31,6 +31,8 @@
       "@unicodernsui/toast": ["packages/toast/src"],
       "@unicodernsui/code-highlight": ["packages/code-higlight/src"],
       "@unicodernsui/accordion": ["packages/accordion/src"],
+      "@unicodernsui/radio": ["packages/radio/src"],
+      "@unicodernsui/checkbox": ["packages/checkbox/src"],
     },
     "lib": [
       "esnext",
