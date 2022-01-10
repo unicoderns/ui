@@ -30,7 +30,9 @@
       "@unicodernsui/code-highlight": ["packages/code-higlight/src"],
       "@unicodernsui/accordion": ["packages/accordion/src"],
       "@unicodernsui/select": ["packages/select/src"],
-      "@unicodernsui/range": ["packages/range/src"]
+      "@unicodernsui/range": ["packages/range/src"],
+      "@unicodernsui/radio": ["packages/radio/src"],
+      "@unicodernsui/checkbox": ["packages/checkbox/src"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
