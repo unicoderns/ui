@@ -85,7 +85,7 @@ Steps.args = {
   step: 10,
   disabled: false,
   ...baseArgs,
-  label: 'Range wiht rsteps of 10',
+  label: 'Range with steps of 10',
 }
 Steps.parameters = {
   docs: {

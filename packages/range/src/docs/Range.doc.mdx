@@ -7,7 +7,14 @@ Custom input range with label.
 [Github repo](https://github.com/unicoderns/ui/tree/master/packages/range)
 
 ```html
-    <ui-range :="args" :show="toggle" @show="show" @close="close" @hide="hide">{{ args.default }}</ui-range>
+<ui-range
+  label="label"
+  min="0"
+  max="5"
+  step="10"
+  disabled
+  v-model:currentValue="currentValue"
+></ui-range>
 ```
 
 ## Variants
@@ -29,7 +36,7 @@ Support multiple variants
 | `min`          | `number`  | start value of the range                                                                     |
 | `max`          | `number`  | max value of the range                                                                       |
 | `step`         | `number`  | By default the it would be one, but you can define a bigger interger or even a double number |
-| `disabled`     | `boolean` | allows to desable the range                                                                  |
+| `disabled`     | `boolean` | allows to disabled the range                                                                 |
 | `label`        | `string`  | text above the range                                                                         |
 
 # Binding
