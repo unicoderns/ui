@@ -5,7 +5,7 @@
   <input
     type="range"
     v-model="rangeValue"
-    :class="classes"
+    :class="theme.cssClass.main"
     :min="min"
     :max="max"
     :step="step"
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, toRefs, watch } from 'vue'
+import { defineComponent, ref, toRefs, watch } from 'vue'
 import { useReactiveThemeConfig, generateId } from '@unicodernsui/core'
 import { bsUiRangeThemeConfigDefaults } from './defaults/bs-ui-range-theme.config'
 import { UiRangeThemeConfigModel } from './models/ui-range-theme-config.model'
@@ -44,10 +44,6 @@ export default defineComponent({
       bsUiRangeThemeConfigDefaults
     )
 
-    const classes = computed((): string[] => {
-      return [theme.value.cssClass.main]
-    })
-
     const id = generateId()
 
     watch(rangeValue, () => {
@@ -56,7 +52,6 @@ export default defineComponent({
 
     return {
       theme,
-      classes,
       rangeValue,
       id,
     }

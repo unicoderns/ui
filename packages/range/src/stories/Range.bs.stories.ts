@@ -53,6 +53,13 @@ Default.args = {
   ...baseArgs,
   label: 'Range with default values',
 }
+Default.parameters = {
+  docs: {
+    source: {
+      code: '<ui-range :="args"></ui-range>',
+    },
+  },
+}
 
 export const MinAndMax = Template.bind({})
 MinAndMax.args = {
@@ -62,6 +69,13 @@ MinAndMax.args = {
   disabled: false,
   ...baseArgs,
   label: 'Range with min 0 and max 5',
+}
+MinAndMax.parameters = {
+  docs: {
+    source: {
+      code: '<ui-range min="0" max="5"></ui-range>',
+    },
+  },
 }
 
 export const Steps = Template.bind({})
@@ -73,6 +87,13 @@ Steps.args = {
   ...baseArgs,
   label: 'Range wiht rsteps of 10',
 }
+Steps.parameters = {
+  docs: {
+    source: {
+      code: '<ui-range step="10"></ui-range>',
+    },
+  },
+}
 
 export const Disabled = Template.bind({})
 Disabled.args = {
@@ -81,4 +102,11 @@ Disabled.args = {
   disabled: true,
   label: 'Disabled range',
   ...baseArgs,
+}
+Disabled.parameters = {
+  docs: {
+    source: {
+      code: '<ui-range disabled></ui-range>',
+    },
+  },
 }
