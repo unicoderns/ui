@@ -12,7 +12,7 @@ import {
   uiUseDarkThemeInjectionToken,
 } from '../types'
 
-declare type ConfigLevel = { [key: string]: string | ConfigLevel }
+declare type ConfigLevel = { [key: string]: string | undefined | ConfigLevel }
 
 function valuePaths(item: ConfigLevel): { [key: string]: string } {
   const keys = Object.keys(item)
@@ -21,7 +21,7 @@ function valuePaths(item: ConfigLevel): { [key: string]: string } {
     if (typeof item[key] === 'string') {
       paths[key] = item[key] as string
     } else {
-      Object.keys(item[key]).forEach(
+      Object.keys(item[key] || {}).forEach(
         subKey =>
           (paths[`${key}:${subKey}`] = (item[key] as ConfigLevel)[
             subKey
@@ -146,10 +146,12 @@ function getThemeConfig<T extends UiComponentThemeConfigModel>(
   // replace normal mode
   replaceThemeConfig(themeConfig.cssClass, attrs, 'theme')
   const darkMode: boolean | Ref<boolean> | undefined = inject(
-    uiUseDarkThemeInjectionToken
+    uiUseDarkThemeInjectionToken,
+    false
   )
 
-  const isDarkMode = typeof darkMode === 'boolean' ? darkMode : darkMode?.value
+  const isDarkMode =
+    typeof darkMode === 'boolean' ? darkMode : (darkMode as Ref<boolean>)?.value
 
   // replace dark mode
   if (isDarkMode && themeConfig.cssDark) {

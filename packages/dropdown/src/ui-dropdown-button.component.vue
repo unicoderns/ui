@@ -13,7 +13,7 @@
     </div>
     <UiButton
       v-bind="buttonProps"
-      @click="toggle"
+      @click="click"
       :class="{ [theme.cssClass.components.buttonToggle]: !splitButton }"
     >
       <slot />
@@ -67,7 +67,7 @@ export default defineComponent({
   components: {
     UiButton,
   },
-  emits: ['toggle'],
+  emits: ['toggle', 'click'],
   setup(props, { emit, attrs }) {
     const {
       outline,
@@ -111,6 +111,7 @@ export default defineComponent({
     )
 
     const toggle = () => emit('toggle')
+    const click = () => emit('click')
 
     return {
       expanded,
@@ -120,6 +121,7 @@ export default defineComponent({
       theme,
       aria,
       toggle,
+      click,
     }
   },
 })

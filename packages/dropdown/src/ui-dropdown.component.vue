@@ -10,6 +10,7 @@
       v-bind="buttonProps"
       :aria:groupRole="aria.groupRole"
       @toggle="toggle"
+      @click="select()"
     >
       <span v-if="!!label">{{ label }}</span>
       <slot v-else-if="slots.label" name="label" />
@@ -23,7 +24,7 @@
       :invert="invert"
       :defaultSelectedIndex="defaultSelectedIndex"
       :aria-expanded="aria.expanded"
-      @select="select(item)"
+      @select="select"
     >
       <template v-if="slots.item" v-slot="{ item }">
         <slot name="item" :item="item" />
@@ -133,7 +134,8 @@ export default defineComponent({
     }))
 
     const toggle = () => (expanded.value = !expanded.value)
-    const select = (item: MenuItem): void => {
+    const select = (item: MenuItem | null = null): void => {
+      expanded.value = false
       emit('select', item)
     }
     const hide = () => {
