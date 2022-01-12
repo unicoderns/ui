@@ -5,7 +5,7 @@ const baseClass = 'dropdown-menu'
 const classPrefix = cssClassPrefix(baseClass)
 const getPrefixedClass = (value: string) => `${classPrefix}${value}`
 
-export const bsUiMenuThemeConfigDefaults: UiMenuThemeConfigModel = {
+export const uiMenuThemeConfigDefaults: UiMenuThemeConfigModel = {
   tags: {
     headerItem: 'h6',
   },

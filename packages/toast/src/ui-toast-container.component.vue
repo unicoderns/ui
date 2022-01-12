@@ -25,7 +25,7 @@
 <script lang="ts">
 import { defineComponent, onUnmounted, PropType, ref, watch } from 'vue'
 import { Positions, useReactiveThemeConfig } from '@unicodernsui/core'
-import { bsUiToastThemeConfigDefaults } from './defaults/bs-ui-toast-theme.config'
+import { uiToastThemeConfigDefaults } from './defaults/ui-toast-theme.config'
 import { UiToastQueueModel } from './models/ui-toast-queue.model'
 import { ToastMessageQueueService } from './toast-message-queue.service'
 import { UiToastModel } from './models/ui-toast.model'
@@ -67,7 +67,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiToastThemeConfigDefaults
+      uiToastThemeConfigDefaults
     )
 
     const filterPosition = (position: string) => ([, toast]: [

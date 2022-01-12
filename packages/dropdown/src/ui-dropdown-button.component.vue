@@ -45,7 +45,7 @@ import {
   SizeVariant,
 } from '@unicodernsui/core'
 import { UiButton } from '@unicodernsui/button'
-import { bsUiDropdownThemeConfigDefaults } from './defaults/bs-ui-dropdown-theme.config'
+import { uiDropdownThemeConfigDefaults } from './defaults/ui-dropdown-theme.config'
 import { UiDropdownAriaConfigModel } from './models/ui-dropdown-aria-config.model'
 import { uiDropdownAriaDefaults } from './defaults/ui-dropdown-aria.config'
 import { UiDropdownThemeConfigModel } from './models/ui-dropdown-theme-config.model'
@@ -84,7 +84,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiDropdownThemeConfigDefaults
+      uiDropdownThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<UiDropdownAriaConfigModel>(
       TAG_NAME,

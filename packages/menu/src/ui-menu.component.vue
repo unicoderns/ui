@@ -34,7 +34,7 @@ import {
   MenuItemTypes,
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
-import { bsUiMenuThemeConfigDefaults } from './defaults/bs-ui-menu-theme.config'
+import { uiMenuThemeConfigDefaults } from './defaults/ui-menu-theme.config'
 import { UiMenuThemeConfigModel } from './models/ui-menu-theme-config.model'
 import UiMenuItem from './ui-menu-item.component.vue'
 
@@ -65,7 +65,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiMenuThemeConfigDefaults
+      uiMenuThemeConfigDefaults
     )
 
     const newDatasource = computed(() => {

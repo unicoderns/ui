@@ -69,7 +69,7 @@ import {
 } from '@unicodernsui/core'
 import { UiButtonClose } from '@unicodernsui/button-close'
 import { UiTransition } from '@unicodernsui/transition'
-import { bsUiModalThemeConfigDefaults } from './defaults/bs-ui-modal-theme.config'
+import { uiModalThemeConfigDefaults } from './defaults/ui-modal-theme.config'
 import { UiModalAriaConfigModel } from './models/ui-modal-aria-config.model'
 import { uiModalAriaDefaults } from './defaults/ui-modal-aria.config'
 import { UiModalThemeConfigModel } from './models/ui-modal-theme-config.model'
@@ -126,7 +126,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiModalThemeConfigDefaults
+      uiModalThemeConfigDefaults
     )
 
     const aria = useReactiveAriaConfig<UiModalAriaConfigModel>(

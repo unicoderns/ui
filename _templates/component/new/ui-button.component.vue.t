@@ -13,7 +13,7 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
-import { bsUi<%= h.changeCase.pascal(name) %>ThemeConfigDefaults } from './defaults/bs-ui-<%= h.changeCase.param(name) %>-theme.config'
+import { ui<%= h.changeCase.pascal(name) %>ThemeConfigDefaults } from './defaults/ui-<%= h.changeCase.param(name) %>-theme.config'
 import { ui<%= h.changeCase.pascal(name) %>AriaDefaults } from './defaults/ui-<%= h.changeCase.param(name) %>-aria.config'
 import { Ui<%= h.changeCase.pascal(name) %>ThemeConfigModel } from './models/ui-<%= h.changeCase.param(name) %>-theme-config.model'
 import { Ui<%= h.changeCase.pascal(name) %>AriaConfigModel } from './models/ui-<%= h.changeCase.param(name) %>-aria-config.model'
@@ -34,7 +34,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUi<%= h.changeCase.pascal(name) %>ThemeConfigDefaults
+      ui<%= h.changeCase.pascal(name) %>ThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<Ui<%= h.changeCase.pascal(name) %>AriaConfigModel>(
       TAG_NAME,

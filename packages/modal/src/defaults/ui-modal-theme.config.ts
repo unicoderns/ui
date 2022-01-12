@@ -12,7 +12,7 @@ Object.keys(bgVariantClasses).forEach(
   value => (bgVariantClasses[value] = `bg-${value}`)
 )
 
-export const bsUiModalThemeConfigDefaults: UiModalThemeConfigModel = {
+export const uiModalThemeConfigDefaults: UiModalThemeConfigModel = {
   tags: {
     title: 'h5',
   },

@@ -23,7 +23,7 @@ import {
   useReactiveThemeConfig,
   generateId,
 } from '@unicodernsui/core'
-import { bsUiTextareaThemeConfigDefaults } from './defaults/bs-ui-textarea-theme.config'
+import { uiTextareaThemeConfigDefaults } from './defaults/ui-textarea-theme.config'
 import { uiTextareaAriaDefaults } from './defaults/ui-textarea-aria.config'
 import { UiTextareaThemeConfigModel } from './models/ui-textarea-theme-config.model'
 import { UiTextareaAriaConfigModel } from './models/ui-textarea-aria-config.model'
@@ -49,7 +49,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiTextareaThemeConfigDefaults
+      uiTextareaThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<UiTextareaAriaConfigModel>(
       TAG_NAME,

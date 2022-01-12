@@ -4,7 +4,7 @@ import { UiSelectThemeConfigModel } from '../'
 const baseClass = 'form-select'
 const classPrefix = cssClassPrefix(baseClass)
 const getPrefixedClass = (value: string) => `${classPrefix}${value}`
-export const bsUiSelectThemeConfigDefaults: UiSelectThemeConfigModel = {
+export const uiSelectThemeConfigDefaults: UiSelectThemeConfigModel = {
   cssClass: {
     main: baseClass,
     sizes: {

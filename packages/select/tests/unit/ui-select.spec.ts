@@ -1,9 +1,9 @@
 import { shallowMount } from '@vue/test-utils'
 import { InputSizeVariants } from '@unicodernsui/core'
 import { UiSelect } from '../../src'
-import { bsUiSelectThemeConfigDefaults } from '../../src/defaults/bs-ui-select-theme.config'
+import { uiSelectThemeConfigDefaults } from '../../src/defaults/ui-select-theme.config'
 
-const theme = bsUiSelectThemeConfigDefaults
+const theme = uiSelectThemeConfigDefaults
 
 describe('ui-select.vue', () => {
   it('should render a disabled select', () => {

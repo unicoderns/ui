@@ -33,7 +33,7 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
-import { bsUiRadioThemeConfigDefaults } from './defaults/bs-ui-radio-theme.config'
+import { uiRadioThemeConfigDefaults } from './defaults/ui-radio-theme.config'
 import { uiRadioAriaDefaults } from './defaults/ui-radio-aria.config'
 import { UiRadioThemeConfigModel } from './models/ui-radio-theme-config.model'
 import { UiRadioAriaConfigModel } from './models/ui-radio-aria-config.model'
@@ -63,7 +63,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiRadioThemeConfigDefaults
+      uiRadioThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<UiRadioAriaConfigModel>(
       TAG_NAME,

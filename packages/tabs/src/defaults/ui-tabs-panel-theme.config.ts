@@ -1,6 +1,6 @@
 import { UiTabsPanelThemeConfigModel } from '..'
 
-export const bsUiTabsPanelThemeConfigDefaults: UiTabsPanelThemeConfigModel = {
+export const uiTabsPanelThemeConfigDefaults: UiTabsPanelThemeConfigModel = {
   cssClass: {
     main: 'nav nav-tabs',
     item: 'nav-item',

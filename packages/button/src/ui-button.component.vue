@@ -24,7 +24,7 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
-import { bsUiButtonThemeConfigDefaults } from './defaults/bs-ui-button-theme.config'
+import { uiButtonThemeConfigDefaults } from './defaults/ui-button-theme.config'
 import { uiButtonAriaDefaults } from './defaults/ui-button-aria.config'
 import { UiButtonThemeConfigModel } from './models/ui-button-theme-config.model'
 import { UiButtonAriaConfigModel } from './models/ui-button-aria-config.model'
@@ -51,7 +51,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiButtonThemeConfigDefaults
+      uiButtonThemeConfigDefaults
     )
     const ariaConfig = useReactiveAriaConfig<UiButtonAriaConfigModel>(
       TAG_NAME,

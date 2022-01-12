@@ -17,7 +17,7 @@
 <script lang="ts">
 import { defineComponent, ref, toRefs, watch } from 'vue'
 import { useReactiveThemeConfig, generateId } from '@unicodernsui/core'
-import { bsUiRangeThemeConfigDefaults } from './defaults/bs-ui-range-theme.config'
+import { uiRangeThemeConfigDefaults } from './defaults/ui-range-theme.config'
 import { UiRangeThemeConfigModel } from './models/ui-range-theme-config.model'
 
 const TAG_NAME = 'uiRange'
@@ -41,7 +41,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiRangeThemeConfigDefaults
+      uiRangeThemeConfigDefaults
     )
 
     const id = generateId()

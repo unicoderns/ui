@@ -2,7 +2,7 @@ import { UiCheckboxThemeConfigModel } from '../'
 
 const baseClass = 'form-check'
 
-export const bsUiCheckboxThemeConfigDefaults: UiCheckboxThemeConfigModel = {
+export const uiCheckboxThemeConfigDefaults: UiCheckboxThemeConfigModel = {
   cssClass: {
     main: baseClass,
     input: `${baseClass}-input`,

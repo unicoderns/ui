@@ -5,7 +5,7 @@ const baseClass = 'btn-close'
 const classPrefix = cssClassPrefix(baseClass)
 const getPrefixedClass = (value: string) => `${classPrefix}${value}`
 
-export const bsUiButtonCloseThemeConfigDefaults: UiButtonCloseThemeConfigModel = {
+export const uiButtonCloseThemeConfigDefaults: UiButtonCloseThemeConfigModel = {
   cssClass: {
     main: baseClass,
     inverted: getPrefixedClass('white'),

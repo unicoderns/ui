@@ -2,7 +2,7 @@ import { UiRadioThemeConfigModel } from '../'
 
 const baseClass = 'form-check'
 
-export const bsUiRadioThemeConfigDefaults: UiRadioThemeConfigModel = {
+export const uiRadioThemeConfigDefaults: UiRadioThemeConfigModel = {
   cssClass: {
     main: baseClass,
     input: `${baseClass}-input`,

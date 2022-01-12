@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
 import { BootstrapVariants } from '@unicodernsui/core'
 import { UiInputGroup } from '../../src'
-import { bsUiInputGroupThemeConfigDefaults } from '../../src/defaults/bs-ui-input-group-theme.config'
+import { uiInputGroupThemeConfigDefaults } from '../../src/defaults/ui-input-group-theme.config'
 import { InputSizeVariants } from '@unicodernsui/core'
 
-const theme = bsUiInputGroupThemeConfigDefaults
+const theme = uiInputGroupThemeConfigDefaults
 
 describe('ui-input-group.vue', () => {
   it('should render when props are set', () => {
@@ -44,7 +44,7 @@ describe('ui-input-group.vue', () => {
     expect(groupWrapper.classes()).toContain(theme.cssClass.nowrap)
   })
   it('should render small class when size is set small in props', () => {
-    const theme = bsUiInputGroupThemeConfigDefaults
+    const theme = uiInputGroupThemeConfigDefaults
     const wrapper = shallowMount(UiInputGroup, {
       props: { size: InputSizeVariants.Small },
     })
@@ -54,7 +54,7 @@ describe('ui-input-group.vue', () => {
   })
 
   it('should render medium class when size is set medium in props', () => {
-    const theme = bsUiInputGroupThemeConfigDefaults
+    const theme = uiInputGroupThemeConfigDefaults
     const wrapper = shallowMount(UiInputGroup, {
       props: { size: InputSizeVariants.Medium },
     })
@@ -64,7 +64,7 @@ describe('ui-input-group.vue', () => {
   })
 
   it('should render large class when size is set large in props', () => {
-    const theme = bsUiInputGroupThemeConfigDefaults
+    const theme = uiInputGroupThemeConfigDefaults
     const wrapper = shallowMount(UiInputGroup, {
       props: { size: InputSizeVariants.Large },
     })
@@ -74,7 +74,7 @@ describe('ui-input-group.vue', () => {
   })
 
   it('should render medium class as default', () => {
-    const theme = bsUiInputGroupThemeConfigDefaults
+    const theme = uiInputGroupThemeConfigDefaults
     const wrapper = shallowMount(UiInputGroup, {
       props: {},
     })

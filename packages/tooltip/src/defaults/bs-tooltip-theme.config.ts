@@ -5,7 +5,7 @@ const baseClass = 'tooltip'
 
 const getPlacement = (value: PopperCardinalPlacements | string) => `bs-tooltip-${value}`
 
-export const bsUiTooltipThemeConfigDefaults: UiTooltipThemeConfigModel = {
+export const uiTooltipThemeConfigDefaults: UiTooltipThemeConfigModel = {
   cssClass: {
     main: `${baseClass} show`,
     animated: 'fade',

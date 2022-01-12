@@ -1,7 +1,7 @@
 import { UiAccordionThemeConfigModel } from '../'
 
 const baseClass = 'accordion'
-export const bsUiAccordionThemeConfigDefaults: UiAccordionThemeConfigModel = {
+export const uiAccordionThemeConfigDefaults: UiAccordionThemeConfigModel = {
   tags: {
     header: 'h2',
   },

@@ -1,5 +1,5 @@
 ---
-to: packages/<%= h.changeCase.param(name) %>/src/defaults/bs-ui-<%= h.changeCase.param(name) %>-theme.config.ts
+to: packages/<%= h.changeCase.param(name) %>/src/defaults/ui-<%= h.changeCase.param(name) %>-theme.config.ts
 ---
 import { BootstrapVariants, enumToObjectByValue } from '@unicodernsui/core'
 import { Ui<%= h.changeCase.pascal(name) %>ThemeConfigModel } from '../'
@@ -10,7 +10,7 @@ const variantClasses = enumToObjectByValue(BootstrapVariants)
 Object.keys(variantClasses).forEach(
   value => (variantClasses[value] = getPrefixedClass(value))
 )
-export const bsUi<%= h.changeCase.pascal(name) %>ThemeConfigDefaults: Ui<%= h.changeCase.pascal(name) %>ThemeConfigModel = {
+export const ui<%= h.changeCase.pascal(name) %>ThemeConfigDefaults: Ui<%= h.changeCase.pascal(name) %>ThemeConfigModel = {
   cssClass: {
     main: baseClass,
     variants: {

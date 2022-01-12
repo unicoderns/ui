@@ -5,7 +5,7 @@ const baseClass = 'input-group'
 const classPrefix = cssClassPrefix(baseClass)
 const getPrefixedClass = (value: string) => `${classPrefix}${value}`
 
-export const bsUiInputGroupThemeConfigDefaults: UiInputGroupThemeConfigModel = {
+export const uiInputGroupThemeConfigDefaults: UiInputGroupThemeConfigModel = {
   cssClass: {
     main: baseClass,
     nowrap: 'flex-nowrap',

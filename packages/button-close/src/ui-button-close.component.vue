@@ -13,7 +13,7 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
-import { bsUiButtonCloseThemeConfigDefaults } from './defaults/bs-ui-button-close-theme.config'
+import { uiButtonCloseThemeConfigDefaults } from './defaults/ui-button-close-theme.config'
 import { UiButtonCloseAriaConfigModel } from './models/ui-button-close-aria-config.model'
 import { uiButtonCloseAriaDefaults } from './defaults/ui-button-close-aria.config'
 import { UiButtonCloseThemeConfigModel } from './models/ui-button-close-theme-config.model'
@@ -34,7 +34,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiButtonCloseThemeConfigDefaults
+      uiButtonCloseThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<UiButtonCloseAriaConfigModel>(
       TAG_NAME,

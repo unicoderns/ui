@@ -43,7 +43,7 @@ import {
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
 import { UiMenuThemeConfigModel } from './models/ui-menu-theme-config.model'
-import { bsUiMenuThemeConfigDefaults } from './defaults/bs-ui-menu-theme.config'
+import { uiMenuThemeConfigDefaults } from './defaults/ui-menu-theme.config'
 
 const TAG_NAME = 'uiMenu'
 
@@ -69,7 +69,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiMenuThemeConfigDefaults
+      uiMenuThemeConfigDefaults
     )
 
     const classes = computed((): string[] => {

@@ -21,7 +21,7 @@ import {
 import { UiTransition } from '@unicodernsui/transition'
 import { UiTooltipAriaConfigModel } from './models/ui-tooltip-aria-config.model'
 import { UiTooltipThemeConfigModel } from './models/ui-tooltip-theme-config.model'
-import { bsUiTooltipThemeConfigDefaults } from './defaults/bs-tooltip-theme.config'
+import { uiTooltipThemeConfigDefaults } from './defaults/bs-tooltip-theme.config'
 import { UiTooltipAriaDefaults } from './defaults/ui-tooltip-aria.config'
 
 const TAG_NAME = 'uiTooltip'
@@ -61,7 +61,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiTooltipThemeConfigDefaults
+      uiTooltipThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<UiTooltipAriaConfigModel>(
       TAG_NAME,
