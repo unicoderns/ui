@@ -1,5 +1,4 @@
 import { action } from '@storybook/addon-actions'
-import { ref, watch } from 'vue'
 import { UiCheckbox, UiCheckboxModel } from '../'
 import { UiCheckboxDoc } from '../dev'
 
