@@ -13,9 +13,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": [
-      "webpack-env",
-    ],
+    "types": ["webpack-env"],
     "paths": {
       "@unicodernsui/core": ["packages/core/src"],
       "@unicodernsui/button-close": ["packages/button-close/src"],
@@ -31,15 +29,12 @@
       "@unicodernsui/toast": ["packages/toast/src"],
       "@unicodernsui/code-highlight": ["packages/code-higlight/src"],
       "@unicodernsui/accordion": ["packages/accordion/src"],
+      "@unicodernsui/select": ["packages/select/src"],
+      "@unicodernsui/range": ["packages/range/src"],
       "@unicodernsui/radio": ["packages/radio/src"],
-      "@unicodernsui/checkbox": ["packages/checkbox/src"],
+      "@unicodernsui/checkbox": ["packages/checkbox/src"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
     "src/**/*",
@@ -47,9 +42,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx",
+    "tests/**/*.tsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
