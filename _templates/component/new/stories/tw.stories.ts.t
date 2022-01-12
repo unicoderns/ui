@@ -1,8 +1,9 @@
 ---
 to: packages/<%= h.changeCase.param(name) %>/src/stories/<%= h.changeCase.pascal(name) %>.tw.stories.ts
 ---
+import { provide } from 'vue'
 import { action } from '@storybook/addon-actions'
-import { setComponentThemeConfig } from '@unicodernsui/core'
+import { setComponentThemeConfig, uiUseDarkThemeInjectionToken } from '@unicodernsui/core'
 import { TailwindVariants } from '@unicodernsui/custom-theme'
 import { twUi<%= h.changeCase.pascal(name) %>ThemeConfigDefaults } from './tw-ui-<%= h.changeCase.param(name) %>-theme.config'
 import { Ui<%= h.changeCase.pascal(name) %>, Ui<%= h.changeCase.pascal(name) %>Model } from '../'
@@ -25,10 +26,14 @@ type StoryModel =
       label: string
     }
 
-const Template = (args: StoryModel) => ({
+const Template = (args: StoryModel, { globals }: { globals: any }) => ({
   components: { Ui<%= h.changeCase.pascal(name) %> },
   setup() {
     setComponentThemeConfig(Ui<%= h.changeCase.pascal(name) %>, twUi<%= h.changeCase.pascal(name) %>ThemeConfigDefaults)
+
+    if (globals.backgrounds && globals.backgrounds.value !== 'transparent') {
+      provide(uiUseDarkThemeInjectionToken, true)
+    }
 
     return { args }
   },
