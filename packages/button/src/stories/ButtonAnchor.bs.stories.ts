@@ -1,5 +1,10 @@
+import { provide } from 'vue'
 import { action } from '@storybook/addon-actions'
-import { BootstrapVariants, ButtonSizeVariants } from '@unicodernsui/core'
+import {
+  BootstrapVariants,
+  ButtonSizeVariants,
+  uiUseDarkThemeInjectionToken,
+} from '@unicodernsui/core'
 import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
 import { UiButton, UiButtonModel } from '../'
 import { UiButtonDoc } from '../dev'
@@ -33,9 +38,13 @@ type StoryModel =
       label: string
     }
 
-const Template = (args: StoryModel) => ({
+const Template = (args: StoryModel, { globals }: { globals: any }) => ({
   components: { UiButton, UiInspector },
   setup() {
+    if (globals.backgrounds && globals.backgrounds.value !== 'transparent') {
+      provide(uiUseDarkThemeInjectionToken, true)
+    }
+
     return { args }
   },
   methods: {

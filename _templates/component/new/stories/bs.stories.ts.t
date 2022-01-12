@@ -1,8 +1,9 @@
 ---
 to: packages/<%= h.changeCase.param(name) %>/src/stories/<%= h.changeCase.pascal(name) %>.bs.stories.ts
 ---
+import { provide } from 'vue'
 import { action } from '@storybook/addon-actions'
-import { BootstrapVariants } from '@unicodernsui/core'
+import { BootstrapVariants, uiUseDarkThemeInjectionToken } from '@unicodernsui/core'
 import { Ui<%= h.changeCase.pascal(name) %>, Ui<%= h.changeCase.pascal(name) %>Model } from '../'
 import { Ui<%= h.changeCase.pascal(name) %>Doc } from '../dev'
 
@@ -30,9 +31,13 @@ type StoryModel =
       label: string
     }
 
-const Template = (args: StoryModel) => ({
+const Template = (args: StoryModel, { globals }: { globals: any }) => ({
   components: { Ui<%= h.changeCase.pascal(name) %> },
   setup() {
+    if (globals.backgrounds && globals.backgrounds.value !== 'transparent') {
+      provide(uiUseDarkThemeInjectionToken, true)
+    }
+
     return { args }
   },
   methods: {

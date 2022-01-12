@@ -18,4 +18,12 @@ export const parameters = {
       showLineNumbers: true,
     },
   },
+  backgrounds: {
+    values: [
+      {
+        name: 'dark',
+        value: '#333333',
+      },
+    ],
+  },
 }

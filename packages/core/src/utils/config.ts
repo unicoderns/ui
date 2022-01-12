@@ -9,19 +9,32 @@ import {
   UiThemeConfigModel,
   ResponsiveVariants,
   ResponsiveConfig,
+  uiUseDarkThemeInjectionToken,
 } from '../types'
 
 declare type ConfigLevel = { [key: string]: string | ConfigLevel }
 
-function keyPaths(item: ConfigLevel): string[] {
+function valuePaths(item: ConfigLevel): { [key: string]: string } {
   const keys = Object.keys(item)
-  const paths: string[] = []
+  const paths: { [key: string]: string } = {}
   keys.forEach(key => {
-    if (typeof item[key] !== 'string') {
-      Object.keys(item[key]).forEach(subKey => paths.push(`${key}:${subKey}`))
+    if (typeof item[key] === 'string') {
+      paths[key] = item[key] as string
+    } else {
+      Object.keys(item[key]).forEach(
+        subKey =>
+          (paths[`${key}:${subKey}`] = (item[key] as ConfigLevel)[
+            subKey
+          ] as string) // only two levels
+      )
     }
   })
-  return [...keys, ...paths]
+  return paths
+}
+
+function keyPaths(item: ConfigLevel): string[] {
+  const plain = valuePaths(item)
+  return Object.keys(plain)
 }
 
 function setValue(
@@ -92,36 +105,64 @@ function getComponentAriaConfig(
   return { ...globalAriaConfig[componentTag] }
 }
 
+function replaceThemeConfig(
+  config: ConfigLevel,
+  attrs: Readonly<{ [key: string]: unknown }>,
+  prefix: string
+) {
+  // replace
+  keyPaths(config)
+    .map(key => [key, `${prefix}:${key}`])
+    .filter(([, propName]) => !!attrs[propName])
+    .forEach(([key, propName]) =>
+      setValue(config, key, attrs[propName] as string)
+    )
+
+  // append
+  keyPaths(config)
+    .map(key => [key, `${prefix}:${key}.add`])
+    .filter(([, propName]) => !!attrs[propName])
+    .forEach(([key, propName]) =>
+      setValue(config, key, attrs[propName] as string, true)
+    )
+
+  // remove
+  keyPaths(config)
+    .map(key => [key, `${prefix}:${key}.remove`])
+    .filter(([, propName]) => !!attrs[propName])
+    .forEach(([key, propName]) =>
+      unsetValue(config, key, attrs[propName] as string)
+    )
+}
+
 function getThemeConfig<T extends UiComponentThemeConfigModel>(
   componentTag: string,
   attrs: Readonly<{ [key: string]: unknown }>,
   defaults: T
 ): T {
-  const themeConfig = getComponentThemeConfig(componentTag) || { ...defaults }
+  let themeConfig = getComponentThemeConfig(componentTag) || { ...defaults }
+  themeConfig = JSON.parse(JSON.stringify(themeConfig))
 
-  // replace cssClass
-  keyPaths(themeConfig.cssClass)
-    .map(key => [key, `theme:${key}`])
-    .filter(([, propName]) => !!attrs[propName])
-    .forEach(([key, propName]) =>
-      setValue(themeConfig.cssClass, key, attrs[propName] as string)
-    )
+  // replace normal mode
+  replaceThemeConfig(themeConfig.cssClass, attrs, 'theme')
+  const darkMode: boolean | Ref<boolean> | undefined = inject(
+    uiUseDarkThemeInjectionToken
+  )
 
-  // append cssClass
-  keyPaths(themeConfig.cssClass)
-    .map(key => [key, `theme:${key}.add`])
-    .filter(([, propName]) => !!attrs[propName])
-    .forEach(([key, propName]) =>
-      setValue(themeConfig.cssClass, key, attrs[propName] as string, true)
-    )
+  const isDarkMode = typeof darkMode === 'boolean' ? darkMode : darkMode?.value
 
-  // remove cssClass
-  keyPaths(themeConfig.cssClass)
-    .map(key => [key, `theme:${key}.remove`])
-    .filter(([, propName]) => !!attrs[propName])
-    .forEach(([key, propName]) =>
-      unsetValue(themeConfig.cssClass, key, attrs[propName] as string)
-    )
+  // replace dark mode
+  if (isDarkMode && themeConfig.cssDark) {
+    replaceThemeConfig(themeConfig.cssDark, attrs, 'themeDark')
+    const cssDarkPlain = valuePaths(themeConfig.cssDark)
+    // replace dark mode into normal mode
+    keyPaths(themeConfig.cssClass)
+      .filter(key => !!cssDarkPlain[key])
+      .forEach(key =>
+        setValue(themeConfig.cssClass, key, cssDarkPlain[key] as string)
+      )
+  }
+
   return themeConfig as T
 }
 

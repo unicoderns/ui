@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s ./storybook-static",
     "storybook-tailwind": "start-storybook -p 6007 -c .storybook-tailwind  -s ./storybook-static",
     "build-storybook": "build-storybook",
     "bootstrap": "lerna bootstrap",

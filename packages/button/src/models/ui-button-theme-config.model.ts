@@ -17,4 +17,11 @@ export interface UiButtonThemeConfigModel extends UiComponentThemeConfigModel {
       [SizeVariants.Small]: string
     }
   }
+  cssDark?: {
+    main?: string
+    active?: string
+    outline?: string
+    variants?: KeyPairString
+    outlineVariants?: KeyPairString
+  }
 }
