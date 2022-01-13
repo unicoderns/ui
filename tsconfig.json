@@ -32,7 +32,9 @@
       "@unicodernsui/select": ["packages/select/src"],
       "@unicodernsui/range": ["packages/range/src"],
       "@unicodernsui/radio": ["packages/radio/src"],
-      "@unicodernsui/checkbox": ["packages/checkbox/src"]
+      "@unicodernsui/checkbox": ["packages/checkbox/src"],
+      "@unicodernsui/textarea": ["packages/textarea/src"],
+      "@unicodernsui/input-group": ["packages/input-group/src"],
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },

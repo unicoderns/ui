@@ -1,0 +1,127 @@
+import { Story, Canvas } from '@storybook/addon-docs';
+
+# InputGroups
+Input groups works as a wrapper for form controls buttons and labels.
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/InputGroup)
+
+```html
+    <ui-input-group :="args" :label="label" :size="size">{{ args.default }}</ui-input-group>
+```
+
+## Props
+
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| `label` | `string` | text that will be shown above the `input-group` |
+| `size` | `string` | this prop modify the size of the `input-group`. It supports `sm`, `md` and `lg`, by default is `md`. |
+| `nowrap` | `string` | it disables `input-group` wrapping (`flex-wrap: wrap`)|
+
+### Sizes
+These are three size examples for `input-group`:
+<Canvas>
+<Story id="ui-bootstrap-inputgroup--small"/>
+</Canvas>
+<Canvas>
+<Story id="ui-bootstrap-inputgroup--medium"/>
+</Canvas>
+<Canvas>
+<Story id="ui-bootstrap-inputgroup--large"/>
+</Canvas>
+
+### Label
+When the `label` prop is passed, the label is rendered outside the `input-group` wrapper.
+<Canvas>
+<Story id="ui-bootstrap-inputgroup--label"/>
+</Canvas>
+
+### Wrapping
+<Canvas>
+<Story id="ui-bootstrap-inputgroup--wrapping"/>
+</Canvas>
+
+## Slots
+Input Groups accepts form controls and form components like [Checkbox](https://github.com/unicoderns/ui/tree/master/packages/checkbox), [Radio](https://github.com/unicoderns/ui/tree/master/packages/radio), [Select](https://github.com/unicoderns/ui/tree/master/packages/select), `Input Group Text` even [Buttons](https://github.com/unicoderns/ui/tree/master/packages/button)
+
+| Name | Description |
+| ---- | ----------- |
+| `default` | actual span content |
+
+# Input Group Text
+Works as another wrapper for components and labels, it is useful to combine with inputs, [textarea](https://github.com/unicoderns/ui/tree/master/packages/textarea), even with other `input-group-text`
+
+## Props
+
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| `render-as` | `string` | this is the type tag that will be rendered, as default it renders as 'span', but it could be 'label' or 'div' as well. |
+
+<Canvas>
+  <Story id="ui-bootstrap-inputgrouptext--default"/>
+  <Story id="ui-bootstrap-inputgrouptext--as-label"/>
+  <Story id="ui-bootstrap-inputgrouptext--as-div"/>
+</Canvas>
+
+`input-group-text` supports components as slot.
+
+<Canvas>
+<Story id="ui-bootstrap-inputgrouptext--with-component"/>
+</Canvas>
+
+## Basic examples
+
+### Custom select
+<Canvas>
+<Story id="ui-bootstrap-inputgroup--custom-select"/>
+</Canvas>
+
+### Custom select alt
+<Canvas>
+<Story id="ui-bootstrap-inputgroup--custom-select-alt"/>
+</Canvas>
+
+### Checkboxes and Radios
+<Canvas>
+<Story id="ui-bootstrap-inputgroup--checkboxes"/>
+<Story id="ui-bootstrap-inputgroup--radios"/>
+</Canvas>
+
+### Multiple inputs
+<Canvas>
+<Story id="ui-bootstrap-inputgroup--mutiple-inputs"/>
+</Canvas>
+
+### Multiple addons
+<Canvas>
+<Story id="ui-bootstrap-inputgroup--mutiple-addons"/>
+</Canvas>
+
+# Accessibility
+Change the next properties to change the default accessibility text
+
+| Name | Property | Default |
+| ---- | ---- | ----------- |
+| role | aria:role | `group` |
+
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for inputgroups.
+
+# Theme
+Use the next `json` to define a new theme for the component
+
+```json
+{
+  cssClass: {
+    main: string, // class applied to main wrapper
+    nowrap: string, // class applied to disable 'flex-wrap: wrap'
+    label: string, // class applied to label if it is shown
+    inputGroupText: string, // class used in 'input-group-text' component
+    sizes: { // class for each size variant: md, sm, lg.
+      [InputSizeVariants.Large]: getPrefixedClass(InputSizeVariants.Large),
+      [InputSizeVariants.Medium]: getPrefixedClass(InputSizeVariants.Medium),
+      [InputSizeVariants.Small]: getPrefixedClass(InputSizeVariants.Small),
+    },
+  },
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json

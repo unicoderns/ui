@@ -6,6 +6,7 @@ export * from './ui-theme-config'
 export * from './ui-accessibility-config'
 export * from './position'
 export * from './bootstrap-variant'
+export * from './input-group-text'
 
 export interface UiComponent {
   TAG_NAME: string
