@@ -1,12 +1,16 @@
 import { cssClassPrefix, InputSizeVariants } from '@unicodernsui/core'
-import { UiSelectThemeConfigModel } from '../'
+import { UiInputGroupThemeConfigModel } from '../'
 
-const baseClass = 'form-select'
+const baseClass = 'input-group'
 const classPrefix = cssClassPrefix(baseClass)
 const getPrefixedClass = (value: string) => `${classPrefix}${value}`
-export const bsUiSelectThemeConfigDefaults: UiSelectThemeConfigModel = {
+
+export const uiInputGroupThemeConfigDefaults: UiInputGroupThemeConfigModel = {
   cssClass: {
     main: baseClass,
+    nowrap: 'flex-nowrap',
+    label: 'form-label',
+    inputGroupText: 'input-group-text',
     sizes: {
       [InputSizeVariants.Large]: getPrefixedClass(InputSizeVariants.Large),
       [InputSizeVariants.Medium]: getPrefixedClass(InputSizeVariants.Medium),

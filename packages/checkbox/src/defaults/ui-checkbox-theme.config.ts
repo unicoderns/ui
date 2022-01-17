@@ -1,8 +1,8 @@
-import { UiRadioThemeConfigModel } from '../'
+import { UiCheckboxThemeConfigModel } from '../'
 
 const baseClass = 'form-check'
 
-export const bsUiRadioThemeConfigDefaults: UiRadioThemeConfigModel = {
+export const uiCheckboxThemeConfigDefaults: UiCheckboxThemeConfigModel = {
   cssClass: {
     main: baseClass,
     input: `${baseClass}-input`,

@@ -14,7 +14,7 @@ Object.keys(variantClasses).forEach(
   value => (variantClasses[value] = getPrefixedClass(value))
 )
 
-export const bsUiDropdownThemeConfigDefaults: UiDropdownThemeConfigModel = {
+export const uiDropdownThemeConfigDefaults: UiDropdownThemeConfigModel = {
   cssClass: {
     main: baseClass,
     menuEndAll: 'dropdown-menu-end',

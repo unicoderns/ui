@@ -13,7 +13,7 @@ Object.keys(variantClasses).forEach(
   value => (variantClasses[value] = getPrefixedClass(value))
 )
 
-export const bsUiAlertThemeConfigDefaults: UiAlertThemeConfigModel = {
+export const uiAlertThemeConfigDefaults: UiAlertThemeConfigModel = {
   cssClass: {
     main: baseClass,
     dismissible: getPrefixedClass('dismissible'),

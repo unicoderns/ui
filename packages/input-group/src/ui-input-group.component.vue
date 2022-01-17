@@ -15,7 +15,7 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
-import { bsUiInputGroupThemeConfigDefaults } from './defaults/bs-ui-input-group-theme.config'
+import { uiInputGroupThemeConfigDefaults } from './defaults/ui-input-group-theme.config'
 import { uiInputGroupAriaDefaults } from './defaults/ui-input-group-aria.config'
 import { UiInputGroupThemeConfigModel } from './models/ui-input-group-theme-config.model'
 import { UiInputGroupAriaConfigModel } from './models/ui-input-group-aria-config.model'
@@ -43,7 +43,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiInputGroupThemeConfigDefaults
+      uiInputGroupThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<UiInputGroupAriaConfigModel>(
       TAG_NAME,

@@ -11,7 +11,7 @@ Object.keys(bgVariantClasses).forEach(
   value => (bgVariantClasses[value] = `bg-${value}`)
 )
 
-export const bsUiToastThemeConfigDefaults: UiToastThemeConfigModel = {
+export const uiToastThemeConfigDefaults: UiToastThemeConfigModel = {
   cssClass: {
     main: baseClass,
     container: 'ui-toast-container',

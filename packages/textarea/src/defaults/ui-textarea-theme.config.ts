@@ -2,7 +2,7 @@ import { UiTextareaThemeConfigModel } from '../'
 
 const baseClass = 'input-group'
 
-export const bsUiTextareaThemeConfigDefaults: UiTextareaThemeConfigModel = {
+export const uiTextareaThemeConfigDefaults: UiTextareaThemeConfigModel = {
   cssClass: {
     main: baseClass,
     disabled: 'disabled',

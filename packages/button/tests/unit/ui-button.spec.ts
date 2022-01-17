@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
 import { BootstrapVariants, ButtonSizeVariants } from '@unicodernsui/core'
 import { UiButton } from '../../src'
-import { bsUiButtonThemeConfigDefaults } from '../../src/defaults/bs-ui-button-theme.config'
+import { uiButtonThemeConfigDefaults } from '../../src/defaults/ui-button-theme.config'
 
 describe('ui-button.vue', () => {
-  const theme = bsUiButtonThemeConfigDefaults
+  const theme = uiButtonThemeConfigDefaults
 
   it('should render when props are set', () => {
     const wrapper = shallowMount(UiButton, {

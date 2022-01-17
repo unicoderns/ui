@@ -1,9 +1,9 @@
 import { shallowMount, mount } from '@vue/test-utils'
 import exp from 'constants'
 import { UiTextarea } from '../../src'
-import { bsUiTextareaThemeConfigDefaults } from '../../src/defaults/bs-ui-textarea-theme.config'
+import { uiTextareaThemeConfigDefaults } from '../../src/defaults/ui-textarea-theme.config'
 
-const theme = bsUiTextareaThemeConfigDefaults
+const theme = uiTextareaThemeConfigDefaults
 describe('ui-textarea.vue', () => {
   it('should render a label with the text setted in label prop', () => {
     const labelText = 'Label'

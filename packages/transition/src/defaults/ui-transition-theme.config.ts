@@ -1,6 +1,6 @@
 import { UiTransitionThemeConfigModel } from '..'
 
-export const bsUiTransitionThemeConfigDefaults: UiTransitionThemeConfigModel = {
+export const uiTransitionThemeConfigDefaults: UiTransitionThemeConfigModel = {
   cssClass: {
     persistent: 'show',
   },

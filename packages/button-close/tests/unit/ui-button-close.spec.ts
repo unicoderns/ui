@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 import { UiButtonClose } from '../../src'
-import { bsUiButtonCloseThemeConfigDefaults } from '../../src/defaults/bs-ui-button-close-theme.config'
+import { uiButtonCloseThemeConfigDefaults } from '../../src/defaults/ui-button-close-theme.config'
 import { BootstrapVariants } from '@unicodernsui/core'
 
 describe('ui-button-close.vue', () => {
@@ -24,7 +24,7 @@ describe('ui-button-close.vue', () => {
   })
 
   it('should be inverted', () => {
-    const theme = bsUiButtonCloseThemeConfigDefaults
+    const theme = uiButtonCloseThemeConfigDefaults
     const wrapper = shallowMount(UiButtonClose, {
       props: {
         invert: true,

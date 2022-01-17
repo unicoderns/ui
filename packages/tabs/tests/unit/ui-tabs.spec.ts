@@ -2,7 +2,7 @@ import { shallowMount, mount } from '@vue/test-utils'
 import { UiTabs, UiTab } from '../../src'
 import { PropType } from 'vue'
 import { UiTabModel } from '../../src/models/ui-tab.model'
-import { bsUiTabsPanelThemeConfigDefaults } from '../../src/defaults/bs-ui-tabs-panel-theme.config'
+import { uiTabsPanelThemeConfigDefaults } from '../../src/defaults/ui-tabs-panel-theme.config'
 import { UiTabsPanelAriaDefaults } from '../../src/defaults/ui-tabs-panel-aria.config'
 
 const TestComponent = {
@@ -49,11 +49,11 @@ describe('ui-tabs.vue', () => {
 
     expect(liElement.exists()).toBeTruthy()
     expect(liElement.classes()).toContain(
-      bsUiTabsPanelThemeConfigDefaults.cssClass.item
+      uiTabsPanelThemeConfigDefaults.cssClass.item
     )
     expect(liElement.text()).toBe(title)
     expect(linkElement.classes()).toContain(
-      bsUiTabsPanelThemeConfigDefaults.cssClass.link
+      uiTabsPanelThemeConfigDefaults.cssClass.link
     )
   })
 
@@ -75,7 +75,7 @@ describe('ui-tabs.vue', () => {
     const liElement = wrapper.find('li')
 
     expect(liElement.find('a').classes()).toContain(
-      bsUiTabsPanelThemeConfigDefaults.cssClass.itemDisabled
+      uiTabsPanelThemeConfigDefaults.cssClass.itemDisabled
     )
   })
 
@@ -106,26 +106,26 @@ describe('ui-tabs.vue', () => {
     const linkElement2 = tab2.find('a')
 
     expect(linkElement1.classes()).toContain(
-      bsUiTabsPanelThemeConfigDefaults.cssClass.itemActive
+      uiTabsPanelThemeConfigDefaults.cssClass.itemActive
     )
     expect(linkElement1.attributes()['aria-current']).toEqual(
       UiTabsPanelAriaDefaults.currentPage
     )
     expect(linkElement2.classes()).toContain(
-      bsUiTabsPanelThemeConfigDefaults.cssClass.link
+      uiTabsPanelThemeConfigDefaults.cssClass.link
     )
 
     linkElement2.trigger('click')
     await wrapper.vm.$nextTick()
 
     expect(linkElement2.classes()).toContain(
-      bsUiTabsPanelThemeConfigDefaults.cssClass.itemActive
+      uiTabsPanelThemeConfigDefaults.cssClass.itemActive
     )
     expect(linkElement2.attributes()['aria-current']).toEqual(
       UiTabsPanelAriaDefaults.currentPage
     )
     expect(linkElement1.classes()).toContain(
-      bsUiTabsPanelThemeConfigDefaults.cssClass.link
+      uiTabsPanelThemeConfigDefaults.cssClass.link
     )
   })
 

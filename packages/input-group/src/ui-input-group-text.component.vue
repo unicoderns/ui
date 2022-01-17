@@ -11,7 +11,7 @@ import {
   InputGroupTextType,
   InputGroupTextTypes,
 } from '@unicodernsui/core'
-import { bsUiInputGroupThemeConfigDefaults } from './defaults/bs-ui-input-group-theme.config'
+import { uiInputGroupThemeConfigDefaults } from './defaults/ui-input-group-theme.config'
 import { UiInputGroupThemeConfigModel } from './models/ui-input-group-theme-config.model'
 
 const TAG_NAME = 'uiInputGroupText'
@@ -29,7 +29,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiInputGroupThemeConfigDefaults
+      uiInputGroupThemeConfigDefaults
     )
 
     return {

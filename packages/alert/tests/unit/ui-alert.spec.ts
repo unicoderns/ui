@@ -1,9 +1,9 @@
 import { shallowMount, mount } from '@vue/test-utils'
 import { BootstrapVariants } from '@unicodernsui/core'
 import { UiAlert } from '../../src'
-import { bsUiAlertThemeConfigDefaults } from '../../src/defaults/bs-ui-alert-theme.config'
+import { uiAlertThemeConfigDefaults } from '../../src/defaults/ui-alert-theme.config'
 
-const theme = bsUiAlertThemeConfigDefaults
+const theme = uiAlertThemeConfigDefaults
 
 describe('ui-alert.vue', () => {
   it('renders when props are set', () => {

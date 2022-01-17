@@ -31,7 +31,7 @@ Object.keys(darkOutlineVariantClasses).forEach(
       getOtlinePrefixedClass(value) + ' ui-dark-mode')
 )
 
-export const bsUiButtonThemeConfigDefaults: UiButtonThemeConfigModel = {
+export const uiButtonThemeConfigDefaults: UiButtonThemeConfigModel = {
   cssClass: {
     main: baseClass,
     active: 'active',
