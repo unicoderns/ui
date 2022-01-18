@@ -1,17 +1,15 @@
 import { inject, toRefs, computed, Ref, provide } from 'vue'
 import {
   KeyPairString,
-  uiAriaConfigInjectionToken,
-  UiAriaConfigModel,
   UiComponentAriaConfigModel,
   UiComponentThemeConfigModel,
-  uiThemeConfigInjectionToken,
-  UiThemeConfigModel,
   ResponsiveVariants,
   ResponsiveConfig,
   uiUseDarkThemeInjectionToken,
 } from '../types'
 
+const uiThemeConfigInjectionPrefix = 'uiThemeConfig_'
+const uiAriaConfigInjectionPrefix = 'uiThemeConfig_'
 declare type ConfigLevel = { [key: string]: string | undefined | ConfigLevel }
 
 function valuePaths(item: ConfigLevel): { [key: string]: string } {
@@ -65,44 +63,26 @@ function unsetValue(item: ConfigLevel, path: string, value: string) {
   }
 }
 
-function getGlobalThemeConfig(): UiThemeConfigModel {
-  const globalThemeConfig: UiThemeConfigModel = inject(
-    uiThemeConfigInjectionToken,
-    {}
-  )
-
-  return JSON.parse(JSON.stringify(globalThemeConfig))
-}
-
 function getComponentThemeConfig(
   componentTag: string
 ): UiComponentThemeConfigModel | null {
-  const globalThemeConfig = getGlobalThemeConfig()
-  if (!globalThemeConfig[componentTag]) {
-    return null
-  }
-
-  return { ...globalThemeConfig[componentTag] }
-}
-
-function getGlobalAriaConfig(): UiAriaConfigModel {
-  const globalAriaConfig: UiAriaConfigModel = inject(
-    uiAriaConfigInjectionToken,
-    {}
+  const themeConfig: UiComponentThemeConfigModel | null = inject(
+    `${uiThemeConfigInjectionPrefix}${componentTag}`,
+    null
   )
 
-  return JSON.parse(JSON.stringify(globalAriaConfig))
+  return JSON.parse(JSON.stringify(themeConfig))
 }
 
 function getComponentAriaConfig(
   componentTag: string
 ): UiComponentAriaConfigModel | null {
-  const globalAriaConfig = getGlobalAriaConfig()
-  if (!globalAriaConfig[componentTag]) {
-    return null
-  }
+  const ariaConfig: UiComponentThemeConfigModel | null = inject(
+    `${uiAriaConfigInjectionPrefix}${componentTag}`,
+    null
+  )
 
-  return { ...globalAriaConfig[componentTag] }
+  return JSON.parse(JSON.stringify(ariaConfig))
 }
 
 function replaceThemeConfig(
@@ -265,32 +245,16 @@ export function useReactiveResponsiveConfig(
   return result
 }
 
-export function setThemeConfig(custom: UiThemeConfigModel) {
-  const current = getGlobalThemeConfig()
-  provide(uiThemeConfigInjectionToken, {
-    ...current,
-    ...custom,
-  })
-}
-
-export function setAriaConfig(custom: UiAriaConfigModel) {
-  const current = getGlobalAriaConfig()
-  provide(uiAriaConfigInjectionToken, {
-    ...current,
-    ...custom,
-  })
-}
-
 export function setComponentThemeConfig(
   { TAG_NAME }: { TAG_NAME: string },
   custom: UiComponentThemeConfigModel
 ) {
-  setThemeConfig({ [TAG_NAME]: custom })
+  provide(`${uiThemeConfigInjectionPrefix}${TAG_NAME}`, custom)
 }
 
 export function setComponentAriaConfig(
   { TAG_NAME }: { TAG_NAME: string },
   custom: UiComponentAriaConfigModel
 ) {
-  setAriaConfig({ [TAG_NAME]: custom })
+  provide(`${uiAriaConfigInjectionPrefix}${TAG_NAME}`, custom)
 }
