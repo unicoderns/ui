@@ -1,6 +1,6 @@
 export interface UiCardModel {
   variant: string
-  background: boolean
+  outline: boolean
   style: string
   title: string
   subtitle: string

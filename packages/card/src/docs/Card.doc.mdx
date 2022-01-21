@@ -45,14 +45,14 @@ Support multiple variants with and without background
   <Story id="ui-bootstrap-card--dark" />
 </Canvas>
 <Canvas>
-  <Story id="ui-bootstrap-card--border-primary" />
-  <Story id="ui-bootstrap-card--border-secondary" />
-  <Story id="ui-bootstrap-card--border-success" />
-  <Story id="ui-bootstrap-card--border-danger" />
-  <Story id="ui-bootstrap-card--border-warning" />
-  <Story id="ui-bootstrap-card--border-info" />
-  <Story id="ui-bootstrap-card--border-light" />
-  <Story id="ui-bootstrap-card--border-dark" />
+  <Story id="ui-bootstrap-card--outline-primary" />
+  <Story id="ui-bootstrap-card--outline-secondary" />
+  <Story id="ui-bootstrap-card--outline-success" />
+  <Story id="ui-bootstrap-card--outline-danger" />
+  <Story id="ui-bootstrap-card--outline-warning" />
+  <Story id="ui-bootstrap-card--outline-info" />
+  <Story id="ui-bootstrap-card--outline-light" />
+  <Story id="ui-bootstrap-card--outline-dark" />
 </Canvas>
 
 ### Titles and text
@@ -79,7 +79,7 @@ Support multiple variants with and without background
 | Name         | Type      | Description                                       |
 | ------------ | --------- | ------------------------------------------------- |
 | `variant`    | `string`  | variant class defined in the theme                |
-| `background` | `boolean` | will use variants with background if true         |
+| `outline`    | `boolean` | will use outline variants if true                 |
 | `style`      | `string`  | allows to change card's size                      |
 | `title`      | `string`  | allows to add a title to the card                 |
 | `subtitle`   | `string`  | allows to add subtitle to the card                |
@@ -111,6 +111,42 @@ Use the next `json` to define a new theme for the component
       'variantN': string,
     },
   },
+    cssClass: {
+    main: string // main class
+    header: string // css class for header of the card
+    body: string // css class for the body of the card
+    title: string // css class for title of the card
+    subtitle: string // css class for subtitle of the card
+    img: string // css class for image of the card
+    imgBottom: string // css class for image of the card when on bottom
+    footer: string // css class for footer of the card
+    center: string // css class to center text
+    text: string // css class for main text of the card
+    variants: { // define a custom list of variants
+      'variant1': string,
+      'variant2': string,
+      ...
+      'variantN': string,
+    },
+    textVariants: { // define a custom list of text variants
+      'variant1': string,
+      'variant2': string,
+      ...
+      'variantN': string,
+    },
+    outlineVariants: { // must match the same variants as before
+      'variant1': string,
+      'variant2': string,
+      ...
+      'variantN': string,
+    },
+    outlineTextVariants: { // must match the same text variants as before
+      'variant1': string,
+      'variant2': string,
+      ...
+      'variantN': string,
+    },
+  }
 }
 ```
 

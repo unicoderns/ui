@@ -36,7 +36,8 @@
       "@unicodernsui/checkbox": ["packages/checkbox/src"],
       "@unicodernsui/textarea": ["packages/textarea/src"],
       "@unicodernsui/input-group": ["packages/input-group/src"],
-      "@unicodernsui/base-tw": ["packages/base-tw/src"]
+      "@unicodernsui/base-tw": ["packages/base-tw/src"],
+      "@unicodernsui/card": ["packages/card/src"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },

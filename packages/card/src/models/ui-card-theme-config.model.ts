@@ -7,14 +7,14 @@ export interface UiCardThemeConfigModel extends UiComponentThemeConfigModel {
     body: string
     title: string
     subtitle: string
-    link: string
     img: string
     imgBottom: string
     footer: string
     center: string
     text: string
     variants: KeyPairString
-    borderVariants: KeyPairString
-    textBorderVariants: KeyPairString
+    textVariants: KeyPairString
+    outlineVariants: KeyPairString
+    outlineTextVariants: KeyPairString
   }
 }
