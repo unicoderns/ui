@@ -17,7 +17,7 @@
 import { computed, defineComponent } from 'vue'
 import { useReactiveThemeConfig } from '@unicodernsui/core'
 import { UiTransitionThemeConfigModel } from './models/ui-transition-theme-config.model'
-import { bsUiTransitionThemeConfigDefaults } from './defaults/bs-ui-transition-theme.config'
+import { uiTransitionThemeConfigDefaults } from './defaults/ui-transition-theme.config'
 
 const TAG_NAME = 'uiTransition'
 
@@ -31,7 +31,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiTransitionThemeConfigDefaults
+      uiTransitionThemeConfigDefaults
     )
 
     const classes = computed((): string[] => {

@@ -23,7 +23,7 @@ import {
   setComponentThemeConfig,
 } from '@unicodernsui/core'
 import { UiRadio } from '@unicodernsui/radio'
-import { bsUiCheckboxThemeConfigDefaults } from './defaults/bs-ui-checkbox-theme.config'
+import { uiCheckboxThemeConfigDefaults } from './defaults/ui-checkbox-theme.config'
 import { uiCheckboxAriaDefaults } from './defaults/ui-checkbox-aria.config'
 import { UiCheckboxAriaConfigModel } from './models/ui-checkbox-aria-config.model'
 import { UiCheckboxThemeConfigModel } from './models/ui-checkbox-theme-config.model'
@@ -59,7 +59,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiCheckboxThemeConfigDefaults
+      uiCheckboxThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<UiCheckboxAriaConfigModel>(
       TAG_NAME,

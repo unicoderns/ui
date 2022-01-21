@@ -4,11 +4,11 @@ import {
   Directions,
   MenuItemTypes,
 } from '@unicodernsui/core'
-import { bsUiDropdownThemeConfigDefaults } from '../../src/defaults/bs-ui-dropdown-theme.config'
+import { uiDropdownThemeConfigDefaults } from '../../src/defaults/ui-dropdown-theme.config'
 import { UiDropdown } from '../../src'
 
 describe('ui-dropdown.vue', () => {
-  const theme = bsUiDropdownThemeConfigDefaults
+  const theme = uiDropdownThemeConfigDefaults
 
   it('should render when props are set', () => {
     const wrapper = mount(UiDropdown, {

@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils'
 import { MenuItemTypes } from '@unicodernsui/core'
-import { bsUiMenuThemeConfigDefaults } from '../../src/defaults/bs-ui-menu-theme.config'
+import { uiMenuThemeConfigDefaults } from '../../src/defaults/ui-menu-theme.config'
 import { UiMenu } from '../../src'
 
 describe('ui-menu.vue', () => {
-  const theme = bsUiMenuThemeConfigDefaults
+  const theme = uiMenuThemeConfigDefaults
   it('should render when props are set', () => {
     const wrapper = mount(UiMenu, {
       props: {},

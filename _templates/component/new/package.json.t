@@ -23,7 +23,6 @@ to: packages/<%= h.changeCase.param(name) %>/package.json
     "@types/node": "^16.11.12",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
-    "@unicodernsui/custom-theme": "*",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",

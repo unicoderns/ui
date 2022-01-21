@@ -17,7 +17,7 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
-import { bsUiAccordionThemeConfigDefaults } from './defaults/bs-ui-accordion-theme.config'
+import { uiAccordionThemeConfigDefaults } from './defaults/ui-accordion-theme.config'
 import { uiAccordionAriaDefaults } from './defaults/ui-accordion-aria.config'
 import { UiAccordionThemeConfigModel } from './models/ui-accordion-theme-config.model'
 import { UiAccordionAriaConfigModel } from './models/ui-accordion-aria-config.model'
@@ -49,7 +49,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiAccordionThemeConfigDefaults
+      uiAccordionThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<UiAccordionAriaConfigModel>(
       TAG_NAME,

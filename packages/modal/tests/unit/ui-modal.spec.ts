@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils'
-import { bsUiModalThemeConfigDefaults } from '../../src/defaults/bs-ui-modal-theme.config'
+import { uiModalThemeConfigDefaults } from '../../src/defaults/ui-modal-theme.config'
 import { UiModal } from '../../src'
 import { ModalSizeVariants, ResponsiveVariants } from '@unicodernsui/core'
 
 describe('ui-modal.vue', () => {
-  const theme = bsUiModalThemeConfigDefaults
+  const theme = uiModalThemeConfigDefaults
 
   it('should render when props are set', () => {
     const wrapper = mount(UiModal, {

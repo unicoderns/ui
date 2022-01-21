@@ -25,7 +25,7 @@
 <script lang="ts">
 import { defineComponent, reactive, provide } from 'vue'
 import { UiTabPropsModel } from './models/ui-tabs-props.model'
-import { bsUiTabsPanelThemeConfigDefaults } from './defaults/bs-ui-tabs-panel-theme.config'
+import { uiTabsPanelThemeConfigDefaults } from './defaults/ui-tabs-panel-theme.config'
 import { UiTabsPanelAriaConfigModel } from './models/ui-tabs-panel-aria-config.model'
 import { UiTabsPanelAriaDefaults } from './defaults/ui-tabs-panel-aria.config'
 import { UiTabsPanelThemeConfigModel } from './models/ui-tabs-panel-theme-config.model'
@@ -54,7 +54,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiTabsPanelThemeConfigDefaults
+      uiTabsPanelThemeConfigDefaults
     )
 
     const aria = useReactiveAriaConfig<UiTabsPanelAriaConfigModel>(

@@ -1,7 +1,6 @@
 import { KeyPairString } from './base'
 
 export const uiUseDarkThemeInjectionToken = Symbol('UiUseThemeDark')
-export const uiThemeConfigInjectionToken = Symbol('UiThemeConfig')
 
 export interface UiComponentThemeConfigModel {
   cssClass:
@@ -15,8 +14,4 @@ export interface UiComponentThemeConfigModel {
     | KeyPairString
     | { variants?: KeyPairString }
     | { components?: KeyPairString }
-}
-
-export interface UiThemeConfigModel {
-  [key: string]: UiComponentThemeConfigModel
 }

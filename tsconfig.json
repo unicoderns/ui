@@ -17,10 +17,11 @@
     "paths": {
       "@unicodernsui/core": ["packages/core/src"],
       "@unicodernsui/button-close": ["packages/button-close/src"],
-      "@unicodernsui/custom-theme": ["packages/custom-theme/src"],
+      "@unicodernsui/button-close-tw": ["packages/button-close-tw/src"],
       "@unicodernsui/alert": ["packages/alert/src"],
       "@unicodernsui/button": ["packages/button/src"],
       "@unicodernsui/transition": ["packages/transition/src"],
+      "@unicodernsui/transition-tw": ["packages/transition-tw/src"],
       "@unicodernsui/tooltip": ["packages/tooltip/src"],
       "@unicodernsui/tabs": ["packages/tabs/src"],
       "@unicodernsui/menu": ["packages/menu/src"],
@@ -32,7 +33,10 @@
       "@unicodernsui/select": ["packages/select/src"],
       "@unicodernsui/range": ["packages/range/src"],
       "@unicodernsui/radio": ["packages/radio/src"],
-      "@unicodernsui/checkbox": ["packages/checkbox/src"]
+      "@unicodernsui/checkbox": ["packages/checkbox/src"],
+      "@unicodernsui/textarea": ["packages/textarea/src"],
+      "@unicodernsui/input-group": ["packages/input-group/src"],
+      "@unicodernsui/base-tw": ["packages/base-tw/src"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },

@@ -21,7 +21,7 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
-import { bsUiSelectThemeConfigDefaults } from './defaults/bs-ui-select-theme.config'
+import { uiSelectThemeConfigDefaults } from './defaults/ui-select-theme.config'
 import { uiSelectAriaDefaults } from './defaults/ui-select-aria.config'
 import { UiSelectThemeConfigModel } from './models/ui-select-theme-config.model'
 import { UiSelectAriaConfigModel } from './models/ui-select-aria-config.model'
@@ -48,7 +48,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiSelectThemeConfigDefaults
+      uiSelectThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<UiSelectAriaConfigModel>(
       TAG_NAME,

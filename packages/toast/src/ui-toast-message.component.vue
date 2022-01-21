@@ -62,7 +62,7 @@ import {
 } from '@unicodernsui/core'
 import { UiButtonClose } from '@unicodernsui/button-close'
 import { UiTransition } from '@unicodernsui/transition'
-import { bsUiToastThemeConfigDefaults } from './defaults/bs-ui-toast-theme.config'
+import { uiToastThemeConfigDefaults } from './defaults/ui-toast-theme.config'
 import { uiToastAriaDefaults } from './defaults/ui-toast-aria.config'
 import { UiToastThemeConfigModel } from './models/ui-toast-theme-config.model'
 import { UiToastAriaConfigModel } from './models/ui-toast-aria-config.model'
@@ -97,7 +97,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiToastThemeConfigDefaults
+      uiToastThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<UiToastAriaConfigModel>(
       TAG_NAME,

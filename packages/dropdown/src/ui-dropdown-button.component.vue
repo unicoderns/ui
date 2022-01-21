@@ -13,7 +13,7 @@
     </div>
     <UiButton
       v-bind="buttonProps"
-      @click="toggle"
+      @click="click"
       :class="{ [theme.cssClass.components.buttonToggle]: !splitButton }"
     >
       <slot />
@@ -45,7 +45,7 @@ import {
   SizeVariant,
 } from '@unicodernsui/core'
 import { UiButton } from '@unicodernsui/button'
-import { bsUiDropdownThemeConfigDefaults } from './defaults/bs-ui-dropdown-theme.config'
+import { uiDropdownThemeConfigDefaults } from './defaults/ui-dropdown-theme.config'
 import { UiDropdownAriaConfigModel } from './models/ui-dropdown-aria-config.model'
 import { uiDropdownAriaDefaults } from './defaults/ui-dropdown-aria.config'
 import { UiDropdownThemeConfigModel } from './models/ui-dropdown-theme-config.model'
@@ -67,7 +67,7 @@ export default defineComponent({
   components: {
     UiButton,
   },
-  emits: ['toggle'],
+  emits: ['toggle', 'click'],
   setup(props, { emit, attrs }) {
     const {
       outline,
@@ -84,7 +84,7 @@ export default defineComponent({
       TAG_NAME,
       attrs,
       props,
-      bsUiDropdownThemeConfigDefaults
+      uiDropdownThemeConfigDefaults
     )
     const aria = useReactiveAriaConfig<UiDropdownAriaConfigModel>(
       TAG_NAME,
@@ -111,6 +111,7 @@ export default defineComponent({
     )
 
     const toggle = () => emit('toggle')
+    const click = () => emit('click')
 
     return {
       expanded,
@@ -120,6 +121,7 @@ export default defineComponent({
       theme,
       aria,
       toggle,
+      click,
     }
   },
 })
