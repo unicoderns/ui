@@ -1,0 +1,73 @@
+import { Story, Canvas } from '@storybook/addon-docs';
+
+# Paginations
+Pagination has multiple links or buttons provided for access Next, Previous and page index. You can set the number of items per page and component size.
+
+<Canvas>
+  <Story id="ui-bootstrap-pagination--default" />
+</Canvas>
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/Pagination)
+
+```html
+<ui-pagination
+  :="args"
+  :size="size"
+  :page="page"
+  :total-item="totalItems"
+  :items-per-page="itemPerPage"
+  :max-visible-pages="maxVisiblePages"
+  @page-change="pageChange"
+  @range-change="rangeChange"
+/>
+```
+
+## Props
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `size` | `string` | Set the size of the component, it suports `sm`, `md` (default) and `lg` |
+| `page` | `number` | The number of the current active page. By default `page` is `0` |
+| `total-items` | `number` | The total number of items that will be paginated [`required`]|
+| `items-per-page` | `number` | It sets the number of items for each page. By default is `10` |
+| `max-visible-pages` | `number` |It sets the number of pages shown when there are many pages. By default is `3` |
+
+# Events
+Pagination will emit this events while changing state
+
+| Event | Params | Description |
+| ----- | ------ | ----------- |
+| `pageChange` | NONE| It raises when the page number change |
+| `rangeChange` | NONE| It raises when `itemsPerPage` or `totalItems` change |
+
+# Accessibility
+Change the next properties to change the default accessibility text
+
+| Name | Property | Default |
+| ---- | -------- | ------- |
+| label | aria:label | `pagination` |
+
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for paginations.
+
+# Theme
+Use the next `json` to define a new theme for the component
+
+```json
+{
+  cssClass: {
+    main: string, // main class
+    item: 'page-item', // class for every item
+    link: 'page-link', // class for link item
+    itemActive: 'active', // class used when item is active
+    disabled: 'disabled', // class for disabled state
+    sizes: { // define a custom list of sizes
+      'size1': string,
+      'size2': string,
+      ...
+      'sizeN': string,
+    },
+  },
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
