@@ -2,7 +2,7 @@ import { Story, Canvas } from '@storybook/addon-docs'
 
 # Cards
 
-Display a card with different atributes.
+Display a card with different atributes, variants and sizes.
 
 [Github repo](https://github.com/unicoderns/ui/tree/master/packages/card)
 
@@ -84,7 +84,7 @@ Support multiple variants with and without background
 | `title`      | `string`  | allows to add a title to the card                 |
 | `subtitle`   | `string`  | allows to add subtitle to the card                |
 | `header`     | `string`  | allows to add header to the card                  |
-| `footer`     | `string`  | allows to add header to the card                  |
+| `footer`     | `string`  | allows to add footer to the card                  |
 | `imgSrc`     | `string`  | allows to add a image to the card                 |
 | `imgAlt`     | `string`  | allows to add an alternative text to card's image |
 | `imgBottom`  | `boolean` | card will show the image at the bottom if true    |
@@ -102,15 +102,6 @@ Use the next `json` to define a new theme for the component
 
 ```json
 {
-  cssClass: {
-    main: string, // main class
-    variants: { // define a custom list of variants
-      'variant1': string,
-      'variant2': string,
-      ...
-      'variantN': string,
-    },
-  },
     cssClass: {
     main: string // main class
     header: string // css class for header of the card

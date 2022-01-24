@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, useAttrs, toRefs } from 'vue'
+import { computed, useAttrs, toRefs } from 'vue'
 import { useReactiveThemeConfig } from '@unicodernsui/core'
 import { uiCardThemeConfigDefaults } from './defaults/ui-card-theme.config'
 import { UiCardThemeConfigModel } from './models/ui-card-theme-config.model'
