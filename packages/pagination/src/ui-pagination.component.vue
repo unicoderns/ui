@@ -1,5 +1,5 @@
 <template>
-  <nav :aria-label="aria.label">
+  <nav :aria:label="aria.label">
     <ul :class="classes">
       <ui-pagination-item
         v-for="(item, index) in items"
@@ -43,7 +43,7 @@ const props = withDefaults(defineProps<Props>(), {
   itemsPerPage: 10,
   maxVisiblePages: 3,
   size: SizeVariants.Medium,
-  ['aria:label']: null,
+  ['aria:label']: '',
 })
 
 const emit = defineEmits(['page-change', 'range-change'])
@@ -94,7 +94,7 @@ const totalPagesCount = computed((): number => {
 
 const filteredPages = computed(() => {
   const diff = maxVisiblePages.value / 2
-  const trimmedPages = [...Array(totalPagesCount.value).keys()].slice(2, -2)
+  const trimmedPages = Array.from(Array(totalPagesCount.value).keys()).slice(2,-2)
 
   if (trimmedPages.length > maxVisiblePages.value) {
     const diffFirst = page.value - trimmedPages[0]
@@ -136,7 +136,7 @@ const pages = computed(() => {
   ]
 })
 
-const html = (p, key) => {
+const html = (p: any, key: number) => {
   if (key === 0) {
     return 'Previous'
   }
@@ -149,7 +149,7 @@ const html = (p, key) => {
   return p + 1 + ''
 }
 
-const disabled = (p, key) => {
+const disabled = (p: number | string, key: number) => {
   return (
     (key === 0 && page.value === 0) ||
     (key === pages.value.length - 1 &&
@@ -177,7 +177,7 @@ const rangeChange = () => {
   }
 }
 
-const pageChange = p => {
+const pageChange = (p: number) => {
   if (p >= totalPagesCount.value && p !== 0 && totalPagesCount.value !== 0) {
     throw new Error('page may be maximum the total number of pages minus one')
   }
@@ -185,8 +185,8 @@ const pageChange = p => {
   rangeChange()
 }
 
-watch(page, () => {
-  pageChange()
+watch(page, (page) => {
+  pageChange(page)
 })
 
 watch(itemsPerPage, () => {

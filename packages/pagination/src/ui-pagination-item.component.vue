@@ -9,18 +9,19 @@
 <script setup lang="ts">
 import {
   computed,
-  defineProps,
-  defineEmits,
   toRefs,
   useAttrs,
   withDefaults,
 } from 'vue'
 import {
+UiComponentThemeConfigModel,
   useReactiveAriaConfig,
   useReactiveThemeConfig,
 } from '@unicodernsui/core'
 import { uiPaginationThemeConfigDefaults } from './defaults/ui-pagination-theme.config'
 import { uiPaginationAriaDefaults } from './defaults/ui-pagination-aria.config'
+import { UiPaginationThemeConfigModel } from './models/ui-pagination-theme-config.model'
+import { UiPaginationAriaConfigModel } from './models/ui-pagination-aria-config.model'
 
 const TAG_NAME = 'uiPagination'
 const attrs = useAttrs()
@@ -30,13 +31,11 @@ interface Props {
   disabled?: boolean
   html: string
   page: number | string
-  title?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   active: false,
   disabled: false,
-  title: '',
 })
 
 const emit = defineEmits(['page-change'])

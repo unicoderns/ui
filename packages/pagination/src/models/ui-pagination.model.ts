@@ -6,5 +6,4 @@ export interface UiPaginationModel {
   totalItems: number
   itemsPerPage?: number
   size?: InputSizeVariants
-  ['aria:role']: string
 }
