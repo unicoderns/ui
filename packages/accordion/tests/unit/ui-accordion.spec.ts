@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import { BootstrapVariants } from '@unicodernsui/core'
+import { BootstrapVariants } from '@uicr/core'
 import { UiAccordion } from '../../src'
 
 describe('ui-accordion.vue', () => {

@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
-import { ModalSizeVariants, ResponsiveVariants } from '@unicodernsui/core'
-import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
+import { ModalSizeVariants, ResponsiveVariants } from '@uicr/core'
+import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiModal, UiModalModel } from '../'
 import { UiModalDoc } from '../dev'
 

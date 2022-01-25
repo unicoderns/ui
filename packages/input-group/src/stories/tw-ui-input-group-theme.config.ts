@@ -1,4 +1,4 @@
-import { TailwindVariants } from '@unicodernsui/custom-theme'
+import { TailwindVariants } from '@uicr/custom-theme'
 import { UiInputGroupThemeConfigModel } from '../'
 
 export const twUiInputGroupThemeConfigDefaults: UiInputGroupThemeConfigModel = {

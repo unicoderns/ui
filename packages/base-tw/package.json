@@ -1,5 +1,5 @@
 {
-    "name": "@unicodernsui/base-tw",
+    "name": "@uicr/base-tw",
     "version": "0.0.1",
     "description": "Core utils for tailwind custom theme",
     "scripts": {

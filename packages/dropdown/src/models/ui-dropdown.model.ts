@@ -1,4 +1,4 @@
-import { SizeVariant, Direction, MenuItem } from '@unicodernsui/core'
+import { SizeVariant, Direction, MenuItem } from '@uicr/core'
 
 export interface UiDropdownModel {
   label?: string

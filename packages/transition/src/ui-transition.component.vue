@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
-import { useReactiveThemeConfig } from '@unicodernsui/core'
+import { useReactiveThemeConfig } from '@uicr/core'
 import { UiTransitionThemeConfigModel } from './models/ui-transition-theme-config.model'
 import { uiTransitionThemeConfigDefaults } from './defaults/ui-transition-theme.config'
 

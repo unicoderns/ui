@@ -12,7 +12,7 @@ import { computed, defineComponent, toRefs } from 'vue'
 import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { ui<%= h.changeCase.pascal(name) %>ThemeConfigDefaults } from './defaults/ui-<%= h.changeCase.param(name) %>-theme.config'
 import { ui<%= h.changeCase.pascal(name) %>AriaDefaults } from './defaults/ui-<%= h.changeCase.param(name) %>-aria.config'
 import { Ui<%= h.changeCase.pascal(name) %>ThemeConfigModel } from './models/ui-<%= h.changeCase.param(name) %>-theme-config.model'

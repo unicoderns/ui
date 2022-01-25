@@ -1,5 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils'
-import { BootstrapVariants } from '@unicodernsui/core'
+import { BootstrapVariants } from '@uicr/core'
 import { UiAlert } from '../../src'
 import { uiAlertThemeConfigDefaults } from '../../src/defaults/ui-alert-theme.config'
 

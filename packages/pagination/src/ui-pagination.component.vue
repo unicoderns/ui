@@ -20,7 +20,7 @@ import {
   SizeVariants,
   useReactiveAriaConfig,
   useReactiveThemeConfig,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { uiPaginationThemeConfigDefaults } from './defaults/ui-pagination-theme.config'
 import { uiPaginationAriaDefaults } from './defaults/ui-pagination-aria.config'
 import { UiPaginationThemeConfigModel } from './models/ui-pagination-theme-config.model'

@@ -1,5 +1,5 @@
 {
-  "name": "@unicodernsui/alert-tw",
+  "name": "@uicr/alert-tw",
   "version": "0.0.1",
   "description": "tailwind theme for alert component",
   "scripts": {
@@ -9,11 +9,11 @@
   "main": "dist/index.js",
   "module": "src/index.ts",
   "dependencies": {
-    "@unicodernsui/alert": "*",
-    "@unicodernsui/base-tw": "*",
-    "@unicodernsui/button-close-tw": "*",
-    "@unicodernsui/core": "*",
-    "@unicodernsui/transition-tw": "*",
+    "@uicr/alert": "*",
+    "@uicr/base-tw": "*",
+    "@uicr/button-close-tw": "*",
+    "@uicr/core": "*",
+    "@uicr/transition-tw": "*",
     "core-js": "^3.6.5",
     "vue": "3.1.5"
   },

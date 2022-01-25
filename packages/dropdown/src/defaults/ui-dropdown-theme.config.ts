@@ -3,7 +3,7 @@ import {
   Directions,
   cssClassPrefix,
   enumToObjectByValue,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { UiDropdownThemeConfigModel } from '../'
 
 const baseClass = 'dropdown'

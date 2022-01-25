@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import { InputSizeVariants } from '@unicodernsui/core'
+import { InputSizeVariants } from '@uicr/core'
 import { UiSelect } from '../../src'
 import { uiSelectThemeConfigDefaults } from '../../src/defaults/ui-select-theme.config'
 

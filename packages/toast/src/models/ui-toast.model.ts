@@ -1,4 +1,4 @@
-import { Positions } from '@unicodernsui/core'
+import { Positions } from '@uicr/core'
 
 export interface UiToastModel {
   animate?: boolean

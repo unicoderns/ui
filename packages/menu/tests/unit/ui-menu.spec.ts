@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { MenuItemTypes } from '@unicodernsui/core'
+import { MenuItemTypes } from '@uicr/core'
 import { uiMenuThemeConfigDefaults } from '../../src/defaults/ui-menu-theme.config'
 import { UiMenu } from '../../src'
 

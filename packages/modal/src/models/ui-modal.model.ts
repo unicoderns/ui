@@ -1,4 +1,4 @@
-import { ModalSizeVariant, ResponsiveVariant } from '@unicodernsui/core'
+import { ModalSizeVariant, ResponsiveVariant } from '@uicr/core'
 
 export interface UiModalModel {
   title?: string

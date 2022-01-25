@@ -1,6 +1,6 @@
 import { ref } from 'vue'
+import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiTextarea, UiTextareaModel } from '../'
-import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
 import { UiTextareaDoc } from '../dev'
 
 export default {

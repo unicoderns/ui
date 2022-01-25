@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, toRefs, watch } from 'vue'
-import { useReactiveThemeConfig, generateId } from '@unicodernsui/core'
+import { useReactiveThemeConfig, generateId } from '@uicr/core'
 import { uiRangeThemeConfigDefaults } from './defaults/ui-range-theme.config'
 import { UiRangeThemeConfigModel } from './models/ui-range-theme-config.model'
 

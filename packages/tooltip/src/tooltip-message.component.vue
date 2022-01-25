@@ -17,8 +17,8 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
   PopperCardinalPlacements,
-} from '@unicodernsui/core'
-import { UiTransition } from '@unicodernsui/transition'
+} from '@uicr/core'
+import { UiTransition } from '@uicr/transition'
 import { UiTooltipAriaConfigModel } from './models/ui-tooltip-aria-config.model'
 import { UiTooltipThemeConfigModel } from './models/ui-tooltip-theme-config.model'
 import { uiTooltipThemeConfigDefaults } from './defaults/ui-tooltip-theme.config'

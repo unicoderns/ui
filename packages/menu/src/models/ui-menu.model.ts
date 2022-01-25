@@ -1,4 +1,4 @@
-import { MenuItem } from '@unicodernsui/core'
+import { MenuItem } from '@uicr/core'
 
 export interface UiMenuModel {
   datasource?: MenuItem[]

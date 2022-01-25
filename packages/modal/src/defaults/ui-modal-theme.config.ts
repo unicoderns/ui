@@ -3,7 +3,7 @@ import {
   SizeVariants,
   enumToObjectByValue,
   ResponsiveVariants,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { UiModalThemeConfigModel } from '../'
 
 const baseClass = 'modal'

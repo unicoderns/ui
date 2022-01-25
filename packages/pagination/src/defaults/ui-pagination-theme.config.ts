@@ -1,4 +1,4 @@
-import { SizeVariants } from '@unicodernsui/core'
+import { SizeVariants } from '@uicr/core'
 import { UiPaginationThemeConfigModel } from '..'
 
 const baseClass = 'pagination'

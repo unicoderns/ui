@@ -41,11 +41,8 @@ import {
   toRefs,
   watch,
 } from 'vue'
-import {
-  useReactiveAriaConfig,
-  useReactiveThemeConfig,
-} from '@unicodernsui/core'
-import { UiTransition } from '@unicodernsui/transition'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '@uicr/core'
+import { UiTransition } from '@uicr/transition'
 import { uiAccordionThemeConfigDefaults } from './defaults/ui-accordion-theme.config'
 import { uiAccordionAriaDefaults } from './defaults/ui-accordion-aria.config'
 import { UiAccordionAriaConfigModel } from './models/ui-accordion-aria-config.model'

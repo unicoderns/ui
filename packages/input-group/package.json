@@ -1,5 +1,5 @@
 {
-  "name": "@unicodernsui/input-group",
+  "name": "@uicr/input-group",
   "version": "0.0.1",
   "description": "Generic Input group component",
   "scripts": {
@@ -10,7 +10,7 @@
   "main": "dist/index.js",
   "module": "src/index.ts",
   "dependencies": {
-    "@unicodernsui/core": "*",
+    "@uicr/core": "*",
     "core-js": "^3.6.5",
     "vue": "3.1.5"
   },
@@ -20,11 +20,11 @@
     "@types/node": "^16.11.12",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
-    "@unicodernsui/code-highlight": "*",
-    "@unicodernsui/button": "*",
-    "@unicodernsui/select": "*",
-    "@unicodernsui/checkbox": "*",
-    "@unicodernsui/radio": "*",
+    "@uicr/code-highlight": "*",
+    "@uicr/button": "*",
+    "@uicr/select": "*",
+    "@uicr/checkbox": "*",
+    "@uicr/radio": "*",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",

@@ -1,11 +1,8 @@
 import { provide, ref } from 'vue'
 import { action } from '@storybook/addon-actions'
-import {
-  InputSizeVariants,
-  uiUseDarkThemeInjectionToken,
-} from '@unicodernsui/core'
+import { InputSizeVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
 import { UiPagination, UiPaginationModel } from '../'
-import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
+import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiPaginationDoc } from '../dev'
 
 export default {

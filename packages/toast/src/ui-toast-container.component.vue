@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { defineComponent, onUnmounted, PropType, ref, watch } from 'vue'
-import { Positions, useReactiveThemeConfig } from '@unicodernsui/core'
+import { Positions, useReactiveThemeConfig } from '@uicr/core'
 import { uiToastThemeConfigDefaults } from './defaults/ui-toast-theme.config'
 import { UiToastQueueModel } from './models/ui-toast-queue.model'
 import { ToastMessageQueueService } from './toast-message-queue.service'

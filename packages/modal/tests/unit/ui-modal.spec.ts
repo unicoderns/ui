@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { uiModalThemeConfigDefaults } from '../../src/defaults/ui-modal-theme.config'
 import { UiModal } from '../../src'
-import { ModalSizeVariants, ResponsiveVariants } from '@unicodernsui/core'
+import { ModalSizeVariants, ResponsiveVariants } from '@uicr/core'
 
 describe('ui-modal.vue', () => {
   const theme = uiModalThemeConfigDefaults

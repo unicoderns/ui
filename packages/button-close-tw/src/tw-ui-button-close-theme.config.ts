@@ -1,4 +1,4 @@
-import { UiButtonCloseThemeConfigModel } from '@unicodernsui/button-close'
+import { UiButtonCloseThemeConfigModel } from '@uicr/button-close'
 
 export const twUiButtonCloseThemeConfigDefaults: UiButtonCloseThemeConfigModel = {
   cssClass: {

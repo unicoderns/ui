@@ -1,4 +1,4 @@
-import { UiComponentAriaConfigModel } from '@unicodernsui/core'
+import { UiComponentAriaConfigModel } from '@uicr/core'
 
 export interface UiDropdownAriaConfigModel extends UiComponentAriaConfigModel {
   expanded: string

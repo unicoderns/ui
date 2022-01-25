@@ -1,7 +1,7 @@
 import { inject } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
-import { BootstrapVariants, Positions } from '@unicodernsui/core'
+import { BootstrapVariants, Positions } from '@uicr/core'
 import { UiToastModel, UiToastMessagePlugin, UiToastService } from '../'
 import { UiToastDoc } from '../dev'
 

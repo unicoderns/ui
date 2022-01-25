@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
-import { setComponentThemeConfig } from '@unicodernsui/core'
-import { TailwindVariants } from '@unicodernsui/custom-theme'
+import { setComponentThemeConfig } from '@uicr/core'
+import { TailwindVariants } from '@uicr/custom-theme'
 import { twUiInputGroupThemeConfigDefaults } from './tw-ui-input-group-theme.config'
 import { UiInputGroup, UiInputGroupModel } from '../'
 

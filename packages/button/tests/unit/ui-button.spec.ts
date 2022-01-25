@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import { BootstrapVariants, ButtonSizeVariants } from '@unicodernsui/core'
+import { BootstrapVariants, ButtonSizeVariants } from '@uicr/core'
 import { UiButton } from '../../src'
 import { uiButtonThemeConfigDefaults } from '../../src/defaults/ui-button-theme.config'
 

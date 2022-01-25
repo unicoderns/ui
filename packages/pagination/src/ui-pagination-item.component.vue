@@ -7,17 +7,8 @@
 </template>
 
 <script setup lang="ts">
-import {
-  computed,
-  toRefs,
-  useAttrs,
-  withDefaults,
-} from 'vue'
-import {
-UiComponentThemeConfigModel,
-  useReactiveAriaConfig,
-  useReactiveThemeConfig,
-} from '@unicodernsui/core'
+import { computed, toRefs, useAttrs, withDefaults } from 'vue'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '@uicr/core'
 import { uiPaginationThemeConfigDefaults } from './defaults/ui-pagination-theme.config'
 import { uiPaginationAriaDefaults } from './defaults/ui-pagination-aria.config'
 import { UiPaginationThemeConfigModel } from './models/ui-pagination-theme-config.model'

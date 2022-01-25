@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
-import { PopperCardinalPlacements } from '@unicodernsui/core'
+import { PopperCardinalPlacements } from '@uicr/core'
 import { installTooltipDirective } from '../'
 import { UiTooltipDoc } from '../dev'
 

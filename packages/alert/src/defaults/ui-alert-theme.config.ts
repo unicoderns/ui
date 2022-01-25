@@ -2,7 +2,7 @@ import {
   BootstrapVariants,
   cssClassPrefix,
   enumToObjectByValue,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { UiAlertThemeConfigModel } from '../'
 
 const baseClass = 'alert'

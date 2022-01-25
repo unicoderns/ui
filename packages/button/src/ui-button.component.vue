@@ -23,7 +23,7 @@ import {
   ButtonSizeVariant,
   useReactiveAriaConfig,
   useReactiveThemeConfig,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { uiButtonThemeConfigDefaults } from './defaults/ui-button-theme.config'
 import { uiButtonAriaDefaults } from './defaults/ui-button-aria.config'
 import { UiButtonThemeConfigModel } from './models/ui-button-theme-config.model'

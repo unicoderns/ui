@@ -2,7 +2,7 @@ import {
   Positions,
   KeyPairString,
   UiComponentThemeConfigModel,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 
 export interface UiToastThemeConfigModel extends UiComponentThemeConfigModel {
   cssClass: {

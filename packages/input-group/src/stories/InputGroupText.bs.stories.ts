@@ -1,7 +1,7 @@
-import { InputGroupTextTypes } from '@unicodernsui/core'
+import { InputGroupTextTypes } from '@uicr/core'
 import { UiInputGroupText, UiInputGroupTextModel } from '../'
-import { UiCheckbox } from '@unicodernsui/checkbox'
-import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
+import { UiCheckbox } from '@uicr/checkbox'
+import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiInputGroupDoc } from '../dev'
 
 export default {

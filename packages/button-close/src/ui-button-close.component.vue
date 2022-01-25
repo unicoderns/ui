@@ -9,10 +9,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, toRefs } from 'vue'
-import {
-  useReactiveAriaConfig,
-  useReactiveThemeConfig,
-} from '@unicodernsui/core'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '@uicr/core'
 import { uiButtonCloseThemeConfigDefaults } from './defaults/ui-button-close-theme.config'
 import { UiButtonCloseAriaConfigModel } from './models/ui-button-close-aria-config.model'
 import { uiButtonCloseAriaDefaults } from './defaults/ui-button-close-aria.config'

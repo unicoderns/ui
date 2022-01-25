@@ -19,12 +19,9 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, toRefs } from 'vue'
-import {
-  useReactiveAriaConfig,
-  useReactiveThemeConfig,
-} from '@unicodernsui/core'
-import { UiButtonClose } from '@unicodernsui/button-close'
-import { UiTransition } from '@unicodernsui/transition'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '@uicr/core'
+import { UiButtonClose } from '@uicr/button-close'
+import { UiTransition } from '@uicr/transition'
 import { UiAlertThemeConfigModel } from './models/ui-alert-theme-config.model'
 import { UiAlertAriaConfigModel } from './models/ui-alert-aria-config.model'
 import { uiAlertThemeConfigDefaults } from './defaults/ui-alert-theme.config'

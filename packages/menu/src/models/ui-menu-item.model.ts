@@ -1,4 +1,4 @@
-import { MenuItemType } from '@unicodernsui/core'
+import { MenuItemType } from '@uicr/core'
 
 export interface UiMenuItemModel {
   type?: MenuItemType

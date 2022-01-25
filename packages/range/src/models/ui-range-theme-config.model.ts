@@ -1,4 +1,4 @@
-import { UiComponentThemeConfigModel } from '@unicodernsui/core'
+import { UiComponentThemeConfigModel } from '@uicr/core'
 
 export interface UiRangeThemeConfigModel extends UiComponentThemeConfigModel {
   cssClass: {

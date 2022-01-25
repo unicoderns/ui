@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
-import { TailwindVariants } from '@unicodernsui/base-tw'
-import { UiAlert, UiAlertModel } from '@unicodernsui/alert'
+import { TailwindVariants } from '@uicr/base-tw'
+import { UiAlert, UiAlertModel } from '@uicr/alert'
 import { install } from '../'
 
 export default {

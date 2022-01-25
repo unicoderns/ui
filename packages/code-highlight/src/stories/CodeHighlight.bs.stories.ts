@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import { UiTabs, UiTab } from '@unicodernsui/tabs'
+import { UiTabs, UiTab } from '@uicr/tabs'
 import { ref } from 'vue'
 import { UiCodeHighlight } from '..'
 import { SupportedLanguajes } from '../types'

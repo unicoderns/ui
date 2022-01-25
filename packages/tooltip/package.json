@@ -1,5 +1,5 @@
 {
-    "name": "@unicodernsui/tooltip",
+    "name": "@uicr/tooltip",
     "version": "0.0.1",
     "description": "Tooltip message component",
     "scripts": {
@@ -10,8 +10,8 @@
     "module": "src/index.ts",
     "dependencies": {
       "@popperjs/core": "^2.10.2",
-      "@unicodernsui/core": "*",
-      "@unicodernsui/transition": "*",
+      "@uicr/core": "*",
+      "@uicr/transition": "*",
       "core-js": "^3.6.5",
       "vue": "3.1.5"
     },

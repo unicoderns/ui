@@ -1,5 +1,5 @@
+import { cssClassPrefix } from '@uicr/core'
 import { UiButtonCloseThemeConfigModel } from '../models/ui-button-close-theme-config.model'
-import { cssClassPrefix } from '@unicodernsui/core'
 
 const baseClass = 'btn-close'
 const classPrefix = cssClassPrefix(baseClass)

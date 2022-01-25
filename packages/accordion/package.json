@@ -1,5 +1,5 @@
 {
-  "name": "@unicodernsui/accordion",
+  "name": "@uicr/accordion",
   "version": "0.0.1",
   "description": "Generic Accordion component",
   "scripts": {
@@ -10,7 +10,7 @@
   "main": "dist/index.js",
   "module": "src/index.ts",
   "dependencies": {
-    "@unicodernsui/core": "*",
+    "@uicr/core": "*",
     "core-js": "^3.6.5",
     "vue": "3.1.5"
   },

@@ -1,5 +1,5 @@
 {
-    "name": "@unicodernsui/dropdown",
+    "name": "@uicr/dropdown",
     "version": "0.0.1",
     "description": "Dropdown control component",
     "scripts": {
@@ -11,9 +11,9 @@
     "module": "src/index.ts",
     "dependencies": {
       "@popperjs/core": "^2.10.2",
-      "@unicodernsui/button": "*",
-      "@unicodernsui/core": "*",
-      "@unicodernsui/menu": "*",
+      "@uicr/button": "*",
+      "@uicr/core": "*",
+      "@uicr/menu": "*",
       "core-js": "^3.6.5",
       "vue": "3.1.5"
     },

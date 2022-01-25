@@ -1,5 +1,5 @@
 {
-  "name": "@unicodernsui/checkbox",
+  "name": "@uicr/checkbox",
   "version": "0.0.1",
   "description": "Generic Checkbox component",
   "scripts": {
@@ -11,8 +11,8 @@
   "module": "src/index.ts",
   "dependencies": {
     "core-js": "^3.6.5",
-    "@unicodernsui/core": "*",
-    "@unicodernsui/radio": "*",
+    "@uicr/core": "*",
+    "@uicr/radio": "*",
     "vue": "3.1.5"
   },
   "devDependencies": {

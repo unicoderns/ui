@@ -1,4 +1,4 @@
-import { UiComponentThemeConfigModel } from '@unicodernsui/core'
+import { UiComponentThemeConfigModel } from '@uicr/core'
 
 export interface UiMenuThemeConfigModel extends UiComponentThemeConfigModel {
   tags: {

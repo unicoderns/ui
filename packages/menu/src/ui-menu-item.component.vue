@@ -37,11 +37,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
-import {
-  MenuItemType,
-  MenuItemTypes,
-  useReactiveThemeConfig,
-} from '@unicodernsui/core'
+import { MenuItemType, MenuItemTypes, useReactiveThemeConfig } from '@uicr/core'
 import { UiMenuThemeConfigModel } from './models/ui-menu-theme-config.model'
 import { uiMenuThemeConfigDefaults } from './defaults/ui-menu-theme.config'
 

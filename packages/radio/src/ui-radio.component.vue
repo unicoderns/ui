@@ -32,7 +32,7 @@ import {
   generateId,
   useReactiveAriaConfig,
   useReactiveThemeConfig,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { uiRadioThemeConfigDefaults } from './defaults/ui-radio-theme.config'
 import { uiRadioAriaDefaults } from './defaults/ui-radio-aria.config'
 import { UiRadioThemeConfigModel } from './models/ui-radio-theme-config.model'

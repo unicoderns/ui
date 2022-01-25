@@ -1,8 +1,8 @@
 import { provide, ref, watch } from 'vue'
-import { InputTypes, uiUseDarkThemeInjectionToken } from '@unicodernsui/core'
+import { InputTypes, uiUseDarkThemeInjectionToken } from '@uicr/core'
 import { UiInput, UiInputModel } from '../'
 import { UiInputDoc } from '../dev'
-import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
+import { UiInspector } from '@uicr/code-highlight/src/dev'
 
 export default {
   title: 'UI/Bootstrap/Input',

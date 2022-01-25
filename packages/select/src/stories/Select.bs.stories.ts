@@ -1,8 +1,8 @@
-import { InputSizeVariants } from '@unicodernsui/core'
+import { InputSizeVariants } from '@uicr/core'
 import { ref, watch } from 'vue'
 import { UiSelect, UiSelectModel } from '../'
 import { UiSelectDoc } from '../dev'
-import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
+import { UiInspector } from '@uicr/code-highlight/src/dev'
 
 export default {
   title: 'UI/Bootstrap/Select',

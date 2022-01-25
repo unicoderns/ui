@@ -2,7 +2,7 @@ import {
   ResponsiveVariants,
   SizeVariants,
   UiComponentThemeConfigModel,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 
 export interface UiModalThemeConfigModel extends UiComponentThemeConfigModel {
   tags: {

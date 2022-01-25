@@ -2,7 +2,7 @@ import {
   BootstrapVariants,
   cssClassPrefix,
   enumToObjectByValue,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { UiCardThemeConfigModel } from '..'
 
 const baseClass = 'card'

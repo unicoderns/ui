@@ -1,4 +1,4 @@
-import { cssClassPrefix } from '@unicodernsui/core'
+import { cssClassPrefix } from '@uicr/core'
 import { UiMenuThemeConfigModel } from '../'
 
 const baseClass = 'dropdown-menu'

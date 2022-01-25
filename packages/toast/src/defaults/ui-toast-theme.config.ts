@@ -1,8 +1,4 @@
-import {
-  Positions,
-  BootstrapVariants,
-  enumToObjectByValue,
-} from '@unicodernsui/core'
+import { Positions, BootstrapVariants, enumToObjectByValue } from '@uicr/core'
 import { UiToastThemeConfigModel } from '../'
 
 const baseClass = 'toast'

@@ -45,8 +45,8 @@ import {
   useReactiveThemeConfig,
   isRTL,
   PopperPlacements,
-} from '@unicodernsui/core'
-import { UiMenu } from '@unicodernsui/menu'
+} from '@uicr/core'
+import { UiMenu } from '@uicr/menu'
 import { uiDropdownThemeConfigDefaults } from './defaults/ui-dropdown-theme.config'
 import { UiDropdownThemeConfigModel } from './models/ui-dropdown-theme-config.model'
 import { UiDropdownAriaConfigModel } from './models/ui-dropdown-aria-config.model'

@@ -8,6 +8,6 @@ module.exports = {
   },
   moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
-    '^@unicodernsui/(.*)$': '<rootDir>/../$1/src',
+    '^@uicr/(.*)$': '<rootDir>/../$1/src',
   },
 }

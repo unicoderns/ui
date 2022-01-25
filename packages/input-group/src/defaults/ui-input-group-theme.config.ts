@@ -1,4 +1,4 @@
-import { cssClassPrefix, InputSizeVariants } from '@unicodernsui/core'
+import { cssClassPrefix, InputSizeVariants } from '@uicr/core'
 import { UiInputGroupThemeConfigModel } from '../'
 
 const baseClass = 'input-group'

@@ -1,5 +1,5 @@
 {
-    "name": "@unicodernsui/transition",
+    "name": "@uicr/transition",
     "version": "0.0.1",
     "description": "Custom transition component",
     "scripts": {
@@ -9,7 +9,7 @@
     "main": "dist/index.js",
     "module": "src/index.ts",
     "dependencies": {
-      "@unicodernsui/core": "*",
+      "@uicr/core": "*",
       "core-js": "^3.6.5",
       "vue": "3.1.5"
     },

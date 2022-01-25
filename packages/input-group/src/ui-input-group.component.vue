@@ -14,7 +14,7 @@ import {
   InputSizeVariants,
   useReactiveAriaConfig,
   useReactiveThemeConfig,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { uiInputGroupThemeConfigDefaults } from './defaults/ui-input-group-theme.config'
 import { uiInputGroupAriaDefaults } from './defaults/ui-input-group-aria.config'
 import { UiInputGroupThemeConfigModel } from './models/ui-input-group-theme-config.model'

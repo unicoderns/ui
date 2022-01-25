@@ -1,11 +1,8 @@
 import { provide } from 'vue'
-import {
-  BootstrapVariants,
-  uiUseDarkThemeInjectionToken,
-} from '@unicodernsui/core'
+import { BootstrapVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
+import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiCard, UiCardText, UiCardModel } from '../'
 import { UiCardDoc } from '../dev'
-import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
 
 export default {
   title: 'UI/Bootstrap/Card',

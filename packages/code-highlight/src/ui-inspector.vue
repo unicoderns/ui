@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import { UiAccordion, UiAccordionSection } from '@unicodernsui/accordion'
+import { UiAccordion, UiAccordionSection } from '@uicr/accordion'
 import { UiCodeHighlight } from './'
 
 const TAG_NAME = 'uiInspector'

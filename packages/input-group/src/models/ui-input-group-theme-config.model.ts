@@ -1,7 +1,7 @@
 import {
   UiComponentThemeConfigModel,
   InputSizeVariants,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 
 export interface UiInputGroupThemeConfigModel
   extends UiComponentThemeConfigModel {

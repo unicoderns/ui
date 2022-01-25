@@ -1,4 +1,4 @@
-import { PopperCardinalPlacements } from '@unicodernsui/core'
+import { PopperCardinalPlacements } from '@uicr/core'
 import { UiTooltipThemeConfigModel } from '../models/ui-tooltip-theme-config.model'
 
 const baseClass = 'tooltip'
