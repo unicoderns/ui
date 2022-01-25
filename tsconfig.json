@@ -38,6 +38,7 @@
       "@unicodernsui/input-group": ["packages/input-group/src"],
       "@unicodernsui/base-tw": ["packages/base-tw/src"],
       "@unicodernsui/pagination": ["packages/pagination/src"],
+      "@unicodernsui/input": ["packages/input/src"],
       "@unicodernsui/card": ["packages/card/src"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
