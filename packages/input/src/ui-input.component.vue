@@ -18,7 +18,7 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
   generateId,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { uiInputThemeConfigDefaults } from './defaults/ui-input-theme.config'
 import { uiInputAriaDefaults } from './defaults/ui-input-aria.config'
 import { UiInputThemeConfigModel } from './models/ui-input-theme-config.model'

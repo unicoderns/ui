@@ -20,7 +20,7 @@ import {
   InputSizeVariant,
   useReactiveAriaConfig,
   useReactiveThemeConfig,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { uiSelectThemeConfigDefaults } from './defaults/ui-select-theme.config'
 import { uiSelectAriaDefaults } from './defaults/ui-select-aria.config'
 import { UiSelectThemeConfigModel } from './models/ui-select-theme-config.model'

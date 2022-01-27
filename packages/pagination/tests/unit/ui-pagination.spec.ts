@@ -1,5 +1,5 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import { InputSizeVariants } from '@unicodernsui/core'
+import { InputSizeVariants } from '@uicr/core'
 import { UiPagination } from '../../src'
 import { uiPaginationThemeConfigDefaults } from '../../src/defaults/ui-pagination-theme.config'
 

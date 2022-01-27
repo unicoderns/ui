@@ -9,7 +9,7 @@ import {
 } from '../types'
 
 const uiThemeConfigInjectionPrefix = 'uiThemeConfig_'
-const uiAriaConfigInjectionPrefix = 'uiThemeConfig_'
+const uiAriaConfigInjectionPrefix = 'uiAriaConfig_'
 declare type ConfigLevel = { [key: string]: string | undefined | ConfigLevel }
 
 function valuePaths(item: ConfigLevel): { [key: string]: string } {

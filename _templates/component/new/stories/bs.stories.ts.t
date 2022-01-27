@@ -3,7 +3,7 @@ to: packages/<%= h.changeCase.param(name) %>/src/stories/<%= h.changeCase.pascal
 ---
 import { provide } from 'vue'
 import { action } from '@storybook/addon-actions'
-import { BootstrapVariants, uiUseDarkThemeInjectionToken } from '@unicodernsui/core'
+import { BootstrapVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
 import { Ui<%= h.changeCase.pascal(name) %>, Ui<%= h.changeCase.pascal(name) %>Model } from '../'
 import { Ui<%= h.changeCase.pascal(name) %>Doc } from '../dev'
 

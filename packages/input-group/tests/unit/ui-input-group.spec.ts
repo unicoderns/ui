@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils'
-import { BootstrapVariants } from '@unicodernsui/core'
+import { BootstrapVariants } from '@uicr/core'
 import { UiInputGroup } from '../../src'
 import { uiInputGroupThemeConfigDefaults } from '../../src/defaults/ui-input-group-theme.config'
-import { InputSizeVariants } from '@unicodernsui/core'
+import { InputSizeVariants } from '@uicr/core'
 
 const theme = uiInputGroupThemeConfigDefaults
 

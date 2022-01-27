@@ -43,8 +43,8 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
   SizeVariant,
-} from '@unicodernsui/core'
-import { UiButton } from '@unicodernsui/button'
+} from '@uicr/core'
+import { UiButton } from '@uicr/button'
 import { uiDropdownThemeConfigDefaults } from './defaults/ui-dropdown-theme.config'
 import { UiDropdownAriaConfigModel } from './models/ui-dropdown-aria-config.model'
 import { uiDropdownAriaDefaults } from './defaults/ui-dropdown-aria.config'

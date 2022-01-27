@@ -3,7 +3,7 @@ import {
   BootstrapVariants,
   Directions,
   MenuItemTypes,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { uiDropdownThemeConfigDefaults } from '../../src/defaults/ui-dropdown-theme.config'
 import { UiDropdown } from '../../src'
 

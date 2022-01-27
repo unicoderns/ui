@@ -4,8 +4,8 @@ import {
   BootstrapVariants,
   ButtonSizeVariants,
   uiUseDarkThemeInjectionToken,
-} from '@unicodernsui/core'
-import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
+} from '@uicr/core'
+import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiButton, UiButtonModel } from '../'
 import { UiButtonDoc } from '../dev'
 

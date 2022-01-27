@@ -1,4 +1,4 @@
-import { UiComponentThemeConfigModel, KeyPairString } from '@unicodernsui/core'
+import { UiComponentThemeConfigModel, KeyPairString } from '@uicr/core'
 
 export interface UiPaginationThemeConfigModel
   extends UiComponentThemeConfigModel {

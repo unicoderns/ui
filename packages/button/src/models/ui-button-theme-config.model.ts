@@ -2,7 +2,7 @@ import {
   KeyPairString,
   SizeVariants,
   UiComponentThemeConfigModel,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 
 export interface UiButtonThemeConfigModel extends UiComponentThemeConfigModel {
   cssClass: {

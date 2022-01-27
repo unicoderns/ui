@@ -6,7 +6,7 @@ import {
   ButtonSizeVariants,
   MenuItem,
   MenuItemTypes,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { action } from '@storybook/addon-actions'
 import { UiDropdown, UiDropdownModel } from '../'
 import { UiDropdownDoc } from '../dev'

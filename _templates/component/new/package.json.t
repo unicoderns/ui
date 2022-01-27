@@ -2,7 +2,7 @@
 to: packages/<%= h.changeCase.param(name) %>/package.json
 ---
 {
-  "name": "@unicodernsui/<%= h.changeCase.param(name) %>",
+  "name": "@uicr/<%= h.changeCase.param(name) %>",
   "version": "0.0.1",
   "description": "Generic <%= h.changeCase.sentence(name) %> component",
   "scripts": {
@@ -13,7 +13,7 @@ to: packages/<%= h.changeCase.param(name) %>/package.json
   "main": "dist/index.js",
   "module": "src/index.ts",
   "dependencies": {
-    "@unicodernsui/core": "*",
+    "@uicr/core": "*",
     "core-js": "^3.6.5",
     "vue": "3.1.5"
   },

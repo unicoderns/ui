@@ -1,8 +1,8 @@
 import { mount, VueWrapper } from '@vue/test-utils'
+import { Positions } from '@uicr/core'
 import { ToastMessageQueueService } from '../../src/toast-message-queue.service'
 import { UiToastContainer, UiToastService } from '../../src'
 import { uiToastThemeConfigDefaults } from '../../src/defaults/ui-toast-theme.config'
-import { Positions } from '@unicodernsui/core'
 
 describe('ui-toast-container.vue', () => {
   const theme = uiToastThemeConfigDefaults

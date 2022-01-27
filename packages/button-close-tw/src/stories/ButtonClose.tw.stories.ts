@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import { UiButtonCloseModel, UiButtonClose } from '@unicodernsui/button-close'
+import { UiButtonCloseModel, UiButtonClose } from '@uicr/button-close'
 import { install } from '../'
 
 export default {

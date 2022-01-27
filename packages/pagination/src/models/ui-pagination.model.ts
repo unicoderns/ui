@@ -1,4 +1,4 @@
-import { InputSizeVariants } from '@unicodernsui/core'
+import { InputSizeVariants } from '@uicr/core'
 
 export interface UiPaginationModel {
   page?: number

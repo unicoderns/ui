@@ -1,7 +1,7 @@
+import { ref, watch } from 'vue'
+import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiRange, UiRangeModel } from '../'
 import { UiRangeDoc } from '../dev'
-import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
-import { ref, watch } from 'vue'
 
 export default {
   title: 'UI/Bootstrap/Range',

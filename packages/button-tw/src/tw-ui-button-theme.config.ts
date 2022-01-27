@@ -1,6 +1,6 @@
-import { SizeVariants } from '@unicodernsui/core'
-import { TailwindVariants } from '@unicodernsui/base-tw'
-import { UiButtonThemeConfigModel } from '@unicodernsui/button'
+import { SizeVariants } from '@uicr/core'
+import { TailwindVariants } from '@uicr/base-tw'
+import { UiButtonThemeConfigModel } from '@uicr/button'
 
 export const twUiButtonThemeConfigDefaults: UiButtonThemeConfigModel = {
   cssClass: {

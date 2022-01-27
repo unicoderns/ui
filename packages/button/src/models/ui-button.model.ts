@@ -1,4 +1,4 @@
-import { SizeVariant } from '@unicodernsui/core'
+import { SizeVariant } from '@uicr/core'
 
 export interface UiButtonModel {
   variant: string

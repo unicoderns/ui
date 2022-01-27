@@ -1,6 +1,6 @@
 import { twUiButtonThemeConfigDefaults } from './tw-ui-button-theme.config'
-import { setComponentThemeConfig } from '@unicodernsui/core'
-import { UiButton } from '@unicodernsui/button'
+import { setComponentThemeConfig } from '@uicr/core'
+import { UiButton } from '@uicr/button'
 
 
 export function install() {

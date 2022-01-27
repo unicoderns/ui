@@ -22,7 +22,7 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
   generateId,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { uiTextareaThemeConfigDefaults } from './defaults/ui-textarea-theme.config'
 import { uiTextareaAriaDefaults } from './defaults/ui-textarea-aria.config'
 import { UiTextareaThemeConfigModel } from './models/ui-textarea-theme-config.model'

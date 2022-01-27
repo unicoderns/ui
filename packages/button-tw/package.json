@@ -1,5 +1,5 @@
 {
-  "name": "@unicodernsui/button-tw",
+  "name": "@uicr/button-tw",
   "version": "0.0.1",
   "description": "tailwind theme for generic button component",
   "scripts": {
@@ -9,9 +9,9 @@
   "main": "dist/index.js",
   "module": "src/index.ts",
   "dependencies": {
-    "@unicodernsui/base-tw": "*",
-    "@unicodernsui/button": "*",
-    "@unicodernsui/core": "*",
+    "@uicr/base-tw": "*",
+    "@uicr/button": "*",
+    "@uicr/core": "*",
     "core-js": "^3.6.5",
     "vue": "3.1.5"
   },

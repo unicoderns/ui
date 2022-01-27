@@ -1,11 +1,8 @@
 import { provide } from 'vue'
 import { action } from '@storybook/addon-actions'
-import {
-  ButtonSizeVariants,
-  uiUseDarkThemeInjectionToken,
-} from '@unicodernsui/core'
-import { TailwindVariants } from '@unicodernsui/base-tw'
-import { UiButton, UiButtonModel } from '@unicodernsui/button'
+import { ButtonSizeVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
+import { TailwindVariants } from '@uicr/base-tw'
+import { UiButton, UiButtonModel } from '@uicr/button'
 import { install } from '../'
 
 export default {

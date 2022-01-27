@@ -1,4 +1,4 @@
-import { UiTransitionThemeConfigModel } from '@unicodernsui/transition'
+import { UiTransitionThemeConfigModel } from '@uicr/transition'
 
 export const twUiTransitionThemeConfigDefaults: UiTransitionThemeConfigModel = {
   cssClass: {

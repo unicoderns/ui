@@ -1,5 +1,5 @@
 {
-    "name": "@unicodernsui/alert",
+    "name": "@uicr/alert",
     "version": "0.0.1",
     "description": "Alert message component",
     "scripts": {
@@ -10,9 +10,9 @@
     "main": "dist/index.js",
     "module": "src/index.ts",
     "dependencies": {
-      "@unicodernsui/button-close": "*",
-      "@unicodernsui/core": "*",
-      "@unicodernsui/transition": "*",
+      "@uicr/button-close": "*",
+      "@uicr/core": "*",
+      "@uicr/transition": "*",
       "core-js": "^3.6.5",
       "vue": "3.1.5"
     },

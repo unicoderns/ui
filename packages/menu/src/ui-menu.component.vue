@@ -33,7 +33,7 @@ import {
   MenuItem,
   MenuItemTypes,
   useReactiveThemeConfig,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { uiMenuThemeConfigDefaults } from './defaults/ui-menu-theme.config'
 import { UiMenuThemeConfigModel } from './models/ui-menu-theme-config.model'
 import UiMenuItem from './ui-menu-item.component.vue'

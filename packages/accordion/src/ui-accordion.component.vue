@@ -13,10 +13,7 @@ import {
   toRefs,
   watch,
 } from 'vue'
-import {
-  useReactiveAriaConfig,
-  useReactiveThemeConfig,
-} from '@unicodernsui/core'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '@uicr/core'
 import { uiAccordionThemeConfigDefaults } from './defaults/ui-accordion-theme.config'
 import { uiAccordionAriaDefaults } from './defaults/ui-accordion-aria.config'
 import { UiAccordionThemeConfigModel } from './models/ui-accordion-theme-config.model'

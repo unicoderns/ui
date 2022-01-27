@@ -2,7 +2,7 @@
 to: packages/<%= h.changeCase.param(name) %>/tests/unit/ui-<%= h.changeCase.param(name) %>.spec.ts
 ---
 import { shallowMount } from '@vue/test-utils'
-import { BootstrapVariants } from '@unicodernsui/core'
+import { BootstrapVariants } from '@uicr/core'
 import { Ui<%= h.changeCase.pascal(name) %> } from '../../src'
 
 describe('ui-<%= h.changeCase.param(name) %>.vue', () => {

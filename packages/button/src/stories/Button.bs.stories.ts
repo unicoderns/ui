@@ -4,7 +4,7 @@ import {
   BootstrapVariants,
   ButtonSizeVariants,
   uiUseDarkThemeInjectionToken,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { UiButton, UiButtonModel } from '../'
 import { UiButtonDoc } from '../dev'
 

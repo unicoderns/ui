@@ -59,9 +59,9 @@ import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
   Positions,
-} from '@unicodernsui/core'
-import { UiButtonClose } from '@unicodernsui/button-close'
-import { UiTransition } from '@unicodernsui/transition'
+} from '@uicr/core'
+import { UiButtonClose } from '@uicr/button-close'
+import { UiTransition } from '@uicr/transition'
 import { uiToastThemeConfigDefaults } from './defaults/ui-toast-theme.config'
 import { uiToastAriaDefaults } from './defaults/ui-toast-aria.config'
 import { UiToastThemeConfigModel } from './models/ui-toast-theme-config.model'

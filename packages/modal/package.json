@@ -1,5 +1,5 @@
 {
-    "name": "@unicodernsui/modal",
+    "name": "@uicr/modal",
     "version": "0.0.1",
     "description": "Modal dialog component",
     "scripts": {
@@ -10,9 +10,9 @@
     "main": "dist/index.js",
     "module": "src/index.ts",
     "dependencies": {
-      "@unicodernsui/button-close": "*",
-      "@unicodernsui/core": "*",
-      "@unicodernsui/transition": "*",
+      "@uicr/button-close": "*",
+      "@uicr/core": "*",
+      "@uicr/transition": "*",
       "core-js": "^3.6.5",
       "vue": "3.1.5"
     },
@@ -22,7 +22,7 @@
       "@types/node": "^16.11.12",
       "@typescript-eslint/eslint-plugin": "^2.33.0",
       "@typescript-eslint/parser": "^2.33.0",
-      "@unicodernsui/code-highlight": "*",
+      "@uicr/code-highlight": "*",
       "@vue/cli-plugin-babel": "~4.5.0",
       "@vue/cli-plugin-eslint": "~4.5.0",
       "@vue/cli-plugin-typescript": "~4.5.0",

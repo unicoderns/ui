@@ -10,7 +10,7 @@ import {
   useReactiveThemeConfig,
   InputGroupTextType,
   InputGroupTextTypes,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { uiInputGroupThemeConfigDefaults } from './defaults/ui-input-group-theme.config'
 import { UiInputGroupThemeConfigModel } from './models/ui-input-group-theme-config.model'
 

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import { InputTypes } from '@unicodernsui/core'
+import { InputTypes } from '@uicr/core'
 import { UiInput } from '../../src'
 
 describe('ui-input.vue', () => {

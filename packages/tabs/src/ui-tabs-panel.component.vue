@@ -32,7 +32,7 @@ import { UiTabsPanelThemeConfigModel } from './models/ui-tabs-panel-theme-config
 import {
   useReactiveAriaConfig,
   useReactiveThemeConfig,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 
 const TAG_NAME = 'uiTabs'
 export default defineComponent({

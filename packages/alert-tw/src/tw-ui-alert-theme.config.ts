@@ -1,5 +1,5 @@
-import { TailwindVariants } from '@unicodernsui/base-tw'
-import { UiAlertThemeConfigModel } from '@unicodernsui/alert'
+import { TailwindVariants } from '@uicr/base-tw'
+import { UiAlertThemeConfigModel } from '@uicr/alert'
 
 export const twUiAlertThemeConfigDefaults: UiAlertThemeConfigModel = {
   cssClass: {

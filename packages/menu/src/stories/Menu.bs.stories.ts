@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
-import { MenuItem } from '@unicodernsui/core'
-import { UiInspector } from '@unicodernsui/code-highlight/src/dev'
+import { MenuItem } from '@uicr/core'
+import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiMenu, UiMenuModel } from '../'
 import { UiMenuDoc } from '../dev'
 

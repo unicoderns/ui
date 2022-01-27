@@ -21,8 +21,8 @@ import {
   useReactiveThemeConfig,
   setComponentAriaConfig,
   setComponentThemeConfig,
-} from '@unicodernsui/core'
-import { UiRadio } from '@unicodernsui/radio'
+} from '@uicr/core'
+import { UiRadio } from '@uicr/radio'
 import { uiCheckboxThemeConfigDefaults } from './defaults/ui-checkbox-theme.config'
 import { uiCheckboxAriaDefaults } from './defaults/ui-checkbox-aria.config'
 import { UiCheckboxAriaConfigModel } from './models/ui-checkbox-aria-config.model'

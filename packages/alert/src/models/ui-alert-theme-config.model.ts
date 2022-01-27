@@ -1,4 +1,4 @@
-import { KeyPairString, UiComponentThemeConfigModel } from '@unicodernsui/core'
+import { KeyPairString, UiComponentThemeConfigModel } from '@uicr/core'
 
 export interface UiAlertThemeConfigModel extends UiComponentThemeConfigModel {
   cssClass: {

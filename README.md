@@ -53,10 +53,10 @@ npx hygen component new textArea
 After this you should manually include the new path in the tsconfig.json paths
 ```
 "paths": {
-  "@unicodernsui/core": ["packages/core/src"],
-  "@unicodernsui/button-close": ["packages/button-close/src"],
+  "@uicr/core": ["packages/core/src"],
+  "@uicr/button-close": ["packages/button-close/src"],
   ...
-  "@unicodernsui/<component-name>": ["packages/<component-name>/src"],
+  "@uicr/<component-name>": ["packages/<component-name>/src"],
 },
 ```
 
@@ -67,9 +67,9 @@ i.e lets say your project needs the transition component
 "dependencies": {
   "core-js": "^3.6.5",
   "vue": "3.1.5",
-  "@unicodernsui/core": "*",
+  "@uicr/core": "*",
   ...
-  "@unicodernsui/transition": "*"
+  "@uicr/transition": "*"
 },
 ```
 

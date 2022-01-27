@@ -1,4 +1,4 @@
-import { cssClassPrefix, InputSizeVariants } from '@unicodernsui/core'
+import { cssClassPrefix, InputSizeVariants } from '@uicr/core'
 import { UiSelectThemeConfigModel } from '../'
 
 const baseClass = 'form-select'

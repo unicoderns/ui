@@ -1,5 +1,5 @@
 {
-  "name": "@unicodernsui/transition-tw",
+  "name": "@uicr/transition-tw",
   "version": "0.0.1",
   "description": "tailwind theme for transition component",
   "scripts": {
@@ -9,9 +9,9 @@
   "main": "dist/index.js",
   "module": "src/index.ts",
   "dependencies": {
-    "@unicodernsui/base-tw": "*",
-    "@unicodernsui/transition": "*",
-    "@unicodernsui/core": "*",
+    "@uicr/base-tw": "*",
+    "@uicr/transition": "*",
+    "@uicr/core": "*",
     "core-js": "^3.6.5",
     "vue": "3.1.5"
   },

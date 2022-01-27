@@ -1,5 +1,5 @@
 {
-    "name": "@unicodernsui/core",
+    "name": "@uicr/core",
     "version": "0.0.1",
     "description": "Core functions for ui components",
     "scripts": {

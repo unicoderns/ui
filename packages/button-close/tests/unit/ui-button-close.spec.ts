@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
+import { BootstrapVariants } from '@uicr/core'
 import { UiButtonClose } from '../../src'
 import { uiButtonCloseThemeConfigDefaults } from '../../src/defaults/ui-button-close-theme.config'
-import { BootstrapVariants } from '@unicodernsui/core'
 
 describe('ui-button-close.vue', () => {
   it('renders when props are set', () => {

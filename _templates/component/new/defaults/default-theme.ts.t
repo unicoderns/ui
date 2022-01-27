@@ -1,7 +1,7 @@
 ---
 to: packages/<%= h.changeCase.param(name) %>/src/defaults/ui-<%= h.changeCase.param(name) %>-theme.config.ts
 ---
-import { BootstrapVariants, enumToObjectByValue } from '@unicodernsui/core'
+import { BootstrapVariants, enumToObjectByValue } from '@uicr/core'
 import { Ui<%= h.changeCase.pascal(name) %>ThemeConfigModel } from '../'
 
 const baseClass = '<%= h.changeCase.camel(name) %>'

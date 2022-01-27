@@ -3,7 +3,7 @@ import {
   SizeVariants,
   cssClassPrefix,
   enumToObjectByValue,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 import { UiButtonThemeConfigModel } from '../'
 
 const baseClass = 'btn'

@@ -1,7 +1,7 @@
 import {
   UiComponentThemeConfigModel,
   PopperCardinalPlacements,
-} from '@unicodernsui/core'
+} from '@uicr/core'
 
 export interface UiTooltipThemeConfigModel extends UiComponentThemeConfigModel {
   cssClass: {

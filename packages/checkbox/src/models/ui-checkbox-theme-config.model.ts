@@ -1,3 +1,3 @@
-import { UiRadioThemeConfigModel } from '@unicodernsui/radio'
+import { UiRadioThemeConfigModel } from '@uicr/radio'
 
 export type UiCheckboxThemeConfigModel = UiRadioThemeConfigModel

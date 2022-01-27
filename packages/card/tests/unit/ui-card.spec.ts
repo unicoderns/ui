@@ -1,5 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils'
-import { BootstrapVariants } from '@unicodernsui/core'
+import { BootstrapVariants } from '@uicr/core'
 import { UiCard, UiCardText } from '../../src'
 import { uiCardThemeConfigDefaults } from '../../src/defaults/ui-card-theme.config'
 
