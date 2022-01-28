@@ -1,7 +1,7 @@
 {
-  "name": "@uicr/button-close-tw",
+  "name": "@uicr/common-tw",
   "version": "0.0.1",
-  "description": "tailwind theme for close button component",
+  "description": "Core utils for tailwind custom theme",
   "scripts": {
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service build --target lib src/index.ts"
@@ -9,9 +9,6 @@
   "main": "dist/index.js",
   "module": "src/index.ts",
   "dependencies": {
-    "@uicr/common-tw": "*",
-    "@uicr/button-close": "*",
-    "@uicr/core": "*",
     "core-js": "^3.6.5",
     "vue": "3.1.5"
   },
@@ -31,9 +28,9 @@
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^2.0.0-0",
     "babel-loader": "^8.2.2",
-    "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^7.0.0-0",
+    "eslint": "^6.7.2",
     "prettier": "^1.19.1",
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-0",

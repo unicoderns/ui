@@ -1,7 +1,7 @@
 import { provide } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { ButtonSizeVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
-import { TailwindVariants } from '@uicr/base-tw'
+import { TailwindVariants } from '@uicr/common-tw'
 import { UiButton, UiButtonModel } from '@uicr/button'
 import { install } from '../'
 
