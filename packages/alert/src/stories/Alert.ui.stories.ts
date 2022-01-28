@@ -1,11 +1,11 @@
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { BootstrapVariants } from '@uicr/core'
-import { UiAlert, UiAlertModel } from '../'
+import { UiAlert, UiAlertModel } from '..'
 import { UiAlertDoc } from '../dev'
 
 export default {
-  title: 'UI/Bootstrap/Alert',
+  title: 'UI/Alert',
   component: UiAlert,
   argTypes: {
     default: { control: { type: 'text' } },

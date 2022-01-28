@@ -1,17 +1,11 @@
 import { action } from '@storybook/addon-actions'
-import { UiButtonCloseModel, UiButtonClose } from '../'
-import { UiButtonCloseDoc } from '../dev'
+import { UiButtonCloseModel, UiButtonClose } from '@uicr/button-close'
 
 export default {
-  title: 'UI/Bootstrap/CloseButton',
+  title: 'Bootstrap/CloseButton',
   component: UiButtonClose,
   argTypes: {
     ['aria:label']: { name: 'label (aria)', control: { type: 'text' } },
-  },
-  parameters: {
-    docs: {
-      page: UiButtonCloseDoc,
-    },
   },
 }
 
