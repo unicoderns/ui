@@ -1,9 +1,14 @@
 import { action } from '@storybook/addon-actions'
-import { UiAccordion, UiAccordionModel, UiAccordionSection, UiAccordionSectionModel } from '../'
+import {
+  UiAccordion,
+  UiAccordionModel,
+  UiAccordionSection,
+  UiAccordionSectionModel,
+} from '..'
 import { UiAccordionDoc } from '../dev'
 
 export default {
-  title: 'UI/Bootstrap/Accordion',
+  title: 'UI/Accordion',
   component: UiAccordion,
   argTypes: {
     label: { control: { type: 'text' } },
