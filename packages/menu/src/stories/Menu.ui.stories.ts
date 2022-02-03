@@ -1,11 +1,11 @@
 import { action } from '@storybook/addon-actions'
 import { MenuItem } from '@uicr/core'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
-import { UiMenu, UiMenuModel } from '../'
+import { UiMenu, UiMenuModel } from '..'
 import { UiMenuDoc } from '../dev'
 
 export default {
-  title: 'UI/Bootstrap/Menu',
+  title: 'UI/Menu',
   component: UiMenu,
   argTypes: {
     custom: { control: { type: 'boolean' } },

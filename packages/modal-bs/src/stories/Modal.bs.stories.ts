@@ -2,8 +2,7 @@ import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { ModalSizeVariants, ResponsiveVariants } from '@uicr/core'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
-import { UiModal, UiModalModel } from '../'
-import { UiModalDoc } from '../dev'
+import { UiModal, UiModalModel } from '@uicr/modal'
 
 export default {
   title: 'UI/Bootstrap/Modal',
@@ -27,11 +26,6 @@ export default {
     ['aria:buttonClose']: {
       name: 'button close (aria)',
       control: { type: 'text' },
-    },
-  },
-  parameters: {
-    docs: {
-      page: UiModalDoc,
     },
   },
 }

@@ -2,11 +2,11 @@ import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { ModalSizeVariants, ResponsiveVariants } from '@uicr/core'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
-import { UiModal, UiModalModel } from '../'
+import { UiModal, UiModalModel } from '..'
 import { UiModalDoc } from '../dev'
 
 export default {
-  title: 'UI/Bootstrap/Modal',
+  title: 'UI/Modal',
   component: UiModal,
   argTypes: {
     titleSlot: { control: { type: 'text' } },
