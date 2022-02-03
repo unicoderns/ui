@@ -1,9 +1,9 @@
 import { action } from '@storybook/addon-actions'
-import { UiCheckbox, UiCheckboxModel } from '../'
+import { UiCheckbox, UiCheckboxModel } from '..'
 import { UiCheckboxDoc } from '../dev'
 
 export default {
-  title: 'UI/Bootstrap/Checkbox',
+  title: 'UI/Checkbox',
   component: UiCheckbox,
   argTypes: {
     label: { control: { type: 'text' } },

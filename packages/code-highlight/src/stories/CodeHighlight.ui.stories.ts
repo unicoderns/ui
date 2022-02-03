@@ -12,7 +12,7 @@ enum StoryTypes {
 }
 
 export default {
-  title: 'UI/Bootstrap/CodeHighlight',
+  title: 'UI/CodeHighlight',
   components: { UiCodeHighlight, UiTabs, UiTab },
   argTypes: {
     refCode: { control: { type: 'text' } },

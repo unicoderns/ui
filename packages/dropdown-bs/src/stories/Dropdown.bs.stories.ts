@@ -8,11 +8,10 @@ import {
   MenuItemTypes,
 } from '@uicr/core'
 import { action } from '@storybook/addon-actions'
-import { UiDropdown, UiDropdownModel } from '../'
-import { UiDropdownDoc } from '../dev'
+import { UiDropdown, UiDropdownModel } from '@uicr/dropdown'
 
 export default {
-  title: 'UI/Bootstrap/Dropdown',
+  title: 'Bootstrap/Dropdown',
   component: UiDropdown,
   argTypes: {
     label: { control: { type: 'text' } },
@@ -32,12 +31,6 @@ export default {
     ['aria:groupRole']: {
       name: 'group role (aria)',
       control: { type: 'text' },
-    },
-  },
-  parameters: {
-    layout: 'centered',
-    docs: {
-      page: UiDropdownDoc,
     },
   },
 }

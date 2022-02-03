@@ -8,11 +8,11 @@ import {
   MenuItemTypes,
 } from '@uicr/core'
 import { action } from '@storybook/addon-actions'
-import { UiDropdown, UiDropdownModel } from '../'
+import { UiDropdown, UiDropdownModel } from '..'
 import { UiDropdownDoc } from '../dev'
 
 export default {
-  title: 'UI/Bootstrap/Dropdown',
+  title: 'UI/Dropdown',
   component: UiDropdown,
   argTypes: {
     label: { control: { type: 'text' } },
