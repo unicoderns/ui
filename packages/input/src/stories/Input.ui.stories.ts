@@ -1,11 +1,11 @@
 import { provide, ref, watch } from 'vue'
 import { InputTypes, uiUseDarkThemeInjectionToken } from '@uicr/core'
-import { UiInput, UiInputModel } from '../'
+import { UiInput, UiInputModel } from '..'
 import { UiInputDoc } from '../dev'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
 
 export default {
-  title: 'UI/Bootstrap/Input',
+  title: 'UI/Input',
   component: UiInput,
   argTypes: {
     label: { control: { type: 'text' } },

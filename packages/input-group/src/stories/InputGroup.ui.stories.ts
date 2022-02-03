@@ -4,11 +4,11 @@ import { UiSelect } from '@uicr/select'
 import { UiCheckbox } from '@uicr/checkbox'
 import { UiRadio } from '@uicr/radio'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
-import { UiInputGroup, UiInputGroupText, UiInputGroupModel } from '../'
+import { UiInputGroup, UiInputGroupText, UiInputGroupModel } from '..'
 import { UiInputGroupDoc } from '../dev'
 
 export default {
-  title: 'UI/Bootstrap/InputGroup',
+  title: 'UI/InputGroup',
   component: UiInputGroup,
   argTypes: {
     label: { control: { type: 'text' } },

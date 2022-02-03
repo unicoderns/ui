@@ -1,11 +1,11 @@
 import { InputGroupTextTypes } from '@uicr/core'
-import { UiInputGroupText, UiInputGroupTextModel } from '../'
+import { UiInputGroupText, UiInputGroupTextModel } from '..'
 import { UiCheckbox } from '@uicr/checkbox'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiInputGroupDoc } from '../dev'
 
 export default {
-  title: 'UI/Bootstrap/InputGroupText',
+  title: 'UI/InputGroupText',
   component: UiInputGroupText,
   argTypes: {
     renderAs: {
