@@ -1,8 +1,5 @@
-import {
-  BootstrapVariants,
-  cssClassPrefix,
-  enumToObjectByValue,
-} from '@uicr/core'
+import { BootstrapVariants } from '@uicr/common-bs'
+import { cssClassPrefix, enumToObjectByValue } from '@uicr/core'
 import { UiAlertThemeConfigModel } from '@uicr/alert'
 
 const baseClass = 'alert'

@@ -1,11 +1,10 @@
 import { provide } from 'vue'
 import { BootstrapVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
-import { UiCard, UiCardText, UiCardModel } from '../'
-import { UiCardDoc } from '../dev'
+import { UiCard, UiCardText, UiCardModel } from '@uicr/card'
 
 export default {
-  title: 'UI/Bootstrap/Card',
+  title: 'Bootstrap/Card',
   component: UiCard,
   argTypes: {
     header: { control: { type: 'text' } },
@@ -17,11 +16,6 @@ export default {
     variant: {
       control: { type: 'select' },
       options: Object.values(BootstrapVariants),
-    },
-  },
-  parameters: {
-    docs: {
-      page: UiCardDoc,
     },
   },
 }

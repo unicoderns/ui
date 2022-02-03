@@ -6,11 +6,11 @@ import {
   uiUseDarkThemeInjectionToken,
 } from '@uicr/core'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
-import { UiButton, UiButtonModel } from '../'
+import { UiButton, UiButtonModel } from '..'
 import { UiButtonDoc } from '../dev'
 
 export default {
-  title: 'UI/Bootstrap/Button',
+  title: 'UI/Button',
   component: UiButton,
   argTypes: {
     label: { control: { type: 'text' } },

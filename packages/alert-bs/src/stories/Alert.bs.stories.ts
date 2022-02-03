@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
-import { BootstrapVariants } from '@uicr/core'
+import { BootstrapVariants } from '@uicr/common-bs'
 import { UiAlert, UiAlertModel } from '@uicr/alert'
 
 export default {

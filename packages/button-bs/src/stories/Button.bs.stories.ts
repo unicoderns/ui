@@ -1,15 +1,11 @@
 import { provide } from 'vue'
 import { action } from '@storybook/addon-actions'
-import {
-  BootstrapVariants,
-  ButtonSizeVariants,
-  uiUseDarkThemeInjectionToken,
-} from '@uicr/core'
-import { UiButton, UiButtonModel } from '../'
-import { UiButtonDoc } from '../dev'
+import { BootstrapVariants } from '@uicr/common-bs'
+import { ButtonSizeVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
+import { UiButton, UiButtonModel } from '@uicr/button'
 
 export default {
-  title: 'UI/Bootstrap/Button',
+  title: 'Bootstrap/Button',
   component: UiButton,
   argTypes: {
     label: { control: { type: 'text' } },
@@ -23,11 +19,6 @@ export default {
     },
     toggle: { control: { type: 'boolean' } },
     ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
-  },
-  parameters: {
-    docs: {
-      page: UiButtonDoc,
-    },
   },
 }
 
