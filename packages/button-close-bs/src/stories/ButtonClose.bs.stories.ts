@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { UiButtonCloseModel, UiButtonClose } from '@uicr/button-close'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/CloseButton',
@@ -12,6 +13,8 @@ export default {
 const Template = (args: UiButtonCloseModel) => ({
   components: { UiButtonClose },
   setup() {
+    install()
+
     return { args }
   },
   methods: {

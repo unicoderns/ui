@@ -2,6 +2,7 @@ import { provide, ref, watch } from 'vue'
 import { InputTypes, uiUseDarkThemeInjectionToken } from '@uicr/core'
 import { UiInput, UiInputModel } from '@uicr/input'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Input',
@@ -33,6 +34,8 @@ const Template = (args: UiInputModel, { globals }: { globals: any }) => ({
     watch(text, () => {
       console.log(text.value)
     })
+
+    install()
     return { args, text }
   },
   template: `

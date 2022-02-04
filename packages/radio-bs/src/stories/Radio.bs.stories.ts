@@ -1,6 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { ref, watch } from 'vue'
 import { UiRadio, UiRadioModel } from '@uicr/radio'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Radio',
@@ -21,6 +22,8 @@ const Template = (args: StoryModel) => ({
     const { label, ...newArgs } = args
     const value = ref('two')
     watch(value, v => action('updated:modelValue')(v))
+    install()
+
     return { args: newArgs, label, value }
   },
   template: `

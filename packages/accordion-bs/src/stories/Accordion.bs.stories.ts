@@ -5,6 +5,7 @@ import {
   UiAccordionSection,
   UiAccordionSectionModel,
 } from '@uicr/accordion'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Accordion',
@@ -28,6 +29,9 @@ const Template = (args: StoryModel) => ({
   components: { UiAccordion, UiAccordionSection },
   setup() {
     const { datasource, ...newArgs } = args
+
+    install()
+
     return { args: newArgs,  datasource }
   },
   methods: {

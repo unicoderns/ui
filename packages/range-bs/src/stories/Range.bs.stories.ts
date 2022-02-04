@@ -1,6 +1,7 @@
 import { ref, watch } from 'vue'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiRange, UiRangeModel } from '@uicr/range'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Range',
@@ -25,6 +26,8 @@ const Template = (args: StoryModel) => ({
     watch(currentValue, () => {
       console.log(currentValue.value)
     })
+    install()
+
     return { args, currentValue }
   },
   template: `

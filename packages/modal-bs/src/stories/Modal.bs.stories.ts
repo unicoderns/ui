@@ -3,9 +3,10 @@ import { action } from '@storybook/addon-actions'
 import { ModalSizeVariants, ResponsiveVariants } from '@uicr/core'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiModal, UiModalModel } from '@uicr/modal'
+import { install } from '..'
 
 export default {
-  title: 'UI/Bootstrap/Modal',
+  title: 'Bootstrap/Modal',
   component: UiModal,
   argTypes: {
     title: { control: { type: 'text' } },
@@ -37,6 +38,7 @@ const Template = (args: StoryModel) => ({
   setup() {
     const toggle = ref(false)
     const { label, ...newArgs } = args
+    install()
 
     return { args: newArgs, label, toggle }
   },

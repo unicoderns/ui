@@ -2,9 +2,10 @@ import { InputSizeVariants } from '@uicr/core'
 import { ref, watch } from 'vue'
 import { UiSelect, UiSelectModel } from '@uicr/select'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
+import { install } from '..'
 
 export default {
-  title: 'UI/Bootstrap/Select',
+  title: 'Bootstrap/Select',
   component: UiSelect,
   argTypes: {
     size: {
@@ -46,6 +47,8 @@ const Template = (args: StoryModel) => ({
     watch(selectedIndex, () => {
       console.log(selectedIndex.value)
     })
+    install()
+
     return { args, selectedIndex }
   },
   template: `

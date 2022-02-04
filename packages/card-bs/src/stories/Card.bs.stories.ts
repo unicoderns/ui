@@ -2,6 +2,7 @@ import { provide } from 'vue'
 import { BootstrapVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiCard, UiCardText, UiCardModel } from '@uicr/card'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Card',
@@ -41,6 +42,7 @@ const Template = (args: StoryModel, { globals }: { globals: any }) => ({
     if (globals.backgrounds && globals.backgrounds.value !== 'transparent') {
       provide(uiUseDarkThemeInjectionToken, true)
     }
+    install()
 
     return { args }
   },

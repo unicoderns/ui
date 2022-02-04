@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { InputSizeVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
 import { UiPagination, UiPaginationModel } from '@uicr/pagination'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Pagination',
@@ -35,6 +36,7 @@ const Template = (args: StoryModel, { globals }: { globals: any }) => ({
     if (globals.backgrounds && globals.backgrounds.value !== 'transparent') {
       provide(uiUseDarkThemeInjectionToken, true)
     }
+    install()
 
     return { args, page }
   },

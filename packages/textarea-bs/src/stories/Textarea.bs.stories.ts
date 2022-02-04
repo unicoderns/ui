@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiTextarea, UiTextareaModel } from '@uicr/textarea'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Textarea',
@@ -25,6 +26,8 @@ const Template = (args: StoryModel) => ({
   components: { UiTextarea, UiInspector },
   setup() {
     const content = ref('')
+    install()
+
     return { args, content }
   },
   template: `

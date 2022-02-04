@@ -9,6 +9,7 @@ import {
 } from '@uicr/core'
 import { action } from '@storybook/addon-actions'
 import { UiDropdown, UiDropdownModel } from '@uicr/dropdown'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Dropdown',
@@ -100,6 +101,7 @@ const Template = (args: UiDropdownModel) => ({
     watch(container, elem =>
       elem?.scrollIntoView({ block: 'center', inline: 'center' })
     )
+    install()
 
     return { args, container }
   },

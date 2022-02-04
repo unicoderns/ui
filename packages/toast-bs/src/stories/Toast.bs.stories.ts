@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
 import { BootstrapVariants, Positions } from '@uicr/core'
 import { UiToastModel, UiToastMessagePlugin, UiToastService } from '@uicr/toast'
+import { install } from '..'
 
 app.use(UiToastMessagePlugin)
 
@@ -37,6 +38,8 @@ let service: UiToastService | undefined
 const Template = (args: StoryModel) => ({
   setup() {
     service = inject(UiToastMessagePlugin.ServiceInjectionToken)
+    install()
+
     return { args, service }
   },
   methods: {

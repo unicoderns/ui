@@ -2,6 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
 import { PopperCardinalPlacements } from '@uicr/core'
 import { installTooltipDirective } from '@uicr/tooltip'
+import { install } from '..'
 
 installTooltipDirective(app)
 
@@ -23,6 +24,8 @@ type StoryModel = {
 
 const TemplateFn = (position: PopperCardinalPlacements) => (args: StoryModel) => ({
   setup() {
+    install()
+
     return { args }
   },
   methods: {

@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { UiTabs, UiTab } from '@uicr/tabs'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Tabs',
@@ -24,6 +25,8 @@ type StoryModel = {
 const Template = (args: StoryModel) => ({
   components: { UiTabs, UiTab },
   setup() {
+    install()
+
     return { args }
   },
   methods: {

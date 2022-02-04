@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { UiCheckbox, UiCheckboxModel } from '@uicr/checkbox'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Checkbox',
@@ -18,6 +19,8 @@ const Template = (args: StoryModel) => ({
   components: { UiCheckbox },
   setup() {
     const { label, ...newArgs } = args
+    install()
+
     return { args: newArgs, label }
   },
   methods: {

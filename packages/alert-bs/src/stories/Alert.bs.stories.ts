@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { BootstrapVariants } from '@uicr/common-bs'
 import { UiAlert, UiAlertModel } from '@uicr/alert'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Alert',
@@ -31,6 +32,8 @@ const Template = (args: StoryModel) => ({
   components: { UiAlert },
   setup() {
     const toggle = ref(true)
+
+    install()
 
     return { args, toggle }
   },

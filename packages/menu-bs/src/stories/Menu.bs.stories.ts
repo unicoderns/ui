@@ -2,6 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { MenuItem } from '@uicr/core'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiMenu, UiMenuModel } from '@uicr/menu'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Menu',
@@ -20,6 +21,8 @@ type StoryModel =
 const Template = (args: StoryModel) => ({
   components: { UiMenu, UiInspector },
   setup() {
+    install()
+
     return { args }
   },
   methods: {

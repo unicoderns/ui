@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { BootstrapVariants } from '@uicr/common-bs'
 import { ButtonSizeVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
 import { UiButton, UiButtonModel } from '@uicr/button'
+import { install } from '..'
 
 export default {
   title: 'Bootstrap/Button',
@@ -34,6 +35,7 @@ const Template = (args: StoryModel, { globals }: { globals: any }) => ({
     if (globals.backgrounds && globals.backgrounds.value !== 'transparent') {
       provide(uiUseDarkThemeInjectionToken, true)
     }
+    install()
 
     return { args }
   },

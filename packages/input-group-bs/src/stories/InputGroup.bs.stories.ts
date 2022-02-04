@@ -9,9 +9,10 @@ import {
   UiInputGroupText,
   UiInputGroupModel,
 } from '@uicr/input-group'
+import { install } from '..'
 
 export default {
-  title: 'UI/Bootstrap/InputGroup',
+  title: 'Bootstrap/InputGroup',
   component: UiInputGroup,
   argTypes: {
     label: { control: { type: 'text' } },
@@ -20,11 +21,6 @@ export default {
       options: Object.values(InputSizeVariants),
     },
     ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
-  },
-  parameters: {
-    docs: {
-      page: UiInputGroupDoc,
-    },
   },
 }
 
@@ -46,6 +42,8 @@ const Template = (args: StoryModel) => ({
     UiInspector,
   },
   setup() {
+    install()
+
     return { args }
   },
   template: `
