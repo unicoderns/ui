@@ -1,7 +1,6 @@
 import { InputSizeVariants } from '@uicr/core'
 import { ref, watch } from 'vue'
-import { UiSelect, UiSelectModel } from '../'
-import { UiSelectDoc } from '../dev'
+import { UiSelect, UiSelectModel } from '@uicr/select'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
 
 export default {
@@ -11,11 +10,6 @@ export default {
     size: {
       control: { type: 'select' },
       options: Object.values(InputSizeVariants),
-    },
-  },
-  parameters: {
-    docs: {
-      page: UiSelectDoc,
     },
   },
 }

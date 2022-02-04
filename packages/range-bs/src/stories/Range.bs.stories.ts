@@ -1,20 +1,14 @@
 import { ref, watch } from 'vue'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
-import { UiRange, UiRangeModel } from '../'
-import { UiRangeDoc } from '../dev'
+import { UiRange, UiRangeModel } from '@uicr/range'
 
 export default {
-  title: 'UI/Bootstrap/Range',
+  title: 'Bootstrap/Range',
   component: UiRange,
   argTypes: {
     label: { control: { type: 'text' } },
     currentValue: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
-  },
-  parameters: {
-    docs: {
-      page: UiRangeDoc,
-    },
   },
 }
 
