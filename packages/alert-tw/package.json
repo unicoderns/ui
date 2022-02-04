@@ -10,7 +10,7 @@
   "module": "src/index.ts",
   "dependencies": {
     "@uicr/alert": "*",
-    "@uicr/base-tw": "*",
+    "@uicr/common-tw": "*",
     "@uicr/button-close-tw": "*",
     "@uicr/core": "*",
     "@uicr/transition-tw": "*",

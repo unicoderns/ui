@@ -246,15 +246,17 @@ export function useReactiveResponsiveConfig(
 }
 
 export function setComponentThemeConfig(
-  { TAG_NAME }: { TAG_NAME: string },
+  cmp: { TAG_NAME: string } | string,
   custom: UiComponentThemeConfigModel
 ) {
+  const TAG_NAME = typeof cmp === 'string' ? cmp : cmp.TAG_NAME
   provide(`${uiThemeConfigInjectionPrefix}${TAG_NAME}`, custom)
 }
 
 export function setComponentAriaConfig(
-  { TAG_NAME }: { TAG_NAME: string },
+  cmp: { TAG_NAME: string } | string,
   custom: UiComponentAriaConfigModel
 ) {
+  const TAG_NAME = typeof cmp === 'string' ? cmp : cmp.TAG_NAME
   provide(`${uiAriaConfigInjectionPrefix}${TAG_NAME}`, custom)
 }

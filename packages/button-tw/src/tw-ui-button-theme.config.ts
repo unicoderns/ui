@@ -1,5 +1,5 @@
 import { SizeVariants } from '@uicr/core'
-import { TailwindVariants } from '@uicr/base-tw'
+import { TailwindVariants } from '@uicr/common-tw'
 import { UiButtonThemeConfigModel } from '@uicr/button'
 
 export const twUiButtonThemeConfigDefaults: UiButtonThemeConfigModel = {

@@ -1,4 +1,4 @@
-import { TailwindVariants } from '@uicr/base-tw'
+import { TailwindVariants } from '@uicr/common-tw'
 import { UiAlertThemeConfigModel } from '@uicr/alert'
 
 export const twUiAlertThemeConfigDefaults: UiAlertThemeConfigModel = {

@@ -9,7 +9,7 @@
   "main": "dist/index.js",
   "module": "src/index.ts",
   "dependencies": {
-    "@uicr/base-tw": "*",
+    "@uicr/common-tw": "*",
     "@uicr/button-close": "*",
     "@uicr/core": "*",
     "core-js": "^3.6.5",
