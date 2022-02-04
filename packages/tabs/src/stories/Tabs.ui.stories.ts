@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import { UiTabs, UiTab } from '../'
+import { UiTabs, UiTab } from '..'
 import { UiTabsDoc } from '../dev'
 
 export default {

@@ -32,7 +32,7 @@ const Template = (args: StoryModel) => ({
 
     install()
 
-    return { args: newArgs,  datasource }
+    return { args: newArgs, datasource }
   },
   methods: {
     click: action('click'),

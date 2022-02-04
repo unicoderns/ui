@@ -9,7 +9,7 @@
   "main": "dist/index.js",
   "module": "src/index.ts",
   "dependencies": {
-    "@uicr/alert": "*",
+    "@uicr/accordion": "*",
     "@uicr/common-bs": "*",
     "@uicr/core": "*",
     "@uicr/transition-bs": "*",
