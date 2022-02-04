@@ -2,13 +2,13 @@ import { inject } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
 import { BootstrapVariants, Positions } from '@uicr/core'
-import { UiToastModel, UiToastMessagePlugin, UiToastService } from '../'
+import { UiToastModel, UiToastMessagePlugin, UiToastService } from '..'
 import { UiToastDoc } from '../dev'
 
 app.use(UiToastMessagePlugin)
 
 export default {
-  title: 'UI/Bootstrap/Toast',
+  title: 'UI/Toast',
   argTypes: {
     position: {
       control: { type: 'select' },

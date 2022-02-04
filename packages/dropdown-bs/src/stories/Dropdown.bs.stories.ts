@@ -33,6 +33,9 @@ export default {
       control: { type: 'text' },
     },
   },
+  parameters: {
+    layout: 'centered',
+  },
 }
 
 const datasource: MenuItem[] = [

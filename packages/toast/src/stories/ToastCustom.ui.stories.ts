@@ -7,13 +7,13 @@ import {
   UiToastModel,
   UiToastMessagePlugin,
   UiToastService,
-} from '../'
+} from '..'
 import { UiToastDoc } from '../dev'
 
 app.use(UiToastMessagePlugin)
 
 export default {
-  title: 'UI/Bootstrap/Toast',
+  title: 'UI/Toast',
   argTypes: {
     position: {
       control: { type: 'select' },

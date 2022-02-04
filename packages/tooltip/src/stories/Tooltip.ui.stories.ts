@@ -1,13 +1,13 @@
 import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
 import { PopperCardinalPlacements } from '@uicr/core'
-import { installTooltipDirective } from '../'
+import { installTooltipDirective } from '..'
 import { UiTooltipDoc } from '../dev'
 
 installTooltipDirective(app)
 
 export default {
-  title: 'UI/Bootstrap/Tooltip',
+  title: 'UI/Tooltip',
   argTypes: {
     default: { control: { type: 'text' } },
     tooltip: { control: { type: 'text' } },
