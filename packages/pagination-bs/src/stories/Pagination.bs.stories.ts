@@ -1,12 +1,11 @@
 import { provide, ref } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { InputSizeVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
-import { UiPagination, UiPaginationModel } from '../'
+import { UiPagination, UiPaginationModel } from '@uicr/pagination'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
-import { UiPaginationDoc } from '../dev'
 
 export default {
-  title: 'UI/Bootstrap/Pagination',
+  title: 'Bootstrap/Pagination',
   component: UiPagination,
   argTypes: {
     size: {
@@ -17,11 +16,6 @@ export default {
     totalItems: { control: { type: 'number' } },
     maxVisiblePages: { control: { type: 'number' } },
     ['aria:label']: { name: 'label (aria)', control: { type: 'text' } },
-  },
-  parameters: {
-    docs: {
-      page: UiPaginationDoc,
-    },
   },
 }
 

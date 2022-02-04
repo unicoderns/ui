@@ -1,19 +1,13 @@
 import { action } from '@storybook/addon-actions'
 import { ref, watch } from 'vue'
-import { UiRadio, UiRadioModel } from '../'
-import { UiRadioDoc } from '../dev'
+import { UiRadio, UiRadioModel } from '@uicr/radio'
 
 export default {
-  title: 'UI/Bootstrap/Radio',
+  title: 'Bootstrap/Radio',
   component: UiRadio,
   argTypes: {
     label: { control: { type: 'text' } },
     ['aria:label']: { name: 'label (aria)', control: { type: 'text' } },
-  },
-  parameters: {
-    docs: {
-      page: UiRadioDoc,
-    },
   },
 }
 
