@@ -1,10 +1,10 @@
 import { ref } from 'vue'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
-import { UiTextarea, UiTextareaModel } from '../'
+import { UiTextarea, UiTextareaModel } from '..'
 import { UiTextareaDoc } from '../dev'
 
 export default {
-  title: 'UI/Bootstrap/Textarea',
+  title: 'UI/Textarea',
   component: UiTextarea,
   argTypes: {
     label: { control: { type: 'text' } },
