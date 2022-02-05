@@ -1,7 +1,7 @@
 {
-  "name": "@uicr/toast-bs",
+  "name": "@uicr/tooltip-bs",
   "version": "0.0.1",
-  "description": "bootstrap theme for toast component",
+  "description": "bootstrap theme for tooltip component",
   "scripts": {
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service build --target lib src/index.ts"
@@ -10,7 +10,7 @@
   "module": "src/index.ts",
   "dependencies": {
     "@uicr/common-bs": "*",
-    "@uicr/toast": "*",
+    "@uicr/tooltip": "*",
     "@uicr/core": "*",
     "core-js": "^3.6.5",
     "vue": "3.1.5"
