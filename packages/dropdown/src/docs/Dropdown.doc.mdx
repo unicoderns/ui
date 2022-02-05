@@ -1,7 +1,7 @@
 import { Story, Canvas } from '@storybook/addon-docs'
 
 # Dropdowns
-Dropdown is basically a button that opens a [menu](?path=/docs/ui-bootstrap-menu--normal&args=#menu) component using [popper js]
+Dropdown is basically a button that opens a [menu](?path=/docs/ui-menu--normal&args=#menu) component using [popper js]
 
 [Github repo](https://github.com/unicoderns/ui/tree/master/packages/dropdown)
 
@@ -28,34 +28,34 @@ Dropdown is basically a button that opens a [menu](?path=/docs/ui-bootstrap-menu
 # Variants
 
 <Canvas>
-  <Story id="ui-bootstrap-dropdown--primary" />
-  <Story id="ui-bootstrap-dropdown--secondary" />
-  <Story id="ui-bootstrap-dropdown--success" />
-  <Story id="ui-bootstrap-dropdown--danger" />
-  <Story id="ui-bootstrap-dropdown--warning" />
-  <Story id="ui-bootstrap-dropdown--info" />
-  <Story id="ui-bootstrap-dropdown--light" />
-  <Story id="ui-bootstrap-dropdown--dark" />
+  <Story id="ui-dropdown--primary" />
+  <Story id="ui-dropdown--secondary" />
+  <Story id="ui-dropdown--success" />
+  <Story id="ui-dropdown--danger" />
+  <Story id="ui-dropdown--warning" />
+  <Story id="ui-dropdown--info" />
+  <Story id="ui-dropdown--light" />
+  <Story id="ui-dropdown--dark" />
 </Canvas>
 
 # Split button
 
 <Canvas>
-  <Story id="ui-bootstrap-dropdown--split-button" />
+  <Story id="ui-dropdown--split-button" />
 </Canvas>
 
 # Menu align end
 
 <Canvas>
-  <Story id="ui-bootstrap-dropdown--menu-align-end" />
+  <Story id="ui-dropdown--menu-align-end" />
 </Canvas>
 
 # Arrow Direction
 
 <Canvas>
-  <Story id="ui-bootstrap-dropdown--left" />
-  <Story id="ui-bootstrap-dropdown--right" />
-  <Story id="ui-bootstrap-dropdown--up" />
+  <Story id="ui-dropdown--left" />
+  <Story id="ui-dropdown--right" />
+  <Story id="ui-dropdown--up" />
 </Canvas>
 
 # Popper Js and menu on the edges
@@ -67,7 +67,7 @@ You can play around with that functionality [here](/story/ui-bootstrap-dropdown-
 | Name | Type  | Description |
 | ---- | ---- | ----------- |
 | `label` | `string` | button label, it overrides the slot content if present |
-| `datasource` | `array` | configuration for the (menu component](?path=/docs/ui-bootstrap-menu-normal&args=#menu) |
+| `datasource` | `array` | configuration for the (menu component](?path=/docs/ui-menu-normal&args=#menu) |
 | `invert` | `boolean` | inverts the menu component |
 | `outline` | `boolean` | outline class is added to the button |
 | `variant` | `string` | variant class defined in the theme |
@@ -133,4 +133,4 @@ Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to se
 
 ## Inner components
 
-Note that the Dropdown uses [UiMenu](?path=/docs/ui-bootstrap-menu-normal&args=#menu) and [UiButton](?path=/docs/ui-bootstrap-button--primary&args=#buttons) components internally, so when providing a theme you should provide for them as well.
+Note that the Dropdown uses [UiMenu](?path=/docs/ui-menu-normal&args=#menu) and [UiButton](?path=/docs/ui-button--primary&args=#buttons) components internally, so when providing a theme you should provide for them as well.
