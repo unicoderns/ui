@@ -8,7 +8,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006 -c .storybook-ui",
     "storybook-bs": "start-storybook -p 6007 -c .storybook-bs",
-    "storybook-tailwind": "start-storybook -p 6007 -c .storybook-tailwind",
+    "storybook-tailwind": "start-storybook -p 6008 -c .storybook-tailwind",
     "build-storybook": "build-storybook",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
