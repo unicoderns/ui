@@ -1,38 +1,36 @@
----
-to: packages/<%= h.changeCase.param(name) %>/src/stories/<%= h.changeCase.pascal(name) %>.bs.stories.ts
----
 import { provide } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { BootstrapVariants, uiUseDarkThemeInjectionToken } from '@uicr/core'
-import { Ui<%= h.changeCase.pascal(name) %>, Ui<%= h.changeCase.pascal(name) %>Model } from '../'
-import { Ui<%= h.changeCase.pascal(name) %>Doc } from '../dev'
+import { UiChip, UiChipModel } from '../'
+import { UiChipDoc } from '../dev'
 
 export default {
-  title: 'UI/<%= h.changeCase.pascal(name) %>',
-  component: Ui<%= h.changeCase.pascal(name) %>,
+  title: 'UI/Chip',
+  component: UiChip,
   argTypes: {
     label: { control: { type: 'text' } },
     variant: {
       control: { type: 'select' },
       options: Object.values(BootstrapVariants),
     },
-    toggle: { control: { type: 'boolean' } },
+    pill: { control: { type: 'boolean' } },
+    textDark: { control: { type: 'boolean' } },
   },
   parameters: {
     docs: {
-      page: Ui<%= h.changeCase.pascal(name) %>Doc,
+      page: UiChipDoc,
     },
   },
 }
 
 type StoryModel =
-  | Ui<%= h.changeCase.pascal(name) %>Model
+  | UiChipModel
   | {
       label: string
     }
 
 const Template = (args: StoryModel, { globals }: { globals: any }) => ({
-  components: { Ui<%= h.changeCase.pascal(name) %> },
+  components: { UiChip },
   setup() {
     if (globals.backgrounds && globals.backgrounds.value !== 'transparent') {
       provide(uiUseDarkThemeInjectionToken, true)
@@ -44,7 +42,7 @@ const Template = (args: StoryModel, { globals }: { globals: any }) => ({
     click: action('click'),
   },
   template: `
-    <ui-<%= h.changeCase.param(name) %> :="args" @click="click" >{{ args.label }}</ui-<%= h.changeCase.param(name) %>>
+    <ui-chip :="args" @click="click" >{{ args.label }}</ui-chip>
   `,
 })
 
@@ -61,7 +59,7 @@ Primary.args = {
 Primary.parameters = {
   docs: {
     source: {
-      code: '<ui-<%= h.changeCase.param(name) %> variant="primary">Primary</ui-<%= h.changeCase.param(name) %>>',
+      code: '<ui-chip variant="primary">Primary</ui-chip>',
     },
   },
 }
@@ -74,7 +72,7 @@ Secondary.args = {
 Secondary.parameters = {
   docs: {
     source: {
-      code: '<ui-<%= h.changeCase.param(name) %> variant="secondary">Secondary</ui-<%= h.changeCase.param(name) %>>',
+      code: '<ui-chip variant="secondary">Secondary</ui-chip>',
     },
   },
 }
@@ -87,7 +85,7 @@ Success.args = {
 Success.parameters = {
   docs: {
     source: {
-      code: '<ui-<%= h.changeCase.param(name) %> variant="success">Success</ui-<%= h.changeCase.param(name) %>>',
+      code: '<ui-chip variant="success">Success</ui-chip>',
     },
   },
 }
@@ -100,7 +98,7 @@ Danger.args = {
 Danger.parameters = {
   docs: {
     source: {
-      code: '<ui-<%= h.changeCase.param(name) %> variant="danger">Danger</ui-<%= h.changeCase.param(name) %>>',
+      code: '<ui-chip variant="danger">Danger</ui-chip>',
     },
   },
 }
@@ -109,11 +107,12 @@ export const Warning = Template.bind({})
 Warning.args = {
   ...baseArgs,
   variant: BootstrapVariants.Warning,
+  textDark: true,
 }
 Warning.parameters = {
   docs: {
     source: {
-      code: '<ui-<%= h.changeCase.param(name) %> variant="warning">Warning</ui-<%= h.changeCase.param(name) %>>',
+      code: '<ui-chip variant="warning">Warning</ui-chip>',
     },
   },
 }
@@ -122,11 +121,12 @@ export const Info = Template.bind({})
 Info.args = {
   ...baseArgs,
   variant: BootstrapVariants.Info,
+  textDark: true,
 }
 Info.parameters = {
   docs: {
     source: {
-      code: '<ui-<%= h.changeCase.param(name) %> variant="info">Info</ui-<%= h.changeCase.param(name) %>>',
+      code: '<ui-chip variant="info">Info</ui-chip>',
     },
   },
 }
@@ -135,11 +135,12 @@ export const Light = Template.bind({})
 Light.args = {
   ...baseArgs,
   variant: BootstrapVariants.Light,
+  textDark: true,
 }
 Light.parameters = {
   docs: {
     source: {
-      code: '<ui-<%= h.changeCase.param(name) %> variant="light">Light</ui-<%= h.changeCase.param(name) %>>',
+      code: '<ui-chip variant="light">Light</ui-chip>',
     },
   },
 }
@@ -152,7 +153,21 @@ Dark.args = {
 Dark.parameters = {
   docs: {
     source: {
-      code: '<ui-<%= h.changeCase.param(name) %> variant="dark">Dark</ui-<%= h.changeCase.param(name) %>>',
+      code: '<ui-chip variant="dark">Dark</ui-chip>',
+    },
+  },
+}
+
+export const Pill = Template.bind({})
+Pill.args = {
+  ...baseArgs,
+  variant: BootstrapVariants.Primary,
+  pill: true,
+}
+Pill.parameters = {
+  docs: {
+    source: {
+      code: '<ui-chip pill variant="primary">Primary</ui-chip>',
     },
   },
 }
