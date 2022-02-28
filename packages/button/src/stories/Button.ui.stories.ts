@@ -1,7 +1,7 @@
 import { provide } from 'vue'
 import { action } from '@storybook/addon-actions'
 import {
-  BootstrapVariants,
+  UiVariants,
   ButtonSizeVariants,
   uiUseDarkThemeInjectionToken,
 } from '@uicr/core'
@@ -19,7 +19,7 @@ export default {
     },
     variant: {
       control: { type: 'select' },
-      options: Object.values(BootstrapVariants),
+      options: Object.values(UiVariants),
     },
     toggle: { control: { type: 'boolean' } },
     ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
@@ -56,19 +56,20 @@ const Template = (args: StoryModel, { globals }: { globals: any }) => ({
 
 const baseArgs: StoryModel = {
   label: 'Label',
-  variant: BootstrapVariants.Primary,
+  variant: UiVariants.Primary,
   size: ButtonSizeVariants.Medium,
   anchor: false,
   outline: false,
   active: false,
   toggle: false,
+  disabled: false,
 }
 
 export const Primary = Template.bind({})
 Primary.args = {
   ...baseArgs,
   label: 'Primary',
-  variant: BootstrapVariants.Primary,
+  variant: UiVariants.Primary,
 }
 Primary.parameters = {
   docs: {
@@ -82,7 +83,7 @@ export const Secondary = Template.bind({})
 Secondary.args = {
   ...baseArgs,
   label: 'Secondary',
-  variant: BootstrapVariants.Secondary,
+  variant: UiVariants.Secondary,
 }
 Secondary.parameters = {
   docs: {
@@ -96,7 +97,7 @@ export const Success = Template.bind({})
 Success.args = {
   ...baseArgs,
   label: 'Success',
-  variant: BootstrapVariants.Success,
+  variant: UiVariants.Success,
 }
 Success.parameters = {
   docs: {
@@ -110,7 +111,7 @@ export const Danger = Template.bind({})
 Danger.args = {
   ...baseArgs,
   label: 'Danger',
-  variant: BootstrapVariants.Danger,
+  variant: UiVariants.Danger,
 }
 Danger.parameters = {
   docs: {
@@ -124,7 +125,7 @@ export const Warning = Template.bind({})
 Warning.args = {
   ...baseArgs,
   label: 'Warning',
-  variant: BootstrapVariants.Warning,
+  variant: UiVariants.Warning,
 }
 Warning.parameters = {
   docs: {
@@ -138,7 +139,7 @@ export const Info = Template.bind({})
 Info.args = {
   ...baseArgs,
   label: 'Info',
-  variant: BootstrapVariants.Info,
+  variant: UiVariants.Info,
 }
 Info.parameters = {
   docs: {
@@ -148,30 +149,16 @@ Info.parameters = {
   },
 }
 
-export const Light = Template.bind({})
-Light.args = {
+export const Gray = Template.bind({})
+Gray.args = {
   ...baseArgs,
-  label: 'Light',
-  variant: BootstrapVariants.Light,
+  label: 'Gray',
+  variant: UiVariants.Gray,
 }
-Light.parameters = {
+Gray.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="light">Light</ui-button>',
-    },
-  },
-}
-
-export const Dark = Template.bind({})
-Dark.args = {
-  ...baseArgs,
-  label: 'Dark',
-  variant: BootstrapVariants.Dark,
-}
-Dark.parameters = {
-  docs: {
-    source: {
-      code: '<ui-button variant="dark">Dark</ui-button>',
+      code: '<ui-button variant="gray">Gray</ui-button>',
     },
   },
 }
@@ -180,7 +167,7 @@ export const OutlinePrimary = Template.bind({})
 OutlinePrimary.args = {
   ...baseArgs,
   label: 'Primary',
-  variant: BootstrapVariants.Primary,
+  variant: UiVariants.Primary,
   outline: true,
 }
 OutlinePrimary.parameters = {
@@ -195,7 +182,7 @@ export const OutlineSecondary = Template.bind({})
 OutlineSecondary.args = {
   ...baseArgs,
   label: 'Secondary',
-  variant: BootstrapVariants.Secondary,
+  variant: UiVariants.Secondary,
   outline: true,
 }
 OutlineSecondary.parameters = {
@@ -210,7 +197,7 @@ export const OutlineSuccess = Template.bind({})
 OutlineSuccess.args = {
   ...baseArgs,
   label: 'Success',
-  variant: BootstrapVariants.Success,
+  variant: UiVariants.Success,
   outline: true,
 }
 OutlineSuccess.parameters = {
@@ -225,7 +212,7 @@ export const OutlineDanger = Template.bind({})
 OutlineDanger.args = {
   ...baseArgs,
   label: 'Danger',
-  variant: BootstrapVariants.Danger,
+  variant: UiVariants.Danger,
   outline: true,
 }
 OutlineDanger.parameters = {
@@ -240,7 +227,7 @@ export const OutlineWarning = Template.bind({})
 OutlineWarning.args = {
   ...baseArgs,
   label: 'Warning',
-  variant: BootstrapVariants.Warning,
+  variant: UiVariants.Warning,
   outline: true,
 }
 OutlineWarning.parameters = {
@@ -255,7 +242,7 @@ export const OutlineInfo = Template.bind({})
 OutlineInfo.args = {
   ...baseArgs,
   label: 'Primary',
-  variant: BootstrapVariants.Info,
+  variant: UiVariants.Info,
   outline: true,
 }
 OutlineInfo.parameters = {
@@ -266,32 +253,17 @@ OutlineInfo.parameters = {
   },
 }
 
-export const OutlineLight = Template.bind({})
-OutlineLight.args = {
+export const OutlineGray = Template.bind({})
+OutlineGray.args = {
   ...baseArgs,
-  label: 'Light',
-  variant: BootstrapVariants.Light,
+  label: 'gray',
+  variant: UiVariants.Gray,
   outline: true,
 }
-OutlineLight.parameters = {
+OutlineGray.parameters = {
   docs: {
     source: {
-      code: '<ui-button variant="light" outline>Light</ui-button>',
-    },
-  },
-}
-
-export const OutlineDark = Template.bind({})
-OutlineDark.args = {
-  ...baseArgs,
-  label: 'Dark',
-  variant: BootstrapVariants.Dark,
-  outline: true,
-}
-OutlineDark.parameters = {
-  docs: {
-    source: {
-      code: '<ui-button variant="dark" outline>Dark</ui-button>',
+      code: '<ui-button variant="gray" outline>Gray</ui-button>',
     },
   },
 }
@@ -342,7 +314,7 @@ export const Active = Template.bind({})
 Active.args = {
   ...baseArgs,
   label: 'Active',
-  variant: BootstrapVariants.Danger,
+  variant: UiVariants.Danger,
   active: true,
 }
 Active.parameters = {
@@ -357,7 +329,7 @@ export const Toggle = Template.bind({})
 Toggle.args = {
   ...baseArgs,
   label: 'Toggle',
-  variant: BootstrapVariants.Danger,
+  variant: UiVariants.Danger,
   toggle: true,
 }
 Toggle.parameters = {

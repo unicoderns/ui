@@ -1,59 +1,50 @@
-import {
-  BootstrapVariants,
-  SizeVariants,
-  cssClassPrefix,
-  enumToObjectByValue,
-} from '@uicr/core'
+import { SizeVariants, UiVariants } from '@uicr/core'
 import { UiButtonThemeConfigModel } from '../'
-
-const baseClass = 'btn'
-const classPrefix = cssClassPrefix(baseClass)
-const getPrefixedClass = (value: string) => `${classPrefix}${value}`
-const variantClasses = enumToObjectByValue(BootstrapVariants)
-Object.keys(variantClasses).forEach(
-  value => (variantClasses[value] = getPrefixedClass(value))
-)
-const getOtlinePrefixedClass = (value: string) =>
-  `${classPrefix}outline-${value}`
-const outlineVariantClasses = enumToObjectByValue(BootstrapVariants)
-Object.keys(outlineVariantClasses).forEach(
-  value => (outlineVariantClasses[value] = getOtlinePrefixedClass(value))
-)
-
-const darkVariantClasses = enumToObjectByValue(BootstrapVariants)
-Object.keys(darkVariantClasses).forEach(
-  value => (darkVariantClasses[value] = getPrefixedClass(value) + ' ui-dark-mode')
-)
-const darkOutlineVariantClasses = enumToObjectByValue(BootstrapVariants)
-Object.keys(darkOutlineVariantClasses).forEach(
-  value =>
-    (darkOutlineVariantClasses[value] =
-      getOtlinePrefixedClass(value) + ' ui-dark-mode')
-)
 
 export const uiButtonThemeConfigDefaults: UiButtonThemeConfigModel = {
   cssClass: {
-    main: baseClass,
-    active: 'active',
-    outline: '',
+    main:
+      'inline-block text-base font-normal leading-normal text-center no-underline align-middle cursor-pointer select-none bg-transparent border border-solid border-transparent rounded-lg  p-1 pr-2 pl-2 focus-within:ring-4 ring-gray-200 outline-none text-white',
+    active: 'filter contrast-75',
+    outline: 'bg-transparent text-black',
+    disabled: {
+      [UiVariants.Primary]: 'opacity-50 pointer-events-none',
+      [UiVariants.Secondary]: 'opacity-50 pointer-events-none bg-secondary-800',
+    },
     variants: {
-      ...variantClasses,
+      [UiVariants.Success]: 'bg-blue-300 text-blue-800 border-blue-400',
+      [UiVariants.Danger]: 'bg-pink-300 text-pink-800 border-pink-400',
+      [UiVariants.Warning]: 'bg-purple-300 text-purple-800 border-purple-400',
+      [UiVariants.Primary]:
+        'bg-primary-400 w-20 h-6 flex flex-row absolute justify-center items-center hover:bg-primary-300',
+      [UiVariants.Secondary]:
+        'bg-secondary-400 w-20 h-6 flex flex-row absolute justify-center items-center hover:bg-secondary-200',
+      [UiVariants.Danger]: 'bg-pink-300 text-pink-800 border-pink-400',
+      [UiVariants.Info]: 'bg-pink-300 text-pink-800 border-pink-400',
+      [UiVariants.Gray]: 'bg-pink-300 text-pink-800 border-pink-400',
     },
     outlineVariants: {
-      ...outlineVariantClasses,
+      [UiVariants.Success]: 'text-blue-800 border-blue-800',
+      [UiVariants.Danger]: 'text-pink-800 border-pink-800',
+      [UiVariants.Warning]: 'text-purple-800 border-purple-800',
+      [UiVariants.Primary]: 'text-pink-800 border-pink-800',
+      [UiVariants.Secondary]: 'text-pink-800 border-pink-800',
+      [UiVariants.Danger]: 'text-pink-800 border-pink-800',
+      [UiVariants.Info]: 'text-pink-800 border-pink-800',
+      [UiVariants.Gray]: 'text-pink-800 border-pink-800',
     },
     sizes: {
-      [SizeVariants.Large]: getPrefixedClass(SizeVariants.Large),
-      [SizeVariants.Medium]: getPrefixedClass(SizeVariants.Medium),
-      [SizeVariants.Small]: getPrefixedClass(SizeVariants.Small),
+      [SizeVariants.Large]: 'p-3 pr-4 pl-4 rounded-2xl text-lg',
+      [SizeVariants.Medium]: 'p-2 pr-3 pl-3 rounded-xl text-md',
+      [SizeVariants.Small]: '',
     },
   },
-  cssDark: {
-    variants: {
-      ...darkVariantClasses,
-    },
-    outlineVariants: {
-      ...darkOutlineVariantClasses,
-    },
-  },
+  // cssDark: {
+  //   variants: {
+  //     ...darkVariantClasses,
+  //   },
+  //   outlineVariants: {
+  //     ...darkOutlineVariantClasses,
+  //   },
+  // },
 }
