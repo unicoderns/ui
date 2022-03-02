@@ -109,8 +109,8 @@ This are the steps that the hygen command will execute
         -- ui-<component-name>.spec.ts
 ```
 1. Create a custom model: This includes 3 files:
-  - the theme model `ui-<component-name>-aria.model.ts`
-  - the aria model `ui-<component-name>-aria.model.ts`
+  - the theme model `ui-<component-name>-theme-config.model.ts`
+  - the aria model `ui-<component-name>-aria-config.model.ts`
   - the main component model `ui-<component-name>.model.ts`: this one reflects the props for the main component
 1. Create a default bootstrap theme: `bs-ui-<component-name>-theme.config.ts` is the default file for theaming based on bootstrap clases
 1. Create a default aria config: `ui-<component-name>-aria.config.ts` is the default values for aria strings

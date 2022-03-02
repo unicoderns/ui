@@ -1,0 +1,77 @@
+import { Story, Canvas } from '@storybook/addon-docs';
+
+# Chips
+Display an chip/badge with text.
+
+[Github repo](https://github.com/unicoderns/ui/tree/master/packages/Chip)
+
+```html
+    <ui-chip :="args" @click="click">{{ args.default }}</ui-chip>
+```
+
+## Variants
+
+Support multiple variants
+
+<Canvas>
+  <Story id="ui-chip--primary"/>
+  <Story id="ui-chip--secondary" />
+  <Story id="ui-chip--success" />
+  <Story id="ui-chip--danger" />
+  <Story id="ui-chip--warning" />
+  <Story id="ui-chip--info" />
+  <Story id="ui-chip--light" />
+  <Story id="ui-chip--dark" />
+  <Story id="ui-chip--pill" />
+</Canvas>
+
+## Props
+
+| Name | Type  | Description |
+| ---- | ---- | ----------- |
+| `variant` | `string` | variant class defined in the theme |
+| `pill` | `boolean` | prop to set rounded corners |
+| `textDark` | `boolean` | prop to set dark text color |
+
+## Slots
+
+| Name | Description |
+| ---- | ----------- |
+| `default` | actual span content |
+
+# Events
+Chip will emit this event when a click is performed on the component.
+
+| Event | Params | Desription |
+| ----- | ------ | ----------- |
+| click | callback: `function` | Will only raise when chip component is clicked |
+
+# Accessibility
+Change the next properties to change the default accessibility text
+
+| Name | Property | Default |
+| ---- | -------- | ------- |
+| role | aria:role | `option` |
+
+Check the page [what is aria](/docs/docs-aria--page#what-is-aria-config) to see how to config accessibility globally for chips.
+
+# Theme
+Use the next `json` to define a new theme for the component
+
+```json
+{
+  cssClass: {
+    main: string, // main class
+    textDark: string // text color class
+    pill: string // class applied to set rounded corners
+    variants: { // define a custom list of variants
+      'variant1': string,
+      'variant2': string,
+      ...
+      'variantN': string,
+    },
+  },
+}
+```
+
+Check the page [what is a theme](/docs/docs-theming--page#what-is-a-theme) to see how to use this json
