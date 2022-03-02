@@ -9,7 +9,7 @@ export const uiButtonThemeConfigDefaults: UiButtonThemeConfigModel = {
     outline: 'bg-transparent text-black',
     disabled: {
       [UiVariants.Primary]: 'opacity-50 pointer-events-none',
-      [UiVariants.Secondary]: 'opacity-50 pointer-events-none bg-secondary-800',
+      [UiVariants.Secondary]: 'opacity-50 pointer-events-none',
     },
     variants: {
       [UiVariants.Success]: 'bg-blue-300 text-blue-800 border-blue-400',
@@ -18,7 +18,7 @@ export const uiButtonThemeConfigDefaults: UiButtonThemeConfigModel = {
       [UiVariants.Primary]:
         'bg-primary-400 w-20 h-6 flex flex-row absolute justify-center items-center hover:bg-primary-300',
       [UiVariants.Secondary]:
-        'bg-secondary-400 w-20 h-6 flex flex-row absolute justify-center items-center hover:bg-secondary-200',
+        'bg-secondary-400 w-20 h-6 flex flex-row absolute justify-center items-center hover:bg-secondary-200 disabled:bg-secondary-800',
       [UiVariants.Danger]: 'bg-pink-300 text-pink-800 border-pink-400',
       [UiVariants.Info]: 'bg-pink-300 text-pink-800 border-pink-400',
       [UiVariants.Gray]: 'bg-pink-300 text-pink-800 border-pink-400',
@@ -27,7 +27,8 @@ export const uiButtonThemeConfigDefaults: UiButtonThemeConfigModel = {
       [UiVariants.Success]: 'text-blue-800 border-blue-800',
       [UiVariants.Danger]: 'text-pink-800 border-pink-800',
       [UiVariants.Warning]: 'text-purple-800 border-purple-800',
-      [UiVariants.Primary]: 'text-pink-800 border-pink-800',
+      [UiVariants.Primary]:
+        'w-20 h-6 flex flex-row absolute justify-center items-center text-primary-300 border-primary-400 hover:opacity-90',
       [UiVariants.Secondary]: 'text-pink-800 border-pink-800',
       [UiVariants.Danger]: 'text-pink-800 border-pink-800',
       [UiVariants.Info]: 'text-pink-800 border-pink-800',

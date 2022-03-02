@@ -4,6 +4,7 @@
     :type="componentType"
     :role="aria.role"
     :class="classes"
+    :disabled="disabledTag"
     @click="attemptToggle"
   >
     <slot></slot>
@@ -73,6 +74,9 @@ export default defineComponent({
     const componentRole = computed((): string | null => {
       return anchor.value ? ariaConfig.value.role : null
     })
+    const disabledTag = computed((): boolean | null => {
+      return disableState.value ? true : null
+    })
 
     const classes = computed((): string[] => {
       const sizeClass = theme.value.cssClass.sizes[size.value]
@@ -112,6 +116,7 @@ export default defineComponent({
       classes,
       aria: ariaConfig,
       attemptToggle,
+      disabledTag,
     }
   },
 })
