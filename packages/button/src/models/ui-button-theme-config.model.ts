@@ -8,6 +8,7 @@ export interface UiButtonThemeConfigModel extends UiComponentThemeConfigModel {
   cssClass: {
     main: string
     active: string
+    disabled: KeyPairString
     outline: string
     variants: KeyPairString
     outlineVariants: KeyPairString

@@ -7,5 +7,6 @@ export interface UiButtonModel {
   toggle?: boolean
   outline?: boolean
   active?: boolean
+  disabled?: boolean
   ['aria:role']: string
 }

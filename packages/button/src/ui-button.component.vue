@@ -4,6 +4,7 @@
     :type="componentType"
     :role="aria.role"
     :class="classes"
+    :disabled="disabledTag"
     @click="attemptToggle"
   >
     <slot></slot>
@@ -40,12 +41,14 @@ export default defineComponent({
     variant: { type: String, required: true },
     size: { type: String as PropType<ButtonSizeVariant>, default: null },
     active: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
     ['aria:role']: { type: String, default: null },
   },
   emits: ['toggle'],
   setup(props, { emit, attrs }) {
-    const { anchor, toggle, outline, variant, size, active } = toRefs(props)
+    const { anchor, toggle, outline, variant, size, active, disabled } = toRefs(props)
     const activeState = ref(active.value)
+    const disableState = ref(disabled.value)
 
     const theme = useReactiveThemeConfig<UiButtonThemeConfigModel>(
       TAG_NAME,
@@ -71,6 +74,9 @@ export default defineComponent({
     const componentRole = computed((): string | null => {
       return anchor.value ? ariaConfig.value.role : null
     })
+    const disabledTag = computed((): boolean | null => {
+      return disableState.value ? true : null
+    })
 
     const classes = computed((): string[] => {
       const sizeClass = theme.value.cssClass.sizes[size.value]
@@ -85,7 +91,8 @@ export default defineComponent({
         ...(variant.value ? [variantClass] : []),
         ...(size.value ? [sizeClass] : []),
         ...(outline.value ? [theme.value.cssClass.outline] : []),
-        ...(activeState.value ? [theme.value.cssClass.active] : []),
+        ...(activeState.value && !disableState.value? [theme.value.cssClass.active] : []),
+        ...(disableState.value? [theme.value.cssClass.disabled[variant.value]] : []),
       ]
     })
 
@@ -102,12 +109,14 @@ export default defineComponent({
 
     return {
       activeState,
+      disableState,
       componentTag,
       componentType,
       componentRole,
       classes,
       aria: ariaConfig,
       attemptToggle,
+      disabledTag,
     }
   },
 })
