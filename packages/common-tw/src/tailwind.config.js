@@ -4,7 +4,7 @@ module.exports = {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
-    
+
     extend: {
       colors: {
         primary: {
@@ -26,7 +26,7 @@ module.exports = {
           500: '#6158ca',
           600: '#564eb4',
           700: '#4b449d',
-          800: '#6158ca'
+          800: '#6158ca',
         },
         success: {
           50: '#f0f5ec',
@@ -36,7 +36,7 @@ module.exports = {
           400: '#6aa449',
           500: '#5f9341',
           600: '#54833a',
-          700: '#4a7233'
+          700: '#4a7233',
         },
         warning: {
           50: '#fef9eb',
@@ -46,7 +46,7 @@ module.exports = {
           400: '#fac338',
           500: '#e1af32',
           600: '#c89c2c',
-          700: '#aa8827'
+          700: '#aa8827',
         },
         danger: {
           50: '#faeded',
@@ -56,7 +56,7 @@ module.exports = {
           400: '#d05252',
           500: '#bb4949',
           600: '#a64141',
-          700: '#913939'
+          700: '#913939',
         },
         information: {
           50: '#edf5f9',
@@ -66,7 +66,7 @@ module.exports = {
           400: '#4ea0cc',
           500: '#4690b7',
           600: '#3e80a3',
-          700: '#36708e'
+          700: '#36708e',
         },
         gray: {
           50: '#f2f2f2',
@@ -76,8 +76,8 @@ module.exports = {
           400: '#666666',
           500: '#4d4d4d',
           600: '#333333',
-          700: '#1f1f1f'
-        }
+          700: '#1f1f1f',
+        },
       },
       spacing: {
         '8xl': '96rem',

@@ -13,7 +13,9 @@ export const bsUiTooltipThemeConfigDefaults: UiTooltipThemeConfigModel = {
     message: 'tooltip-inner',
     arrow: 'tooltip-arrow',
     positions: {
-      [PopperCardinalPlacements.Top]: getPlacement(PopperCardinalPlacements.Top),
+      [PopperCardinalPlacements.Top]: getPlacement(
+        PopperCardinalPlacements.Top
+      ),
       [PopperCardinalPlacements.Bottom]: getPlacement(
         PopperCardinalPlacements.Bottom
       ),

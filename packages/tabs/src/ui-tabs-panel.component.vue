@@ -29,10 +29,7 @@ import { uiTabsPanelThemeConfigDefaults } from './defaults/ui-tabs-panel-theme.c
 import { UiTabsPanelAriaConfigModel } from './models/ui-tabs-panel-aria-config.model'
 import { UiTabsPanelAriaDefaults } from './defaults/ui-tabs-panel-aria.config'
 import { UiTabsPanelThemeConfigModel } from './models/ui-tabs-panel-theme-config.model'
-import {
-  useReactiveAriaConfig,
-  useReactiveThemeConfig,
-} from '@uicr/core'
+import { useReactiveAriaConfig, useReactiveThemeConfig } from '@uicr/core'
 
 const TAG_NAME = 'uiTabs'
 export default defineComponent({

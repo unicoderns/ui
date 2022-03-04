@@ -159,7 +159,7 @@ describe('ui-toast-container.vue', () => {
     expect(toast.classes()).toContain(theme.cssClass.textLight)
   })
 
-  it('should show toast message with custom position', async() => {
+  it('should show toast message with custom position', async () => {
     service?.add({
       message: 'some message',
       position: Positions.MiddleCenter,

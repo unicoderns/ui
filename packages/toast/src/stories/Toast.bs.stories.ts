@@ -80,7 +80,7 @@ Normal.parameters = {
   docs: {
     source: {
       type: 'code',
-      code:`
+      code: `
 inject(UiToastMessagePlugin.ServiceInjectionToken)
 service?.add({ headerText: 'some header', message: 'some message' })
       `,
@@ -100,7 +100,7 @@ Positioned.parameters = {
   docs: {
     source: {
       type: 'code',
-      code:`
+      code: `
 inject(UiToastMessagePlugin.ServiceInjectionToken)
 service?.add({
   headerText: 'Warning variant',
@@ -126,7 +126,7 @@ Timer.parameters = {
   docs: {
     source: {
       type: 'code',
-      code:`
+      code: `
 inject(UiToastMessagePlugin.ServiceInjectionToken)
 service?.add({
   headerText: 'Danger variant',
@@ -154,7 +154,7 @@ NonDismissable.parameters = {
   docs: {
     source: {
       type: 'code',
-      code:`
+      code: `
 inject(UiToastMessagePlugin.ServiceInjectionToken)
 service?.add({
   headerText: 'Success variant',
@@ -181,7 +181,7 @@ NoHeader.parameters = {
   docs: {
     source: {
       type: 'code',
-      code:`
+      code: `
 inject(UiToastMessagePlugin.ServiceInjectionToken)
 service?.add({
   headerText: undefined,

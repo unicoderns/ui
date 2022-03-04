@@ -18,7 +18,8 @@ Object.keys(outlineVariantClasses).forEach(
 
 const darkVariantClasses = enumToObjectByValue(BootstrapVariants)
 Object.keys(darkVariantClasses).forEach(
-  value => (darkVariantClasses[value] = getPrefixedClass(value) + ' ui-dark-mode')
+  value =>
+    (darkVariantClasses[value] = getPrefixedClass(value) + ' ui-dark-mode')
 )
 const darkOutlineVariantClasses = enumToObjectByValue(BootstrapVariants)
 Object.keys(darkOutlineVariantClasses).forEach(

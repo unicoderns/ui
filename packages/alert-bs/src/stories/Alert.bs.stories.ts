@@ -98,7 +98,6 @@ Success.parameters = {
   },
 }
 
-
 export const Danger = Template.bind({})
 Danger.args = {
   ...baseArgs,

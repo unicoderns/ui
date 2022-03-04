@@ -3,7 +3,8 @@ import { UiTooltipThemeConfigModel } from '../models/ui-tooltip-theme-config.mod
 
 const baseClass = 'tooltip'
 
-const getPlacement = (value: PopperCardinalPlacements | string) => `bs-tooltip-${value}`
+const getPlacement = (value: PopperCardinalPlacements | string) =>
+  `bs-tooltip-${value}`
 
 export const uiTooltipThemeConfigDefaults: UiTooltipThemeConfigModel = {
   cssClass: {
@@ -12,7 +13,9 @@ export const uiTooltipThemeConfigDefaults: UiTooltipThemeConfigModel = {
     message: 'tooltip-inner',
     arrow: 'tooltip-arrow',
     positions: {
-      [PopperCardinalPlacements.Top]: getPlacement(PopperCardinalPlacements.Top),
+      [PopperCardinalPlacements.Top]: getPlacement(
+        PopperCardinalPlacements.Top
+      ),
       [PopperCardinalPlacements.Bottom]: getPlacement(
         PopperCardinalPlacements.Bottom
       ),

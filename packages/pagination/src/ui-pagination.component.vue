@@ -25,7 +25,6 @@ import { uiPaginationThemeConfigDefaults } from './defaults/ui-pagination-theme.
 import { uiPaginationAriaDefaults } from './defaults/ui-pagination-aria.config'
 import { UiPaginationThemeConfigModel } from './models/ui-pagination-theme-config.model'
 import { UiPaginationAriaConfigModel } from './models/ui-pagination-aria-config.model'
-import UiPaginationItem from './ui-pagination-item.component.vue'
 
 const TAG_NAME = 'uiPagination'
 
@@ -94,7 +93,10 @@ const totalPagesCount = computed((): number => {
 
 const filteredPages = computed(() => {
   const diff = maxVisiblePages.value / 2
-  const trimmedPages = Array.from(Array(totalPagesCount.value).keys()).slice(2,-2)
+  const trimmedPages = Array.from(Array(totalPagesCount.value).keys()).slice(
+    2,
+    -2
+  )
 
   if (trimmedPages.length > maxVisiblePages.value) {
     const diffFirst = page.value - trimmedPages[0]
@@ -185,7 +187,7 @@ const pageChange = (p: number) => {
   rangeChange()
 }
 
-watch(page, (page) => {
+watch(page, page => {
   pageChange(page)
 })
 

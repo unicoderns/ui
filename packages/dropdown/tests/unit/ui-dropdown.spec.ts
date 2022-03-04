@@ -1,9 +1,5 @@
 import { mount } from '@vue/test-utils'
-import {
-  BootstrapVariants,
-  Directions,
-  MenuItemTypes,
-} from '@uicr/core'
+import { BootstrapVariants, Directions, MenuItemTypes } from '@uicr/core'
 import { uiDropdownThemeConfigDefaults } from '../../src/defaults/ui-dropdown-theme.config'
 import { UiDropdown } from '../../src'
 
@@ -118,7 +114,7 @@ describe('ui-dropdown.vue', () => {
     expect(menu.exists()).toBeTruthy()
   })
 
-  it('should change arrowDirection when props.arrowDirection is set', async() => {
+  it('should change arrowDirection when props.arrowDirection is set', async () => {
     const wrapper = mount(UiDropdown, {
       props: {
         variant: BootstrapVariants.Primary,

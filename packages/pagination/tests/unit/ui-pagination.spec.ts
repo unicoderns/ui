@@ -66,7 +66,7 @@ describe('ui-pagination.vue', () => {
     await wrapper.vm.$nextTick()
 
     const items = wrapper.findAll('ui-pagination-item-stub')
-    
+
     expect(items.length).toBe(itemsShown)
   })
 
@@ -77,7 +77,7 @@ describe('ui-pagination.vue', () => {
     const theme = uiPaginationThemeConfigDefaults
 
     await wrapper.vm.$nextTick()
-    
+
     const active = wrapper.find('[aria-current="page"]')
 
     expect(active.classes()).toContain(theme.cssClass.itemActive)
@@ -90,7 +90,7 @@ describe('ui-pagination.vue', () => {
     const theme = uiPaginationThemeConfigDefaults
 
     await wrapper.vm.$nextTick()
-    
+
     const li = wrapper.find('li')
 
     expect(li.classes()).toContain(theme.cssClass.disabled)
@@ -103,7 +103,7 @@ describe('ui-pagination.vue', () => {
     })
 
     await wrapper.vm.$nextTick()
-    
+
     expect(wrapper.attributes('aria-label')).toBe(label)
   })
 })

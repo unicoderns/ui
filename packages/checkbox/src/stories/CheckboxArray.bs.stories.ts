@@ -37,8 +37,7 @@ const Template = (args: StoryModel) => ({
   `,
 })
 
-const baseArgs: StoryModel = {
-}
+const baseArgs: StoryModel = {}
 
 export const Array = Template.bind({})
 Array.args = {
