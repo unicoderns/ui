@@ -10,7 +10,7 @@ to: packages/<%= h.changeCase.param(name) %>/package.json
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service build --target lib src/index.ts"
   },
-  "main": "dist/index.js",
+  "main": "dist/<%= h.changeCase.param(name) %>.umd.js",
   "module": "src/index.ts",
   "dependencies": {
     "@uicr/core": "*",
