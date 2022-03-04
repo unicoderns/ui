@@ -1,6 +1,6 @@
 import UiInput from './ui-input.component.vue'
 
-UiInput.TAG_NAME = 'uiInput'
+// UiInput.TAG_NAME = 'uiInput'
 
 export { UiInput }
 export * from './models/ui-input.model'

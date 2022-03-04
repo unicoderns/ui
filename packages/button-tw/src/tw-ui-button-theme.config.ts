@@ -7,6 +7,9 @@ export const twUiButtonThemeConfigDefaults: UiButtonThemeConfigModel = {
     main:
       'inline-block text-base font-normal leading-normal text-center no-underline align-middle cursor-pointer select-none bg-transparent border border-solid border-transparent rounded-lg  p-1 pr-2 pl-2 focus-within:ring-4 ring-gray-200 outline-none',
     active: 'filter contrast-75',
+    disabled: {
+      [TailwindVariants.Blue]: 'opacity-50 pointer-events-none',
+    },
     outline: 'bg-transparent',
     variants: {
       [TailwindVariants.Blue]: 'bg-blue-300 text-blue-800 border-blue-400',
