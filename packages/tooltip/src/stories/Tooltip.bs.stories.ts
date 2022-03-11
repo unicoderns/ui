@@ -25,7 +25,9 @@ type StoryModel = {
   tooltip: string
 }
 
-const TemplateFn = (position: PopperCardinalPlacements) => (args: StoryModel) => ({
+const TemplateFn = (position: PopperCardinalPlacements) => (
+  args: StoryModel
+) => ({
   setup() {
     return { args }
   },

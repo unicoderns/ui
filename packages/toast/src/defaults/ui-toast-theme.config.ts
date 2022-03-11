@@ -24,7 +24,8 @@ export const uiToastThemeConfigDefaults: UiToastThemeConfigModel = {
       buttonCloseBody: 'me-2 m-auto',
     },
     positions: {
-      [Positions.TopLeft]: 'toast-container position-absolute p-3 top-0 start-0',
+      [Positions.TopLeft]:
+        'toast-container position-absolute p-3 top-0 start-0',
       [Positions.TopCenter]:
         'toast-container position-absolute p-3 top-0 start-50 translate-middle-x',
       [Positions.TopRight]: 'toast-container position-absolute p-3 top-0 end-0',

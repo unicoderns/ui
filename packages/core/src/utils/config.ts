@@ -246,7 +246,7 @@ export function useReactiveResponsiveConfig(
 }
 
 export function setComponentThemeConfig(
-  cmp: { TAG_NAME: string } | string,
+  cmp: { TAG_NAME: string } | string | any,
   custom: UiComponentThemeConfigModel
 ) {
   const TAG_NAME = typeof cmp === 'string' ? cmp : cmp.TAG_NAME

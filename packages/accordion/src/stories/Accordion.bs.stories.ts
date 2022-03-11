@@ -34,7 +34,7 @@ const Template = (args: StoryModel) => ({
   components: { UiAccordion, UiAccordionSection },
   setup() {
     const { datasource, ...newArgs } = args
-    return { args: newArgs,  datasource }
+    return { args: newArgs, datasource }
   },
   methods: {
     click: action('click'),

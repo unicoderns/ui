@@ -157,7 +157,7 @@ Custom.args = {
 Custom.parameters = {
   docs: {
     source: {
-      code:`
+      code: `
 <ui-menu :datasource="datasource" @select="select">
   <template #default="{ item }">
     <b>{{ item.content }}</b>

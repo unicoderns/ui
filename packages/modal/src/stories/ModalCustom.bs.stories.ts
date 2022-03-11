@@ -47,7 +47,7 @@ type StoryModel = UiModalModel & {
 const Template = (args: StoryModel) => ({
   components: { UiModal, UiInspector },
   setup() {
-    const { titleSlot, bodySlot, footerSlot, ...newArgs } = args;
+    const { titleSlot, bodySlot, footerSlot, ...newArgs } = args
     const toggle = ref(false)
 
     return { args: newArgs, titleSlot, bodySlot, footerSlot, toggle }

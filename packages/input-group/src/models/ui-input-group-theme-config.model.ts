@@ -1,7 +1,4 @@
-import {
-  UiComponentThemeConfigModel,
-  InputSizeVariants,
-} from '@uicr/core'
+import { UiComponentThemeConfigModel, InputSizeVariants } from '@uicr/core'
 
 export interface UiInputGroupThemeConfigModel
   extends UiComponentThemeConfigModel {

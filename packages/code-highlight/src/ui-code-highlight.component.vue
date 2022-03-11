@@ -65,7 +65,7 @@ export default defineComponent({
 
     const config = { attributes: true, childList: true, subtree: true }
 
-    const callback = function () {
+    const callback = function() {
       updateCode()
     }
 

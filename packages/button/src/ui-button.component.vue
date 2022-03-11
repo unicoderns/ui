@@ -46,7 +46,9 @@ export default defineComponent({
   },
   emits: ['toggle'],
   setup(props, { emit, attrs }) {
-    const { anchor, toggle, outline, variant, size, active, disabled } = toRefs(props)
+    const { anchor, toggle, outline, variant, size, active, disabled } = toRefs(
+      props
+    )
     const activeState = ref(active.value)
     const disableState = ref(disabled.value)
 
@@ -91,8 +93,12 @@ export default defineComponent({
         ...(variant.value ? [variantClass] : []),
         ...(size.value ? [sizeClass] : []),
         ...(outline.value ? [theme.value.cssClass.outline] : []),
-        ...(activeState.value && !disableState.value? [theme.value.cssClass.active] : []),
-        ...(disableState.value? [theme.value.cssClass.disabled[variant.value]] : []),
+        ...(activeState.value && !disableState.value
+          ? [theme.value.cssClass.active]
+          : []),
+        ...(disableState.value
+          ? [theme.value.cssClass.disabled[variant.value]]
+          : []),
       ]
     })
 

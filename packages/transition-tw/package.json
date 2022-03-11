@@ -6,7 +6,7 @@
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service build --target lib src/index.ts"
   },
-  "main": "dist/index.js",
+  "main": "dist/transition-tw.umd.js",
   "module": "src/index.ts",
   "dependencies": {
     "@uicr/common-tw": "*",

@@ -7,7 +7,7 @@
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service build --target lib src/index.ts"
   },
-  "main": "dist/index.js",
+  "main": "dist/checkbox.umd.js",
   "module": "src/index.ts",
   "dependencies": {
     "core-js": "^3.6.5",

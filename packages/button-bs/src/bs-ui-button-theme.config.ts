@@ -18,7 +18,8 @@ Object.keys(outlineVariantClasses).forEach(
 
 const darkVariantClasses = enumToObjectByValue(BootstrapVariants)
 Object.keys(darkVariantClasses).forEach(
-  value => (darkVariantClasses[value] = getPrefixedClass(value) + ' ui-dark-mode')
+  value =>
+    (darkVariantClasses[value] = getPrefixedClass(value) + ' ui-dark-mode')
 )
 const darkOutlineVariantClasses = enumToObjectByValue(BootstrapVariants)
 Object.keys(darkOutlineVariantClasses).forEach(
@@ -31,6 +32,9 @@ export const bsUiButtonThemeConfigDefaults: UiButtonThemeConfigModel = {
   cssClass: {
     main: baseClass,
     active: 'active',
+    disabled: {
+      [BootstrapVariants.Primary]: 'opacity-50 pointer-events-none',
+    },
     outline: '',
     variants: {
       ...variantClasses,
