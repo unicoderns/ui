@@ -24,6 +24,11 @@
   </div>
 </template>
 
+<script lang="ts">
+const TAG_NAME = 'uiCardText'
+export default { TAG_NAME }
+</script>
+
 <script setup lang="ts">
 import { computed, useAttrs, toRefs } from 'vue'
 import { useReactiveThemeConfig } from '@uicr/core'
@@ -43,8 +48,6 @@ const props = defineProps({
   imgBottom: { type: Boolean, default: false },
   centerText: { type: Boolean, default: false },
 })
-
-const TAG_NAME = 'uiCard'
 
 const attrs = useAttrs()
 

@@ -20,6 +20,7 @@
       "@uicr/button-close-bs": ["packages/button-close-bs/src"],
       "@uicr/button-close-tw": ["packages/button-close-tw/src"],
       "@uicr/button-close": ["packages/button-close/src"],
+      "@uicr/button-bs": ["packages/button-bs/src"],
       "@uicr/button": ["packages/button/src"],
       "@uicr/card": ["packages/card/src"],
       "@uicr/checkbox": ["packages/checkbox/src"],

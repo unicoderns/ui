@@ -14,6 +14,11 @@
   </nav>
 </template>
 
+<script lang="ts">
+const TAG_NAME = 'uiPagination'
+export default { TAG_NAME }
+</script>
+
 <script setup lang="ts">
 import { computed, toRefs, useAttrs, watch, withDefaults } from 'vue'
 import {
@@ -25,8 +30,7 @@ import { uiPaginationThemeConfigDefaults } from './defaults/ui-pagination-theme.
 import { uiPaginationAriaDefaults } from './defaults/ui-pagination-aria.config'
 import { UiPaginationThemeConfigModel } from './models/ui-pagination-theme-config.model'
 import { UiPaginationAriaConfigModel } from './models/ui-pagination-aria-config.model'
-
-const TAG_NAME = 'uiPagination'
+import uiPaginationItem from './ui-pagination-item.component.vue'
 
 interface Props {
   page?: number
@@ -42,7 +46,7 @@ const props = withDefaults(defineProps<Props>(), {
   itemsPerPage: 10,
   maxVisiblePages: 3,
   size: SizeVariants.Medium,
-  ['aria:label']: '',
+  'aria:label': '',
 })
 
 const emit = defineEmits(['page-change', 'range-change'])

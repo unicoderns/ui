@@ -12,6 +12,11 @@
   />
 </template>
 
+<script lang="ts">
+const TAG_NAME = 'uiInput'
+export default { TAG_NAME }
+</script>
+
 <script setup lang="ts">
 import { ref, toRefs, useAttrs, watch } from 'vue'
 import {
@@ -23,8 +28,6 @@ import { uiInputThemeConfigDefaults } from './defaults/ui-input-theme.config'
 import { uiInputAriaDefaults } from './defaults/ui-input-aria.config'
 import { UiInputThemeConfigModel } from './models/ui-input-theme-config.model'
 import { UiInputAriaConfigModel } from './models/ui-input-aria-config.model'
-
-const TAG_NAME = 'uiInput'
 
 const attrs = useAttrs()
 

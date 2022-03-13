@@ -9,6 +9,7 @@
   "main": "dist/modal-bs.umd.js",
   "module": "src/index.ts",
   "dependencies": {
+    "@uicr/button-close-bs": "*",
     "@uicr/common-bs": "*",
     "@uicr/modal": "*",
     "@uicr/core": "*",
