@@ -1,9 +1,5 @@
 <template>
-  <UiTransition
-    @after-enter="afterEnter"
-    @after-leave="afterLeave"
-    @before-leave="beforeLeave"
-  >
+  <UiTransition @after-enter="afterEnter" @after-leave="afterLeave">
     <div
       v-if="visible"
       :class="classes"
@@ -121,8 +117,10 @@ export default defineComponent({
       timeoutInterval && clearInterval(timeoutInterval)
     }
     const afterEnter = () => emit('show', visible.value)
-    const beforeLeave = () => emit('close')
-    const afterLeave = () => emit('show', visible.value)
+    const afterLeave = () => {
+      emit('close')
+      emit('show', visible.value)
+    }
 
     onMounted(() => {
       if ((msTimer?.value || 0) > 0) {
@@ -137,7 +135,6 @@ export default defineComponent({
       close,
       slots,
       afterEnter,
-      beforeLeave,
       afterLeave,
       props,
       theme,

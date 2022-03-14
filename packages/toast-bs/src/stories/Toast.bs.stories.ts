@@ -2,7 +2,12 @@ import { inject } from 'vue'
 import { action } from '@storybook/addon-actions'
 import { app } from '@storybook/vue3'
 import { BootstrapVariants, Positions } from '@uicr/core'
-import { UiToastModel, UiToastMessagePlugin, UiToastService } from '@uicr/toast'
+import {
+  UiToastContainer,
+  UiToastModel,
+  UiToastMessagePlugin,
+  UiToastService,
+} from '@uicr/toast'
 import { install } from '..'
 
 app.use(UiToastMessagePlugin)
@@ -36,6 +41,7 @@ type StoryModel = UiToastModel
 let service: UiToastService | undefined
 
 const Template = (args: StoryModel) => ({
+  components: { UiToastContainer },
   setup() {
     service = inject(UiToastMessagePlugin.ServiceInjectionToken)
     install()
@@ -57,6 +63,7 @@ const Template = (args: StoryModel) => ({
     <a href="" @click.prevent="open">Click here to open Toast</a>
     <br>
     <a href="" @click.prevent="clear">Click here to close all</a>
+    <ui-toast-container></ui-toast-container>
   `,
 })
 
