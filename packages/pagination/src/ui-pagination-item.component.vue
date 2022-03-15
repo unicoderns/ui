@@ -6,6 +6,11 @@
   </li>
 </template>
 
+<script lang="ts">
+const TAG_NAME = 'uiPagination'
+export default { TAG_NAME }
+</script>
+
 <script setup lang="ts">
 import { computed, toRefs, useAttrs, withDefaults } from 'vue'
 import { useReactiveAriaConfig, useReactiveThemeConfig } from '@uicr/core'
@@ -14,7 +19,6 @@ import { uiPaginationAriaDefaults } from './defaults/ui-pagination-aria.config'
 import { UiPaginationThemeConfigModel } from './models/ui-pagination-theme-config.model'
 import { UiPaginationAriaConfigModel } from './models/ui-pagination-aria-config.model'
 
-const TAG_NAME = 'uiPagination'
 const attrs = useAttrs()
 
 interface Props {
