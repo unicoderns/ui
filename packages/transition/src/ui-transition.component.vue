@@ -8,67 +8,62 @@
     :enter-to-class="theme.cssClass.persistent"
     enter-active-class=""
     enter-from-class=""
+    ref="transitionEl"
   >
     <slot></slot>
   </transition>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+const TAG_NAME = 'uiTransition'
+export default { TAG_NAME }
+</script>
+
+<script setup lang="ts">
+import { computed, useAttrs, ref, Ref, onMounted } from 'vue'
 import { useReactiveThemeConfig } from '@uicr/core'
 import { UiTransitionThemeConfigModel } from './models/ui-transition-theme-config.model'
 import { uiTransitionThemeConfigDefaults } from './defaults/ui-transition-theme.config'
 
-const TAG_NAME = 'uiTransition'
+const attrs = useAttrs()
 
-export default defineComponent({
+const props = defineProps({
+  ['theme:persistent']: { type: String, default: null },
+})
+const transitionEl: Ref<HTMLElement | null> = ref(null)
+
+const theme = useReactiveThemeConfig<UiTransitionThemeConfigModel>(
   TAG_NAME,
-  props: {
-    ['theme:persistent']: { type: String, default: null },
-  },
-  setup(props, { attrs }) {
-    const theme = useReactiveThemeConfig<UiTransitionThemeConfigModel>(
-      TAG_NAME,
-      attrs,
-      props,
-      uiTransitionThemeConfigDefaults
-    )
+  attrs,
+  props,
+  uiTransitionThemeConfigDefaults
+)
 
-    const classes = computed((): string[] => {
-      return theme.value.cssClass.persistent
-        .split(' ')
-        .filter((cssClass: string) => cssClass)
-    })
+const classes = computed((): string[] => {
+  return theme.value.cssClass.persistent
+    .split(' ')
+    .filter((cssClass: string) => cssClass)
+})
 
-    const detachPresistentClass = (el: HTMLElement) => {
-      classes.value.forEach((cssClass: string) => el.classList.remove(cssClass))
-    }
+const detachPresistentClass = (el: HTMLElement) => {
+  classes.value.forEach((cssClass: string) => el.classList.remove(cssClass))
+}
 
-    const atachPresistentClass = (el: HTMLElement) => {
-      classes.value.forEach((cssClass: string) => el.classList.add(cssClass))
-    }
+const atachPresistentClass = (el: HTMLElement) => {
+  classes.value.forEach((cssClass: string) => el.classList.add(cssClass))
+}
 
-    const afterEnter = (el: HTMLElement): void => {
-      atachPresistentClass(el)
-    }
+const afterEnter = (el: HTMLElement): void => {
+  atachPresistentClass(el)
+}
 
-    const beforeLeave = (el: HTMLElement): void => {
-      detachPresistentClass(el)
-    }
+const beforeLeave = (el: HTMLElement): void => {
+  detachPresistentClass(el)
+}
 
-    return {
-      classes,
-      theme,
-      afterEnter,
-      beforeLeave,
-      atachPresistentClass,
-      detachPresistentClass,
-    }
-  },
-  mounted() {
-    if (this.$el && this.$el.classList) {
-      this.atachPresistentClass(this.$el)
-    }
-  },
+onMounted(() => {
+  if (transitionEl.value && transitionEl.value.classList) {
+    atachPresistentClass(transitionEl.value)
+  }
 })
 </script>
