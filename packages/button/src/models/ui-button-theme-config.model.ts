@@ -12,6 +12,7 @@ export interface UiButtonThemeConfigModel extends UiComponentThemeConfigModel {
     outline: string
     variants: KeyPairString
     outlineVariants: KeyPairString
+    activeVariants: KeyPairString
     sizes: {
       [SizeVariants.Large]: string
       [SizeVariants.Medium]: string
@@ -24,5 +25,6 @@ export interface UiButtonThemeConfigModel extends UiComponentThemeConfigModel {
     outline?: string
     variants?: KeyPairString
     outlineVariants?: KeyPairString
+    activeVariants?: KeyPairString
   }
 }

@@ -1,9 +1,9 @@
 import { provide } from 'vue'
 import { action } from '@storybook/addon-actions'
 import {
-  BootstrapVariants,
   ButtonSizeVariants,
   uiUseDarkThemeInjectionToken,
+  UiVariants,
 } from '@uicr/core'
 import { UiInspector } from '@uicr/code-highlight/src/dev'
 import { UiButton, UiButtonModel } from '..'
@@ -20,7 +20,7 @@ export default {
     },
     variant: {
       control: { type: 'select' },
-      options: Object.values(BootstrapVariants),
+      options: Object.values(UiVariants).filter(e => e !== UiVariants.Gray),
     },
     toggle: { control: { type: 'boolean' } },
     ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
@@ -59,7 +59,7 @@ const Template = (args: StoryModel, { globals }: { globals: any }) => ({
 
 const baseArgs: StoryModel = {
   label: 'Label',
-  variant: BootstrapVariants.Primary,
+  variant: UiVariants.Primary,
   size: ButtonSizeVariants.Medium,
   anchor: false,
   outline: false,

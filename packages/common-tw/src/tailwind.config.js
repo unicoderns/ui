@@ -1,10 +1,8 @@
 module.exports = {
   theme: {
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      epilogue: ['Epilogue', 'sans-serif'],
     },
-
     extend: {
       colors: {
         primary: {
@@ -58,7 +56,7 @@ module.exports = {
           600: '#a64141',
           700: '#913939',
         },
-        information: {
+        info: {
           50: '#edf5f9',
           100: '#dbecf4',
           200: '#b8d9ea',
@@ -80,11 +78,32 @@ module.exports = {
         },
       },
       spacing: {
-        '8xl': '96rem',
-        '9xl': '128rem',
+        '1/2': '4px',
+        '1': '8px',
+        '2': '16px',
+        '3': '24px',
+        '4': '32px',
+        '5': '40px',
+        '6': '48px',
+        '7': '56px',
+        '8': '64px',
       },
       borderRadius: {
-        '4xl': '2rem',
+        none: '0',
+        sm: '5px',
+        mg: '10px',
+        lg: '20px',
+      },
+      boxShadow: {
+        '1': '0px 2px 2px rgba(0, 0, 0, 0.1)',
+        '2': '0px 2px 2px rgba(0, 0, 0, 0.1), 0px 6px 12px rgba(0, 0, 0, 0.25)',
+        '3':
+          '0px 2px 2px rgba(0, 0, 0, 0.1), 0px 12px 24px rgba(0, 0, 0, 0.25)',
+        '4':
+          '0px 2px 2px rgba(0, 0, 0, 0.1), 0px 24px 48px rgba(0, 0, 0, 0.25)',
+        '5':
+          '0px 2px 2px rgba(0, 0, 0, 0.1), 0px 32px 64px rgba(0, 0, 0, 0.25)',
+        inset: 'inset 0px 2px 2px rgba(0, 0, 0, 0.2)',
       },
     },
   },

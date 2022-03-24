@@ -19,7 +19,7 @@ export default {
     },
     variant: {
       control: { type: 'select' },
-      options: Object.values(UiVariants),
+      options: Object.values(UiVariants).filter(e => e !== UiVariants.Gray),
     },
     toggle: { control: { type: 'boolean' } },
     ['aria:role']: { name: 'role (aria)', control: { type: 'text' } },
@@ -149,20 +149,6 @@ Info.parameters = {
   },
 }
 
-export const Gray = Template.bind({})
-Gray.args = {
-  ...baseArgs,
-  label: 'Gray',
-  variant: UiVariants.Gray,
-}
-Gray.parameters = {
-  docs: {
-    source: {
-      code: '<ui-button variant="gray">Gray</ui-button>',
-    },
-  },
-}
-
 export const OutlinePrimary = Template.bind({})
 OutlinePrimary.args = {
   ...baseArgs,
@@ -249,21 +235,6 @@ OutlineInfo.parameters = {
   docs: {
     source: {
       code: '<ui-button variant="info" outline>Info</ui-button>',
-    },
-  },
-}
-
-export const OutlineGray = Template.bind({})
-OutlineGray.args = {
-  ...baseArgs,
-  label: 'gray',
-  variant: UiVariants.Gray,
-  outline: true,
-}
-OutlineGray.parameters = {
-  docs: {
-    source: {
-      code: '<ui-button variant="gray" outline>Gray</ui-button>',
     },
   },
 }
