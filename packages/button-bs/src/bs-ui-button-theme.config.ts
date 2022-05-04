@@ -32,9 +32,8 @@ export const bsUiButtonThemeConfigDefaults: UiButtonThemeConfigModel = {
   cssClass: {
     main: baseClass,
     active: 'active',
-    disabled: {
-      [BootstrapVariants.Primary]: 'opacity-50 pointer-events-none',
-    },
+    disabled: {},
+    activeVariants: {},
     outline: '',
     variants: {
       ...variantClasses,

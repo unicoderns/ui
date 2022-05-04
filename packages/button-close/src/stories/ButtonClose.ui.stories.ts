@@ -24,7 +24,7 @@ const Template = (args: UiButtonCloseModel) => ({
     close: action('close'),
   },
   template: `
-    <div :class="{ 'bg-dark': args.invert }">
+    <div :class="{ 'bg-gray-600': args.invert }">
       <ui-button-close v-bind="args" @close="close" >Button</ui-button-close>
     </div>
   `,

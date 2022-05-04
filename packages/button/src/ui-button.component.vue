@@ -94,7 +94,10 @@ export default defineComponent({
         ...(size.value ? [sizeClass] : []),
         ...(outline.value ? [theme.value.cssClass.outline] : []),
         ...(activeState.value && !disableState.value
-          ? [theme.value.cssClass.active]
+          ? [
+              theme.value.cssClass.active,
+              theme.value.cssClass.activeVariants[variant.value],
+            ]
           : []),
         ...(disableState.value
           ? [theme.value.cssClass.disabled[variant.value]]
