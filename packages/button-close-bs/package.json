@@ -9,7 +9,7 @@
   "main": "dist/button-close-bs.umd.js",
   "module": "src/index.ts",
   "dependencies": {
-    "@uicr/common-tw": "*",
+    "@uicr/common-bs": "*",
     "@uicr/button-close": "*",
     "@uicr/core": "*",
     "core-js": "^3.6.5",

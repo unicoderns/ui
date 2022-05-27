@@ -9,7 +9,7 @@
   "main": "dist/card-bs.umd.js",
   "module": "src/index.ts",
   "dependencies": {
-    "@uicr/common-tw": "*",
+    "@uicr/common-bs": "*",
     "@uicr/card": "*",
     "@uicr/core": "*",
     "core-js": "^3.6.5",

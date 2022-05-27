@@ -13,6 +13,7 @@
 import { defineComponent, ref } from 'vue'
 import { UiAccordion, UiAccordionSection } from '@uicr/accordion'
 import { UiCodeHighlight } from './'
+import { install } from '@uicr/accordion-bs'
 
 const TAG_NAME = 'uiInspector'
 export default defineComponent({
@@ -24,6 +25,8 @@ export default defineComponent({
   },
   setup() {
     const element = ref()
+
+    install()
 
     return { element }
   },
