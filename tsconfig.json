@@ -27,6 +27,7 @@
       "@uicr/chip": ["packages/chip/src"],
       "@uicr/code-highlight": ["packages/code-higlight/src"],
       "@uicr/common-bs": ["packages/common-bs/src"],
+      "@uicr/common-tw": ["packages/common-tw/src"],
       "@uicr/core": ["packages/core/src"],
       "@uicr/dropdown": ["packages/dropdown/src"],
       "@uicr/input-group": ["packages/input-group/src"],
